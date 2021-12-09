@@ -1,12 +1,38 @@
-import React from 'react'
-import { SafeAreaView } from 'react-native'
+import React, { useRef } from 'react'
+import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import analytics from '@react-native-firebase/analytics'
 
 import { Login } from './Login'
 
+const Stack = createNativeStackNavigator()
+
 export const Pages: React.FC = () => {
+  const routeNameRef = useRef<string>()
+  const navigationRef = useNavigationContainerRef()
+
   return (
-    <SafeAreaView>
-      <Login />
-    </SafeAreaView>
+    <NavigationContainer
+      ref={navigationRef}
+      onReady={() => {
+        routeNameRef.current = navigationRef?.current?.getCurrentRoute()?.name
+      }}
+      onStateChange={async () => {
+        const previousRouteName = routeNameRef.current
+        const currentRouteName = navigationRef?.current?.getCurrentRoute()?.name
+
+        if (previousRouteName !== currentRouteName) {
+          await analytics().logScreenView({
+            screen_name: `/cvac/${currentRouteName}`,
+            screen_class: currentRouteName
+          })
+        }
+        routeNameRef.current = currentRouteName
+      }}
+    >
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name='Home' component={Login}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
