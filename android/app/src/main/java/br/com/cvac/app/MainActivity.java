@@ -1,4 +1,4 @@
-package br.com.cvac;
+package br.com.cvac.app;
 
 import com.facebook.react.ReactActivity;
 
