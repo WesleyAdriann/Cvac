@@ -3,6 +3,8 @@ import { NavigationContainer, useNavigationContainerRef } from '@react-navigatio
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import analytics from '@react-native-firebase/analytics'
 
+import { AppHeader } from '../atomic'
+
 import { Login } from './Login'
 
 const Stack = createNativeStackNavigator()
@@ -30,8 +32,8 @@ export const Pages: React.FC = () => {
         routeNameRef.current = currentRouteName
       }}
     >
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name='Home' component={Login}/>
+      <Stack.Navigator initialRouteName='Home' screenOptions={{ header: (props) => <AppHeader {...props}/> }}>
+        <Stack.Screen name='Home' component={Login} options={{ title: 'Home' }} />
       </Stack.Navigator>
     </NavigationContainer>
   )
