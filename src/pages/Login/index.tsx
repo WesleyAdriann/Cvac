@@ -1,18 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { View, Text, Button } from 'react-native'
 import auth from '@react-native-firebase/auth'
 
 export function Login () {
-  // Set an initializing state whilst Firebase connects
-  const [initializing, setInitializing] = useState(true)
-  const [user, setUser] = useState<any>()
-
-  // Handle user state changes
-  function onAuthStateChanged (user: any) {
-    setUser(user)
-    if (initializing) setInitializing(false)
-  }
-
   const onLogin = () => {
     auth()
       .signInWithEmailAndPassword('admin@gmail.com', '123456')
@@ -38,21 +28,15 @@ export function Login () {
       .then(() => console.log('User signed out!'))
   }
 
-  if (initializing) return null
 
-  if (!user) {
-    return (
+  return (
+    <View>
+      <Button title='logout' onPress={onLogout}/>
+
       <View>
           <Button title='Login' onPress={onLogin}/>
         <Text>Login</Text>
       </View>
-    )
-  }
-
-  return (
-    <View>
-      <Text>Welcome {user?.email}</Text>
-      <Button title='logout' onPress={onLogout}/>
     </View>
   )
 }

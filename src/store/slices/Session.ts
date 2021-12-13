@@ -1,21 +1,22 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { FirebaseAuthTypes } from '@react-native-firebase/auth'
 
 export interface ISessionState {
   isAuth: boolean
-  email: string
+  user: FirebaseAuthTypes.User | null
 }
 
 const initialState: ISessionState = {
   isAuth: false,
-  email: ''
+  user: null
 }
 
 export const sessionSlice = createSlice({
   name: 'session',
   initialState,
   reducers: {
-    startSession: (state, action: PayloadAction<string>) => {
-      state.email = action.payload
+    startSession: (state, action: PayloadAction<FirebaseAuthTypes.User>) => {
+      state.user = action.payload
       state.isAuth = true
     },
     endSession: (state) => {

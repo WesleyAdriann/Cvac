@@ -7,6 +7,7 @@
     "ios": "react-native run-ios",
     "ios-iphone11": "react-native run-ios --simulator='iPhone 11 Pro Max'",
     "start": "react-native start",
+    "start:local": "react-native start --host localhost",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
