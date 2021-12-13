@@ -13,11 +13,6 @@ export function Login () {
     if (initializing) setInitializing(false)
   }
 
-  useEffect(() => {
-    const subscriber = auth().onAuthStateChanged(onAuthStateChanged)
-    return subscriber // unsubscribe on unmount
-  }, [])
-
   const onLogin = () => {
     auth()
       .signInWithEmailAndPassword('admin@gmail.com', '123456')
