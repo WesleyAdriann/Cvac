@@ -13,7 +13,8 @@ export const theme = {
     complementary3: '#00A3C9'
   },
   colors: {
-    white: '#fff'
+    white: '#fff',
+    black: '#000'
   }
 }
 export type TTheme = typeof theme
@@ -22,7 +23,7 @@ export const paperTheme = {
   ...PaperTheme,
   colors: {
     ...PaperTheme.colors,
-    primary: '#3498db',
-    accent: '#f1c40f'
+    primary: theme.palette.primary,
+    accent: theme.palette.complementary1
   }
 }

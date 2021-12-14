@@ -32,8 +32,8 @@ export const Pages: React.FC = () => {
         routeNameRef.current = currentRouteName
       }}
     >
-      <Stack.Navigator initialRouteName='Home' screenOptions={{ header: (props) => <AppHeader {...props}/> }}>
-        <Stack.Screen name='Home' component={Login} options={{ title: 'Home' }} />
+      <Stack.Navigator initialRouteName='Login' screenOptions={{ header: (props) => <AppHeader {...props}/> }}>
+        <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   )
