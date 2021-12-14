@@ -1,3 +1,5 @@
+import { DefaultTheme as PaperTheme } from 'react-native-paper'
+
 export const theme = {
   fontColor: '#424242',
   fontColorInvert: '#fff',
@@ -14,5 +16,13 @@ export const theme = {
     white: '#fff'
   }
 }
-
 export type TTheme = typeof theme
+
+export const paperTheme = {
+  ...PaperTheme,
+  colors: {
+    ...PaperTheme.colors,
+    primary: '#3498db',
+    accent: '#f1c40f'
+  }
+}
