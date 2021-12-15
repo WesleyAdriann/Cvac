@@ -4,6 +4,7 @@ export const theme = {
   fontColor: '#424242',
   fontColorInvert: '#fff',
   backgroundColor: '#fff',
+  fontSize: 16,
 
   palette: {
     primary: '#00C9D2',
@@ -17,13 +18,15 @@ export const theme = {
     black: '#000'
   }
 }
-export type TTheme = typeof theme
 
-export const paperTheme = {
+export const paperTheme: typeof PaperTheme = {
   ...PaperTheme,
   colors: {
     ...PaperTheme.colors,
     primary: theme.palette.primary,
-    accent: theme.palette.complementary1
+    accent: theme.palette.complementary1,
+    text: theme.fontColor
   }
 }
+
+export type TTheme = typeof theme

@@ -1,19 +1,26 @@
 import React from 'react'
-import { View, ViewProps, SafeAreaView } from 'react-native'
+import { ViewProps } from 'react-native'
 
 import { assignTestId } from '../../../utils'
 
-export interface IFlex extends ViewProps {
+import { StyledView, StyledSafeAreaView } from './styles'
+
+export interface ICustomStyle {
+  margin?: number | string
+  padding?: number | string
+}
+
+export interface IFlex extends ViewProps, ICustomStyle {
   testID?: string
   safeAreaView?: boolean
   children: React.ReactNode
 }
 
-const Component: React.FC<IFlex> = ({ testID = 'Flex', children, ...props }) => {
-  if (props.safeAreaView) {
-    return <SafeAreaView {...props} {...assignTestId('SafeAreaView', testID)} >{children}</SafeAreaView>
+const Component: React.FC<IFlex> = ({ testID = 'Flex', children, safeAreaView, ...props }) => {
+  if (safeAreaView) {
+    return <StyledSafeAreaView {...props} {...assignTestId('SafeAreaView', testID)} >{children}</StyledSafeAreaView>
   }
-  return <View {...props} {...assignTestId('View', testID)} >{children}</View>
+  return <StyledView {...props} {...assignTestId('View', testID)} >{children}</StyledView>
 }
 
 export const Flex = React.memo(Component)

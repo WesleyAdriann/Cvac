@@ -64,7 +64,7 @@ export const TextInput: React.FC<ITextInput> = ({
         secureTextEntry={secureTextEntry}
         right={renderRightIcon}
       />
-      <HelperText visible={!!description} type={withError ? 'error' : 'info'} {...assignTestId('Text', testID)}>{description}</HelperText>
+      <HelperText visible={!!description} type={withError ? 'error' : 'info'} {...assignTestId('Text', `${testID}_helper`)}>{description}</HelperText>
     </Flex>
   )
 }
