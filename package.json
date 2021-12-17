@@ -12,6 +12,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.8.5",
     "@react-native-async-storage/async-storage": "^1.15.14",
     "@react-native-firebase/analytics": "^13.1.0",
     "@react-native-firebase/app": "^13.1.0",
@@ -21,6 +22,7 @@
     "@reduxjs/toolkit": "^1.7.0",
     "@types/react-redux": "^7.1.20",
     "react": "17.0.2",
+    "react-hook-form": "^7.22.1",
     "react-native": "0.66.3",
     "react-native-flipper": "^0.125.0",
     "react-native-paper": "^4.10.1",
@@ -30,7 +32,8 @@
     "react-redux": "^7.2.6",
     "redux-flipper": "^2.0.1",
     "redux-persist": "^6.0.0",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

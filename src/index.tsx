@@ -18,7 +18,7 @@ export const App: React.FC = () => {
       <PersistGate loading={null} persistor={persistor}>
         <PaperProvider theme={paperTheme}>
           <ThemeProvider theme={theme}>
-          <Pages />
+            <Pages />
           </ThemeProvider>
         </PaperProvider>
       </PersistGate>

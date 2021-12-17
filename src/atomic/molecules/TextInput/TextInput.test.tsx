@@ -3,19 +3,16 @@ import { render, cleanup } from '@testing-library/react-native'
 
 import { AllTheProviders as wrapper, mockTestID } from '../../../utils'
 
-import { AppHeader, IAppHeader } from './index'
+import { TextInput, ITextInput } from './index'
 
-describe('Molecules/AppHeader', () => {
-  const props: IAppHeader = {
-    testID: 'AppHeader',
-    options: {
-      title: 'AppHeader'
-    }
+describe('Molecules/TextInput', () => {
+  const props: ITextInput = {
+    testID: 'TextInput'
   }
 
-  const elContainer = mockTestID('View', props.testID!).testID
+  const elContainer = mockTestID('TextInput', props.testID!).testID
 
-  const renderComponent = () => render(<AppHeader {...props} />, { wrapper })
+  const renderComponent = () => render(<TextInput {...props} />, { wrapper })
   let component = renderComponent()
 
   beforeEach(() => {

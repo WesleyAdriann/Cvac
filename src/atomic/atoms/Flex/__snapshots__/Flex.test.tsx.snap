@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Atoms/Flex should render snapshot 1`] = `
+<View
+  collapsable={false}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    accessible={false}
+    style={
+      Array [
+        Object {
+          "marginBottom": 0,
+          "marginLeft": 0,
+          "marginRight": 0,
+          "marginTop": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 0,
+        },
+      ]
+    }
+    testID="View_Flex"
+  >
+    <View />
+  </View>
+</View>
+`;

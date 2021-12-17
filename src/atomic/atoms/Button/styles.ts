@@ -14,7 +14,7 @@ export const StyledButton = styled(PaperButton).attrs(() => ({
   }};
 `
 
-export const StyledText = styled(PaperText)<{ mode: TButtonMore}>`
+export const StyledText = styled(PaperText)<{ mode: TButtonMore }>`
   color: ${(props) => {
     switch (props.mode) {
       case 'contained':
