@@ -54,7 +54,7 @@ export const TextInput: React.FC<ITextInput> = ({
   }, [secureTextEntry])
 
   return (
-    <Flex testID={testID}>
+    <Flex testID={testID} marginStyle='0 0 8px'>
       <PaperTextInput
         onChangeText={onChangeText}
         error={withError}
@@ -63,6 +63,8 @@ export const TextInput: React.FC<ITextInput> = ({
         mode='outlined'
         secureTextEntry={secureTextEntry}
         right={renderRightIcon}
+        autoCapitalize='none'
+        keyboardType={type === 'email' ? 'email-address' : 'default'}
       />
       <HelperText visible={!!description} type={withError ? 'error' : 'info'} {...assignTestId('Text', `${testID}_helper`)}>{description}</HelperText>
     </Flex>
