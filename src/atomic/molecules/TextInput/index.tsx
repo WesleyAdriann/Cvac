@@ -40,7 +40,7 @@ export const TextInput: React.FC<ITextInput> = ({
           name={secureTextEntry ? 'eye' : 'eye-off'}
           size={24}
           onPress={() => setSecureTextEntry(!secureTextEntry)}
-          color={theme.fontColor}
+          color={theme.colors.black60}
         />
       )
     }
@@ -65,6 +65,7 @@ export const TextInput: React.FC<ITextInput> = ({
         right={renderRightIcon}
         autoCapitalize='none'
         keyboardType={type === 'email' ? 'email-address' : 'default'}
+        outlineColor={theme.palette.outline}
       />
       <HelperText visible={!!description} type={withError ? 'error' : 'info'} {...assignTestId('Text', `${testID}_helper`)}>{description}</HelperText>
     </Flex>

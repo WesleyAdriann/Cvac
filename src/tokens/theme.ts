@@ -11,9 +11,11 @@ export const theme = {
     secondary: '#F1FAFC',
     complementary1: '#27525C',
     complementary2: '#C24023',
-    complementary3: '#00A3C9'
+    complementary3: '#00A3C9',
+    outline: '#0000001f'
   },
   colors: {
+    black60: '#00000099',
     white: '#fff',
     black: '#000'
   }
