@@ -8,6 +8,7 @@ export interface IText {
   testID?: string
   children: React.ReactNode
   size?: number
+  align?: 'left' | 'center' | 'right'
 }
 
 const Component: React.FC<IText> = ({ testID = 'Text', children, ...props }) => (

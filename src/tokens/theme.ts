@@ -25,7 +25,8 @@ export const paperTheme: typeof PaperTheme = {
     ...PaperTheme.colors,
     primary: theme.palette.primary,
     accent: theme.palette.complementary1,
-    text: theme.fontColor
+    text: theme.fontColor,
+    background: theme.backgroundColor
   }
 }
 

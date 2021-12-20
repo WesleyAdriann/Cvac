@@ -9,3 +9,6 @@ export { TextInput } from './molecules/TextInput'
 
 // organisms
 export { LoginForm } from './organisms/LoginForm'
+
+// templates
+export { LoginTemplate } from './templates/LoginTemplate'

@@ -12,6 +12,8 @@ export const StyledButton = styled(PaperButton).attrs(() => ({
     if (props.mode === 'outlined') return props.theme.palette.complementary3
     return 'transparent'
   }};
+  margin: ${({ marginStyle }) => (typeof marginStyle === 'number') ? `${marginStyle}px` : (marginStyle ?? 0)};
+  padding: ${({ paddingStyle }) => (typeof paddingStyle === 'number') ? `${paddingStyle}px` : (paddingStyle ?? 0)};
 `
 
 export const StyledText = styled(PaperText)<{ mode: TButtonMore }>`

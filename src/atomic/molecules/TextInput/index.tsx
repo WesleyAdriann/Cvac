@@ -40,7 +40,7 @@ export const TextInput: React.FC<ITextInput> = ({
           name={secureTextEntry ? 'eye' : 'eye-off'}
           size={24}
           onPress={() => setSecureTextEntry(!secureTextEntry)}
-          color={(isTextInputFocused) => isTextInputFocused ? theme.palette.primary : undefined}
+          color={theme.fontColor}
         />
       )
     }

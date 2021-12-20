@@ -4,8 +4,13 @@ import { StyledButton, StyledText } from './styles'
 
 import { assignTestId } from '../../../utils'
 
+export interface IButtomCustomStyle {
+  marginStyle?: number | string
+  paddingStyle?: number | string
+}
+
 export type TButtonMore = 'text' | 'outlined' | 'contained'
-export interface IButton {
+export interface IButton extends IButtomCustomStyle {
   testID?: string
   text: string
   mode?: TButtonMore
