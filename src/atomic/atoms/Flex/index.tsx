@@ -20,6 +20,7 @@ const Component: React.FC<IFlex> = ({ testID = 'Flex', children, safeAreaView, .
   if (safeAreaView) {
     return <StyledSafeAreaView {...props} {...assignTestId('SafeAreaView', testID)}>{children}</StyledSafeAreaView>
   }
+
   return <StyledView {...props} {...assignTestId('View', testID)} >{children}</StyledView>
 }
 

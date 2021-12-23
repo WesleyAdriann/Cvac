@@ -17,7 +17,7 @@ export const Login: React.FC = () => {
         onSubmit: handleSubmitLoginEmail
       }}
       onPressSocial={handleSubmitLoginSocial}
-      onPressRegister={() => null}
+      onPressRegister={() => console.log('foo')}
     />
   )
 }

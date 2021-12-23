@@ -56,7 +56,10 @@ export const LoginForm : React.FC<ILoginForm> = ({ testID = 'LoginForm', onSubmi
           />
         )}
       />
-      <Button text='entrar' onPress={onSubmitPress}/>
+      <Flex marginStyle='4px 0 0'>
+        <Button text='entrar' onPress={onSubmitPress}/>
+
+      </Flex>
     </Flex>
   )
 }

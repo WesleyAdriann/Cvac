@@ -9,6 +9,7 @@ export interface IText {
   children: React.ReactNode
   size?: number
   align?: 'left' | 'center' | 'right'
+  underline?: boolean
 }
 
 const Component: React.FC<IText> = ({ testID = 'Text', children, ...props }) => (

@@ -4,15 +4,17 @@ import { Flex } from '../../atoms'
 
 import { Container } from './style'
 
-interface IAppPage {
+export interface IAppPage {
   testID?: string
   children: React.ReactNode
 }
 
-export const AppPage: React.FC<IAppPage> = ({ testID = 'AppPage', children, ...props }) => (
+export const Component: React.FC<IAppPage> = ({ testID = 'AppPage', children, ...props }) => (
   <Container testID={testID} safeAreaView {...props}>
     <Flex paddingStyle={16} flex={1}>
       {children}
     </Flex>
   </Container>
 )
+
+export const AppPage = React.memo(Component)

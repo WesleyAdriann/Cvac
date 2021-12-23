@@ -24,7 +24,12 @@ exports[`Atoms/Text should render snapshot 1`] = `
         },
         Array [
           Object {
+            "color": "#424242",
             "fontSize": 16,
+            "textAlign": "left",
+            "textDecorationColor": "black",
+            "textDecorationLine": "none",
+            "textDecorationStyle": "solid",
           },
         ],
       ]

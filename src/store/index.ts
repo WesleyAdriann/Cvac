@@ -14,17 +14,17 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
-const middlewares = []
+const middleware = []
 
 if (__DEV__) {
   const createDebugger = require('redux-flipper').default
-  middlewares.push(createDebugger())
+  middleware.push(createDebugger())
 }
 
 export const store = configureStore({
   reducer: persistedReducer,
   devTools: process.env.NODE_ENV !== 'production',
-  middleware: middlewares
+  middleware
 })
 
 export const persistor = persistStore(store)

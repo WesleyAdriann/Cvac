@@ -14,6 +14,7 @@ export const StyledButton = styled(PaperButton).attrs(() => ({
   }};
   margin: ${({ marginStyle }) => (typeof marginStyle === 'number') ? `${marginStyle}px` : (marginStyle ?? 0)};
   padding: ${({ paddingStyle }) => (typeof paddingStyle === 'number') ? `${paddingStyle}px` : (paddingStyle ?? 0)};
+  elevation: 0;
 `
 
 export const StyledText = styled(PaperText)<{ mode: TButtonMore }>`

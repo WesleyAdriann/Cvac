@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react'
 
 import { HelperText, TextInput as PaperTextInput } from 'react-native-paper'
 import { TextInputProps } from 'react-native-paper/lib/typescript/components/TextInput/TextInput'
-import { useTheme } from 'styled-components'
+import { useTheme } from 'styled-components/native'
 
 import { Flex } from '../../atoms'
 
@@ -54,7 +54,7 @@ export const TextInput: React.FC<ITextInput> = ({
   }, [secureTextEntry])
 
   return (
-    <Flex testID={testID} marginStyle='0 0 8px'>
+    <Flex testID={testID}>
       <PaperTextInput
         onChangeText={onChangeText}
         error={withError}

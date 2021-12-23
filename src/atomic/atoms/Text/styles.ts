@@ -4,6 +4,8 @@ import { Text as PaperText } from 'react-native-paper'
 import { IText } from './index'
 
 export const StyledText = styled(PaperText)<IText>`
-  text-align: ${(props) => props.align ?? 'left'};
+  color: ${(props) => props.theme.fontColor};
   font-size: ${(props) => props.size ?? props.theme.fontSize}px;
+  text-align: ${(props) => props.align ?? 'left'};
+  text-decoration: ${(props) => props.underline ? `underline ${props.theme.fontColor}` : 'none'};
 `

@@ -44,8 +44,8 @@ exports[`Molecules/TextInput should render snapshot 1`] = `
                 "top": 6,
               },
               Object {
-                "backgroundColor": "#f6f6f6",
-                "borderColor": "rgba(0, 0, 0, 0.54)",
+                "backgroundColor": "#fff",
+                "borderColor": "#0000001f",
                 "borderRadius": 4,
                 "borderWidth": 1,
               },
@@ -67,7 +67,9 @@ exports[`Molecules/TextInput should render snapshot 1`] = `
         >
           <TextInput
             accessible={false}
+            autoCapitalize="none"
             editable={true}
+            keyboardType="default"
             multiline={false}
             onBlur={[Function]}
             onChangeText={[Function]}
