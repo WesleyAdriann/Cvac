@@ -1,13 +1,15 @@
-import styled from 'styled-components/native'
+
+import styled, { css } from 'styled-components/native'
 import { Text as PaperText, Button as PaperButton } from 'react-native-paper'
 
 import { TButtonMore, IButton } from './index'
 
+type IStyledButton = Omit<IButton, 'text' | 'icon'>
 export const StyledButton = styled(PaperButton).attrs(() => ({
   contentStyle: {
     padding: 6
   }
-}))<Omit<IButton, 'text'>>`
+}))<IStyledButton>`
   border-color: ${(props) => {
     if (props.mode === 'outlined') return props.theme.palette.complementary3
     return 'transparent'
@@ -15,6 +17,11 @@ export const StyledButton = styled(PaperButton).attrs(() => ({
   margin: ${({ marginStyle }) => (typeof marginStyle === 'number') ? `${marginStyle}px` : (marginStyle ?? 0)};
   padding: ${({ paddingStyle }) => (typeof paddingStyle === 'number') ? `${paddingStyle}px` : (paddingStyle ?? 0)};
   elevation: 0;
+
+
+  ${({ flex }) => flex && css`
+    flex: ${flex};
+  `}
 `
 
 export const StyledText = styled(PaperText)<{ mode: TButtonMore }>`
@@ -29,6 +36,6 @@ export const StyledText = styled(PaperText)<{ mode: TButtonMore }>`
     }
   }};
 
-  font-weight: bold;
+  font-weight: ${(props) => props.mode === 'contained' ? 'bold' : 'normal'};
   font-size: 18px;
 `

@@ -1,11 +1,11 @@
 import React from 'react'
-import { ViewProps, FlexStyle, ViewStyle } from 'react-native'
+import { ViewProps, ViewStyle } from 'react-native'
 
 import { assignTestId } from '../../../utils'
 
 import { StyledView, StyledSafeAreaView } from './styles'
 
-export interface IFlexCustomStyle extends FlexStyle, ViewStyle {
+export interface IFlexCustomStyle extends Omit<ViewStyle, 'padding' | 'margin'> {
   marginStyle?: number | string
   paddingStyle?: number | string
 }

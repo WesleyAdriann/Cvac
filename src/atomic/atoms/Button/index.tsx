@@ -7,6 +7,8 @@ import { assignTestId } from '../../../utils'
 export interface IButtomCustomStyle {
   marginStyle?: number | string
   paddingStyle?: number | string
+  flex?: number
+  square?: boolean
 }
 
 export type TButtonMore = 'text' | 'outlined' | 'contained'
@@ -17,8 +19,8 @@ export interface IButton extends IButtomCustomStyle {
   onPress: () => void
 }
 
-const Component: React.FC<IButton> = ({ testID = 'Button', text, mode = 'contained', ...props }) => (
-  <StyledButton mode={mode} {...props} {...assignTestId('Pressable', testID)}>
+const Component: React.FC<IButton> = ({ testID = 'Button', text, mode = 'contained', iconSize, ...props }) => (
+  <StyledButton mode={mode} labelStyle={{ fontSize: iconSize }} {...props} {...assignTestId('Pressable', testID)}>
     <StyledText mode={mode}>{text}</StyledText>
   </StyledButton>
 )

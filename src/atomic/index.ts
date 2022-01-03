@@ -12,3 +12,5 @@ export { LoginForm } from './organisms/LoginForm'
 
 // templates
 export { LoginTemplate } from './templates/LoginTemplate'
+export { HomeTemplate } from './templates/HomeTemplate'
+export { RegisterTemplate } from './templates/RegisterTemplate'

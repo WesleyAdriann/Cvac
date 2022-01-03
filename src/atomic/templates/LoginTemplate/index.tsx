@@ -17,10 +17,10 @@ export interface ILoginTemplate {
 export const LoginTemplate: React.FC<ILoginTemplate> = ({ testID = 'LoginTemplate', form, onPressSocial, onPressRegister, ...props }) => {
   return (
     <AppPage {...props} testID={testID}>
-      <Flex flexGrow={2} alignItems='center' justifyContent='center' >
+      <Flex flexGrow={1} alignItems='center' justifyContent='center' >
         <Image source={Logotipo} />
       </Flex>
-      <Flex flexGrow={1}>
+      <Flex flexGrow={1} justifyContent='center'>
         <LoginForm {...form}/>
         <Flex marginStyle='20px 0'>
           <Text align='center'>ou continue com</Text>
