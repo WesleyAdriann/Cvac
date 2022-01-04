@@ -16,6 +16,7 @@ exports[`Molecules/AppPage should render snapshot 1`] = `
     style={
       Array [
         Object {
+          "flexDirection": "column",
           "marginBottom": 0,
           "marginLeft": 0,
           "marginRight": 0,
@@ -42,6 +43,10 @@ exports[`Molecules/AppPage should render snapshot 1`] = `
       style={
         Array [
           Object {
+            "flexBasis": 0,
+            "flexDirection": "column",
+            "flexGrow": 1,
+            "flexShrink": 1,
             "marginBottom": 0,
             "marginLeft": 0,
             "marginRight": 0,

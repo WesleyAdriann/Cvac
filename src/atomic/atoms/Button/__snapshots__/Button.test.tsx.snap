@@ -16,10 +16,10 @@ exports[`Atoms/Button should render snapshot 1`] = `
     style={
       Object {
         "backgroundColor": "#00C9D2",
-        "borderColor": "transparent",
+        "borderColor": "#00C9D2",
         "borderRadius": 4,
         "borderStyle": "solid",
-        "borderWidth": 0,
+        "borderWidth": 1,
         "elevation": 0,
         "marginBottom": 0,
         "marginLeft": 0,
@@ -108,7 +108,9 @@ exports[`Atoms/Button should render snapshot 1`] = `
                   "fontFamily": "System",
                   "fontWeight": "500",
                 },
-                undefined,
+                Object {
+                  "fontSize": undefined,
+                },
               ],
             ]
           }

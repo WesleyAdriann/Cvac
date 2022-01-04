@@ -26,18 +26,22 @@ export const HomeTemplate: React.FC<IHomeTemplate> = ({
   ...props
 }) => {
   return (
-    <AppPage testID={testID} {...props}>
-      <Flex flexGrow={2} alignItems='center' justifyContent='center'>
+    <AppPage testID={testID} {...props} scroll>
+      <Flex flex={1} alignItems='center' justifyContent='center' marginStyle={16}>
         <Image source={Logotipo} />
       </Flex>
-      <Flex flexGrow={1}>
-        <Flex marginStyle='0 0 16px'>
+      <Flex flex={2} justifyContent='center'>
+        <Flex>
           {
             isAuthenticated
               ? (
-                <Flex flexDirection='row'>
-                  <Text>Bem Vindo {username}</Text>
-                  <Button text='sair' onPress={() => onPressAuthItem('logout')}/>
+                <Flex flexDirection='row' alignItems='flex-end'>
+                  <Flex flex={1} marginStyle='0 16px 0 0'>
+                  <Text size={26}>Bem Vindo,{'\n'}{username}</Text>
+                  </Flex>
+                  <Flex flex={1}>
+                    <Button text='sair' mode='outlined' onPress={() => onPressAuthItem('logout')}/>
+                  </Flex>
                 </Flex>
                 )
               : (
@@ -48,14 +52,15 @@ export const HomeTemplate: React.FC<IHomeTemplate> = ({
                 )
           }
         </Flex>
-        <Flex flexDirection='row' paddingStyle='0 0 16px'>
-          <HomeItem icon='calendar' text='calendarios de vacinação' onPress={() => onPressMenuItem('calendar')} />
-          <HomeItem icon='badge-account-horizontal-outline' text='carteira de vacinação' onPress={() => onPressMenuItem('wallet')} />
-        </Flex>
-        <Flex flexDirection='row'>
-          <HomeItem icon='bell' text='lembretes de vacina' onPress={() => onPressMenuItem('notification')} />
-          <HomeItem icon='map-marker' text='locais de vacinação' onPress={() => onPressMenuItem('local')} />
-
+        <Flex marginStyle='16px 0 0'>
+          <Flex flexDirection='row'>
+            <HomeItem gap icon='calendar' text='calendarios de vacinação' onPress={() => onPressMenuItem('calendar')} />
+            <HomeItem icon='badge-account-horizontal-outline' text='carteira de vacinação' onPress={() => onPressMenuItem('wallet')} />
+          </Flex>
+          <Flex flexDirection='row' marginStyle='16px 0 0'>
+            <HomeItem gap icon='bell' text='lembretes de vacina' onPress={() => onPressMenuItem('notification')} />
+            <HomeItem icon='map-marker' text='locais de vacinação' onPress={() => onPressMenuItem('local')} />
+          </Flex>
         </Flex>
       </Flex>
     </AppPage>

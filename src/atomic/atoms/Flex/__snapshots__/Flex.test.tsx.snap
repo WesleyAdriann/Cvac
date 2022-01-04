@@ -15,6 +15,7 @@ exports[`Atoms/Flex should render snapshot 1`] = `
     style={
       Array [
         Object {
+          "flexDirection": "column",
           "marginBottom": 0,
           "marginLeft": 0,
           "marginRight": 0,

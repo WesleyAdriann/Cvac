@@ -16,6 +16,7 @@ exports[`Templates/LoginTemplate should render snapshot 1`] = `
     style={
       Array [
         Object {
+          "flexDirection": "column",
           "marginBottom": 0,
           "marginLeft": 0,
           "marginRight": 0,
@@ -35,81 +36,82 @@ exports[`Templates/LoginTemplate should render snapshot 1`] = `
     }
     testID="SafeAreaView_LoginTemplate"
   >
-    <View
+    <RCTScrollView
       accessible={false}
+      contentContainerStyle={
+        Object {
+          "flexGrow": 1,
+          "padding": 16,
+        }
+      }
       flex={1}
       paddingStyle={16}
       style={
         Array [
           Object {
+            "flexBasis": 0,
+            "flexDirection": "column",
+            "flexGrow": 1,
+            "flexShrink": 1,
             "marginBottom": 0,
             "marginLeft": 0,
             "marginRight": 0,
             "marginTop": 0,
-            "paddingBottom": 16,
-            "paddingLeft": 16,
-            "paddingRight": 16,
-            "paddingTop": 16,
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
           },
         ]
       }
-      testID="View_Flex"
+      testID="ScrollView_Flex"
     >
-      <View
-        accessible={false}
-        alignItems="center"
-        flexGrow={2}
-        justifyContent="center"
-        style={
-          Array [
-            Object {
-              "flexGrow": 2,
-              "marginBottom": 0,
-              "marginLeft": 0,
-              "marginRight": 0,
-              "marginTop": 0,
-              "paddingBottom": 0,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-              "paddingTop": 0,
-            },
-          ]
-        }
-        testID="View_Flex"
-      >
-        <Image
-          source={
-            Object {
-              "testUri": "../../../src/assets/logotipo/logotipo.png",
-            }
-          }
-        />
-      </View>
-      <View
-        accessible={false}
-        flexGrow={1}
-        style={
-          Array [
-            Object {
-              "flexGrow": 1,
-              "marginBottom": 0,
-              "marginLeft": 0,
-              "marginRight": 0,
-              "marginTop": 0,
-              "paddingBottom": 0,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-              "paddingTop": 0,
-            },
-          ]
-        }
-        testID="View_Flex"
-      >
+      <View>
         <View
           accessible={false}
+          alignItems="center"
+          flex={1}
+          justifyContent="center"
+          marginStyle={16}
           style={
             Array [
               Object {
+                "flexBasis": 0,
+                "flexDirection": "column",
+                "flexGrow": 1,
+                "flexShrink": 1,
+                "marginBottom": 16,
+                "marginLeft": 16,
+                "marginRight": 16,
+                "marginTop": 16,
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+              },
+            ]
+          }
+          testID="View_Flex"
+        >
+          <Image
+            source={
+              Object {
+                "testUri": "../../../src/assets/logotipo/logotipo.png",
+              }
+            }
+          />
+        </View>
+        <View
+          accessible={false}
+          flex={2}
+          justifyContent="center"
+          style={
+            Array [
+              Object {
+                "flexBasis": 0,
+                "flexDirection": "column",
+                "flexGrow": 2,
+                "flexShrink": 1,
                 "marginBottom": 0,
                 "marginLeft": 0,
                 "marginRight": 0,
@@ -121,13 +123,14 @@ exports[`Templates/LoginTemplate should render snapshot 1`] = `
               },
             ]
           }
-          testID="View_LoginForm"
+          testID="View_Flex"
         >
           <View
             accessible={false}
             style={
               Array [
                 Object {
+                  "flexDirection": "column",
                   "marginBottom": 0,
                   "marginLeft": 0,
                   "marginRight": 0,
@@ -139,335 +142,62 @@ exports[`Templates/LoginTemplate should render snapshot 1`] = `
                 },
               ]
             }
-            testID="View_TextInput"
+            testID="View_LoginForm"
           >
             <View
-              style={Object {}}
-            >
-              <View>
-                <View
-                  pointerEvents="none"
-                  style={
-                    Array [
-                      Object {
-                        "bottom": 0,
-                        "left": 0,
-                        "position": "absolute",
-                        "right": 0,
-                        "top": 6,
-                      },
-                      Object {
-                        "backgroundColor": "#fff",
-                        "borderColor": "#0000001f",
-                        "borderRadius": 4,
-                        "borderWidth": 1,
-                      },
-                    ]
-                  }
-                />
-                <View
-                  style={
-                    Array [
-                      Object {
-                        "paddingBottom": 0,
-                      },
-                      Object {
-                        "minHeight": 64,
-                        "paddingTop": 8,
-                      },
-                    ]
-                  }
-                >
-                  <View
-                    collapsable={false}
-                    nativeID="animatedComponent"
-                    pointerEvents="none"
-                    style={
-                      Object {
-                        "bottom": 0,
-                        "left": 0,
-                        "opacity": 1,
-                        "position": "absolute",
-                        "right": 0,
-                        "top": 0,
-                        "transform": Array [
-                          Object {
-                            "translateX": 0,
-                          },
-                        ],
-                      }
-                    }
-                  >
-                    <View
-                      collapsable={false}
-                      nativeID="animatedComponent"
-                      pointerEvents="none"
-                      style={
-                        Object {
-                          "backgroundColor": "#fff",
-                          "bottom": 4,
-                          "left": 10,
-                          "opacity": 0,
-                          "position": "absolute",
-                          "right": 0,
-                          "top": 6,
-                          "transform": Array [
-                            Object {
-                              "translateX": 0,
-                            },
-                          ],
-                          "width": 8,
-                        }
-                      }
-                    />
-                    <Text
-                      collapsable={false}
-                      nativeID="animatedComponent"
-                      numberOfLines={1}
-                      style={
-                        Object {
-                          "backgroundColor": "#fff",
-                          "color": "transparent",
-                          "fontFamily": "System",
-                          "fontSize": 16,
-                          "fontWeight": undefined,
-                          "left": 18,
-                          "opacity": 0,
-                          "paddingHorizontal": 0,
-                          "position": "absolute",
-                          "textAlign": "left",
-                          "top": 37,
-                          "transform": Array [
-                            Object {
-                              "translateX": 0,
-                            },
-                            Object {
-                              "translateY": 0,
-                            },
-                            Object {
-                              "scale": 1,
-                            },
-                            Object {
-                              "scaleY": 1,
-                            },
-                          ],
-                          "writingDirection": "ltr",
-                        }
-                      }
-                    >
-                      Email
-                    </Text>
-                    <Text
-                      collapsable={false}
-                      nativeID="animatedComponent"
-                      numberOfLines={1}
-                      onLayout={[Function]}
-                      style={
-                        Object {
-                          "color": "#00C9D2",
-                          "fontFamily": "System",
-                          "fontSize": 16,
-                          "fontWeight": undefined,
-                          "left": 0,
-                          "opacity": 0,
-                          "paddingHorizontal": 14,
-                          "position": "absolute",
-                          "textAlign": "left",
-                          "top": 36,
-                          "transform": Array [
-                            Object {
-                              "translateX": 0,
-                            },
-                            Object {
-                              "translateY": 0,
-                            },
-                            Object {
-                              "scale": 1,
-                            },
-                          ],
-                          "writingDirection": "ltr",
-                        }
-                      }
-                    >
-                      Email
-                    </Text>
-                    <Text
-                      collapsable={false}
-                      nativeID="animatedComponent"
-                      numberOfLines={1}
-                      style={
-                        Object {
-                          "color": "rgba(0, 0, 0, 0.54)",
-                          "fontFamily": "System",
-                          "fontSize": 16,
-                          "fontWeight": undefined,
-                          "left": 0,
-                          "opacity": 0,
-                          "paddingHorizontal": 14,
-                          "position": "absolute",
-                          "textAlign": "left",
-                          "top": 36,
-                          "transform": Array [
-                            Object {
-                              "translateX": 0,
-                            },
-                            Object {
-                              "translateY": 0,
-                            },
-                            Object {
-                              "scale": 1,
-                            },
-                          ],
-                          "writingDirection": "ltr",
-                        }
-                      }
-                    >
-                      Email
-                    </Text>
-                  </View>
-                  <TextInput
-                    accessible={false}
-                    autoCapitalize="none"
-                    editable={true}
-                    keyboardType="default"
-                    multiline={false}
-                    onBlur={[Function]}
-                    onChangeText={[Function]}
-                    onFocus={[Function]}
-                    placeholder=""
-                    placeholderTextColor="rgba(0, 0, 0, 0.54)"
-                    secureTextEntry={false}
-                    selectionColor="#00C9D2"
-                    style={
-                      Array [
-                        Object {
-                          "flexGrow": 1,
-                          "margin": 0,
-                          "paddingHorizontal": 14,
-                          "zIndex": 1,
-                        },
-                        Object {
-                          "height": 56,
-                        },
-                        Object {
-                          "paddingBottom": 0,
-                          "paddingTop": 0,
-                        },
-                        Object {
-                          "color": "#424242",
-                          "fontFamily": "System",
-                          "fontSize": 16,
-                          "fontWeight": undefined,
-                          "textAlign": "left",
-                          "textAlignVertical": "center",
-                        },
-                        false,
-                        Array [
-                          Object {},
-                        ],
-                      ]
-                    }
-                    testID="TextInput_TextInput"
-                    underlineColorAndroid="transparent"
-                  />
-                </View>
-              </View>
-            </View>
-            <Text
               accessible={false}
-              collapsable={false}
-              nativeID="animatedComponent"
-              onLayout={[Function]}
               style={
-                Object {
-                  "color": "rgba(66, 66, 66, 0.54)",
-                  "fontFamily": "System",
-                  "fontSize": 12,
-                  "fontWeight": "400",
-                  "opacity": 0,
-                  "paddingHorizontal": 12,
-                  "paddingVertical": 4,
-                  "textAlign": "left",
-                  "transform": Array [],
-                  "writingDirection": "ltr",
-                }
+                Array [
+                  Object {
+                    "flexDirection": "column",
+                    "marginBottom": 0,
+                    "marginLeft": 0,
+                    "marginRight": 0,
+                    "marginTop": 0,
+                    "paddingBottom": 0,
+                    "paddingLeft": 0,
+                    "paddingRight": 0,
+                    "paddingTop": 0,
+                  },
+                ]
               }
-              testID="Text_TextInput_helper"
-            />
-          </View>
-          <View
-            accessible={false}
-            style={
-              Array [
-                Object {
-                  "marginBottom": 0,
-                  "marginLeft": 0,
-                  "marginRight": 0,
-                  "marginTop": 0,
-                  "paddingBottom": 0,
-                  "paddingLeft": 0,
-                  "paddingRight": 0,
-                  "paddingTop": 0,
-                },
-              ]
-            }
-            testID="View_TextInput"
-          >
-            <View
-              style={Object {}}
+              testID="View_TextInput"
             >
-              <View>
-                <View
-                  pointerEvents="none"
-                  style={
-                    Array [
-                      Object {
-                        "bottom": 0,
-                        "left": 0,
-                        "position": "absolute",
-                        "right": 0,
-                        "top": 6,
-                      },
-                      Object {
-                        "backgroundColor": "#fff",
-                        "borderColor": "#0000001f",
-                        "borderRadius": 4,
-                        "borderWidth": 1,
-                      },
-                    ]
-                  }
-                />
-                <View
-                  style={
-                    Array [
-                      Object {
-                        "paddingBottom": 0,
-                      },
-                      Object {
-                        "minHeight": 64,
-                        "paddingTop": 8,
-                      },
-                    ]
-                  }
-                >
+              <View
+                style={Object {}}
+              >
+                <View>
                   <View
-                    collapsable={false}
-                    nativeID="animatedComponent"
                     pointerEvents="none"
                     style={
-                      Object {
-                        "bottom": 0,
-                        "left": 0,
-                        "opacity": 1,
-                        "position": "absolute",
-                        "right": 0,
-                        "top": 0,
-                        "transform": Array [
-                          Object {
-                            "translateX": 0,
-                          },
-                        ],
-                      }
+                      Array [
+                        Object {
+                          "bottom": 0,
+                          "left": 0,
+                          "position": "absolute",
+                          "right": 0,
+                          "top": 6,
+                        },
+                        Object {
+                          "backgroundColor": "#fff",
+                          "borderColor": "#0000001f",
+                          "borderRadius": 4,
+                          "borderWidth": 1,
+                        },
+                      ]
+                    }
+                  />
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "paddingBottom": 0,
+                        },
+                        Object {
+                          "minHeight": 64,
+                          "paddingTop": 8,
+                        },
+                      ]
                     }
                   >
                     <View
@@ -476,428 +206,685 @@ exports[`Templates/LoginTemplate should render snapshot 1`] = `
                       pointerEvents="none"
                       style={
                         Object {
-                          "backgroundColor": "#fff",
-                          "bottom": 4,
-                          "left": 10,
-                          "opacity": 0,
+                          "bottom": 0,
+                          "left": 0,
+                          "opacity": 1,
                           "position": "absolute",
                           "right": 0,
-                          "top": 6,
+                          "top": 0,
                           "transform": Array [
                             Object {
                               "translateX": 0,
                             },
                           ],
-                          "width": 8,
-                        }
-                      }
-                    />
-                    <Text
-                      collapsable={false}
-                      nativeID="animatedComponent"
-                      numberOfLines={1}
-                      style={
-                        Object {
-                          "backgroundColor": "#fff",
-                          "color": "transparent",
-                          "fontFamily": "System",
-                          "fontSize": 16,
-                          "fontWeight": undefined,
-                          "left": 18,
-                          "opacity": 0,
-                          "paddingHorizontal": 0,
-                          "position": "absolute",
-                          "textAlign": "left",
-                          "top": 37,
-                          "transform": Array [
-                            Object {
-                              "translateX": 0,
-                            },
-                            Object {
-                              "translateY": 0,
-                            },
-                            Object {
-                              "scale": 1,
-                            },
-                            Object {
-                              "scaleY": 1,
-                            },
-                          ],
-                          "writingDirection": "ltr",
                         }
                       }
                     >
-                      Senha
-                    </Text>
-                    <Text
-                      collapsable={false}
-                      nativeID="animatedComponent"
-                      numberOfLines={1}
-                      onLayout={[Function]}
-                      style={
-                        Object {
-                          "color": "#00C9D2",
-                          "fontFamily": "System",
-                          "fontSize": 16,
-                          "fontWeight": undefined,
-                          "left": 0,
-                          "opacity": 0,
-                          "paddingHorizontal": 14,
-                          "position": "absolute",
-                          "textAlign": "left",
-                          "top": 36,
-                          "transform": Array [
-                            Object {
-                              "translateX": 0,
-                            },
-                            Object {
-                              "translateY": 0,
-                            },
-                            Object {
-                              "scale": 1,
-                            },
-                          ],
-                          "writingDirection": "ltr",
-                        }
-                      }
-                    >
-                      Senha
-                    </Text>
-                    <Text
-                      collapsable={false}
-                      nativeID="animatedComponent"
-                      numberOfLines={1}
-                      style={
-                        Object {
-                          "color": "rgba(0, 0, 0, 0.54)",
-                          "fontFamily": "System",
-                          "fontSize": 16,
-                          "fontWeight": undefined,
-                          "left": 0,
-                          "opacity": 0,
-                          "paddingHorizontal": 14,
-                          "position": "absolute",
-                          "textAlign": "left",
-                          "top": 36,
-                          "transform": Array [
-                            Object {
-                              "translateX": 0,
-                            },
-                            Object {
-                              "translateY": 0,
-                            },
-                            Object {
-                              "scale": 1,
-                            },
-                          ],
-                          "writingDirection": "ltr",
-                        }
-                      }
-                    >
-                      Senha
-                    </Text>
-                  </View>
-                  <TextInput
-                    accessible={false}
-                    autoCapitalize="none"
-                    editable={true}
-                    keyboardType="default"
-                    multiline={false}
-                    onBlur={[Function]}
-                    onChangeText={[Function]}
-                    onFocus={[Function]}
-                    placeholder=""
-                    placeholderTextColor="rgba(0, 0, 0, 0.54)"
-                    secureTextEntry={true}
-                    selectionColor="#00C9D2"
-                    style={
-                      Array [
-                        Object {
-                          "flexGrow": 1,
-                          "margin": 0,
-                          "paddingHorizontal": 14,
-                          "zIndex": 1,
-                        },
-                        Object {
-                          "height": 56,
-                        },
-                        Object {
-                          "paddingBottom": 0,
-                          "paddingTop": 0,
-                        },
-                        Object {
-                          "color": "#424242",
-                          "fontFamily": "System",
-                          "fontSize": 16,
-                          "fontWeight": undefined,
-                          "textAlign": "left",
-                          "textAlignVertical": "center",
-                        },
-                        false,
-                        Object {
-                          "marginRight": 44,
-                          "paddingRight": 0,
-                        },
-                      ]
-                    }
-                    testID="TextInput_TextInput"
-                    underlineColorAndroid="transparent"
-                  />
-                </View>
-                <View
-                  style={
-                    Array [
-                      Object {
-                        "alignItems": "center",
-                        "height": 24,
-                        "justifyContent": "center",
-                        "position": "absolute",
-                        "width": 24,
-                      },
-                      Object {
-                        "right": 12,
-                        "top": 23,
-                      },
-                    ]
-                  }
-                >
-                  <View
-                    accessibilityRole="button"
-                    accessibilityState={
-                      Object {
-                        "disabled": false,
-                      }
-                    }
-                    accessible={true}
-                    focusable={true}
-                    hitSlop={
-                      Object {
-                        "bottom": 6,
-                        "left": 6,
-                        "right": 6,
-                        "top": 6,
-                      }
-                    }
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      Array [
-                        Object {
-                          "overflow": "hidden",
-                        },
-                        Array [
-                          Object {
-                            "alignItems": "center",
-                            "justifyContent": "center",
-                            "margin": 6,
-                            "overflow": "hidden",
-                          },
-                          Object {
-                            "borderRadius": 18,
-                            "height": 36,
-                            "width": 36,
-                          },
-                          undefined,
-                          Object {
-                            "margin": 0,
-                          },
-                        ],
-                      ]
-                    }
-                  >
-                    <View>
-                      <Text
-                        accessibilityElementsHidden={true}
-                        allowFontScaling={false}
-                        importantForAccessibility="no-hide-descendants"
+                      <View
+                        collapsable={false}
+                        nativeID="animatedComponent"
                         pointerEvents="none"
-                        selectable={false}
                         style={
-                          Array [
-                            Object {
-                              "color": "#00000099",
-                              "fontSize": 24,
-                            },
-                            Array [
+                          Object {
+                            "backgroundColor": "#fff",
+                            "bottom": 4,
+                            "left": 10,
+                            "opacity": 0,
+                            "position": "absolute",
+                            "right": 0,
+                            "top": 6,
+                            "transform": Array [
                               Object {
-                                "lineHeight": 24,
-                                "transform": Array [
-                                  Object {
-                                    "scaleX": 1,
-                                  },
-                                ],
-                              },
-                              Object {
-                                "backgroundColor": "transparent",
+                                "translateX": 0,
                               },
                             ],
-                            Object {
-                              "fontFamily": "Material Design Icons",
-                              "fontStyle": "normal",
-                              "fontWeight": "normal",
-                            },
-                            Object {},
-                          ]
+                            "width": 8,
+                          }
+                        }
+                      />
+                      <Text
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "backgroundColor": "#fff",
+                            "color": "transparent",
+                            "fontFamily": "System",
+                            "fontSize": 16,
+                            "fontWeight": undefined,
+                            "left": 18,
+                            "opacity": 0,
+                            "paddingHorizontal": 0,
+                            "position": "absolute",
+                            "textAlign": "left",
+                            "top": 37,
+                            "transform": Array [
+                              Object {
+                                "translateX": 0,
+                              },
+                              Object {
+                                "translateY": 0,
+                              },
+                              Object {
+                                "scale": 1,
+                              },
+                              Object {
+                                "scaleY": 1,
+                              },
+                            ],
+                            "writingDirection": "ltr",
+                          }
                         }
                       >
-                        󰈈
+                        Email
                       </Text>
+                      <Text
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        numberOfLines={1}
+                        onLayout={[Function]}
+                        style={
+                          Object {
+                            "color": "#00C9D2",
+                            "fontFamily": "System",
+                            "fontSize": 16,
+                            "fontWeight": undefined,
+                            "left": 0,
+                            "opacity": 0,
+                            "paddingHorizontal": 14,
+                            "position": "absolute",
+                            "textAlign": "left",
+                            "top": 36,
+                            "transform": Array [
+                              Object {
+                                "translateX": 0,
+                              },
+                              Object {
+                                "translateY": 0,
+                              },
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "writingDirection": "ltr",
+                          }
+                        }
+                      >
+                        Email
+                      </Text>
+                      <Text
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "color": "rgba(0, 0, 0, 0.54)",
+                            "fontFamily": "System",
+                            "fontSize": 16,
+                            "fontWeight": undefined,
+                            "left": 0,
+                            "opacity": 0,
+                            "paddingHorizontal": 14,
+                            "position": "absolute",
+                            "textAlign": "left",
+                            "top": 36,
+                            "transform": Array [
+                              Object {
+                                "translateX": 0,
+                              },
+                              Object {
+                                "translateY": 0,
+                              },
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "writingDirection": "ltr",
+                          }
+                        }
+                      >
+                        Email
+                      </Text>
+                    </View>
+                    <TextInput
+                      accessible={false}
+                      autoCapitalize="none"
+                      editable={true}
+                      keyboardType="default"
+                      multiline={false}
+                      onBlur={[Function]}
+                      onChangeText={[Function]}
+                      onFocus={[Function]}
+                      placeholder=""
+                      placeholderTextColor="rgba(0, 0, 0, 0.54)"
+                      secureTextEntry={false}
+                      selectionColor="#00C9D2"
+                      style={
+                        Array [
+                          Object {
+                            "flexGrow": 1,
+                            "margin": 0,
+                            "paddingHorizontal": 14,
+                            "zIndex": 1,
+                          },
+                          Object {
+                            "height": 56,
+                          },
+                          Object {
+                            "paddingBottom": 0,
+                            "paddingTop": 0,
+                          },
+                          Object {
+                            "color": "#424242",
+                            "fontFamily": "System",
+                            "fontSize": 16,
+                            "fontWeight": undefined,
+                            "textAlign": "left",
+                            "textAlignVertical": "center",
+                          },
+                          false,
+                          Array [
+                            Object {},
+                          ],
+                        ]
+                      }
+                      testID="TextInput_TextInput"
+                      underlineColorAndroid="transparent"
+                    />
+                  </View>
+                </View>
+              </View>
+              <Text
+                accessible={false}
+                collapsable={false}
+                nativeID="animatedComponent"
+                onLayout={[Function]}
+                style={
+                  Object {
+                    "color": "rgba(66, 66, 66, 0.54)",
+                    "fontFamily": "System",
+                    "fontSize": 12,
+                    "fontWeight": "400",
+                    "opacity": 0,
+                    "paddingHorizontal": 12,
+                    "paddingVertical": 4,
+                    "textAlign": "left",
+                    "transform": Array [],
+                    "writingDirection": "ltr",
+                  }
+                }
+                testID="Text_TextInput_helper"
+              />
+            </View>
+            <View
+              accessible={false}
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "column",
+                    "marginBottom": 0,
+                    "marginLeft": 0,
+                    "marginRight": 0,
+                    "marginTop": 0,
+                    "paddingBottom": 0,
+                    "paddingLeft": 0,
+                    "paddingRight": 0,
+                    "paddingTop": 0,
+                  },
+                ]
+              }
+              testID="View_TextInput"
+            >
+              <View
+                style={Object {}}
+              >
+                <View>
+                  <View
+                    pointerEvents="none"
+                    style={
+                      Array [
+                        Object {
+                          "bottom": 0,
+                          "left": 0,
+                          "position": "absolute",
+                          "right": 0,
+                          "top": 6,
+                        },
+                        Object {
+                          "backgroundColor": "#fff",
+                          "borderColor": "#0000001f",
+                          "borderRadius": 4,
+                          "borderWidth": 1,
+                        },
+                      ]
+                    }
+                  />
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "paddingBottom": 0,
+                        },
+                        Object {
+                          "minHeight": 64,
+                          "paddingTop": 8,
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      collapsable={false}
+                      nativeID="animatedComponent"
+                      pointerEvents="none"
+                      style={
+                        Object {
+                          "bottom": 0,
+                          "left": 0,
+                          "opacity": 1,
+                          "position": "absolute",
+                          "right": 0,
+                          "top": 0,
+                          "transform": Array [
+                            Object {
+                              "translateX": 0,
+                            },
+                          ],
+                        }
+                      }
+                    >
+                      <View
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        pointerEvents="none"
+                        style={
+                          Object {
+                            "backgroundColor": "#fff",
+                            "bottom": 4,
+                            "left": 10,
+                            "opacity": 0,
+                            "position": "absolute",
+                            "right": 0,
+                            "top": 6,
+                            "transform": Array [
+                              Object {
+                                "translateX": 0,
+                              },
+                            ],
+                            "width": 8,
+                          }
+                        }
+                      />
+                      <Text
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "backgroundColor": "#fff",
+                            "color": "transparent",
+                            "fontFamily": "System",
+                            "fontSize": 16,
+                            "fontWeight": undefined,
+                            "left": 18,
+                            "opacity": 0,
+                            "paddingHorizontal": 0,
+                            "position": "absolute",
+                            "textAlign": "left",
+                            "top": 37,
+                            "transform": Array [
+                              Object {
+                                "translateX": 0,
+                              },
+                              Object {
+                                "translateY": 0,
+                              },
+                              Object {
+                                "scale": 1,
+                              },
+                              Object {
+                                "scaleY": 1,
+                              },
+                            ],
+                            "writingDirection": "ltr",
+                          }
+                        }
+                      >
+                        Senha
+                      </Text>
+                      <Text
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        numberOfLines={1}
+                        onLayout={[Function]}
+                        style={
+                          Object {
+                            "color": "#00C9D2",
+                            "fontFamily": "System",
+                            "fontSize": 16,
+                            "fontWeight": undefined,
+                            "left": 0,
+                            "opacity": 0,
+                            "paddingHorizontal": 14,
+                            "position": "absolute",
+                            "textAlign": "left",
+                            "top": 36,
+                            "transform": Array [
+                              Object {
+                                "translateX": 0,
+                              },
+                              Object {
+                                "translateY": 0,
+                              },
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "writingDirection": "ltr",
+                          }
+                        }
+                      >
+                        Senha
+                      </Text>
+                      <Text
+                        collapsable={false}
+                        nativeID="animatedComponent"
+                        numberOfLines={1}
+                        style={
+                          Object {
+                            "color": "rgba(0, 0, 0, 0.54)",
+                            "fontFamily": "System",
+                            "fontSize": 16,
+                            "fontWeight": undefined,
+                            "left": 0,
+                            "opacity": 0,
+                            "paddingHorizontal": 14,
+                            "position": "absolute",
+                            "textAlign": "left",
+                            "top": 36,
+                            "transform": Array [
+                              Object {
+                                "translateX": 0,
+                              },
+                              Object {
+                                "translateY": 0,
+                              },
+                              Object {
+                                "scale": 1,
+                              },
+                            ],
+                            "writingDirection": "ltr",
+                          }
+                        }
+                      >
+                        Senha
+                      </Text>
+                    </View>
+                    <TextInput
+                      accessible={false}
+                      autoCapitalize="none"
+                      editable={true}
+                      keyboardType="default"
+                      multiline={false}
+                      onBlur={[Function]}
+                      onChangeText={[Function]}
+                      onFocus={[Function]}
+                      placeholder=""
+                      placeholderTextColor="rgba(0, 0, 0, 0.54)"
+                      secureTextEntry={true}
+                      selectionColor="#00C9D2"
+                      style={
+                        Array [
+                          Object {
+                            "flexGrow": 1,
+                            "margin": 0,
+                            "paddingHorizontal": 14,
+                            "zIndex": 1,
+                          },
+                          Object {
+                            "height": 56,
+                          },
+                          Object {
+                            "paddingBottom": 0,
+                            "paddingTop": 0,
+                          },
+                          Object {
+                            "color": "#424242",
+                            "fontFamily": "System",
+                            "fontSize": 16,
+                            "fontWeight": undefined,
+                            "textAlign": "left",
+                            "textAlignVertical": "center",
+                          },
+                          false,
+                          Object {
+                            "marginRight": 44,
+                            "paddingRight": 0,
+                          },
+                        ]
+                      }
+                      testID="TextInput_TextInput"
+                      underlineColorAndroid="transparent"
+                    />
+                  </View>
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "height": 24,
+                          "justifyContent": "center",
+                          "position": "absolute",
+                          "width": 24,
+                        },
+                        Object {
+                          "right": 12,
+                          "top": 23,
+                        },
+                      ]
+                    }
+                  >
+                    <View
+                      accessibilityRole="button"
+                      accessibilityState={
+                        Object {
+                          "disabled": false,
+                        }
+                      }
+                      accessible={true}
+                      focusable={true}
+                      hitSlop={
+                        Object {
+                          "bottom": 6,
+                          "left": 6,
+                          "right": 6,
+                          "top": 6,
+                        }
+                      }
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Array [
+                          Object {
+                            "overflow": "hidden",
+                          },
+                          Array [
+                            Object {
+                              "alignItems": "center",
+                              "justifyContent": "center",
+                              "margin": 6,
+                              "overflow": "hidden",
+                            },
+                            Object {
+                              "borderRadius": 18,
+                              "height": 36,
+                              "width": 36,
+                            },
+                            undefined,
+                            Object {
+                              "margin": 0,
+                            },
+                          ],
+                        ]
+                      }
+                    >
+                      <View>
+                        <Text
+                          accessibilityElementsHidden={true}
+                          allowFontScaling={false}
+                          importantForAccessibility="no-hide-descendants"
+                          pointerEvents="none"
+                          selectable={false}
+                          style={
+                            Array [
+                              Object {
+                                "color": "#00000099",
+                                "fontSize": 24,
+                              },
+                              Array [
+                                Object {
+                                  "lineHeight": 24,
+                                  "transform": Array [
+                                    Object {
+                                      "scaleX": 1,
+                                    },
+                                  ],
+                                },
+                                Object {
+                                  "backgroundColor": "transparent",
+                                },
+                              ],
+                              Object {
+                                "fontFamily": "Material Design Icons",
+                                "fontStyle": "normal",
+                                "fontWeight": "normal",
+                              },
+                              Object {},
+                            ]
+                          }
+                        >
+                          󰈈
+                        </Text>
+                      </View>
                     </View>
                   </View>
                 </View>
               </View>
-            </View>
-            <Text
-              accessible={false}
-              collapsable={false}
-              nativeID="animatedComponent"
-              onLayout={[Function]}
-              style={
-                Object {
-                  "color": "rgba(66, 66, 66, 0.54)",
-                  "fontFamily": "System",
-                  "fontSize": 12,
-                  "fontWeight": "400",
-                  "opacity": 0,
-                  "paddingHorizontal": 12,
-                  "paddingVertical": 4,
-                  "textAlign": "left",
-                  "transform": Array [],
-                  "writingDirection": "ltr",
-                }
-              }
-              testID="Text_TextInput_helper"
-            />
-          </View>
-          <View
-            accessible={false}
-            marginStyle="4px 0 0"
-            style={
-              Array [
-                Object {
-                  "marginBottom": 0,
-                  "marginLeft": 0,
-                  "marginRight": 0,
-                  "marginTop": 4,
-                  "paddingBottom": 0,
-                  "paddingLeft": 0,
-                  "paddingRight": 0,
-                  "paddingTop": 0,
-                },
-              ]
-            }
-            testID="View_Flex"
-          >
-            <View
-              collapsable={false}
-              nativeID="animatedComponent"
-              style={
-                Object {
-                  "backgroundColor": "#00C9D2",
-                  "borderColor": "transparent",
-                  "borderRadius": 4,
-                  "borderStyle": "solid",
-                  "borderWidth": 0,
-                  "elevation": 0,
-                  "marginBottom": 0,
-                  "marginLeft": 0,
-                  "marginRight": 0,
-                  "marginTop": 0,
-                  "minWidth": 64,
-                  "paddingBottom": 0,
-                  "paddingLeft": 0,
-                  "paddingRight": 0,
-                  "paddingTop": 0,
-                }
-              }
-            >
-              <View
-                accessibilityRole="button"
-                accessibilityState={
+              <Text
+                accessible={false}
+                collapsable={false}
+                nativeID="animatedComponent"
+                onLayout={[Function]}
+                style={
                   Object {
-                    "disabled": false,
+                    "color": "rgba(66, 66, 66, 0.54)",
+                    "fontFamily": "System",
+                    "fontSize": 12,
+                    "fontWeight": "400",
+                    "opacity": 0,
+                    "paddingHorizontal": 12,
+                    "paddingVertical": 4,
+                    "textAlign": "left",
+                    "transform": Array [],
+                    "writingDirection": "ltr",
                   }
                 }
-                accessible={false}
-                focusable={true}
-                onClick={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
+                testID="Text_TextInput_helper"
+              />
+            </View>
+            <View
+              accessible={false}
+              marginStyle="4px 0 0"
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "column",
+                    "marginBottom": 0,
+                    "marginLeft": 0,
+                    "marginRight": 0,
+                    "marginTop": 4,
+                    "paddingBottom": 0,
+                    "paddingLeft": 0,
+                    "paddingRight": 0,
+                    "paddingTop": 0,
+                  },
+                ]
+              }
+              testID="View_Flex"
+            >
+              <View
+                collapsable={false}
+                nativeID="animatedComponent"
                 style={
-                  Array [
-                    Object {
-                      "overflow": "hidden",
-                    },
-                    Object {
-                      "borderRadius": 4,
-                    },
-                  ]
+                  Object {
+                    "backgroundColor": "#00C9D2",
+                    "borderColor": "#00C9D2",
+                    "borderRadius": 4,
+                    "borderStyle": "solid",
+                    "borderWidth": 1,
+                    "elevation": 0,
+                    "marginBottom": 0,
+                    "marginLeft": 0,
+                    "marginRight": 0,
+                    "marginTop": 0,
+                    "minWidth": 64,
+                    "paddingBottom": 0,
+                    "paddingLeft": 0,
+                    "paddingRight": 0,
+                    "paddingTop": 0,
+                  }
                 }
-                testID="Pressable_Button"
               >
                 <View
+                  accessibilityRole="button"
+                  accessibilityState={
+                    Object {
+                      "disabled": false,
+                    }
+                  }
+                  accessible={false}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
                   style={
                     Array [
                       Object {
-                        "alignItems": "center",
-                        "flexDirection": "row",
-                        "justifyContent": "center",
+                        "overflow": "hidden",
                       },
                       Object {
-                        "padding": 6,
+                        "borderRadius": 4,
                       },
                     ]
                   }
+                  testID="Pressable_Button"
                 >
-                  <Text
-                    numberOfLines={1}
-                    selectable={false}
+                  <View
                     style={
                       Array [
                         Object {
-                          "color": "#424242",
-                          "fontFamily": "System",
-                          "fontWeight": "400",
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "justifyContent": "center",
                         },
                         Object {
-                          "textAlign": "left",
+                          "padding": 6,
                         },
-                        Array [
-                          Object {
-                            "letterSpacing": 1,
-                            "marginHorizontal": 16,
-                            "marginVertical": 9,
-                            "textAlign": "center",
-                          },
-                          undefined,
-                          Object {
-                            "textTransform": "uppercase",
-                          },
-                          Object {
-                            "color": "#000000",
-                            "fontFamily": "System",
-                            "fontWeight": "500",
-                          },
-                          Object {
-                            "fontFamily": "System",
-                            "fontWeight": "500",
-                          },
-                          undefined,
-                        ],
                       ]
                     }
                   >
                     <Text
-                      mode="contained"
+                      numberOfLines={1}
+                      selectable={false}
                       style={
                         Array [
                           Object {
@@ -910,379 +897,84 @@ exports[`Templates/LoginTemplate should render snapshot 1`] = `
                           },
                           Array [
                             Object {
-                              "color": "#fff",
-                              "fontSize": 18,
-                              "fontWeight": "bold",
+                              "letterSpacing": 1,
+                              "marginHorizontal": 16,
+                              "marginVertical": 9,
+                              "textAlign": "center",
+                            },
+                            undefined,
+                            Object {
+                              "textTransform": "uppercase",
+                            },
+                            Object {
+                              "color": "#000000",
+                              "fontFamily": "System",
+                              "fontWeight": "500",
+                            },
+                            Object {
+                              "fontFamily": "System",
+                              "fontWeight": "500",
+                            },
+                            Object {
+                              "fontSize": undefined,
                             },
                           ],
                         ]
                       }
                     >
-                      entrar
+                      <Text
+                        mode="contained"
+                        style={
+                          Array [
+                            Object {
+                              "color": "#424242",
+                              "fontFamily": "System",
+                              "fontWeight": "400",
+                            },
+                            Object {
+                              "textAlign": "left",
+                            },
+                            Array [
+                              Object {
+                                "color": "#fff",
+                                "fontSize": 18,
+                                "fontWeight": "bold",
+                              },
+                            ],
+                          ]
+                        }
+                      >
+                        entrar
+                      </Text>
                     </Text>
-                  </Text>
+                  </View>
                 </View>
               </View>
             </View>
           </View>
-        </View>
-        <View
-          accessible={false}
-          marginStyle="20px 0"
-          style={
-            Array [
-              Object {
-                "marginBottom": 20,
-                "marginLeft": 0,
-                "marginRight": 0,
-                "marginTop": 20,
-                "paddingBottom": 0,
-                "paddingLeft": 0,
-                "paddingRight": 0,
-                "paddingTop": 0,
-              },
-            ]
-          }
-          testID="View_Flex"
-        >
-          <Text
-            accessible={false}
-            align="center"
-            style={
-              Array [
-                Object {
-                  "color": "#424242",
-                  "fontFamily": "System",
-                  "fontWeight": "400",
-                },
-                Object {
-                  "textAlign": "left",
-                },
-                Array [
-                  Object {
-                    "color": "#424242",
-                    "fontSize": 16,
-                    "textAlign": "center",
-                    "textDecorationColor": "black",
-                    "textDecorationLine": "none",
-                    "textDecorationStyle": "solid",
-                  },
-                ],
-              ]
-            }
-            testID="Text_Text"
-          >
-            ou continue com
-          </Text>
-        </View>
-        <View
-          collapsable={false}
-          nativeID="animatedComponent"
-          style={
-            Object {
-              "backgroundColor": "#00C9D2",
-              "borderColor": "transparent",
-              "borderRadius": 4,
-              "borderStyle": "solid",
-              "borderWidth": 0,
-              "elevation": 0,
-              "marginBottom": 0,
-              "marginLeft": 0,
-              "marginRight": 0,
-              "marginTop": 0,
-              "minWidth": 64,
-              "paddingBottom": 0,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-              "paddingTop": 0,
-            }
-          }
-        >
           <View
-            accessibilityRole="button"
-            accessibilityState={
-              Object {
-                "disabled": false,
-              }
-            }
             accessible={false}
-            focusable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
+            marginStyle="20px 0"
             style={
               Array [
                 Object {
-                  "overflow": "hidden",
-                },
-                Object {
-                  "borderRadius": 4,
-                },
-              ]
-            }
-            testID="Pressable_Button"
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "padding": 6,
-                  },
-                ]
-              }
-            >
-              <Text
-                numberOfLines={1}
-                selectable={false}
-                style={
-                  Array [
-                    Object {
-                      "color": "#424242",
-                      "fontFamily": "System",
-                      "fontWeight": "400",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Array [
-                      Object {
-                        "letterSpacing": 1,
-                        "marginHorizontal": 16,
-                        "marginVertical": 9,
-                        "textAlign": "center",
-                      },
-                      undefined,
-                      Object {
-                        "textTransform": "uppercase",
-                      },
-                      Object {
-                        "color": "#000000",
-                        "fontFamily": "System",
-                        "fontWeight": "500",
-                      },
-                      Object {
-                        "fontFamily": "System",
-                        "fontWeight": "500",
-                      },
-                      undefined,
-                    ],
-                  ]
-                }
-              >
-                <Text
-                  mode="contained"
-                  style={
-                    Array [
-                      Object {
-                        "color": "#424242",
-                        "fontFamily": "System",
-                        "fontWeight": "400",
-                      },
-                      Object {
-                        "textAlign": "left",
-                      },
-                      Array [
-                        Object {
-                          "color": "#fff",
-                          "fontSize": 18,
-                          "fontWeight": "bold",
-                        },
-                      ],
-                    ]
-                  }
-                >
-                  google
-                </Text>
-              </Text>
-            </View>
-          </View>
-        </View>
-        <View
-          collapsable={false}
-          marginStyle="20px 0"
-          nativeID="animatedComponent"
-          style={
-            Object {
-              "backgroundColor": "#00C9D2",
-              "borderColor": "transparent",
-              "borderRadius": 4,
-              "borderStyle": "solid",
-              "borderWidth": 0,
-              "elevation": 0,
-              "marginBottom": 20,
-              "marginLeft": 0,
-              "marginRight": 0,
-              "marginTop": 20,
-              "minWidth": 64,
-              "paddingBottom": 0,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-              "paddingTop": 0,
-            }
-          }
-        >
-          <View
-            accessibilityRole="button"
-            accessibilityState={
-              Object {
-                "disabled": false,
-              }
-            }
-            accessible={false}
-            focusable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Array [
-                Object {
-                  "overflow": "hidden",
-                },
-                Object {
-                  "borderRadius": 4,
+                  "flexDirection": "column",
+                  "marginBottom": 20,
+                  "marginLeft": 0,
+                  "marginRight": 0,
+                  "marginTop": 20,
+                  "paddingBottom": 0,
+                  "paddingLeft": 0,
+                  "paddingRight": 0,
+                  "paddingTop": 0,
                 },
               ]
             }
-            testID="Pressable_Button"
+            testID="View_Flex"
           >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "padding": 6,
-                  },
-                ]
-              }
-            >
-              <Text
-                numberOfLines={1}
-                selectable={false}
-                style={
-                  Array [
-                    Object {
-                      "color": "#424242",
-                      "fontFamily": "System",
-                      "fontWeight": "400",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Array [
-                      Object {
-                        "letterSpacing": 1,
-                        "marginHorizontal": 16,
-                        "marginVertical": 9,
-                        "textAlign": "center",
-                      },
-                      undefined,
-                      Object {
-                        "textTransform": "uppercase",
-                      },
-                      Object {
-                        "color": "#000000",
-                        "fontFamily": "System",
-                        "fontWeight": "500",
-                      },
-                      Object {
-                        "fontFamily": "System",
-                        "fontWeight": "500",
-                      },
-                      undefined,
-                    ],
-                  ]
-                }
-              >
-                <Text
-                  mode="contained"
-                  style={
-                    Array [
-                      Object {
-                        "color": "#424242",
-                        "fontFamily": "System",
-                        "fontWeight": "400",
-                      },
-                      Object {
-                        "textAlign": "left",
-                      },
-                      Array [
-                        Object {
-                          "color": "#fff",
-                          "fontSize": 18,
-                          "fontWeight": "bold",
-                        },
-                      ],
-                    ]
-                  }
-                >
-                  facebook
-                </Text>
-              </Text>
-            </View>
-          </View>
-        </View>
-        <View
-          accessible={false}
-          collapsable={false}
-          focusable={true}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          testID="Pressable_Pressable"
-        >
-          <Text
-            accessible={false}
-            align="center"
-            style={
-              Array [
-                Object {
-                  "color": "#424242",
-                  "fontFamily": "System",
-                  "fontWeight": "400",
-                },
-                Object {
-                  "textAlign": "left",
-                },
-                Array [
-                  Object {
-                    "color": "#424242",
-                    "fontSize": 16,
-                    "textAlign": "center",
-                    "textDecorationColor": "black",
-                    "textDecorationLine": "none",
-                    "textDecorationStyle": "solid",
-                  },
-                ],
-              ]
-            }
-            testID="Text_Text"
-          >
-            Não possui conta? 
             <Text
               accessible={false}
+              align="center"
               style={
                 Array [
                   Object {
@@ -1297,23 +989,363 @@ exports[`Templates/LoginTemplate should render snapshot 1`] = `
                     Object {
                       "color": "#424242",
                       "fontSize": 16,
-                      "textAlign": "left",
-                      "textDecorationColor": "#424242",
-                      "textDecorationLine": "underline",
+                      "textAlign": "center",
+                      "textDecorationColor": "black",
+                      "textDecorationLine": "none",
                       "textDecorationStyle": "solid",
                     },
                   ],
                 ]
               }
               testID="Text_Text"
-              underline={true}
             >
-              Cadastrar
+              ou continue com
             </Text>
-          </Text>
+          </View>
+          <View
+            collapsable={false}
+            nativeID="animatedComponent"
+            style={
+              Object {
+                "backgroundColor": "#00C9D2",
+                "borderColor": "#00C9D2",
+                "borderRadius": 4,
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "elevation": 0,
+                "marginBottom": 0,
+                "marginLeft": 0,
+                "marginRight": 0,
+                "marginTop": 0,
+                "minWidth": 64,
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+              }
+            }
+          >
+            <View
+              accessibilityRole="button"
+              accessibilityState={
+                Object {
+                  "disabled": false,
+                }
+              }
+              accessible={false}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "overflow": "hidden",
+                  },
+                  Object {
+                    "borderRadius": 4,
+                  },
+                ]
+              }
+              testID="Pressable_Button"
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                    },
+                    Object {
+                      "padding": 6,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  numberOfLines={1}
+                  selectable={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": "#424242",
+                        "fontFamily": "System",
+                        "fontWeight": "400",
+                      },
+                      Object {
+                        "textAlign": "left",
+                      },
+                      Array [
+                        Object {
+                          "letterSpacing": 1,
+                          "marginHorizontal": 16,
+                          "marginVertical": 9,
+                          "textAlign": "center",
+                        },
+                        undefined,
+                        Object {
+                          "textTransform": "uppercase",
+                        },
+                        Object {
+                          "color": "#000000",
+                          "fontFamily": "System",
+                          "fontWeight": "500",
+                        },
+                        Object {
+                          "fontFamily": "System",
+                          "fontWeight": "500",
+                        },
+                        Object {
+                          "fontSize": undefined,
+                        },
+                      ],
+                    ]
+                  }
+                >
+                  <Text
+                    mode="contained"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#424242",
+                          "fontFamily": "System",
+                          "fontWeight": "400",
+                        },
+                        Object {
+                          "textAlign": "left",
+                        },
+                        Array [
+                          Object {
+                            "color": "#fff",
+                            "fontSize": 18,
+                            "fontWeight": "bold",
+                          },
+                        ],
+                      ]
+                    }
+                  >
+                    google
+                  </Text>
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            collapsable={false}
+            marginStyle="20px 0"
+            nativeID="animatedComponent"
+            style={
+              Object {
+                "backgroundColor": "#00C9D2",
+                "borderColor": "#00C9D2",
+                "borderRadius": 4,
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "elevation": 0,
+                "marginBottom": 20,
+                "marginLeft": 0,
+                "marginRight": 0,
+                "marginTop": 20,
+                "minWidth": 64,
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+              }
+            }
+          >
+            <View
+              accessibilityRole="button"
+              accessibilityState={
+                Object {
+                  "disabled": false,
+                }
+              }
+              accessible={false}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "overflow": "hidden",
+                  },
+                  Object {
+                    "borderRadius": 4,
+                  },
+                ]
+              }
+              testID="Pressable_Button"
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                    },
+                    Object {
+                      "padding": 6,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  numberOfLines={1}
+                  selectable={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": "#424242",
+                        "fontFamily": "System",
+                        "fontWeight": "400",
+                      },
+                      Object {
+                        "textAlign": "left",
+                      },
+                      Array [
+                        Object {
+                          "letterSpacing": 1,
+                          "marginHorizontal": 16,
+                          "marginVertical": 9,
+                          "textAlign": "center",
+                        },
+                        undefined,
+                        Object {
+                          "textTransform": "uppercase",
+                        },
+                        Object {
+                          "color": "#000000",
+                          "fontFamily": "System",
+                          "fontWeight": "500",
+                        },
+                        Object {
+                          "fontFamily": "System",
+                          "fontWeight": "500",
+                        },
+                        Object {
+                          "fontSize": undefined,
+                        },
+                      ],
+                    ]
+                  }
+                >
+                  <Text
+                    mode="contained"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#424242",
+                          "fontFamily": "System",
+                          "fontWeight": "400",
+                        },
+                        Object {
+                          "textAlign": "left",
+                        },
+                        Array [
+                          Object {
+                            "color": "#fff",
+                            "fontSize": 18,
+                            "fontWeight": "bold",
+                          },
+                        ],
+                      ]
+                    }
+                  >
+                    facebook
+                  </Text>
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            accessible={false}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            testID="Pressable_Pressable"
+          >
+            <Text
+              accessible={false}
+              align="center"
+              style={
+                Array [
+                  Object {
+                    "color": "#424242",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Array [
+                    Object {
+                      "color": "#424242",
+                      "fontSize": 16,
+                      "textAlign": "center",
+                      "textDecorationColor": "black",
+                      "textDecorationLine": "none",
+                      "textDecorationStyle": "solid",
+                    },
+                  ],
+                ]
+              }
+              testID="Text_Text"
+            >
+              Não possui conta? 
+              <Text
+                accessible={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "#424242",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                    },
+                    Object {
+                      "textAlign": "left",
+                    },
+                    Array [
+                      Object {
+                        "color": "#424242",
+                        "fontSize": 16,
+                        "textAlign": "left",
+                        "textDecorationColor": "#424242",
+                        "textDecorationLine": "underline",
+                        "textDecorationStyle": "solid",
+                      },
+                    ],
+                  ]
+                }
+                testID="Text_Text"
+                underline={true}
+              >
+                Cadastrar
+              </Text>
+            </Text>
+          </View>
         </View>
       </View>
-    </View>
+    </RCTScrollView>
   </RCTSafeAreaView>
 </View>
 `;

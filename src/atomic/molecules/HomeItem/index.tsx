@@ -6,6 +6,7 @@ export interface IHomeItem {
   testID?: string
   icon: string
   text: string
+  gap?: boolean
   onPress: () => void
 }
 

@@ -10,10 +10,11 @@ export const StyledButton = styled(PaperButton).attrs(() => ({
     padding: 6
   }
 }))<IStyledButton>`
-  border-color: ${(props) => {
-    if (props.mode === 'outlined') return props.theme.palette.complementary3
-    return 'transparent'
-  }};
+  border-color: ${(props) => props.mode === 'outlined'
+     ? props.theme.palette.complementary3
+     : props.theme.palette.primary
+  };
+  border-width: 1px;
   margin: ${({ marginStyle }) => (typeof marginStyle === 'number') ? `${marginStyle}px` : (marginStyle ?? 0)};
   padding: ${({ paddingStyle }) => (typeof paddingStyle === 'number') ? `${paddingStyle}px` : (paddingStyle ?? 0)};
   elevation: 0;

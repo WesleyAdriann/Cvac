@@ -7,9 +7,10 @@ export const style = css<IFlexCustomStyle>`
   padding: ${({ paddingStyle }) => (typeof paddingStyle === 'number') ? `${paddingStyle}px` : (paddingStyle ?? 0)};
   flex-direction: ${({ flexDirection }) => flexDirection ?? 'column'};
 
-  ${({ flexGrow }) => flexGrow && css`
-    flex-grow: ${flexGrow};
+  ${({ flex }) => flex && css`
+    flex: ${flex};
   `}
+
 `
 
 export const StyledView = styled.View`
@@ -18,4 +19,14 @@ export const StyledView = styled.View`
 
 export const StyledSafeAreaView = styled.SafeAreaView`
  ${style}
+`
+
+export const StyledScroll = styled.ScrollView.attrs<IFlexCustomStyle>((props) => ({
+  contentContainerStyle: {
+    padding: props.paddingStyle,
+    flexGrow: 1
+  }
+}))`
+ ${style}
+ padding: 0px;
 `

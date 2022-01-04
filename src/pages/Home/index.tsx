@@ -37,7 +37,8 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   return (
     <HomeTemplate
       isAuthenticated={session.isAuth}
-      username={session.user?.displayName ?? ''}
+      // isAuthenticated
+      username={session.user?.displayName ?? 'Fulano'}
       onPressAuthItem={onAuthItem}
       onPressMenuItem={onMenuItem}
     />
