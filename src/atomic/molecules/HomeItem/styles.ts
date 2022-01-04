@@ -1,7 +1,7 @@
 import { Dimensions, StyleSheet } from 'react-native'
 import styled from 'styled-components/native'
 import { Text as PaperText } from 'react-native-paper'
-// import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import { Pressable } from '../../atoms'
 
@@ -24,7 +24,7 @@ export const Text = styled(PaperText)`
   text-transform: uppercase;
 `
 
-export const Icon = styled.View.attrs((props) => ({
+export const Icon = styled(MaterialIcons).attrs((props) => ({
   color: props.theme.palette.primary
 }))`
   font-size: 28px
