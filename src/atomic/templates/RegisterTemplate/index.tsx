@@ -1,11 +1,26 @@
 import React from 'react'
+import { Image } from 'react-native'
 
-import { Flex, Text } from '../../atoms'
+import { Flex } from '../../atoms'
+import { AppPage } from '../../molecules'
+import { RegisterForm, IRegisterForm } from '../../organisms'
 
-export const RegisterTemplate: React.FC = () => {
+import Logotipo from '../../../assets/logotipo/logotipo.png'
+
+export interface IRegisterTemplate {
+  testID?: string
+  form: IRegisterForm
+}
+
+export const RegisterTemplate: React.FC<IRegisterTemplate> = ({ testID = 'LoginTemplate', form, ...props }) => {
   return (
-    <Flex>
-      <Text>Register</Text>
-    </Flex>
+    <AppPage {...props} testID={testID} scroll>
+        <Flex flex={1} alignItems='center' justifyContent='center'>
+          <Image source={Logotipo} />
+        </Flex>
+        <Flex flex={2} >
+          <RegisterForm {...form}/>
+        </Flex>
+    </AppPage>
   )
 }

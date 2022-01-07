@@ -1,11 +1,12 @@
 import React, { useMemo } from 'react'
 import auth from '@react-native-firebase/auth'
 import { ReactNativeFirebase } from '@react-native-firebase/app'
+import { NativeStackHeaderProps } from '@react-navigation/native-stack'
 
 import { LoginTemplate } from '../../atomic/templates'
 import { ILoginFormInputs } from '../../atomic/organisms'
 
-export const Login: React.FC = () => {
+export const Login: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const authentication = useMemo(auth, [])
 
   const handleSubmitLoginEmail = async (form: ILoginFormInputs) => {
@@ -21,13 +22,15 @@ export const Login: React.FC = () => {
     //
   }
 
+  const handleRegister = () => navigation.push('register')
+
   return (
     <LoginTemplate
       form={{
         onSubmit: handleSubmitLoginEmail
       }}
       onPressSocial={handleSubmitLoginSocial}
-      onPressRegister={() => console.log('foo')}
+      onPressRegister={handleRegister}
     />
   )
 }

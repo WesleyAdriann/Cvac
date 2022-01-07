@@ -7,6 +7,7 @@ import { AppHeader } from '../atomic'
 
 import { Login } from './Login'
 import { Home } from './Home'
+import { Register } from './Register'
 
 const Stack = createNativeStackNavigator()
 
@@ -36,6 +37,7 @@ export const Pages: React.FC = () => {
       <Stack.Navigator initialRouteName='home' screenOptions={{ header: (props) => <AppHeader {...props}/> }}>
         <Stack.Screen name='home' component={Home} options={{ headerShown: false }} />
         <Stack.Screen name='login' component={Login} options={{ headerShown: false }} />
+        <Stack.Screen name='register' component={Register} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   )

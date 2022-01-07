@@ -6,17 +6,17 @@ import { useTheme } from 'styled-components/native'
 
 import { Flex } from '../../atoms'
 
-import { assignTestId } from '../../../utils'
+import { assignTestId, formatDate } from '../../../utils'
 
 export interface ITextInput extends Omit<TextInputProps, 'error' | 'theme' | 'mode'> {
   testID?: string,
   description?: string,
   withError?: boolean
-  type?: 'text' | 'password' | 'email'
+  type?: 'text' | 'password' | 'email' | 'date'
   affix?: string
 }
 
-export const TextInput: React.FC<ITextInput> = ({
+const Component: React.FC<ITextInput> = ({
   testID = 'TextInput',
   description,
   withError,
@@ -28,8 +28,13 @@ export const TextInput: React.FC<ITextInput> = ({
 
   const [secureTextEntry, setSecureTextEntry] = useState<boolean>(type === 'password')
 
+  const formatText = (value: string) => {
+    if (type === 'date') return formatDate(value)
+    return value
+  }
+
   const onChangeText = (text: string) => {
-    const formatedText = text
+    const formatedText = formatText(text)
     props?.onChangeText?.(formatedText)
   }
 
@@ -56,10 +61,10 @@ export const TextInput: React.FC<ITextInput> = ({
   return (
     <Flex testID={testID}>
       <PaperTextInput
-        onChangeText={onChangeText}
         error={withError}
         {...assignTestId('TextInput', testID)}
         {...props}
+        onChangeText={onChangeText}
         mode='outlined'
         secureTextEntry={secureTextEntry}
         right={renderRightIcon}
@@ -71,3 +76,5 @@ export const TextInput: React.FC<ITextInput> = ({
     </Flex>
   )
 }
+
+export const TextInput = React.memo(Component)
