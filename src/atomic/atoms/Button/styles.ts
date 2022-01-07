@@ -7,7 +7,7 @@ import { TButtonMore, IButton } from './index'
 type IStyledButton = Omit<IButton, 'text' | 'icon'>
 export const StyledButton = styled(PaperButton).attrs(() => ({
   contentStyle: {
-    padding: 6
+    paddingVertical: 6
   }
 }))<IStyledButton>`
   border-color: ${(props) => props.mode === 'outlined'
