@@ -15,7 +15,7 @@ exports[`Molecules/AppHeader should render snapshot 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": "#00C9D2",
+          "backgroundColor": "#F1FAFC",
           "elevation": 4,
           "zIndex": 0,
         },
@@ -43,7 +43,7 @@ exports[`Molecules/AppHeader should render snapshot 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "backgroundColor": "#00C9D2",
+          "backgroundColor": "#F1FAFC",
           "elevation": 0,
           "flexDirection": "row",
           "height": 56,
@@ -108,7 +108,7 @@ exports[`Molecules/AppHeader should render snapshot 1`] = `
               },
               Array [
                 Object {
-                  "color": "#000000",
+                  "color": "#27525C",
                   "fontFamily": "System",
                   "fontWeight": "400",
                 },
