@@ -15,7 +15,7 @@ export const AppHeader: React.FC<IAppHeader> = ({ testID = 'AppHeader', navigati
 
   return (
     <Header {...props} {...assignTestId('View', testID)}>
-      {back ? <Appbar.BackAction onPress={navigation?.goBack} /> : null}
+      {back ? <Appbar.BackAction onPress={navigation?.goBack} color={theme.palette.complementary1} /> : null}
       <Appbar.Content title={props?.options?.title} color={theme.palette.complementary1} />
     </Header>
   )

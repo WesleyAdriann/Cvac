@@ -15,7 +15,7 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
       case 'calendar':
         return null
       case 'local':
-        return null
+        return navigation.push('locations')
       case 'notification':
         return null
       case 'wallet':
