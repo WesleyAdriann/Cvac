@@ -1,5 +1,5 @@
 import 'styled-components'
-import { TTheme } from '.'
+import { TTheme } from '../src/tokens'
 
 declare module 'styled-components' {
   export interface DefaultTheme extends TTheme {}
