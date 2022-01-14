@@ -32,7 +32,12 @@ export const RegisterForm : React.FC<IRegisterForm> = ({ testID = 'RegisterForm'
     }
   })
 
-  const onSubmitPress = handleSubmit(onSubmit)
+  const onSubmitPress = handleSubmit((form) => {
+    onSubmit({
+      ...form,
+      birthDate: new Date(form.birthDate).toISOString()
+    })
+  })
 
   return (
     <Flex flex={1} testID={testID}>

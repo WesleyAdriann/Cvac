@@ -1,4 +1,5 @@
 export * from './AppHeader'
 export * from './AppPage'
+export * from './Dialog'
 export * from './TextInput'
 export * from './HomeItem'

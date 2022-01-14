@@ -13,6 +13,7 @@ type TComponentType =
   | 'Text'
   | 'SafeAreaView'
   | 'Pressable'
+  | 'Modal'
 
 export const assignTestId = (
   componentType: TComponentType,

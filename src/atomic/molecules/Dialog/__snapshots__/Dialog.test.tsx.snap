@@ -1,0 +1,271 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Molecules/Dialog should render snapshot 1`] = `
+<View
+  collapsable={false}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Modal
+    accessible={false}
+    animationType="fade"
+    hardwareAccelerated={false}
+    testID="Modal_Dialog"
+    transparent={true}
+    visible={true}
+  >
+    <View
+      accessibilityLiveRegion="polite"
+      accessibilityViewIsModal={true}
+      collapsable={false}
+      nativeID="animatedComponent"
+      onAccessibilityEscape={[Function]}
+      pointerEvents="auto"
+      style={
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    >
+      <View
+        accessibilityLabel="Close modal"
+        accessibilityRole="button"
+        accessibilityState={
+          Object {
+            "disabled": false,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        importantForAccessibility="no"
+        nativeID="animatedComponent"
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "rgba(0, 0, 0, 0.5)",
+            "flex": 1,
+            "opacity": 1,
+          }
+        }
+      />
+      <View
+        pointerEvents="box-none"
+        style={
+          Array [
+            Object {
+              "bottom": 0,
+              "justifyContent": "center",
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+            Object {
+              "marginBottom": 0,
+              "marginTop": 20,
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          collapsable={false}
+          nativeID="animatedComponent"
+          style={
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderRadius": 4,
+              "elevation": 24,
+              "justifyContent": "flex-start",
+              "marginHorizontal": 26,
+              "marginVertical": 0,
+              "opacity": 1,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 23,
+                "width": 0,
+              },
+              "shadowOpacity": 0.24,
+              "shadowRadius": 24,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "paddingBottom": 24,
+                  "paddingHorizontal": 24,
+                },
+                Array [
+                  Object {
+                    "paddingTop": 24,
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            <Text
+              accessible={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#424242",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Array [
+                    Object {
+                      "color": "#424242",
+                      "fontSize": 16,
+                      "textAlign": "left",
+                      "textDecorationColor": "black",
+                      "textDecorationLine": "none",
+                      "textDecorationStyle": "solid",
+                    },
+                  ],
+                ]
+              }
+              testID="Text_Text"
+            >
+              Title
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-end",
+                  "padding": 8,
+                },
+                undefined,
+              ]
+            }
+          >
+            <View
+              collapsable={false}
+              nativeID="animatedComponent"
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderColor": "transparent",
+                  "borderRadius": 4,
+                  "borderStyle": "solid",
+                  "borderWidth": 0,
+                  "elevation": 0,
+                  "minWidth": "auto",
+                }
+              }
+            >
+              <View
+                accessibilityRole="button"
+                accessibilityState={
+                  Object {
+                    "disabled": false,
+                  }
+                }
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "overflow": "hidden",
+                    },
+                    Object {
+                      "borderRadius": 4,
+                    },
+                  ]
+                }
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "justifyContent": "center",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  <Text
+                    numberOfLines={1}
+                    selectable={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": "#424242",
+                          "fontFamily": "System",
+                          "fontWeight": "400",
+                        },
+                        Object {
+                          "textAlign": "left",
+                        },
+                        Array [
+                          Object {
+                            "letterSpacing": 1,
+                            "marginHorizontal": 16,
+                            "marginVertical": 9,
+                            "textAlign": "center",
+                          },
+                          Object {
+                            "marginHorizontal": 8,
+                          },
+                          Object {
+                            "textTransform": "uppercase",
+                          },
+                          Object {
+                            "color": "#00C9D2",
+                            "fontFamily": "System",
+                            "fontWeight": "500",
+                          },
+                          Object {
+                            "fontFamily": "System",
+                            "fontWeight": "500",
+                          },
+                          undefined,
+                        ],
+                      ]
+                    }
+                  >
+                    Ok
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </Modal>
+</View>
+`;

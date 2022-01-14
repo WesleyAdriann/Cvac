@@ -17,6 +17,7 @@ export interface IButton extends IButtomCustomStyle {
   text: string
   mode?: TButtonMore
   onPress: () => void
+  iconSize?: number
 }
 
 const Component: React.FC<IButton> = ({ testID = 'Button', text, mode = 'contained', iconSize, ...props }) => (

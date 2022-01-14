@@ -2,12 +2,12 @@ import React from 'react'
 import { Image } from 'react-native'
 
 import { Flex } from '../../atoms'
-import { AppPage } from '../../molecules'
+import { AppPage, IAppPage } from '../../molecules'
 import { RegisterForm, IRegisterForm } from '../../organisms'
 
 import Logotipo from '../../../assets/logotipo/logotipo.png'
 
-export interface IRegisterTemplate {
+export interface IRegisterTemplate extends Omit<IAppPage, 'children' | 'scroll'> {
   testID?: string
   form: IRegisterForm
 }
