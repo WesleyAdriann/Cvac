@@ -15,7 +15,7 @@ const fullRegister = yup.object().shape({
   name: yup.string().required('Digite seu nome'),
   birthDate: yup.date().transform(parseDate).typeError('Informe uma data de nascimento válida').max(minDiffAge, 'Você não possui idade suficiente').min(maxDiffAge, 'Informe uma data de nascimento válida'),
   email: yup.string().required('Digite um e-mail').email('Digite um e-mail válido'),
-  password: yup.string().required('Digite uma senha')
+  password: yup.string().required('Digite uma senha').min(6, 'Senha deve ter no mínimo 6 caracteres')
 })
 
 const socialRegister = yup.object().shape({

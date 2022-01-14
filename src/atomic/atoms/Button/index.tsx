@@ -17,11 +17,18 @@ export interface IButton extends IButtomCustomStyle {
   text: string
   mode?: TButtonMore
   onPress: () => void
-  iconSize?: number
+  iconSize?: number,
+  isLoading?: boolean,
 }
 
-const Component: React.FC<IButton> = ({ testID = 'Button', text, mode = 'contained', iconSize, ...props }) => (
-  <StyledButton mode={mode} labelStyle={{ fontSize: iconSize }} {...props} {...assignTestId('Pressable', testID)}>
+const Component: React.FC<IButton> = ({ testID = 'Button', text, mode = 'contained', iconSize, isLoading, ...props }) => (
+  <StyledButton
+    mode={mode}
+    iconSize={iconSize}
+    loading={isLoading}
+    {...props}
+    {...assignTestId('Pressable', testID)}
+    >
     <StyledText mode={mode}>{text}</StyledText>
   </StyledButton>
 )

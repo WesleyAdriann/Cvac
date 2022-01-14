@@ -19,9 +19,10 @@ export interface IRegisterForm {
   testID?: string,
   isSocialRegister: boolean
   onSubmit: (data: IRegisterFormInputs) => void
+  isLoading?: boolean
 }
 
-export const RegisterForm : React.FC<IRegisterForm> = ({ testID = 'RegisterForm', isSocialRegister, onSubmit }) => {
+export const RegisterForm : React.FC<IRegisterForm> = ({ testID = 'RegisterForm', isSocialRegister, onSubmit, isLoading }) => {
   const { control, handleSubmit, formState: { errors } } = useForm<IRegisterFormInputs>({
     resolver: yupResolver(validation(isSocialRegister)),
     defaultValues: {
@@ -54,6 +55,7 @@ export const RegisterForm : React.FC<IRegisterForm> = ({ testID = 'RegisterForm'
             control={control}
             render={({ field }) => (
               <TextInput
+                disabled={isLoading}
                 label='Nome'
                 onChangeText={field.onChange}
                 withError={!!errors.name?.message}
@@ -69,6 +71,7 @@ export const RegisterForm : React.FC<IRegisterForm> = ({ testID = 'RegisterForm'
         control={control}
         render={({ field }) => (
           <TextInput
+            disabled={isLoading}
             label='Data de Nascimento'
             type='date'
             onChangeText={field.onChange}
@@ -87,6 +90,7 @@ export const RegisterForm : React.FC<IRegisterForm> = ({ testID = 'RegisterForm'
               control={control}
               render={({ field }) => (
                 <TextInput
+                  disabled={isLoading}
                   label='Email'
                   onChangeText={field.onChange}
                   withError={!!errors.email?.message}
@@ -99,6 +103,7 @@ export const RegisterForm : React.FC<IRegisterForm> = ({ testID = 'RegisterForm'
               control={control}
               render={({ field }) => (
                 <TextInput
+                disabled={isLoading}
                   label='Senha'
                   type='password'
                   onChangeText={field.onChange}
@@ -112,7 +117,7 @@ export const RegisterForm : React.FC<IRegisterForm> = ({ testID = 'RegisterForm'
       }
 
       <Flex flex={1} justifyContent='flex-end'>
-        <Button text='finalizar cadastro' onPress={onSubmitPress}/>
+        <Button text='finalizar cadastro' onPress={onSubmitPress} isLoading={isLoading} />
       </Flex>
     </Flex>
   )

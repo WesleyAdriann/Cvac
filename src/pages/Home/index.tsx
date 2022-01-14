@@ -1,14 +1,25 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { NativeStackHeaderProps } from '@react-navigation/native-stack'
 
-import { useAppSelector } from '../../store'
+import { useAppSelector, useAppDispatch } from '../../store'
+import { sessionActions } from '../../store/slices/Session'
 
 import { HomeTemplate } from '../../atomic'
 
 import { TAuthItem, TMenuItem } from '../../atomic/templates/HomeTemplate'
 
 export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
-  const session = useAppSelector((state) => state.sessionReducer)
+  const dispatch = useAppDispatch()
+
+  const {
+    userProfileReducer: userProfile,
+    sessionReducer: session
+  } = useAppSelector((state) => state)
+
+  const displayName = useMemo(() => {
+    if (userProfile.name) return userProfile.name.split(' ').shift()
+    return ''
+  }, [userProfile.name])
 
   const onMenuItem = (item: TMenuItem) => {
     switch (item) {
@@ -28,7 +39,7 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
       case 'login':
         return navigation.push('login')
       case 'logout':
-        return navigation.push('logout')
+        return dispatch(sessionActions.startLogout())
       case 'register':
         return navigation.push('register')
     }
@@ -37,8 +48,7 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   return (
     <HomeTemplate
       isAuthenticated={session.isAuth}
-      // isAuthenticated
-      username={session.user?.displayName ?? 'Fulano'}
+      username={displayName}
       onPressAuthItem={onAuthItem}
       onPressMenuItem={onMenuItem}
     />

@@ -1,11 +1,16 @@
-
 import styled, { css } from 'styled-components/native'
 import { Text as PaperText, Button as PaperButton } from 'react-native-paper'
 
 import { TButtonMore, IButton } from './index'
 
+import { TTheme } from '../../../tokens'
+
 type IStyledButton = Omit<IButton, 'text' | 'icon'>
-export const StyledButton = styled(PaperButton).attrs(() => ({
+export const StyledButton = styled(PaperButton).attrs<IStyledButton>((props) => ({
+  labelStyle: {
+    color: defineColorText(props.theme, props.mode),
+    fontSize: props.iconSize ?? 18
+  },
   contentStyle: {
     paddingVertical: 6
   }
@@ -14,7 +19,7 @@ export const StyledButton = styled(PaperButton).attrs(() => ({
      ? props.theme.palette.complementary3
      : props.theme.palette.primary
   };
-  border-width: 1px;
+  border-width: ${(props) => props.mode === 'text' ? 0 : 1}px;
   margin: ${({ marginStyle }) => (typeof marginStyle === 'number') ? `${marginStyle}px` : (marginStyle ?? 0)};
   padding: ${({ paddingStyle }) => (typeof paddingStyle === 'number') ? `${paddingStyle}px` : (paddingStyle ?? 0)};
   elevation: 0;
@@ -25,17 +30,19 @@ export const StyledButton = styled(PaperButton).attrs(() => ({
   `}
 `
 
+const defineColorText = (theme: TTheme, mode?: TButtonMore): string => {
+  switch (mode) {
+    case 'contained':
+      return theme.fontColorInvert
+    case 'outlined':
+      return theme.palette.primary
+    default:
+      return theme.fontColor
+  }
+}
+
 export const StyledText = styled(PaperText)<{ mode: TButtonMore }>`
-  color: ${(props) => {
-    switch (props.mode) {
-      case 'contained':
-        return props.theme.fontColorInvert
-      case 'outlined':
-        return props.theme.palette.primary
-      default:
-        return props.theme.fontColor
-    }
-  }};
+  color: ${(props) => defineColorText(props.theme, props.mode)};
 
   font-weight: ${(props) => props.mode === 'contained' ? 'bold' : 'normal'};
   font-size: 18px;

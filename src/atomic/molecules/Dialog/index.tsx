@@ -1,10 +1,10 @@
 import React from 'react'
 import { Modal } from 'react-native'
-import { Button, Dialog as PaperDialog } from 'react-native-paper'
+import { Dialog as PaperDialog } from 'react-native-paper'
 
 import { assignTestId } from '../../../utils'
 
-import { Text } from '../../atoms'
+import { Text, Button } from '../../atoms'
 
 export interface IDialog {
   testID?: string
@@ -13,7 +13,9 @@ export interface IDialog {
   content?: string
   onClose?: () => void
   onPressOk?: () => void
+  btnOkText?: string
   onPressClose?: () => void
+  btnCloseText?: string
 }
 
 const Component: React.FC<IDialog> = ({
@@ -22,8 +24,10 @@ const Component: React.FC<IDialog> = ({
   title,
   content,
   onClose,
-  onPressOk,
+  onPressOk = () => null,
+  btnOkText = 'Ok',
   onPressClose,
+  btnCloseText = 'Fechar',
   ...props
 }) => (
  <Modal visible={visible} transparent animationType='fade' {...assignTestId('Modal', testID)}>
@@ -35,8 +39,24 @@ const Component: React.FC<IDialog> = ({
         <Text>{content}</Text>
       </PaperDialog.Content>
       <PaperDialog.Actions>
-        {!!onPressClose && <Button onPress={onPressClose}>Fechar</Button>}
-        <Button onPress={onPressOk ?? onClose}>Ok</Button>
+        {!!onPressClose &&
+          <Button
+            mode='text'
+            text={btnCloseText}
+            onPress={() => {
+              onClose?.()
+              onPressClose?.()
+            }}
+          />}
+        <Button
+          mode='text'
+          text={btnOkText}
+          onPress={() => {
+            onClose?.()
+            onPressOk?.()
+          }
+          }
+        />
       </PaperDialog.Actions>
     </PaperDialog>
   </Modal>
