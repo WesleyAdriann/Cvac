@@ -41,9 +41,9 @@ const defineColorText = (theme: TTheme, mode?: TButtonMore): string => {
   }
 }
 
-export const StyledText = styled(PaperText)<{ mode: TButtonMore }>`
+export const StyledText = styled(PaperText)<Pick<IButton, 'mode' | 'fontSize'>>`
   color: ${(props) => defineColorText(props.theme, props.mode)};
 
   font-weight: ${(props) => props.mode === 'contained' ? 'bold' : 'normal'};
-  font-size: 18px;
+  font-size: ${(props) => props.fontSize ?? 18}px;
 `

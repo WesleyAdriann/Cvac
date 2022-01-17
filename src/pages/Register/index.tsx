@@ -12,6 +12,8 @@ import { RegisterTemplate } from '../../atomic/templates'
 import { useAppDispatch } from '../../store'
 import { userProfileActions } from '../../store/slices/UserProfile'
 
+import { log } from '../../utils'
+
 interface IRegister extends NativeStackHeaderProps {
   route: RouteProp<{
     paramns: {
@@ -21,6 +23,7 @@ interface IRegister extends NativeStackHeaderProps {
 }
 
 export const Register: React.FC<IRegister> = ({ route, navigation }) => {
+  const TAG = 'Register'
   const dispatch = useAppDispatch()
 
   const [dialog, setDialog] = useState<IDialog>({ visible: false })
@@ -28,8 +31,7 @@ export const Register: React.FC<IRegister> = ({ route, navigation }) => {
 
   const createInAuth = async (email: string, password: string) => {
     try {
-      const credentails = await auth().createUserWithEmailAndPassword(email, password)
-      Promise.resolve(credentails)
+      return await auth().createUserWithEmailAndPassword(email, password)
     } catch (_error) {
       const error = _error as ReactNativeFirebase.NativeFirebaseError
       const errors: {[key: string]: string} = {
@@ -39,14 +41,14 @@ export const Register: React.FC<IRegister> = ({ route, navigation }) => {
         default: 'Houve um erro para finalizar seu cadastro'
       }
       const errorContent = errors?.[error.code] ?? errors.default
-      console.log(error.code)
+      log(TAG, 'createInAuth error', error.message)
       setDialog({
         visible: true,
         title: 'Erro para o cadastro',
         content: errorContent
       })
 
-      Promise.reject(error)
+      throw error
     }
   }
 
@@ -55,13 +57,33 @@ export const Register: React.FC<IRegister> = ({ route, navigation }) => {
     dispatch(userProfileActions.setName(displayName))
   }
 
+  const createInFirestore = async (form: IRegisterFormInputs, uid: string) => {
+    try {
+      const fire = firestore()
+      const ref = await fire.collection('users').add({
+        name: form.name,
+        uid
+      })
+      await fire.collection('dependents').add({
+        birthDate: new Date(form.birthDate),
+        name: form.name,
+        userUid: ref
+      })
+    } catch (_error) {
+      const error = _error as ReactNativeFirebase.NativeFirebaseError
+      log(TAG, 'createInAuth error', error.message)
+      throw error
+    }
+  }
+
   const handleSubmit = async (form: IRegisterFormInputs) => {
     try {
+      log(TAG, 'handleSubmit', form)
       if (isLoading) return
       setIsLoading(true)
-      await createInAuth(form.email, form.password)
+      const credentails = await createInAuth(form.email, form.password)
       await updateDisplayName(form.name)
-
+      await createInFirestore(form, credentails.user.uid)
       setDialog({
         visible: true,
         title: 'Sucesso',

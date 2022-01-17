@@ -43,6 +43,7 @@ const Component: React.FC<IDialog> = ({
           <Button
             mode='text'
             text={btnCloseText}
+            fontSize={16}
             onPress={() => {
               onClose?.()
               onPressClose?.()
@@ -51,11 +52,11 @@ const Component: React.FC<IDialog> = ({
         <Button
           mode='text'
           text={btnOkText}
+          fontSize={16}
           onPress={() => {
             onClose?.()
             onPressOk?.()
-          }
-          }
+          }}
         />
       </PaperDialog.Actions>
     </PaperDialog>

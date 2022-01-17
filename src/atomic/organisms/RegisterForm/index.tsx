@@ -92,6 +92,7 @@ export const RegisterForm : React.FC<IRegisterForm> = ({ testID = 'RegisterForm'
                 <TextInput
                   disabled={isLoading}
                   label='Email'
+                  type='email'
                   onChangeText={field.onChange}
                   withError={!!errors.email?.message}
                   description={errors.email?.message}

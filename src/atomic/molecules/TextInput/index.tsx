@@ -30,6 +30,7 @@ const Component: React.FC<ITextInput> = ({
 
   const formatText = (value: string) => {
     if (type === 'date') return formatDate(value)
+    if (type === 'email') return value.toLowerCase()
     return value
   }
 
@@ -68,9 +69,10 @@ const Component: React.FC<ITextInput> = ({
         mode='outlined'
         secureTextEntry={secureTextEntry}
         right={renderRightIcon}
-        autoCapitalize='none'
         keyboardType={type === 'email' ? 'email-address' : 'default'}
         outlineColor={theme.palette.outline}
+        autoCapitalize={type === 'email' ? 'none' : 'sentences'}
+        autoCorrect={type !== 'email'}
       />
       <HelperText visible={!!description} type={withError ? 'error' : 'info'} {...assignTestId('Text', `${testID}_helper`)}>{description}</HelperText>
     </Flex>
