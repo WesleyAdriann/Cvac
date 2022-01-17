@@ -169,12 +169,20 @@ exports[`Molecules/Dialog should render snapshot 1`] = `
               style={
                 Object {
                   "backgroundColor": "transparent",
-                  "borderColor": "transparent",
+                  "borderColor": "#00C9D2",
                   "borderRadius": 4,
                   "borderStyle": "solid",
                   "borderWidth": 0,
                   "elevation": 0,
+                  "marginBottom": 0,
+                  "marginLeft": 0,
+                  "marginRight": 0,
+                  "marginTop": 0,
                   "minWidth": "auto",
+                  "paddingBottom": 0,
+                  "paddingLeft": 0,
+                  "paddingRight": 0,
+                  "paddingTop": 0,
                 }
               }
             >
@@ -185,7 +193,7 @@ exports[`Molecules/Dialog should render snapshot 1`] = `
                     "disabled": false,
                   }
                 }
-                accessible={true}
+                accessible={false}
                 focusable={true}
                 onClick={[Function]}
                 onResponderGrant={[Function]}
@@ -204,6 +212,7 @@ exports[`Molecules/Dialog should render snapshot 1`] = `
                     },
                   ]
                 }
+                testID="Pressable_Button"
               >
                 <View
                   style={
@@ -213,7 +222,9 @@ exports[`Molecules/Dialog should render snapshot 1`] = `
                         "flexDirection": "row",
                         "justifyContent": "center",
                       },
-                      undefined,
+                      Object {
+                        "paddingVertical": 6,
+                      },
                     ]
                   }
                 >
@@ -252,12 +263,38 @@ exports[`Molecules/Dialog should render snapshot 1`] = `
                             "fontFamily": "System",
                             "fontWeight": "500",
                           },
-                          undefined,
+                          Object {
+                            "color": "#424242",
+                            "fontSize": 18,
+                          },
                         ],
                       ]
                     }
                   >
-                    Ok
+                    <Text
+                      mode="text"
+                      style={
+                        Array [
+                          Object {
+                            "color": "#424242",
+                            "fontFamily": "System",
+                            "fontWeight": "400",
+                          },
+                          Object {
+                            "textAlign": "left",
+                          },
+                          Array [
+                            Object {
+                              "color": "#424242",
+                              "fontSize": 18,
+                              "fontWeight": "normal",
+                            },
+                          ],
+                        ]
+                      }
+                    >
+                      Ok
+                    </Text>
                   </Text>
                 </View>
               </View>

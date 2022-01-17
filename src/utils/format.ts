@@ -1,7 +1,7 @@
 export const formatDate = (value: string) => {
   const clearDate = value.replace(/\D/g, '')
 
-  if (clearDate.length === 8) return value
+  if (clearDate.length === 8 && value.length === 10) return value
 
   const day = clearDate.slice(0, 2)
   const month = clearDate.slice(2, 4)

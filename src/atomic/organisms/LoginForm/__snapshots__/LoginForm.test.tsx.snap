@@ -762,7 +762,7 @@ exports[`Organisms/LoginForm should render snapshot 1`] = `
                   "justifyContent": "center",
                 },
                 Object {
-                  "padding": 6,
+                  "paddingVertical": 6,
                 },
               ]
             }
@@ -801,7 +801,8 @@ exports[`Organisms/LoginForm should render snapshot 1`] = `
                       "fontWeight": "500",
                     },
                     Object {
-                      "fontSize": undefined,
+                      "color": "#fff",
+                      "fontSize": 18,
                     },
                   ],
                 ]
