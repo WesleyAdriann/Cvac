@@ -10,7 +10,7 @@ import { theme, paperTheme } from './tokens'
 import { Pages } from './pages'
 
 export const App: React.FC = () => (
-  <ReduxProvider store={store} >
+  <ReduxProvider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <PaperProvider theme={paperTheme}>
         <ThemeProvider theme={theme}>

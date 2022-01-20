@@ -26,7 +26,7 @@ export const Locations = () => {
         detail: 'coarse'
       }
     })
-    if(status) {
+    if (status) {
       const local = await RNLocation.getLatestLocation()
       console.log(local)
       setLocal(local)

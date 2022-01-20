@@ -5,7 +5,7 @@ import { TButtonMore, IButton } from './index'
 
 import { TTheme } from '../../../tokens'
 
-type IStyledButton = Omit<IButton, 'text' | 'icon'>
+type IStyledButton = Omit<IButton, 'text'>
 export const StyledButton = styled(PaperButton).attrs<IStyledButton>((props) => ({
   labelStyle: {
     color: defineColorText(props.theme, props.mode),

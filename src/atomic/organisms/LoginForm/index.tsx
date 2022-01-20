@@ -38,6 +38,7 @@ export const LoginForm : React.FC<ILoginForm> = ({ testID = 'LoginForm', onSubmi
           <TextInput
             label='Email'
             onChangeText={field.onChange}
+            type='email'
             withError={!!errors.email?.message}
             description={errors.email?.message}
           />
@@ -58,7 +59,6 @@ export const LoginForm : React.FC<ILoginForm> = ({ testID = 'LoginForm', onSubmi
       />
       <Flex marginStyle='4px 0 0'>
         <Button text='entrar' onPress={onSubmitPress}/>
-
       </Flex>
     </Flex>
   )

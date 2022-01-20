@@ -68,7 +68,8 @@ exports[`Molecules/TextInput should render snapshot 1`] = `
         >
           <TextInput
             accessible={false}
-            autoCapitalize="none"
+            autoCapitalize="sentences"
+            autoCorrect={true}
             editable={true}
             keyboardType="default"
             multiline={false}

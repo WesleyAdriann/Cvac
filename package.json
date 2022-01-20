@@ -9,7 +9,7 @@
     "start": "react-native start",
     "start:local": "react-native start --host localhost",
     "test": "jest",
-    "test:covare": "jest --coverage",
+    "test:coverage": "jest --coverage",
     "test:json": "jest --json --outputFile=./jest-test-results.json || true",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },

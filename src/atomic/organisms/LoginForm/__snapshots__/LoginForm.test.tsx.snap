@@ -235,8 +235,9 @@ exports[`Organisms/LoginForm should render snapshot 1`] = `
             <TextInput
               accessible={false}
               autoCapitalize="none"
+              autoCorrect={false}
               editable={true}
-              keyboardType="default"
+              keyboardType="email-address"
               multiline={false}
               onBlur={[Function]}
               onChangeText={[Function]}
@@ -507,7 +508,8 @@ exports[`Organisms/LoginForm should render snapshot 1`] = `
             </View>
             <TextInput
               accessible={false}
-              autoCapitalize="none"
+              autoCapitalize="sentences"
+              autoCorrect={true}
               editable={true}
               keyboardType="default"
               multiline={false}

@@ -37,7 +37,7 @@ export const HomeTemplate: React.FC<IHomeTemplate> = ({
               ? (
                 <Flex flexDirection='row' alignItems='flex-end'>
                   <Flex flex={1} marginStyle='0 16px 0 0'>
-                  <Text size={26}>Bem Vindo,{'\n'}{username}</Text>
+                    <Text size={26}>Bem Vindo,{'\n'}{username}</Text>
                   </Flex>
                   <Flex flex={1}>
                     <Button text='sair' mode='outlined' onPress={() => onPressAuthItem('logout')}/>

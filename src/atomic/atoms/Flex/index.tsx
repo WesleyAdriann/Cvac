@@ -17,7 +17,7 @@ export interface IFlex extends ViewProps, IFlexCustomStyle, ScrollViewProps {
   children: React.ReactNode
 }
 
-const Component: React.FC<IFlex> = ({ testID = 'Flex', children, safeAreaView, scroll,...props }) => {
+const Component: React.FC<IFlex> = ({ testID = 'Flex', children, safeAreaView, scroll, ...props }) => {
   if (safeAreaView) {
     return <StyledSafeAreaView {...props} {...assignTestId('SafeAreaView', testID)}>{children}</StyledSafeAreaView>
   }

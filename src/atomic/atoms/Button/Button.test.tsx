@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, cleanup } from '@testing-library/react-native'
+import { render, cleanup, fireEvent } from '@testing-library/react-native'
 
 import { AllTheProviders as wrapper, mockTestID } from '../../../utils'
 
@@ -26,6 +26,12 @@ describe('Atoms/Button', () => {
   it(`should render component #${elContainer}`, async () => {
     const sut = await component.findByTestId(elContainer)
     expect(sut).toBeTruthy()
+  })
+
+  it(`should call onPress prop on press in #${elContainer}`, async () => {
+    const sut = await component.findByTestId(elContainer)
+    fireEvent(sut, 'press')
+    expect(props.onPress).toBeCalled()
   })
 
   it('should render snapshot', () => {

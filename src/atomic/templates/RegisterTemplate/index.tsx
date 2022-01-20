@@ -15,12 +15,12 @@ export interface IRegisterTemplate extends Omit<IAppPage, 'children' | 'scroll'>
 export const RegisterTemplate: React.FC<IRegisterTemplate> = ({ testID = 'LoginTemplate', form, ...props }) => {
   return (
     <AppPage {...props} testID={testID} scroll>
-        <Flex flex={1} alignItems='center' justifyContent='center'>
-          <Image source={Logotipo} />
-        </Flex>
-        <Flex flex={2} >
-          <RegisterForm {...form}/>
-        </Flex>
+      <Flex flex={1} alignItems='center' justifyContent='center'>
+        <Image source={Logotipo} />
+      </Flex>
+      <Flex flex={2} >
+        <RegisterForm {...form}/>
+      </Flex>
     </AppPage>
   )
 }
