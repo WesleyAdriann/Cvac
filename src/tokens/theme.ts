@@ -12,7 +12,8 @@ export const theme = {
     complementary1: '#27525C',
     complementary2: '#C24023',
     complementary3: '#00A3C9',
-    outline: '#0000001f'
+    outline: '#0000001f',
+    surface: '#212121cc'
   },
   colors: {
     black60: '#00000099',
