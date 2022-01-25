@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Organisms/Map should render snapshot 1`] = `
+<View
+  collapsable={false}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    accessible={false}
+    flex={1}
+    style={
+      Array [
+        Object {
+          "flexBasis": 0,
+          "flexDirection": "column",
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "marginBottom": 0,
+          "marginLeft": 0,
+          "marginRight": 0,
+          "marginTop": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 0,
+        },
+      ]
+    }
+    testID="View_Map"
+  >
+    <AIRMap
+      handlePanDrag={false}
+      initialRegion={null}
+      onChange={[Function]}
+      onLayout={[Function]}
+      onMapReady={[Function]}
+      onMarkerPress={[Function]}
+      region={
+        Object {
+          "latitude": 10,
+          "latitudeDelta": 0.02,
+          "longitude": 10,
+          "longitudeDelta": 0.02,
+        }
+      }
+      showsUserLocation={true}
+      style={
+        Array [
+          Object {
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+          },
+        ]
+      }
+    />
+  </View>
+</View>
+`;

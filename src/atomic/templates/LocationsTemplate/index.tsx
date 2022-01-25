@@ -1,27 +1,25 @@
 import React from 'react'
-
 import { KeyboardAvoidingView } from 'react-native'
+import { LatLng } from 'react-native-maps'
 
 import { Flex } from '../../atoms'
 import { AppPage, ListItem, TextInput } from '../../molecules'
+import { Map, ILocation } from '../../organisms'
 
 import { ListWrapper } from './styles'
 
-export interface ILocation {
-  latitude: number,
-  longitude: number,
-  text: string
-}
-
+import { locationsMock } from './mock'
 export interface ILocationsTemplate {
   testID?: string
-  locations: ILocation[],
+  locations?: ILocation[],
   isLoading?: boolean
+  initialLocation?: LatLng
 }
 
 export const LocationsTemplate: React.FC<ILocationsTemplate> = ({
   testID = 'LocationsTemplate',
-  locations = [1,2,3,5,6],
+  locations = locationsMock,
+  initialLocation,
   isLoading,
   ...props
 }) => {
@@ -33,13 +31,16 @@ export const LocationsTemplate: React.FC<ILocationsTemplate> = ({
         style={{ flex: 1 }}
       >
       <Flex flex={1}>
-
+        <Map
+          initialLocation={initialLocation}
+          locations={locations}
+        />
       </Flex>
       <Flex>
         <ListWrapper scroll>
           {
             locations.map((location, index) => (
-              <ListItem key={index} text='foo' onPress={() => null}/>
+              <ListItem key={index} text={location.text} onPress={() => null}/>
             ))
           }
         </ListWrapper>
