@@ -3,7 +3,7 @@ import MapView, { PROVIDER_GOOGLE } from 'react-native-maps' // remove PROVIDER_
 import { StyleSheet, View } from 'react-native'
 import RNLocation from 'react-native-location'
 
-import { ListItem } from '../../atomic'
+import { LocationsTemplate } from '../../atomic'
 
 const styles = StyleSheet.create({
   container: {
@@ -39,21 +39,23 @@ export const Locations = () => {
   }, [])
 
   return (
-   <View style={styles.container}>
-     <ListItem onPress={() => null} text='Local1'/>
-     {!!local &&
 
-      <MapView
-        //  provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-        style={styles.map}
-        region={{
-          latitude: local.latitude,
-          longitude: local.longitude,
-          latitudeDelta: 0.02,
-          longitudeDelta: 0.02
-        }}
-      />
-     }
-   </View>
+    <LocationsTemplate />
+  //  <View style={styles.container}>
+  //    <ListItem onPress={() => null} text='Local1'/>
+  //    {!!local &&
+
+  //     <MapView
+  //       //  provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+  //       style={styles.map}
+  //       region={{
+  //         latitude: local.latitude,
+  //         longitude: local.longitude,
+  //         latitudeDelta: 0.02,
+  //         longitudeDelta: 0.02
+  //       }}
+  //     />
+  //    }
+  //  </View>
   )
 }

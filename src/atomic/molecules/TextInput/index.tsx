@@ -12,7 +12,7 @@ export interface ITextInput extends Omit<TextInputProps, 'error' | 'theme' | 'mo
   testID?: string,
   description?: string,
   withError?: boolean
-  type?: 'text' | 'password' | 'email' | 'date'
+  type?: 'text' | 'password' | 'email' | 'date' | 'number'
   affix?: string
 }
 
@@ -31,6 +31,7 @@ const Component: React.FC<ITextInput> = ({
   const formatText = (value: string) => {
     if (type === 'date') return formatDate(value)
     if (type === 'email') return value.toLowerCase()
+    if (type === 'number') return value.replace(/\D/g, '')
     return value
   }
 
@@ -59,6 +60,12 @@ const Component: React.FC<ITextInput> = ({
     return null
   }, [secureTextEntry])
 
+  const keyboardType = useMemo(() => {
+    if (type === 'email') return 'email-address'
+    if (type === 'number') return 'number-pad'
+    return 'default'
+  }, [type])
+
   return (
     <Flex testID={testID}>
       <PaperTextInput
@@ -69,7 +76,7 @@ const Component: React.FC<ITextInput> = ({
         mode='outlined'
         secureTextEntry={secureTextEntry}
         right={renderRightIcon}
-        keyboardType={type === 'email' ? 'email-address' : 'default'}
+        keyboardType={keyboardType}
         outlineColor={theme.palette.outline}
         autoCapitalize={type === 'email' ? 'none' : 'sentences'}
         autoCorrect={type !== 'email'}

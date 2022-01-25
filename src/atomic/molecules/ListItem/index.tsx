@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Flex } from '../../atoms/Flex'
 
-import { StyledListItem } from './style'
+import { StyledListItem } from './styles'
 
 export interface IListItem {
   testID?: string
