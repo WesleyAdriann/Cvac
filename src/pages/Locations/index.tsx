@@ -3,10 +3,13 @@ import RNLocation, { Location } from 'react-native-location'
 
 import { LocationsTemplate } from '../../atomic'
 
-export const Locations = () => {
-  const [local, setLocal] = useState<Location | undefined>(undefined)
+import { getLocations } from '../../services/mapLocations'
 
-  const getLocation = async () => {
+export const Locations = () => {
+  const [userLocation, setUserLocal] = useState<Location | undefined>(undefined)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const getUserLocation = async () => {
     const status = await RNLocation.requestPermission({
       ios: 'whenInUse',
       android: {
@@ -15,16 +18,33 @@ export const Locations = () => {
     })
     if (status) {
       const local = await RNLocation.getLatestLocation()
-      setLocal(local ?? undefined)
+      setUserLocal(local ?? undefined)
+    }
+  }
+
+  const getMapLocations = async () => {
+    try {
+      setIsLoading(true)
+      const latitude = `${userLocation?.latitude}`
+      const longitude = `${userLocation?.longitude}`
+      const locations = await getLocations(latitude, longitude, 30, 'HOSPITAL')
+      console.log('>>>', locations)
+    } catch (_error) {
+
+    } finally {
+      setIsLoading(false)
     }
   }
 
   useEffect(() => {
-    getLocation()
+    getUserLocation()
   }, [])
 
-  return (
+  useEffect(() => {
+    if (userLocation) getMapLocations()
+  }, [userLocation])
 
-    <LocationsTemplate initialLocation={local}/>
+  return (
+    <LocationsTemplate initialLocation={userLocation} isLoading={isLoading} />
   )
 }

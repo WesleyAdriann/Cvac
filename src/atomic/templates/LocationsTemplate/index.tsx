@@ -2,7 +2,7 @@ import React from 'react'
 import { KeyboardAvoidingView } from 'react-native'
 import { LatLng } from 'react-native-maps'
 
-import { Flex } from '../../atoms'
+import { Flex, Loader } from '../../atoms'
 import { AppPage, ListItem, TextInput } from '../../molecules'
 import { Map, ILocation } from '../../organisms'
 
@@ -39,9 +39,11 @@ export const LocationsTemplate: React.FC<ILocationsTemplate> = ({
       <Flex>
         <ListWrapper scroll>
           {
-            locations.map((location, index) => (
+            isLoading
+              ? <Loader margin={16} />
+              : locations.map((location, index) => (
               <ListItem key={index} text={location.text} onPress={() => null}/>
-            ))
+              ))
           }
         </ListWrapper>
         <Flex paddingStyle='16px 16px 0'>
