@@ -1,20 +1,21 @@
 import React from 'react'
-import { render, cleanup, fireEvent } from '@testing-library/react-native'
+import { View } from 'react-native'
+import { render, cleanup } from '@testing-library/react-native'
 
 import { AllTheProviders as wrapper, mockTestID } from '../../../utils'
 
-import { ListItem, IListItem } from './index'
+import { Accordion, IAccordion } from './index'
 
-describe('Molecules/ListItem', () => {
-  const props: IListItem = {
+describe('Molecules/Accordion', () => {
+  const props: IAccordion = {
     testID: 'ListItem',
-    onPress: jest.fn(),
-    text: 'Sample'
+    text: 'Sample',
+    children: <View />
   }
 
   const elContainer = mockTestID('View', props.testID!).testID
 
-  const renderComponent = () => render(<ListItem {...props} />, { wrapper })
+  const renderComponent = () => render(<Accordion {...props} />, { wrapper })
   let component = renderComponent()
 
   beforeEach(() => {
@@ -26,13 +27,6 @@ describe('Molecules/ListItem', () => {
   it(`should render component #${elContainer}`, async () => {
     const sut = await component.findByTestId(elContainer)
     expect(sut).toBeTruthy()
-  })
-
-  it(`should call onPress prop when press #${elContainer}`, async () => {
-    const sut = await component.findByTestId(elContainer)
-    expect(props.onPress).not.toBeCalled()
-    fireEvent(sut, 'press')
-    expect(props.onPress).toBeCalled()
   })
 
   it('should render snapshot', () => {
