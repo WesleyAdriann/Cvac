@@ -24,7 +24,7 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const onMenuItem = (item: TMenuItem) => {
     switch (item) {
       case 'calendar':
-        return null
+        return navigation.push('calendars')
       case 'local':
         return navigation.push('locations')
       case 'notification':

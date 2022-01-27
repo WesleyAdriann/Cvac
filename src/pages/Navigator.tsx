@@ -9,6 +9,7 @@ import { Login } from './Login'
 import { Home } from './Home'
 import { Register } from './Register'
 import { Locations } from './Locations'
+import { Calendars } from './Calendars'
 
 const Stack = createNativeStackNavigator()
 
@@ -40,6 +41,7 @@ export const Navigator: React.FC = () => {
         <Stack.Screen name='login' component={Login} options={{ headerShown: false }} />
         <Stack.Screen name='register' component={Register} options={{ headerShown: false }} />
         <Stack.Screen name='locations' component={Locations} options={{ title: 'Locais' }} />
+        <Stack.Screen name='calendars' component={Calendars} options={{ title: 'Calendarios' }} />
       </Stack.Navigator>
     </NavigationContainer>
   )
