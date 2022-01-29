@@ -16,6 +16,9 @@ export const CalendarsTemplate: React.FC<ICalendarsTemplate> = ({
        <Accordion text='Criança'>
     <ListItem onPress={() => null} text='Criança' marginLeft={32} noBorder/>
   </Accordion>
+  <Accordion text='Criança'>
+    <ListItem onPress={() => null} text='Criança' marginLeft={32} noBorder/>
+  </Accordion>
     </AppPage>
   )
 }
