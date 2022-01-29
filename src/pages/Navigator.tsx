@@ -10,7 +10,7 @@ import { Home } from './Home'
 import { Register } from './Register'
 import { Locations } from './Locations'
 import { Calendars } from './Calendars'
-import { DependentsNotification} from './DependentsNotifications'
+import { DependentsNotification } from './DependentsNotifications'
 
 const Stack = createNativeStackNavigator()
 

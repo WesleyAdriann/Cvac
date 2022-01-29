@@ -23,7 +23,7 @@ const Component: React.FC<IFlex> = ({ testID = 'Flex', children, safeAreaView, s
   }
 
   if (scroll) {
-    return <StyledScroll {...props} {...assignTestId('ScrollView', testID)}>{children}</StyledScroll> 
+    return <StyledScroll {...props} {...assignTestId('ScrollView', testID)}>{children}</StyledScroll>
   }
 
   return <StyledView {...props} {...assignTestId('View', testID)} >{children}</StyledView>
