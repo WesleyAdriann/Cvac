@@ -30,7 +30,7 @@ const Component: React.FC<IDialog> = ({
   btnCloseText = 'Fechar',
   ...props
 }) => (
- <Modal visible={visible} transparent animationType='fade' {...assignTestId('Modal', testID)}>
+  <Modal visible={visible} transparent animationType='fade' {...assignTestId('Modal', testID)}>
     <PaperDialog {...props} visible onDismiss={onClose} >
       {!!title &&
         <PaperDialog.Title>{title}</PaperDialog.Title>

@@ -25,31 +25,31 @@ export const LocationsTemplate: React.FC<ILocationsTemplate> = ({
 }) => {
   return (
     <AppPage testID={testID} {...props} padding={0}>
-     <KeyboardAvoidingView
+      <KeyboardAvoidingView
         behavior='padding'
         keyboardVerticalOffset={98}
         style={{ flex: 1 }}
       >
-      <Flex flex={1}>
-        <Map
-          initialLocation={initialLocation}
-          locations={locations}
-        />
-      </Flex>
-      <Flex>
-        <ListWrapper scroll>
-          {
-            isLoading
-              ? <Loader margin={16} />
-              : locations.map((location, index) => (
-              <ListItem key={index} text={location.text} onPress={() => null}/>
-              ))
-          }
-        </ListWrapper>
-        <Flex paddingStyle='16px 16px 0'>
-          <TextInput affix='km' label='Distância máxima' type='number' disabled={isLoading} />
+        <Flex flex={1}>
+          <Map
+            initialLocation={initialLocation}
+            locations={locations}
+          />
         </Flex>
-      </Flex>
+        <Flex>
+          <ListWrapper scroll>
+            {
+              isLoading
+                ? <Loader margin={16} />
+                : locations.map((location, index) => (
+                  <ListItem key={index} text={location.text} onPress={() => null}/>
+                ))
+            }
+          </ListWrapper>
+          <Flex paddingStyle='16px 16px 0'>
+            <TextInput affix='km' label='Distância máxima' type='number' disabled={isLoading} />
+          </Flex>
+        </Flex>
       </KeyboardAvoidingView>
     </AppPage>
   )

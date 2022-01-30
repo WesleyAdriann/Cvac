@@ -32,7 +32,8 @@ module.exports = {
     '@typescript-eslint'
   ],
   rules: {
-    'no-use-before-define': 'off'
+    'no-use-before-define': 'off',
+    'indent': ['error', 2]
   },
   globals: {
     __DEV__: 'readonly'

@@ -23,25 +23,25 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
 
   const onMenuItem = (item: TMenuItem) => {
     switch (item) {
-      case 'calendar':
-        return navigation.push('calendars')
-      case 'local':
-        return navigation.push('locations')
-      case 'notification':
-        return navigation.push('dependentsNotification')
-      case 'wallet':
-        return null
+    case 'calendar':
+      return navigation.push('calendars')
+    case 'local':
+      return navigation.push('locations')
+    case 'notification':
+      return navigation.push('dependentsNotification')
+    case 'wallet':
+      return null
     }
   }
 
   const onAuthItem = (item: TAuthItem) => {
     switch (item) {
-      case 'login':
-        return navigation.push('login')
-      case 'logout':
-        return dispatch(sessionActions.startLogout())
-      case 'register':
-        return navigation.push('register')
+    case 'login':
+      return navigation.push('login')
+    case 'logout':
+      return dispatch(sessionActions.startLogout())
+    case 'register':
+      return navigation.push('register')
     }
   }
 

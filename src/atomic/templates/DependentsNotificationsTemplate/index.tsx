@@ -15,18 +15,18 @@ export const DependentsNotificationsTemplate: React.FC<IDependentsNotificationsT
 }) => {
   return (
     <AppPage testID={testID} {...props} scroll padding={16}>
-        <Button
+      <Button
         onPress={() => null}
         text='Dependente'
         mode='outlined'
         marginStyle='0 0 16px'
-        />
-        <Button
+      />
+      <Button
         onPress={() => null}
         text='Dependente 2'
         mode='outlined'
         marginStyle='0 0 16px'/>
-        <Button
+      <Button
         onPress={() => null}
         text='Dependente 3'
         mode='outlined'

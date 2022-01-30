@@ -43,13 +43,13 @@ export const HomeTemplate: React.FC<IHomeTemplate> = ({
                     <Button text='sair' mode='outlined' onPress={() => onPressAuthItem('logout')}/>
                   </Flex>
                 </Flex>
-                )
+              )
               : (
                 <Flex flexDirection='row'>
                   <Button flex={1} text='login' onPress={() => onPressAuthItem('login')} marginStyle='0 16px 0 0' />
                   <Button flex={1} text='cadastrar' mode='outlined' onPress={() => onPressAuthItem('register')} />
                 </Flex>
-                )
+              )
           }
         </Flex>
         <Flex marginStyle='16px 0 0'>

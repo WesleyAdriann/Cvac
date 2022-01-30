@@ -16,9 +16,9 @@ export const StyledButton = styled(PaperButton).attrs<IStyledButton>((props) => 
   }
 }))<IStyledButton>`
   border-color: ${(props) => props.mode === 'outlined'
-     ? props.theme.palette.complementary3
-     : props.theme.palette.primary
-  };
+    ? props.theme.palette.complementary3
+    : props.theme.palette.primary
+};
   border-width: ${(props) => props.mode === 'text' ? 0 : 1}px;
   margin: ${({ marginStyle }) => (typeof marginStyle === 'number') ? `${marginStyle}px` : (marginStyle ?? 0)};
   padding: ${({ paddingStyle }) => (typeof paddingStyle === 'number') ? `${paddingStyle}px` : (paddingStyle ?? 0)};
@@ -32,12 +32,12 @@ export const StyledButton = styled(PaperButton).attrs<IStyledButton>((props) => 
 
 const defineColorText = (theme: TTheme, mode?: TButtonMore): string => {
   switch (mode) {
-    case 'contained':
-      return theme.fontColorInvert
-    case 'outlined':
-      return theme.palette.primary
-    default:
-      return theme.fontColor
+  case 'contained':
+    return theme.fontColorInvert
+  case 'outlined':
+    return theme.palette.primary
+  default:
+    return theme.fontColor
   }
 }
 

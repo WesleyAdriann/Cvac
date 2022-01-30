@@ -22,14 +22,14 @@ export const assignTestId = (
   const id = `${componentType}_${componentId}`
   return Platform.OS === 'android'
     ? {
-        testID: id,
-        accessible: true,
-        accessibilityLabel: id
-      }
+      testID: id,
+      accessible: true,
+      accessibilityLabel: id
+    }
     : {
-        testID: id,
-        accessible: false
-      }
+      testID: id,
+      accessible: false
+    }
 }
 export const mockTestID = (
   componentType: TComponentType,

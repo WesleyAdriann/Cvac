@@ -14,8 +14,8 @@ export interface IAccordion {
 const Component: React.FC<IAccordion> = ({ testID = 'IAccordion', text, children, ...props }) => (
   <Flex testID={testID} {...props}>
     <List.Section>
-    <StyledAccordion title={text}>
-      {children}
+      <StyledAccordion title={text}>
+        {children}
       </StyledAccordion>
     </List.Section>
   </Flex>

@@ -9,7 +9,7 @@ export interface IPressable extends PressableProps {
 }
 
 const Component: React.FC<IPressable> = ({ testID = 'Pressable', children, ...props }) => (
-   <RNPressable {...props} {...assignTestId('Pressable', testID)} >{children}</RNPressable>
+  <RNPressable {...props} {...assignTestId('Pressable', testID)} >{children}</RNPressable>
 )
 
 export const Pressable = React.memo(Component)

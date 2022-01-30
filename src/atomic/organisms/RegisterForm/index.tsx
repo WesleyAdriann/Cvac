@@ -85,7 +85,7 @@ export const RegisterForm : React.FC<IRegisterForm> = ({ testID = 'RegisterForm'
       {
         !isSocialRegister && (
           <>
-           <Controller
+            <Controller
               name='email'
               control={control}
               render={({ field }) => (
@@ -104,7 +104,7 @@ export const RegisterForm : React.FC<IRegisterForm> = ({ testID = 'RegisterForm'
               control={control}
               render={({ field }) => (
                 <TextInput
-                disabled={isLoading}
+                  disabled={isLoading}
                   label='Senha'
                   type='password'
                   onChangeText={field.onChange}

@@ -29,7 +29,7 @@ const Component: React.FC<IButton> = ({ testID = 'Button', text, mode = 'contain
     loading={isLoading}
     {...props}
     {...assignTestId('Pressable', testID)}
-    >
+  >
     <StyledText mode={mode} fontSize={fontSize}>{text}</StyledText>
   </StyledButton>
 )
