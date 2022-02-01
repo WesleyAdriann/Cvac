@@ -29,8 +29,8 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
       return navigation.push('locations')
     case 'notification':
       return navigation.push('dependentsNotification')
-    case 'wallet':
-      return navigation.push('wallets')
+    case 'vaccineCertificate':
+      return navigation.push('dependentsVaccineCertificate')
     }
   }
 

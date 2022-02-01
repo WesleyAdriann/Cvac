@@ -7,7 +7,7 @@ import { AppPage, HomeItem } from '../../molecules'
 import Logotipo from '../../../assets/logotipo/logotipo.png'
 
 export type TAuthItem = 'login' | 'logout' | 'register'
-export type TMenuItem = 'calendar' | 'wallet' | 'local' | 'notification'
+export type TMenuItem = 'calendar' | 'vaccineCertificate' | 'local' | 'notification'
 
 export interface IHomeTemplate {
   testID?: string
@@ -55,7 +55,7 @@ export const HomeTemplate: React.FC<IHomeTemplate> = ({
         <Flex marginStyle='16px 0 0'>
           <Flex flexDirection='row'>
             <HomeItem gap icon='calendar' text='calendarios de vacinação' onPress={() => onPressMenuItem('calendar')} />
-            <HomeItem icon='badge-account-horizontal-outline' text='carteira de vacinação' onPress={() => onPressMenuItem('wallet')} />
+            <HomeItem icon='badge-account-horizontal-outline' text='carteira de vacinação' onPress={() => onPressMenuItem('vaccineCertificate')} />
           </Flex>
           <Flex flexDirection='row' marginStyle='16px 0 0'>
             <HomeItem gap icon='bell' text='lembretes de vacina' onPress={() => onPressMenuItem('notification')} />

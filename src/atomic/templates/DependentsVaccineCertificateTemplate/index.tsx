@@ -5,12 +5,12 @@ import {AppPage} from '../../molecules'
 import {Button, Flex} from '../../atoms'
 import { ScrollView } from 'react-native'
 
-export interface IWalletsTemplate {
+export interface IDependentsVaccineCertificateTemplate {
   testID?: string
 }
 
-export const WalletsTemplate: React.FC<IWalletsTemplate> = ({
-  testID = 'WalletTemplate',
+export const DependentsVaccineCertificateTemplate: React.FC<IDependentsVaccineCertificateTemplate> = ({
+  testID = 'DependentsVaccineCertificateTemplate',
 
   ...props
 }) => {
@@ -35,7 +35,7 @@ export const WalletsTemplate: React.FC<IWalletsTemplate> = ({
             text='Pessoa Z'
             mode='outlined'
             marginStyle='0 0 16px'
-          />        
+          />          
         </ScrollView>
       </Flex>
 
