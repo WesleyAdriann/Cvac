@@ -30,7 +30,7 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
     case 'notification':
       return navigation.push('dependentsNotification')
     case 'wallet':
-      return null
+      return navigation.push('wallets')
     }
   }
 
