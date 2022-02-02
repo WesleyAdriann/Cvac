@@ -12,6 +12,8 @@ import { Locations } from './Locations'
 import { Calendars } from './Calendars'
 import { DependentsNotification } from './DependentsNotifications'
 import { DependentsVaccineCertificate} from './DependentsVaccineCertificate'
+import { VaccineDetails } from './VaccineDetails'
+
 
 const Stack = createNativeStackNavigator()
 
@@ -46,6 +48,7 @@ export const Navigator: React.FC = () => {
         <Stack.Screen name='calendars' component={Calendars} options={{ title: 'Calendarios' }} />
         <Stack.Screen name='dependentsNotification' component={DependentsNotification} options={{ title: 'Lembretes' }} />
         <Stack.Screen name='dependentsVaccineCertificate' component={DependentsVaccineCertificate} options={{title: 'Carteiras'}}/>
+        <Stack.Screen name='vaccineDetails' component={VaccineDetails} options={{title: 'Detalhes'}}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
