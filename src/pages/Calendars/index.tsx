@@ -3,8 +3,9 @@ import React, { useEffect } from 'react'
 import firestore from '@react-native-firebase/firestore'
 
 import { CalendarsTemplate } from '../../atomic'
+import { NativeStackHeaderProps } from '@react-navigation/native-stack'
 
-export const Calendars: React.FC = () => {
+export const Calendars: React.FC<NativeStackHeaderProps> = ({navigation}) => {
   const getCalendars = async () => {
     const calendars = await firestore().collection('calendar')
     // console.log('"""',calendars)
@@ -25,5 +26,16 @@ export const Calendars: React.FC = () => {
     getCalendars()
   }, [])
 
-  return <CalendarsTemplate />
+  const isTouch = (item: boolean) =>{
+    if (item === true){
+      return navigation.push('vaccineDetails')
+    }
+  }
+
+ 
+  return( 
+    <CalendarsTemplate
+    checkIsTouch={isTouch}      
+   />
+   )
 }
