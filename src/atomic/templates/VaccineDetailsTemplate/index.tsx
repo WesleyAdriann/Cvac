@@ -22,17 +22,6 @@ export const VaccineDetailsTemplate: React.FC<IVaccineDetailsTemplate> = ({
         <Text>
           ao nascer 
         </Text>
-          
-
-        
-
-
-
-
-
-
-
-
       </AppPage>
     )
 }
