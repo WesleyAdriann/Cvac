@@ -27,3 +27,4 @@ export { DependentsVaccineCertificateTemplate } from './templates/DependentsVacc
 export { VaccineDetailsTemplate } from './templates/VaccineDetailsTemplate'
 export { RegisterDependentsTemplate } from './templates/RegisterDependentsTemplate'
 export { VaccineCertificateCategoryTemplate } from './templates/VaccineCertificateCategoryTemplate'
+export { VaccineCertificatesTemplate } from './templates/VaccineCertificatesTemplate'
