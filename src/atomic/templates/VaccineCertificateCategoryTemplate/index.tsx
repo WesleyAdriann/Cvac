@@ -1,48 +1,48 @@
 import React from 'react'
 
-import { List } from 'react-native-paper'
-
-import { Text } from '../../atoms'
-import { AppPage } from '../../molecules'
-
-import { theme } from '../../../tokens'
+import { Text, Flex } from '../../atoms'
+import { AppPage, ListItem } from '../../molecules'
 
 export interface IVaccineCertificateCategoryTemplate {
   testID?: string
+  onPress: () => void
 }
 
 export const VaccineCertificateCategoryTemplate: React.FC<IVaccineCertificateCategoryTemplate> = ({
   testID = 'VaccineCertificateCategoryTemplate',
-
+  onPress,
   ...props
 }) => {
   return (
-    <AppPage testID={testID} {...props} scroll padding={0}>
-      <Text align='center' size={30}>
-         Pessoa X
-      </Text>
+    <AppPage testID={testID} {...props} padding={0}>
+      <Flex flex={0.5} justifyContent='center'>
+        <Text align='center' size={30}>
+          Pessoa X
+        </Text>
+      </Flex>
 
-      <List.Item
-        onPress={() => null}
-        title='Criança'
-        right={props => <List.Icon {...props} color={theme.palette.primary} icon="chevron-right"/>}
-      />
-      <List.Item
-        onPress={() => null}
-        title='Adolescente'
-        right={props => <List.Icon {...props} color={theme.palette.primary} icon="chevron-right"/>}
-      />
-      <List.Item
-        onPress={() => null}
-        title='Adulto'
-        right={props => <List.Icon {...props} color={theme.palette.primary} icon="chevron-right"/>}
-      />
-      <List.Item
-        onPress={() => null}
-        title='Idoso'
-        right={props => <List.Icon {...props} color={theme.palette.primary} icon="chevron-right"/>}
-      />
+      <Flex flex={2} scroll>
+        <ListItem
+          onPress={onPress}
+          text='Criança'
+          icon='chevron-right'
+        />
+        <ListItem
+          onPress={onPress}
+          text='Adolescente'
+          icon='chevron-right'
+        />
+        <ListItem
+          onPress={onPress}
+          text='Adulto'
+          icon='chevron-right'
+        />
+        <ListItem
+          onPress={onPress}
+          text='Idoso'
+          icon='chevron-right'
+        />
+      </Flex>
     </AppPage>
-
   )
 }

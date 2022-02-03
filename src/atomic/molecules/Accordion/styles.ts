@@ -16,5 +16,4 @@ export const StyledAccordion = styled(List.Accordion).attrs((props) => ({
   border-bottom-width: 0.5px;
   border-color: ${(props) => props.theme.palette.outline};
   border-style: solid;
-  height: 60px;
 `

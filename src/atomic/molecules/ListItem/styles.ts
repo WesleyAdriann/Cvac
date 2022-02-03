@@ -12,6 +12,9 @@ export const StyledListItem = styled(List.Item).attrs((props) => ({
   border-bottom-width: ${(props) => props.noBorder ? 0 : 0.5}px;
   border-color: ${(props) => props.theme.palette.outline};
   border-style: solid;
-  height: 48px;
   margin-left: ${(props) => props.marginLeft ?? 0}px;
 `
+
+export const StyledIcon = styled(List.Icon).attrs<{iconColor?: string}>((props) => ({
+  color: props.iconColor ?? props.theme.palette.primary
+}))<{iconColor?: string}>``

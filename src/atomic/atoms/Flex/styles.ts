@@ -23,7 +23,8 @@ export const StyledSafeAreaView = styled.SafeAreaView`
 export const StyledScroll = styled.ScrollView.attrs<IFlexCustomStyle>((props) => ({
   contentContainerStyle: {
     padding: props.paddingStyle,
-    flexGrow: 1
+    flexGrow: 1,
+    ...props.contentContainerStyle,
   }
 }))`
  ${style}

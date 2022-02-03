@@ -3,52 +3,42 @@ import React from 'react'
 import { AppPage } from '../../molecules'
 
 import { Button, Flex } from '../../atoms'
-import { ScrollView } from 'react-native'
 
 export interface IDependentsVaccineCertificateTemplate {
   testID?: string
-  checkIsTouch: (typeButton: number) => void
+  onPressDependent: () => void
+  onPressRegister: () => void
 }
 
 export const DependentsVaccineCertificateTemplate: React.FC<IDependentsVaccineCertificateTemplate> = ({
   testID = 'DependentsVaccineCertificateTemplate',
-  checkIsTouch,
-
+  onPressDependent,
+  onPressRegister,
   ...props
 }) => {
   return (
-    <AppPage testID={testID} {...props} scroll padding={16}>
-      <Flex flex={1} justifyContent='center'>
-        <ScrollView>
-          <Button
-            onPress={() => checkIsTouch(1)}
-            text='Pessoa X'
-            mode='outlined'
-            marginStyle='0 0 16px'
-          />
-          <Button
-            onPress={() => checkIsTouch(1)}
-            text='Pessoa Y'
-            mode='outlined'
-            marginStyle='0 0 16px'
-          />
-          <Button
-            onPress={() => checkIsTouch(1)}
-            text='Pessoa Z'
-            mode='outlined'
-            marginStyle='0 0 16px'
-          />
-        </ScrollView>
-      </Flex>
-
-      <Flex>
+    <AppPage testID={testID} padding={0} {...props}>
+      <Flex scroll paddingStyle={16} contentContainerStyle={{ justifyContent: 'center' }}>
         <Button
-          onPress={() => checkIsTouch(2)}
+          onPress={onPressDependent}
+          text='Pessoa X'
+          mode='outlined'
+          marginStyle='0 0 16px'
+        />
+        <Button
+          onPress={onPressDependent}
+          text='Pessoa Y'
+          mode='outlined'
+          marginStyle='0 0 16px'
+        />
+      </Flex>
+      <Flex paddingStyle={16}>
+        <Button
+          onPress={onPressRegister}
           text='Cadastrar Dependente'
           mode='contained'
         />
       </Flex>
-
     </AppPage>
   )
 }

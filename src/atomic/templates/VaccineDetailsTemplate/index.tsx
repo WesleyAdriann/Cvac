@@ -17,7 +17,6 @@ export const VaccineDetailsTemplate: React.FC<IVaccineDetailsTemplate> = ({
       <Text align='center' size={30}>
           Vacina X
       </Text>
-
       <Flex marginStyle={20}>
         <Flex flexDirection='row'>
           <Flex>
