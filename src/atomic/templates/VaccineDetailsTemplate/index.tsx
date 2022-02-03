@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { AppPage } from '../../molecules'
-
 import { Text, Flex } from '../../atoms'
 
 

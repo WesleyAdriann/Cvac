@@ -7,7 +7,7 @@ import { ScrollView } from 'react-native'
 
 export interface IDependentsVaccineCertificateTemplate {
   testID?: string
-  checkIsTouch: (item: boolean) => void
+  checkIsTouch: (typeButton: number) => void
 }
 
 export const DependentsVaccineCertificateTemplate: React.FC<IDependentsVaccineCertificateTemplate> = ({
@@ -21,19 +21,19 @@ export const DependentsVaccineCertificateTemplate: React.FC<IDependentsVaccineCe
       <Flex flex={1} justifyContent='center'>
         <ScrollView>
           <Button
-            onPress={() => null}
+            onPress={() => checkIsTouch(1)}
             text='Pessoa X'
             mode='outlined'
             marginStyle='0 0 16px'    
         />
           <Button
-            onPress={() => null}
+            onPress={() => checkIsTouch(1)}
             text='Pessoa Y'
             mode='outlined'
             marginStyle='0 0 16px'
           />
           <Button
-            onPress={() => null}
+            onPress={() => checkIsTouch(1)}
             text='Pessoa Z'
             mode='outlined'
             marginStyle='0 0 16px'
@@ -44,7 +44,7 @@ export const DependentsVaccineCertificateTemplate: React.FC<IDependentsVaccineCe
 
       <Flex>
         <Button
-          onPress={() => checkIsTouch(true)}
+          onPress={() => checkIsTouch(2)}
           text='Cadastrar Dependente'
           mode='contained'
         />
