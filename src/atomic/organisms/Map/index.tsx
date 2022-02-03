@@ -1,41 +1,49 @@
 import React, { useMemo } from 'react'
 
-import { LatLng, Marker } from 'react-native-maps'
+import { LatLng, Marker, Region } from 'react-native-maps'
 
 import { Flex } from '../../atoms'
 
 import { StyledMap } from './styles'
 
 export interface ILocation extends LatLng {
-  text: string
+  name: string
+  description: string
 }
 
 export interface IMap {
   testID?: string,
   locations: ILocation[]
-  initialLocation?: LatLng
+  region?: Region
+  isLoading?: boolean
 }
 
-export const Map : React.FC<IMap> = ({ testID = 'LoginForm', initialLocation, locations, ...props }) => {
+export const Map : React.FC<IMap> = ({ testID = 'LoginForm', region, locations, isLoading, ...props }) => {
   const locationsMarker = useMemo(() =>
-    locations.map((location) => <Marker key={`${location.latitude}_${location.longitude}`} title={location.text} coordinate={location}/>),
+    locations.map((location, index) =>
+      <Marker
+        key={`${location.latitude}_${location.longitude}_${index}`}
+        title={location.name}
+        coordinate={location}
+        description={location.description}
+      />
+    ),
   [locations])
 
   return (
     <Flex flex={1} testID={testID} {...props}>
-      {
-        !!initialLocation &&
-        <StyledMap
-          region={{
-            latitude: initialLocation.latitude,
-            longitude: initialLocation.longitude,
-            latitudeDelta: 0.02,
-            longitudeDelta: 0.02
-          }}
-        >
-          {locationsMarker}
-        </StyledMap>
-      }
+      <StyledMap
+        region={{
+          latitude: region?.latitude ?? 0,
+          longitude: region?.longitude ?? 0,
+          latitudeDelta: region?.latitudeDelta ?? 0.02,
+          longitudeDelta: region?.longitudeDelta ?? 0.02
+        }}
+        loadingEnabled={isLoading}
+      >
+        {locationsMarker}
+      </StyledMap>
+
     </Flex>
   )
 }

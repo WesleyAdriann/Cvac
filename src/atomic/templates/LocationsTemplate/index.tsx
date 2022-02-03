@@ -1,26 +1,32 @@
 import React from 'react'
 import { KeyboardAvoidingView } from 'react-native'
-import { LatLng } from 'react-native-maps'
+import { Region, LatLng } from 'react-native-maps'
 
 import { Flex, Loader } from '../../atoms'
-import { AppPage, ListItem, TextInput } from '../../molecules'
+import { AppPage, IAppPage ,ListItem, TextInput } from '../../molecules'
 import { Map, ILocation } from '../../organisms'
 
 import { ListWrapper } from './styles'
 
 import { locationsMock } from './mock'
-export interface ILocationsTemplate {
+export interface ILocationsTemplate extends Omit<IAppPage, 'children' | 'scroll'> {
   testID?: string
   locations?: ILocation[],
   isLoading?: boolean
-  initialLocation?: LatLng
+  mapRegion: Region
+  onPressLocation: (latlng:LatLng) => void
+  rangeInput: string
+  onChangeRange: (range: string) => void
 }
 
 export const LocationsTemplate: React.FC<ILocationsTemplate> = ({
   testID = 'LocationsTemplate',
   locations = locationsMock,
-  initialLocation,
+  mapRegion,
   isLoading,
+  onPressLocation,
+  rangeInput,
+  onChangeRange,
   ...props
 }) => {
   return (
@@ -32,8 +38,9 @@ export const LocationsTemplate: React.FC<ILocationsTemplate> = ({
       >
         <Flex flex={1}>
           <Map
-            initialLocation={initialLocation}
+            region={mapRegion}
             locations={locations}
+            isLoading={isLoading}
           />
         </Flex>
         <Flex>
@@ -42,12 +49,23 @@ export const LocationsTemplate: React.FC<ILocationsTemplate> = ({
               isLoading
                 ? <Loader margin={16} />
                 : locations.map((location, index) => (
-                  <ListItem key={index} text={location.text} onPress={() => null}/>
+                  <ListItem
+                    key={index}
+                    text={location.name}
+                    onPress={() => onPressLocation(location)}
+                  />
                 ))
             }
           </ListWrapper>
           <Flex paddingStyle='16px 16px 0'>
-            <TextInput affix='km' label='Distância máxima' type='number' disabled={isLoading} />
+            <TextInput
+              affix='km'
+              label='Distância máxima'
+              type='number'
+              disabled={isLoading}
+              value={rangeInput}
+              onChangeText={onChangeRange}
+            />
           </Flex>
         </Flex>
       </KeyboardAvoidingView>
