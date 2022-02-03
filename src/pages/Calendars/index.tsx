@@ -32,10 +32,9 @@ export const Calendars: React.FC<NativeStackHeaderProps> = ({navigation}) => {
     }
   }
 
- 
   return( 
     <CalendarsTemplate
-    checkIsTouch={isTouch}      
+      checkIsTouch={isTouch}      
    />
    )
 }

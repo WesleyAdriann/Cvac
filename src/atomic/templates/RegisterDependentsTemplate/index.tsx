@@ -16,16 +16,19 @@ export const RegisterDependentsTemplate: React.FC<IRegisterDependentsTemplate> =
 }) => {
   return (
     <AppPage>
+      <Flex flex={1} justifyContent='center'>
+        <TextInput
+        onChangeText={() => null}
+        label='Nome'
+        type='text'
+        />
       <TextInput
-      onChangeText={() => null}
-      label='Nome'
-      type='text'
-      />
-     <TextInput
-      onChangeText={() => null}
-      label='Data de nascimento'
-      type='date'
-      />
+        onChangeText={() => null}
+        label='Data de nascimento'
+        type='date'
+        />
+      </Flex>
+      
 
       
       <Button

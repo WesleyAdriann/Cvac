@@ -2,6 +2,19 @@ import React from "react"
 
 import { DependentsVaccineCertificateTemplate } from '../../atomic'
 
-export const DependentsVaccineCertificate: React.FC = () =>{
-  return <DependentsVaccineCertificateTemplate/>
+import { NativeStackHeaderProps } from "@react-navigation/native-stack"
+
+export const DependentsVaccineCertificate: React.FC<NativeStackHeaderProps> = ({navigation}) =>{
+
+  const isTouch = (item: boolean) =>{
+    if(item === true){
+      return navigation.push('registerDependents')
+    }
+  }
+
+  return(
+  <DependentsVaccineCertificateTemplate
+    checkIsTouch={isTouch}
+  />
+  )
 }
