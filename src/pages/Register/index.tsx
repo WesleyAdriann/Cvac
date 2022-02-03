@@ -12,7 +12,7 @@ import { RegisterTemplate } from '../../atomic/templates'
 import { useAppDispatch } from '../../store'
 import { userProfileActions } from '../../store/slices/UserProfile'
 
-import { log } from '../../utils'
+import { logger } from '../../utils'
 
 interface IRegister extends NativeStackHeaderProps {
   route: RouteProp<{
@@ -41,7 +41,7 @@ export const Register: React.FC<IRegister> = ({ route, navigation }) => {
         default: 'Houve um erro para finalizar seu cadastro'
       }
       const errorContent = errors?.[error.code] ?? errors.default
-      log(TAG, 'createInAuth error', error.message)
+      logger(TAG, 'createInAuth error', error.message)
       setDialog({
         visible: true,
         title: 'Erro para o cadastro',
@@ -71,14 +71,14 @@ export const Register: React.FC<IRegister> = ({ route, navigation }) => {
       })
     } catch (_error) {
       const error = _error as ReactNativeFirebase.NativeFirebaseError
-      log(TAG, 'createInAuth error', error.message)
+      logger(TAG, 'createInAuth error', error.message)
       throw error
     }
   }
 
   const handleSubmit = async (form: IRegisterFormInputs) => {
     try {
-      log(TAG, 'handleSubmit', form)
+      logger(TAG, 'handleSubmit', form)
       if (isLoading) return
       setIsLoading(true)
       const credentails = await createInAuth(form.email, form.password)
