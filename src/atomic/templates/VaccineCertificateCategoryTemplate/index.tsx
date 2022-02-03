@@ -3,8 +3,8 @@ import React from 'react'
 
 import { List } from 'react-native-paper'
 
-import {Text} from '../../atoms'
-import {AppPage, ListItem} from '../../molecules'
+import { Text } from '../../atoms'
+import { AppPage, ListItem } from '../../molecules'
 
 export interface IVaccineCertificateCategoryTemplate {
   testID?: string
@@ -15,7 +15,7 @@ export const VaccineCertificateCategoryTemplate: React.FC<IVaccineCertificateCat
 
   ...props
 }) => {
-  return(
+  return (
     <AppPage testID={testID} {...props} scroll padding={0}>
       <Text align='center' size={30}>
          Pessoa X
@@ -44,5 +44,4 @@ export const VaccineCertificateCategoryTemplate: React.FC<IVaccineCertificateCat
     </AppPage>
 
   )
-
 }

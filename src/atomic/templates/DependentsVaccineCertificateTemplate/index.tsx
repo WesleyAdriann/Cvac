@@ -1,8 +1,8 @@
 import React from 'react'
 
-import {AppPage} from '../../molecules'
+import { AppPage } from '../../molecules'
 
-import {Button, Flex} from '../../atoms'
+import { Button, Flex } from '../../atoms'
 import { ScrollView } from 'react-native'
 
 export interface IDependentsVaccineCertificateTemplate {
@@ -16,7 +16,7 @@ export const DependentsVaccineCertificateTemplate: React.FC<IDependentsVaccineCe
 
   ...props
 }) => {
-  return(
+  return (
     <AppPage testID={testID} {...props} scroll padding={16}>
       <Flex flex={1} justifyContent='center'>
         <ScrollView>
@@ -24,8 +24,8 @@ export const DependentsVaccineCertificateTemplate: React.FC<IDependentsVaccineCe
             onPress={() => checkIsTouch(1)}
             text='Pessoa X'
             mode='outlined'
-            marginStyle='0 0 16px'    
-        />
+            marginStyle='0 0 16px'
+          />
           <Button
             onPress={() => checkIsTouch(1)}
             text='Pessoa Y'
@@ -37,10 +37,9 @@ export const DependentsVaccineCertificateTemplate: React.FC<IDependentsVaccineCe
             text='Pessoa Z'
             mode='outlined'
             marginStyle='0 0 16px'
-          />          
+          />
         </ScrollView>
       </Flex>
-
 
       <Flex>
         <Button

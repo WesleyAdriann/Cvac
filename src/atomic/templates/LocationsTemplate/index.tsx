@@ -3,7 +3,7 @@ import { KeyboardAvoidingView } from 'react-native'
 import { Region, LatLng } from 'react-native-maps'
 
 import { Flex, Loader } from '../../atoms'
-import { AppPage, IAppPage ,ListItem, TextInput } from '../../molecules'
+import { AppPage, IAppPage, ListItem, TextInput } from '../../molecules'
 import { Map, ILocation } from '../../organisms'
 
 import { ListWrapper } from './styles'
