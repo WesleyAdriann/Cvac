@@ -42,9 +42,9 @@ exports[`Organisms/Map should render snapshot 1`] = `
       onMarkerPress={[Function]}
       region={
         Object {
-          "latitude": 10,
+          "latitude": 0,
           "latitudeDelta": 0.02,
-          "longitude": 10,
+          "longitude": 0,
           "longitudeDelta": 0.02,
         }
       }

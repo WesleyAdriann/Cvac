@@ -17,6 +17,11 @@ module.exports = {
       },
     },
   ],
+  settings: {
+    react: {
+      version: "17.0.2"
+    },
+  },
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',

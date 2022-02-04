@@ -24,7 +24,7 @@ export const StyledScroll = styled.ScrollView.attrs<IFlexCustomStyle>((props) =>
   contentContainerStyle: {
     padding: props.paddingStyle,
     flexGrow: 1,
-    ...props.contentContainerStyle,
+    ...props.contentContainerStyle
   }
 }))`
  ${style}

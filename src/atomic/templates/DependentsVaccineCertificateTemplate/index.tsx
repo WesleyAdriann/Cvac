@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { AppPage } from '../../molecules'
+import { AppPage, IAppPage } from '../../molecules'
 
 import { Button, Flex } from '../../atoms'
 
-export interface IDependentsVaccineCertificateTemplate {
+export interface IDependentsVaccineCertificateTemplate extends Omit<IAppPage, 'children' | 'scroll'> {
   testID?: string
   onPressDependent: () => void
   onPressRegister: () => void
@@ -17,7 +17,7 @@ export const DependentsVaccineCertificateTemplate: React.FC<IDependentsVaccineCe
   ...props
 }) => {
   return (
-    <AppPage testID={testID} padding={0} {...props}>
+    <AppPage {...props} testID={testID} padding={0}>
       <Flex scroll paddingStyle={16} contentContainerStyle={{ justifyContent: 'center' }}>
         <Button
           onPress={onPressDependent}

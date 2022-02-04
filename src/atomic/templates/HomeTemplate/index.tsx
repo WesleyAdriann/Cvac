@@ -2,14 +2,14 @@ import React from 'react'
 import { Image } from 'react-native'
 
 import { Flex, Button, Text } from '../../atoms'
-import { AppPage, HomeItem } from '../../molecules'
+import { AppPage, HomeItem, IAppPage } from '../../molecules'
 
 import Logotipo from '../../../assets/logotipo/logotipo.png'
 
 export type TAuthItem = 'login' | 'logout' | 'register'
 export type TMenuItem = 'calendar' | 'vaccineCertificate' | 'local' | 'notification'
 
-export interface IHomeTemplate {
+export interface IHomeTemplate extends Omit<IAppPage, 'children' | 'scroll'> {
   testID?: string
   isAuthenticated?: boolean
   username?: string
@@ -26,7 +26,7 @@ export const HomeTemplate: React.FC<IHomeTemplate> = ({
   ...props
 }) => {
   return (
-    <AppPage testID={testID} {...props} scroll>
+    <AppPage {...props} testID={testID} scroll>
       <Flex flex={1} alignItems='center' justifyContent='center' marginStyle={16}>
         <Image source={Logotipo} />
       </Flex>

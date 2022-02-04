@@ -17,7 +17,7 @@ export interface IListItem extends IListItemStyle {
   iconColor?: string
 }
 
-const Component: React.FC<IListItem> = ({ testID = 'IListItem', text, onPress, marginLeft, noBorder, icon, iconColor, ...props }) => (
+const Component: React.FC<IListItem> = ({ testID = 'ListItem', text, onPress, marginLeft, noBorder, icon, iconColor, ...props }) => (
   <Flex testID={testID} {...props}>
     <StyledListItem
       title={text}

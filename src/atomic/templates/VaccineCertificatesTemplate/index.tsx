@@ -1,21 +1,20 @@
 import React from 'react'
-import { IVaccineCertificateCategoryTemplate } from '..'
 
-import { AppPage,  } from '../../molecules'
-import { Text, Flex } from '../../atoms'
-import { Button } from '../../atoms'
+import { AppPage, IAppPage } from '../../molecules'
+import { Text, Flex, Button } from '../../atoms'
 
-export interface IVaccineCertificatesTemplate{
+export interface IVaccineCertificatesTemplate extends Omit<IAppPage, 'children' | 'scroll'> {
   testID?: string
+  onPress: () => void
 }
 
 export const VaccineCertificatesTemplate: React.FC<IVaccineCertificatesTemplate> = ({
   testID = 'VaccineCertificatesTemplate',
-
+  onPress,
   ...props
 }) => {
-  return(
-    <AppPage>
+  return (
+    <AppPage {...props} testID={testID}>
       <Flex flex={1} justifyContent='center'>
         <Text>
           Vacina X
@@ -27,16 +26,14 @@ export const VaccineCertificatesTemplate: React.FC<IVaccineCertificatesTemplate>
           Vacina Z
         </Text>
       </Flex>
-
       <Flex>
         <Button
-        onPress={() => null}
-        text='Salvar'
-        mode='contained'
+          onPress={onPress}
+          text='Salvar'
+          mode='contained'
         />
       </Flex>
 
     </AppPage>
   )
-
 }

@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
-import { VaccineCertificatesTemplate } from "../../atomic";
+import { VaccineCertificatesTemplate } from '../../atomic'
 
-export const VaccineCertificates: React.FC = () =>{
+export const VaccineCertificates: React.FC = () => {
   return <VaccineCertificatesTemplate/>
 }

@@ -27,7 +27,7 @@ exports[`Molecules/Accordion should render snapshot 1`] = `
         },
       ]
     }
-    testID="View_ListItem"
+    testID="View_Accordion"
   >
     <View
       style={
@@ -118,7 +118,6 @@ exports[`Molecules/Accordion should render snapshot 1`] = `
                       "borderBottomWidth": 0.5,
                       "borderColor": "#0000001f",
                       "borderStyle": "solid",
-                      "height": 48,
                     },
                   ],
                 ],

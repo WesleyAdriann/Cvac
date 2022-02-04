@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Molecules/HomeItem should render snapshot 1`] = `
+exports[`Molecules/ListItem should render snapshot 1`] = `
 <View
   collapsable={false}
   pointerEvents="box-none"
@@ -27,7 +27,7 @@ exports[`Molecules/HomeItem should render snapshot 1`] = `
         },
       ]
     }
-    testID="View_HomeItem"
+    testID="View_ListItem"
   >
     <View
       accessibilityState={
@@ -56,6 +56,7 @@ exports[`Molecules/HomeItem should render snapshot 1`] = `
                 "borderBottomWidth": 0.5,
                 "borderColor": "#0000001f",
                 "borderStyle": "solid",
+                "marginLeft": 0,
               },
             ],
           ],

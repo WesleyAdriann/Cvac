@@ -1,9 +1,9 @@
 import React from 'react'
 
 import { Text, Flex } from '../../atoms'
-import { AppPage, ListItem } from '../../molecules'
+import { AppPage, ListItem, IAppPage } from '../../molecules'
 
-export interface IVaccineCertificateCategoryTemplate {
+export interface IVaccineCertificateCategoryTemplate extends Omit<IAppPage, 'children' | 'scroll'> {
   testID?: string
   onPress: () => void
 }
@@ -14,7 +14,7 @@ export const VaccineCertificateCategoryTemplate: React.FC<IVaccineCertificateCat
   ...props
 }) => {
   return (
-    <AppPage testID={testID} {...props} padding={0}>
+    <AppPage {...props} testID={testID} padding={0}>
       <Flex flex={0.5} justifyContent='center'>
         <Text align='center' size={30}>
           Pessoa X

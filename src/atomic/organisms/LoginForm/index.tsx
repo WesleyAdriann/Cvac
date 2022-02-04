@@ -18,7 +18,7 @@ export interface ILoginForm {
   onSubmit: (data: ILoginFormInputs) => void
 }
 
-export const LoginForm : React.FC<ILoginForm> = ({ testID = 'LoginForm', onSubmit }) => {
+export const LoginForm : React.FC<ILoginForm> = ({ testID = 'LoginForm', onSubmit, ...props }) => {
   const { control, handleSubmit, formState: { errors } } = useForm<ILoginFormInputs>({
     resolver: yupResolver(validation),
     defaultValues: {
@@ -30,7 +30,7 @@ export const LoginForm : React.FC<ILoginForm> = ({ testID = 'LoginForm', onSubmi
   const onSubmitPress = handleSubmit(onSubmit)
 
   return (
-    <Flex testID={testID}>
+    <Flex {...props} testID={testID}>
       <Controller
         name='email'
         control={control}

@@ -1,21 +1,21 @@
+
 import React from 'react'
-import { View } from 'react-native'
 import { render, cleanup } from '@testing-library/react-native'
 
 import { AllTheProviders as wrapper, mockTestID } from '../../../utils'
 
-import { Accordion, IAccordion } from './index'
+import { HomeTemplate, IHomeTemplate } from './index'
 
-describe('Molecules/Accordion', () => {
-  const props: IAccordion = {
-    testID: 'Accordion',
-    text: 'Sample',
-    children: <View />
+describe('Templates/HomeTemplate', () => {
+  const props: IHomeTemplate = {
+    testID: 'HomeTemplate',
+    onPressAuthItem: jest.fn(),
+    onPressMenuItem: jest.fn()
   }
 
-  const elContainer = mockTestID('View', props.testID!).testID
+  const elContainer = mockTestID('SafeAreaView', props.testID!).testID
 
-  const renderComponent = () => render(<Accordion {...props} />, { wrapper })
+  const renderComponent = () => render(<HomeTemplate {...props} />, { wrapper })
   let component = renderComponent()
 
   beforeEach(() => {

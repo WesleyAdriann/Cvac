@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { AppPage, Accordion, ListItem } from '../../molecules'
+import { AppPage, IAppPage, Accordion, ListItem } from '../../molecules'
 
-export interface ICalendarsTemplate {
+export interface ICalendarsTemplate extends Omit<IAppPage, 'children' | 'scroll'> {
   testID?: string
   onPress: () => void
 }
@@ -13,7 +13,7 @@ export const CalendarsTemplate: React.FC<ICalendarsTemplate> = ({
   ...props
 }) => {
   return (
-    <AppPage testID={testID} {...props} scroll padding={0}>
+    <AppPage {...props} testID={testID} scroll padding={0}>
       <Accordion text='Criança'>
         <ListItem onPress={onPress} text='Vacina X' marginLeft={32} noBorder/>
         <ListItem onPress={onPress} text='Vacina Y' marginLeft={32} noBorder/>

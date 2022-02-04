@@ -1,21 +1,19 @@
 import React from 'react'
-import { View } from 'react-native'
 import { render, cleanup } from '@testing-library/react-native'
 
 import { AllTheProviders as wrapper, mockTestID } from '../../../utils'
 
-import { Accordion, IAccordion } from './index'
+import { RegisterDependentForm, IRegisterDependentForm } from './index'
 
-describe('Molecules/Accordion', () => {
-  const props: IAccordion = {
-    testID: 'Accordion',
-    text: 'Sample',
-    children: <View />
+describe('Organisms/RegisterDependentForm', () => {
+  const props: IRegisterDependentForm = {
+    testID: 'RegisterDependentForm',
+    onSubmit: jest.fn()
   }
 
   const elContainer = mockTestID('View', props.testID!).testID
 
-  const renderComponent = () => render(<Accordion {...props} />, { wrapper })
+  const renderComponent = () => render(<RegisterDependentForm {...props} />, { wrapper })
   let component = renderComponent()
 
   beforeEach(() => {

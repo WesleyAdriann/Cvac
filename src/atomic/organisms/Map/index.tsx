@@ -18,7 +18,7 @@ export interface IMap {
   isLoading?: boolean
 }
 
-export const Map : React.FC<IMap> = ({ testID = 'LoginForm', region, locations, isLoading, ...props }) => {
+export const Map : React.FC<IMap> = ({ testID = 'Map', region, locations, isLoading, ...props }) => {
   const locationsMarker = useMemo(() =>
     locations.map((location, index) =>
       <Marker
@@ -31,7 +31,7 @@ export const Map : React.FC<IMap> = ({ testID = 'LoginForm', region, locations, 
   [locations])
 
   return (
-    <Flex flex={1} testID={testID} {...props}>
+    <Flex {...props} flex={1} testID={testID}>
       <StyledMap
         region={{
           latitude: region?.latitude ?? 0,

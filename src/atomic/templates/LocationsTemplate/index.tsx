@@ -8,7 +8,6 @@ import { Map, ILocation } from '../../organisms'
 
 import { ListWrapper } from './styles'
 
-import { locationsMock } from './mock'
 export interface ILocationsTemplate extends Omit<IAppPage, 'children' | 'scroll'> {
   testID?: string
   locations?: ILocation[],
@@ -21,7 +20,7 @@ export interface ILocationsTemplate extends Omit<IAppPage, 'children' | 'scroll'
 
 export const LocationsTemplate: React.FC<ILocationsTemplate> = ({
   testID = 'LocationsTemplate',
-  locations = locationsMock,
+  locations = [],
   mapRegion,
   isLoading,
   onPressLocation,
@@ -30,7 +29,7 @@ export const LocationsTemplate: React.FC<ILocationsTemplate> = ({
   ...props
 }) => {
   return (
-    <AppPage testID={testID} {...props} padding={0}>
+    <AppPage {...props} testID={testID} padding={0}>
       <KeyboardAvoidingView
         behavior='padding'
         keyboardVerticalOffset={98}

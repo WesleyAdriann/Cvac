@@ -49,11 +49,11 @@ export const Navigator: React.FC = () => {
         <Stack.Screen name='locations' component={Locations} options={{ title: 'Locais' }} />
         <Stack.Screen name='calendars' component={Calendars} options={{ title: 'Calendarios' }} />
         <Stack.Screen name='dependentsNotification' component={DependentsNotification} options={{ title: 'Lembretes' }} />
-        <Stack.Screen name='dependentsVaccineCertificate' component={DependentsVaccineCertificate} options={{title: 'Carteiras'}}/>
-        <Stack.Screen name='vaccineDetails' component={VaccineDetails} options={{title: 'Detalhes'}}/>
-        <Stack.Screen name='registerDependents' component={RegisterDependents} options={{title: 'Cadastro de Dependente'}}/>
-        <Stack.Screen name='vaccineCertificateCategory' component={VaccineCertificateCategory} options={{title: 'Carteira Categorias'}}/>
-        <Stack.Screen name='vaccineCertificate' component={VaccineCertificates} options={{title: 'Vacinas Aplicadas'}}/>
+        <Stack.Screen name='dependentsVaccineCertificate' component={DependentsVaccineCertificate} options={{ title: 'Carteiras' }}/>
+        <Stack.Screen name='vaccineDetails' component={VaccineDetails} options={{ title: 'Detalhes' }}/>
+        <Stack.Screen name='registerDependents' component={RegisterDependents} options={{ title: 'Cadastro de Dependente' }}/>
+        <Stack.Screen name='vaccineCertificateCategory' component={VaccineCertificateCategory} options={{ title: 'Carteira Categorias' }}/>
+        <Stack.Screen name='vaccineCertificate' component={VaccineCertificates} options={{ title: 'Vacinas Aplicadas' }}/>
       </Stack.Navigator>
     </NavigationContainer>
   )

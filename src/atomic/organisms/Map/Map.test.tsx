@@ -8,8 +8,7 @@ import { Map, IMap } from './index'
 describe('Organisms/Map', () => {
   const props: IMap = {
     testID: 'Map',
-    locations: [],
-    initialLocation: { latitude: 10, longitude: 10 }
+    locations: []
   }
 
   const elContainer = mockTestID('View', props.testID!).testID

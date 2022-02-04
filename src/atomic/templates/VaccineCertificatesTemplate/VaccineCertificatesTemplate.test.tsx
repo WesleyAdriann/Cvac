@@ -1,21 +1,19 @@
 import React from 'react'
-import { View } from 'react-native'
 import { render, cleanup } from '@testing-library/react-native'
 
 import { AllTheProviders as wrapper, mockTestID } from '../../../utils'
 
-import { Accordion, IAccordion } from './index'
+import { VaccineCertificatesTemplate, IVaccineCertificatesTemplate } from './index'
 
-describe('Molecules/Accordion', () => {
-  const props: IAccordion = {
-    testID: 'Accordion',
-    text: 'Sample',
-    children: <View />
+describe('Templates/VaccineCertificatesTemplate', () => {
+  const props: IVaccineCertificatesTemplate = {
+    testID: 'VaccineCertificatesTemplate',
+    onPress: jest.fn()
   }
 
-  const elContainer = mockTestID('View', props.testID!).testID
+  const elContainer = mockTestID('SafeAreaView', props.testID!).testID
 
-  const renderComponent = () => render(<Accordion {...props} />, { wrapper })
+  const renderComponent = () => render(<VaccineCertificatesTemplate {...props} />, { wrapper })
   let component = renderComponent()
 
   beforeEach(() => {

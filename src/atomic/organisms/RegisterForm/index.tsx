@@ -22,7 +22,7 @@ export interface IRegisterForm {
   isLoading?: boolean
 }
 
-export const RegisterForm : React.FC<IRegisterForm> = ({ testID = 'RegisterForm', isSocialRegister, onSubmit, isLoading }) => {
+export const RegisterForm : React.FC<IRegisterForm> = ({ testID = 'RegisterForm', isSocialRegister, onSubmit, isLoading, ...props }) => {
   const { control, handleSubmit, formState: { errors } } = useForm<IRegisterFormInputs>({
     resolver: yupResolver(validation(isSocialRegister)),
     defaultValues: {
@@ -41,7 +41,7 @@ export const RegisterForm : React.FC<IRegisterForm> = ({ testID = 'RegisterForm'
   })
 
   return (
-    <Flex flex={1} testID={testID}>
+    <Flex {...props} flex={1} testID={testID}>
       {
         isSocialRegister &&
           <Flex marginStyle='32px 0'>

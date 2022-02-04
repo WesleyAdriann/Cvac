@@ -18,7 +18,7 @@ export interface IRegisterDependentForm {
   isLoading?: boolean
 }
 
-export const RegisterDependentForm: React.FC<IRegisterDependentForm> = ({ isLoading, onSubmit, ...props }) => {
+export const RegisterDependentForm: React.FC<IRegisterDependentForm> = ({ testID = 'RegisterDependentForm', isLoading, onSubmit, ...props }) => {
   const { control, handleSubmit, formState: { errors } } = useForm<IRegisterDependentFormInputs>({
     resolver: yupResolver(validation),
     defaultValues: {
@@ -34,7 +34,7 @@ export const RegisterDependentForm: React.FC<IRegisterDependentForm> = ({ isLoad
     })
   })
   return (
-    <Flex flex={1}>
+    <Flex {...props} flex={1} testID={testID}>
       <Flex flex={1} justifyContent='center'>
         <Controller
           name='name'

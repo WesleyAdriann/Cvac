@@ -1,0 +1,313 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Templates/VaccineDetailsTemplate should render snapshot 1`] = `
+<View
+  collapsable={false}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <RCTSafeAreaView
+    accessible={false}
+    emulateUnlessSupported={true}
+    style={
+      Array [
+        Object {
+          "flexDirection": "column",
+          "marginBottom": 0,
+          "marginLeft": 0,
+          "marginRight": 0,
+          "marginTop": 0,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 0,
+        },
+        Object {
+          "backgroundColor": "#fff",
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+        },
+      ]
+    }
+    testID="SafeAreaView_VaccineDetailsTemplate"
+  >
+    <View
+      accessible={false}
+      flex={1}
+      paddingStyle={16}
+      style={
+        Array [
+          Object {
+            "flexBasis": 0,
+            "flexDirection": "column",
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "marginBottom": 0,
+            "marginLeft": 0,
+            "marginRight": 0,
+            "marginTop": 0,
+            "paddingBottom": 16,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 16,
+          },
+        ]
+      }
+      testID="View_Flex"
+    >
+      <View
+        accessible={false}
+        flex={0.5}
+        justifyContent="center"
+        style={
+          Array [
+            Object {
+              "flexBasis": 0,
+              "flexDirection": "column",
+              "flexGrow": 0.5,
+              "flexShrink": 1,
+              "marginBottom": 0,
+              "marginLeft": 0,
+              "marginRight": 0,
+              "marginTop": 0,
+              "paddingBottom": 0,
+              "paddingLeft": 0,
+              "paddingRight": 0,
+              "paddingTop": 0,
+            },
+          ]
+        }
+        testID="View_Flex"
+      >
+        <Text
+          accessible={false}
+          align="center"
+          size={30}
+          style={
+            Array [
+              Object {
+                "color": "#424242",
+                "fontFamily": "System",
+                "fontWeight": "400",
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Array [
+                Object {
+                  "color": "#424242",
+                  "fontSize": 30,
+                  "textAlign": "center",
+                  "textDecorationColor": "black",
+                  "textDecorationLine": "none",
+                  "textDecorationStyle": "solid",
+                },
+              ],
+            ]
+          }
+          testID="Text_Text"
+        >
+          Vacina X
+        </Text>
+      </View>
+      <RCTScrollView
+        accessible={false}
+        contentContainerStyle={
+          Object {
+            "flexGrow": 1,
+            "padding": undefined,
+          }
+        }
+        flex={2}
+        style={
+          Array [
+            Object {
+              "flexBasis": 0,
+              "flexDirection": "column",
+              "flexGrow": 2,
+              "flexShrink": 1,
+              "marginBottom": 0,
+              "marginLeft": 0,
+              "marginRight": 0,
+              "marginTop": 0,
+              "paddingBottom": 0,
+              "paddingLeft": 0,
+              "paddingRight": 0,
+              "paddingTop": 0,
+            },
+          ]
+        }
+        testID="ScrollView_Flex"
+      >
+        <View>
+          <View
+            accessible={false}
+            style={
+              Array [
+                Object {
+                  "flexDirection": "column",
+                  "marginBottom": 0,
+                  "marginLeft": 0,
+                  "marginRight": 0,
+                  "marginTop": 0,
+                  "paddingBottom": 0,
+                  "paddingLeft": 0,
+                  "paddingRight": 0,
+                  "paddingTop": 0,
+                },
+              ]
+            }
+            testID="View_Flex"
+          >
+            <Text
+              accessible={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#424242",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Array [
+                    Object {
+                      "color": "#424242",
+                      "fontSize": 16,
+                      "textAlign": "left",
+                      "textDecorationColor": "black",
+                      "textDecorationLine": "none",
+                      "textDecorationStyle": "solid",
+                    },
+                  ],
+                ]
+              }
+              testID="Text_Text"
+            >
+              Idade: ao nascer
+            </Text>
+            <Text
+              accessible={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#424242",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Array [
+                    Object {
+                      "color": "#424242",
+                      "fontSize": 16,
+                      "textAlign": "left",
+                      "textDecorationColor": "black",
+                      "textDecorationLine": "none",
+                      "textDecorationStyle": "solid",
+                    },
+                  ],
+                ]
+              }
+              testID="Text_Text"
+            >
+              Dose:  única
+            </Text>
+            <Text
+              accessible={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#424242",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Array [
+                    Object {
+                      "color": "#424242",
+                      "fontSize": 16,
+                      "textAlign": "left",
+                      "textDecorationColor": "black",
+                      "textDecorationLine": "none",
+                      "textDecorationStyle": "solid",
+                    },
+                  ],
+                ]
+              }
+              testID="Text_Text"
+            >
+              Reações adversas: Y
+            </Text>
+            <Text
+              accessible={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#424242",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Array [
+                    Object {
+                      "color": "#424242",
+                      "fontSize": 16,
+                      "textAlign": "left",
+                      "textDecorationColor": "black",
+                      "textDecorationLine": "none",
+                      "textDecorationStyle": "solid",
+                    },
+                  ],
+                ]
+              }
+              testID="Text_Text"
+            >
+              Contra indicação: X
+            </Text>
+            <Text
+              accessible={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#424242",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  Object {
+                    "textAlign": "left",
+                  },
+                  Array [
+                    Object {
+                      "color": "#424242",
+                      "fontSize": 16,
+                      "textAlign": "left",
+                      "textDecorationColor": "black",
+                      "textDecorationLine": "none",
+                      "textDecorationStyle": "solid",
+                    },
+                  ],
+                ]
+              }
+              testID="Text_Text"
+            >
+              Prevenção: Z
+            </Text>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </RCTSafeAreaView>
+</View>
+`;

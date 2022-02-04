@@ -2,12 +2,12 @@ import React from 'react'
 import { Image } from 'react-native'
 
 import { Flex, Text, Button, Pressable } from '../../atoms'
-import { AppPage } from '../../molecules'
+import { AppPage, IAppPage } from '../../molecules'
 import { LoginForm, ILoginForm } from '../../organisms'
 
 import Logotipo from '../../../assets/logotipo/logotipo.png'
 
-export interface ILoginTemplate {
+export interface ILoginTemplate extends Omit<IAppPage, 'children' | 'scroll'> {
   testID?: string
   form: ILoginForm
   onPressSocial: (social: string) => void
