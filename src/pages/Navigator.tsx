@@ -16,6 +16,7 @@ import { VaccineDetails } from './VaccineDetails'
 import { RegisterDependents } from './RegisterDepentents'
 import { VaccineCertificateCategory } from './VaccineCertificateCategory'
 import { VaccineCertificates } from './VaccineCertificates'
+import { Notifications } from './Notifications'
 
 const Stack = createNativeStackNavigator()
 
@@ -54,6 +55,7 @@ export const Navigator: React.FC = () => {
         <Stack.Screen name='registerDependents' component={RegisterDependents} options={{ title: 'Cadastro de Dependente' }}/>
         <Stack.Screen name='vaccineCertificateCategory' component={VaccineCertificateCategory} options={{ title: 'Carteira Categorias' }}/>
         <Stack.Screen name='vaccineCertificate' component={VaccineCertificates} options={{ title: 'Vacinas Aplicadas' }}/>
+        <Stack.Screen name='notifications' component={Notifications} options={{ title: 'Lembretes Categorias' }}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
