@@ -5,10 +5,12 @@ import { Text, Flex, Button } from '../../atoms'
 
 export interface INotificationsTemplate extends Omit<IAppPage, 'children' | 'scroll'> {
   testID?: string
+  onPress: () => void
 }
 
 export const NotificationsTemplate: React.FC<INotificationsTemplate> = ({
   testID = 'NotificationsTemplate',
+  onPress,
   ...props
 }) => {
   return (
@@ -38,7 +40,7 @@ export const NotificationsTemplate: React.FC<INotificationsTemplate> = ({
       </Flex>
       <Flex>
         <Button
-          onPress={() => null}
+          onPress={onPress}
           text='Criar Lembrete'
           mode='contained'
         />

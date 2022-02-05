@@ -29,3 +29,4 @@ export { RegisterDependentsTemplate } from './templates/RegisterDependentsTempla
 export { VaccineCertificateCategoryTemplate } from './templates/VaccineCertificateCategoryTemplate'
 export { VaccineCertificatesTemplate } from './templates/VaccineCertificatesTemplate'
 export { NotificationsTemplate} from './templates/NotificationsTemplate'
+export { RegisterNotificationsTemplate} from './templates/RegisterNotificationsTemplate'
