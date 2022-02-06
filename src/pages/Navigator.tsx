@@ -50,14 +50,14 @@ export const Navigator: React.FC = () => {
         <Stack.Screen name='register' component={Register} options={{ headerShown: false }} />
         <Stack.Screen name='locations' component={Locations} options={{ title: 'Locais' }} />
         <Stack.Screen name='calendars' component={Calendars} options={{ title: 'Calendarios' }} />
-        <Stack.Screen name='dependentsNotification' component={DependentsNotification} options={{ title: 'Lembretes' }} />
-        <Stack.Screen name='dependentsVaccineCertificate' component={DependentsVaccineCertificate} options={{ title: 'Carteiras' }}/>
         <Stack.Screen name='vaccineDetails' component={VaccineDetails} options={{ title: 'Detalhes' }}/>
+        <Stack.Screen name='dependentsVaccineCertificate' component={DependentsVaccineCertificate} options={{ title: 'Carteiras' }}/>
+        <Stack.Screen name='vaccineCertificateCategory' component={VaccineCertificateCategory} options={{ title: 'Carteiras' }}/>
+        <Stack.Screen name='vaccineCertificate' component={VaccineCertificates} options={{ title: 'Carteira de Vacina' }}/>
         <Stack.Screen name='registerDependents' component={RegisterDependents} options={{ title: 'Cadastro de Dependente' }}/>
-        <Stack.Screen name='vaccineCertificateCategory' component={VaccineCertificateCategory} options={{ title: 'Carteira Categorias' }}/>
-        <Stack.Screen name='vaccineCertificate' component={VaccineCertificates} options={{ title: 'Vacinas Aplicadas' }}/>
-        <Stack.Screen name='notifications' component={Notifications} options={{ title: 'Lembretes Categorias' }}/>
-        <Stack.Screen name='registerNotifications' component={RegisterNotifications} options={{title: 'Registro de Lembretes'}}/>
+        <Stack.Screen name='dependentsNotification' component={DependentsNotification} options={{ title: 'Lembretes' }} />
+        <Stack.Screen name='notifications' component={Notifications} options={{ title: 'Lembretes' }}/>
+        <Stack.Screen name='registerNotifications' component={RegisterNotifications} options={{ title: 'Criar lembrete' }}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
