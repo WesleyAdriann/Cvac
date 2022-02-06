@@ -15,7 +15,7 @@ export const RegisterNotificationsTemplate: React.FC<IRegisterNotificationsTempl
     <AppPage {...props} testID={testID}>
       <Text size={30}>
           Criar Lembrete
-        </Text>
+      </Text>
       <Flex flex={1} justifyContent='center'>
         <TextInput
           description='Descrição'
@@ -25,23 +25,21 @@ export const RegisterNotificationsTemplate: React.FC<IRegisterNotificationsTempl
         <TextInput
           description='Data'
           type='date'
-          
+
         />
         <TextInput
           description='hora'
           type='number'
-          
+
         />
       </Flex>
       <Flex>
         <Button
-        onPress={() => null}
-        text='Salvar'
-        mode='contained'
+          onPress={() => null}
+          text='Salvar'
+          mode='contained'
         />
       </Flex>
     </AppPage>
   )
 }
-
-
