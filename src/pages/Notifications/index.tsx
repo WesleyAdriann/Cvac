@@ -4,11 +4,14 @@ import { NotificationsTemplate } from '../../atomic'
 import { NativeStackHeaderProps } from '@react-navigation/native-stack'
 
 export const Notifications: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
-  const onPress = () => navigation.push('registerNotifications')
+  const onPressCreate = () => navigation.push('registerNotifications')
+
+  const onPressNotification = () => {}
 
   return (
     <NotificationsTemplate
-      onPress={onPress}
+      onPressCreate={onPressCreate}
+      onPressNotification={onPressNotification}
     />
   )
 }

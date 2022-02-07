@@ -5,47 +5,53 @@ import { Text, Flex, Button } from '../../atoms'
 
 export interface INotificationsTemplate extends Omit<IAppPage, 'children' | 'scroll'> {
   testID?: string
-  onPress: () => void
+  onPressCreate: () => void
+  onPressNotification: () => void
 }
 
 export const NotificationsTemplate: React.FC<INotificationsTemplate> = ({
   testID = 'NotificationsTemplate',
-  onPress,
+  onPressCreate,
+  onPressNotification,
   ...props
 }) => {
   return (
     <AppPage {...props} testID={testID}>
-      <Flex flex={1} justifyContent='center'>
-        <Text>
-          Lembretes Padrões
-        </Text>
-        <Button
-          onPress={() => null}
-          text='Vacina X'
-          mode='outlined'
-        />
-        <Button
-          onPress={() => null}
-          text='Vacina Y'
-          mode='outlined'
-        />
-        <Text>
-          Lembretes Criados
-        </Text>
-        <Button
-          onPress={() => null}
-          text='Nome x'
-          mode='outlined'
-        />
+      <Flex flex={1}>
+        <Flex marginStyle='0 0 32px'>
+          <Text size={34}>
+            Lembretes Padrões
+          </Text>
+          <Button
+            onPress={onPressNotification}
+            text='Vacina X'
+            mode='outlined'
+            marginStyle='16px 0 0'
+          />
+          <Button
+            onPress={onPressNotification}
+            text='Vacina Y'
+            mode='outlined'
+            marginStyle='16px 0 0'
+          />
+        </Flex>
+        <Flex>
+          <Text size={34}>
+            Lembretes Criados
+          </Text>
+          <Button
+            onPress={onPressNotification}
+            text='Nome x'
+            mode='outlined'
+            marginStyle='16px 0 0'
+          />
+        </Flex>
       </Flex>
-      <Flex>
-        <Button
-          onPress={onPress}
-          text='Criar Lembrete'
-          mode='contained'
-        />
-      </Flex>
-
+      <Button
+        onPress={onPressCreate}
+        text='Criar Lembrete'
+        mode='contained'
+      />
     </AppPage>
   )
 }
