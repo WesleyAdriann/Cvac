@@ -8,7 +8,8 @@ import { NotificationsTemplate, INotificationsTemplate } from './index'
 describe('Templates/NotificationsTemplate', () => {
   const props: INotificationsTemplate = {
     testID: 'NotificationsTemplate',
-    onPress: jest.fn()
+    onPressCreate: jest.fn(),
+    onPressNotification: jest.fn()
   }
 
   const elContainer = mockTestID('SafeAreaView', props.testID!).testID

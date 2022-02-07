@@ -87,7 +87,7 @@ exports[`Templates/VaccineCertificateCategoryTemplate should render snapshot 1`]
         <Text
           accessible={false}
           align="center"
-          size={30}
+          size={34}
           style={
             Array [
               Object {
@@ -101,7 +101,7 @@ exports[`Templates/VaccineCertificateCategoryTemplate should render snapshot 1`]
               Array [
                 Object {
                   "color": "#424242",
-                  "fontSize": 30,
+                  "fontSize": 34,
                   "textAlign": "center",
                   "textDecorationColor": "black",
                   "textDecorationLine": "none",

@@ -13,6 +13,7 @@ exports[`Templates/NotificationsTemplate should render snapshot 1`] = `
   <RCTSafeAreaView
     accessible={false}
     emulateUnlessSupported={true}
+    onPress={[MockFunction]}
     style={
       Array [
         Object {
@@ -63,7 +64,6 @@ exports[`Templates/NotificationsTemplate should render snapshot 1`] = `
       <View
         accessible={false}
         flex={1}
-        justifyContent="center"
         style={
           Array [
             Object {
@@ -84,142 +84,124 @@ exports[`Templates/NotificationsTemplate should render snapshot 1`] = `
         }
         testID="View_Flex"
       >
-        <Text
+        <View
           accessible={false}
+          marginStyle="0 0 32px"
           style={
             Array [
               Object {
-                "color": "#424242",
-                "fontFamily": "System",
-                "fontWeight": "400",
+                "flexDirection": "column",
+                "marginBottom": 32,
+                "marginLeft": 0,
+                "marginRight": 0,
+                "marginTop": 0,
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
               },
-              Object {
-                "textAlign": "left",
-              },
-              Array [
-                Object {
-                  "color": "#424242",
-                  "fontSize": 16,
-                  "textAlign": "left",
-                  "textDecorationColor": "black",
-                  "textDecorationLine": "none",
-                  "textDecorationStyle": "solid",
-                },
-              ],
             ]
           }
-          testID="Text_Text"
+          testID="View_Flex"
         >
-          Lembretes Padrões
-        </Text>
-        <View
-          collapsable={false}
-          nativeID="animatedComponent"
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "borderColor": "#00A3C9",
-              "borderRadius": 4,
-              "borderStyle": "solid",
-              "borderWidth": 1,
-              "elevation": 0,
-              "marginBottom": 0,
-              "marginLeft": 0,
-              "marginRight": 0,
-              "marginTop": 0,
-              "minWidth": 64,
-              "paddingBottom": 0,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-              "paddingTop": 0,
-            }
-          }
-        >
-          <View
-            accessibilityRole="button"
-            accessibilityState={
-              Object {
-                "disabled": false,
-              }
-            }
+          <Text
             accessible={false}
-            focusable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
+            size={34}
             style={
               Array [
                 Object {
-                  "overflow": "hidden",
+                  "color": "#424242",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
                 Object {
-                  "borderRadius": 4,
+                  "textAlign": "left",
                 },
+                Array [
+                  Object {
+                    "color": "#424242",
+                    "fontSize": 34,
+                    "textAlign": "left",
+                    "textDecorationColor": "black",
+                    "textDecorationLine": "none",
+                    "textDecorationStyle": "solid",
+                  },
+                ],
               ]
             }
-            testID="Pressable_Button"
+            testID="Text_Text"
+          >
+            Lembretes Padrões
+          </Text>
+          <View
+            collapsable={false}
+            marginStyle="16px 0 0"
+            nativeID="animatedComponent"
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "borderColor": "#00A3C9",
+                "borderRadius": 4,
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "elevation": 0,
+                "marginBottom": 0,
+                "marginLeft": 0,
+                "marginRight": 0,
+                "marginTop": 16,
+                "minWidth": 64,
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+              }
+            }
           >
             <View
+              accessibilityRole="button"
+              accessibilityState={
+                Object {
+                  "disabled": true,
+                }
+              }
+              accessible={false}
+              focusable={false}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
                 Array [
                   Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "justifyContent": "center",
+                    "overflow": "hidden",
                   },
                   Object {
-                    "paddingVertical": 6,
+                    "borderRadius": 4,
                   },
                 ]
               }
+              testID="Pressable_Button"
             >
-              <Text
-                numberOfLines={1}
-                selectable={false}
+              <View
                 style={
                   Array [
                     Object {
-                      "color": "#424242",
-                      "fontFamily": "System",
-                      "fontWeight": "400",
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
                     },
                     Object {
-                      "textAlign": "left",
+                      "paddingVertical": 6,
                     },
-                    Array [
-                      Object {
-                        "letterSpacing": 1,
-                        "marginHorizontal": 16,
-                        "marginVertical": 9,
-                        "textAlign": "center",
-                      },
-                      undefined,
-                      Object {
-                        "textTransform": "uppercase",
-                      },
-                      Object {
-                        "color": "#00C9D2",
-                        "fontFamily": "System",
-                        "fontWeight": "500",
-                      },
-                      Object {
-                        "fontFamily": "System",
-                        "fontWeight": "500",
-                      },
-                      Object {
-                        "color": "#00C9D2",
-                        "fontSize": 18,
-                      },
-                    ],
                   ]
                 }
               >
                 <Text
-                  mode="outlined"
+                  numberOfLines={1}
+                  selectable={false}
                   style={
                     Array [
                       Object {
@@ -232,290 +214,313 @@ exports[`Templates/NotificationsTemplate should render snapshot 1`] = `
                       },
                       Array [
                         Object {
+                          "letterSpacing": 1,
+                          "marginHorizontal": 16,
+                          "marginVertical": 9,
+                          "textAlign": "center",
+                        },
+                        undefined,
+                        Object {
+                          "textTransform": "uppercase",
+                        },
+                        Object {
+                          "color": "#00C9D2",
+                          "fontFamily": "System",
+                          "fontWeight": "500",
+                        },
+                        Object {
+                          "fontFamily": "System",
+                          "fontWeight": "500",
+                        },
+                        Object {
                           "color": "#00C9D2",
                           "fontSize": 18,
-                          "fontWeight": "normal",
                         },
                       ],
                     ]
                   }
                 >
-                  Vacina X
+                  <Text
+                    mode="outlined"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#424242",
+                          "fontFamily": "System",
+                          "fontWeight": "400",
+                        },
+                        Object {
+                          "textAlign": "left",
+                        },
+                        Array [
+                          Object {
+                            "color": "#00C9D2",
+                            "fontSize": 18,
+                            "fontWeight": "normal",
+                          },
+                        ],
+                      ]
+                    }
+                  >
+                    Vacina X
+                  </Text>
                 </Text>
-              </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            collapsable={false}
+            marginStyle="16px 0 0"
+            nativeID="animatedComponent"
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "borderColor": "#00A3C9",
+                "borderRadius": 4,
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "elevation": 0,
+                "marginBottom": 0,
+                "marginLeft": 0,
+                "marginRight": 0,
+                "marginTop": 16,
+                "minWidth": 64,
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+              }
+            }
+          >
+            <View
+              accessibilityRole="button"
+              accessibilityState={
+                Object {
+                  "disabled": true,
+                }
+              }
+              accessible={false}
+              focusable={false}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "overflow": "hidden",
+                  },
+                  Object {
+                    "borderRadius": 4,
+                  },
+                ]
+              }
+              testID="Pressable_Button"
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                    },
+                    Object {
+                      "paddingVertical": 6,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  numberOfLines={1}
+                  selectable={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": "#424242",
+                        "fontFamily": "System",
+                        "fontWeight": "400",
+                      },
+                      Object {
+                        "textAlign": "left",
+                      },
+                      Array [
+                        Object {
+                          "letterSpacing": 1,
+                          "marginHorizontal": 16,
+                          "marginVertical": 9,
+                          "textAlign": "center",
+                        },
+                        undefined,
+                        Object {
+                          "textTransform": "uppercase",
+                        },
+                        Object {
+                          "color": "#00C9D2",
+                          "fontFamily": "System",
+                          "fontWeight": "500",
+                        },
+                        Object {
+                          "fontFamily": "System",
+                          "fontWeight": "500",
+                        },
+                        Object {
+                          "color": "#00C9D2",
+                          "fontSize": 18,
+                        },
+                      ],
+                    ]
+                  }
+                >
+                  <Text
+                    mode="outlined"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#424242",
+                          "fontFamily": "System",
+                          "fontWeight": "400",
+                        },
+                        Object {
+                          "textAlign": "left",
+                        },
+                        Array [
+                          Object {
+                            "color": "#00C9D2",
+                            "fontSize": 18,
+                            "fontWeight": "normal",
+                          },
+                        ],
+                      ]
+                    }
+                  >
+                    Vacina Y
+                  </Text>
+                </Text>
+              </View>
             </View>
           </View>
         </View>
         <View
-          collapsable={false}
-          nativeID="animatedComponent"
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "borderColor": "#00A3C9",
-              "borderRadius": 4,
-              "borderStyle": "solid",
-              "borderWidth": 1,
-              "elevation": 0,
-              "marginBottom": 0,
-              "marginLeft": 0,
-              "marginRight": 0,
-              "marginTop": 0,
-              "minWidth": 64,
-              "paddingBottom": 0,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-              "paddingTop": 0,
-            }
-          }
-        >
-          <View
-            accessibilityRole="button"
-            accessibilityState={
-              Object {
-                "disabled": false,
-              }
-            }
-            accessible={false}
-            focusable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Array [
-                Object {
-                  "overflow": "hidden",
-                },
-                Object {
-                  "borderRadius": 4,
-                },
-              ]
-            }
-            testID="Pressable_Button"
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                  },
-                  Object {
-                    "paddingVertical": 6,
-                  },
-                ]
-              }
-            >
-              <Text
-                numberOfLines={1}
-                selectable={false}
-                style={
-                  Array [
-                    Object {
-                      "color": "#424242",
-                      "fontFamily": "System",
-                      "fontWeight": "400",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Array [
-                      Object {
-                        "letterSpacing": 1,
-                        "marginHorizontal": 16,
-                        "marginVertical": 9,
-                        "textAlign": "center",
-                      },
-                      undefined,
-                      Object {
-                        "textTransform": "uppercase",
-                      },
-                      Object {
-                        "color": "#00C9D2",
-                        "fontFamily": "System",
-                        "fontWeight": "500",
-                      },
-                      Object {
-                        "fontFamily": "System",
-                        "fontWeight": "500",
-                      },
-                      Object {
-                        "color": "#00C9D2",
-                        "fontSize": 18,
-                      },
-                    ],
-                  ]
-                }
-              >
-                <Text
-                  mode="outlined"
-                  style={
-                    Array [
-                      Object {
-                        "color": "#424242",
-                        "fontFamily": "System",
-                        "fontWeight": "400",
-                      },
-                      Object {
-                        "textAlign": "left",
-                      },
-                      Array [
-                        Object {
-                          "color": "#00C9D2",
-                          "fontSize": 18,
-                          "fontWeight": "normal",
-                        },
-                      ],
-                    ]
-                  }
-                >
-                  Vacina Y
-                </Text>
-              </Text>
-            </View>
-          </View>
-        </View>
-        <Text
           accessible={false}
           style={
             Array [
               Object {
-                "color": "#424242",
-                "fontFamily": "System",
-                "fontWeight": "400",
+                "flexDirection": "column",
+                "marginBottom": 0,
+                "marginLeft": 0,
+                "marginRight": 0,
+                "marginTop": 0,
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
               },
-              Object {
-                "textAlign": "left",
-              },
-              Array [
-                Object {
-                  "color": "#424242",
-                  "fontSize": 16,
-                  "textAlign": "left",
-                  "textDecorationColor": "black",
-                  "textDecorationLine": "none",
-                  "textDecorationStyle": "solid",
-                },
-              ],
             ]
           }
-          testID="Text_Text"
+          testID="View_Flex"
         >
-          Lembretes Criados
-        </Text>
-        <View
-          collapsable={false}
-          nativeID="animatedComponent"
-          style={
-            Object {
-              "backgroundColor": "transparent",
-              "borderColor": "#00A3C9",
-              "borderRadius": 4,
-              "borderStyle": "solid",
-              "borderWidth": 1,
-              "elevation": 0,
-              "marginBottom": 0,
-              "marginLeft": 0,
-              "marginRight": 0,
-              "marginTop": 0,
-              "minWidth": 64,
-              "paddingBottom": 0,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-              "paddingTop": 0,
-            }
-          }
-        >
-          <View
-            accessibilityRole="button"
-            accessibilityState={
-              Object {
-                "disabled": false,
-              }
-            }
+          <Text
             accessible={false}
-            focusable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
+            size={34}
             style={
               Array [
                 Object {
-                  "overflow": "hidden",
+                  "color": "#424242",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
                 Object {
-                  "borderRadius": 4,
+                  "textAlign": "left",
                 },
+                Array [
+                  Object {
+                    "color": "#424242",
+                    "fontSize": 34,
+                    "textAlign": "left",
+                    "textDecorationColor": "black",
+                    "textDecorationLine": "none",
+                    "textDecorationStyle": "solid",
+                  },
+                ],
               ]
             }
-            testID="Pressable_Button"
+            testID="Text_Text"
+          >
+            Lembretes Criados
+          </Text>
+          <View
+            collapsable={false}
+            marginStyle="16px 0 0"
+            nativeID="animatedComponent"
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "borderColor": "#00A3C9",
+                "borderRadius": 4,
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "elevation": 0,
+                "marginBottom": 0,
+                "marginLeft": 0,
+                "marginRight": 0,
+                "marginTop": 16,
+                "minWidth": 64,
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+              }
+            }
           >
             <View
+              accessibilityRole="button"
+              accessibilityState={
+                Object {
+                  "disabled": true,
+                }
+              }
+              accessible={false}
+              focusable={false}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
                 Array [
                   Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "justifyContent": "center",
+                    "overflow": "hidden",
                   },
                   Object {
-                    "paddingVertical": 6,
+                    "borderRadius": 4,
                   },
                 ]
               }
+              testID="Pressable_Button"
             >
-              <Text
-                numberOfLines={1}
-                selectable={false}
+              <View
                 style={
                   Array [
                     Object {
-                      "color": "#424242",
-                      "fontFamily": "System",
-                      "fontWeight": "400",
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
                     },
                     Object {
-                      "textAlign": "left",
+                      "paddingVertical": 6,
                     },
-                    Array [
-                      Object {
-                        "letterSpacing": 1,
-                        "marginHorizontal": 16,
-                        "marginVertical": 9,
-                        "textAlign": "center",
-                      },
-                      undefined,
-                      Object {
-                        "textTransform": "uppercase",
-                      },
-                      Object {
-                        "color": "#00C9D2",
-                        "fontFamily": "System",
-                        "fontWeight": "500",
-                      },
-                      Object {
-                        "fontFamily": "System",
-                        "fontWeight": "500",
-                      },
-                      Object {
-                        "color": "#00C9D2",
-                        "fontSize": 18,
-                      },
-                    ],
                   ]
                 }
               >
                 <Text
-                  mode="outlined"
+                  numberOfLines={1}
+                  selectable={false}
                   style={
                     Array [
                       Object {
@@ -528,108 +533,170 @@ exports[`Templates/NotificationsTemplate should render snapshot 1`] = `
                       },
                       Array [
                         Object {
+                          "letterSpacing": 1,
+                          "marginHorizontal": 16,
+                          "marginVertical": 9,
+                          "textAlign": "center",
+                        },
+                        undefined,
+                        Object {
+                          "textTransform": "uppercase",
+                        },
+                        Object {
+                          "color": "#00C9D2",
+                          "fontFamily": "System",
+                          "fontWeight": "500",
+                        },
+                        Object {
+                          "fontFamily": "System",
+                          "fontWeight": "500",
+                        },
+                        Object {
                           "color": "#00C9D2",
                           "fontSize": 18,
-                          "fontWeight": "normal",
                         },
                       ],
                     ]
                   }
                 >
-                  Nome x
+                  <Text
+                    mode="outlined"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#424242",
+                          "fontFamily": "System",
+                          "fontWeight": "400",
+                        },
+                        Object {
+                          "textAlign": "left",
+                        },
+                        Array [
+                          Object {
+                            "color": "#00C9D2",
+                            "fontSize": 18,
+                            "fontWeight": "normal",
+                          },
+                        ],
+                      ]
+                    }
+                  >
+                    Nome x
+                  </Text>
                 </Text>
-              </Text>
+              </View>
             </View>
           </View>
         </View>
       </View>
       <View
-        accessible={false}
+        collapsable={false}
+        nativeID="animatedComponent"
         style={
-          Array [
-            Object {
-              "flexDirection": "column",
-              "marginBottom": 0,
-              "marginLeft": 0,
-              "marginRight": 0,
-              "marginTop": 0,
-              "paddingBottom": 0,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-              "paddingTop": 0,
-            },
-          ]
+          Object {
+            "backgroundColor": "#00C9D2",
+            "borderColor": "#00C9D2",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 1,
+            "elevation": 0,
+            "marginBottom": 0,
+            "marginLeft": 0,
+            "marginRight": 0,
+            "marginTop": 0,
+            "minWidth": 64,
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+          }
         }
-        testID="View_Flex"
       >
         <View
-          collapsable={false}
-          nativeID="animatedComponent"
-          style={
+          accessibilityRole="button"
+          accessibilityState={
             Object {
-              "backgroundColor": "#00C9D2",
-              "borderColor": "#00C9D2",
-              "borderRadius": 4,
-              "borderStyle": "solid",
-              "borderWidth": 1,
-              "elevation": 0,
-              "marginBottom": 0,
-              "marginLeft": 0,
-              "marginRight": 0,
-              "marginTop": 0,
-              "minWidth": 64,
-              "paddingBottom": 0,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-              "paddingTop": 0,
+              "disabled": true,
             }
           }
+          accessible={false}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              Object {
+                "borderRadius": 4,
+              },
+            ]
+          }
+          testID="Pressable_Button"
         >
           <View
-            accessibilityRole="button"
-            accessibilityState={
-              Object {
-                "disabled": false,
-              }
-            }
-            accessible={false}
-            focusable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
             style={
               Array [
                 Object {
-                  "overflow": "hidden",
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
                 },
                 Object {
-                  "borderRadius": 4,
+                  "paddingVertical": 6,
                 },
               ]
             }
-            testID="Pressable_Button"
           >
-            <View
+            <Text
+              numberOfLines={1}
+              selectable={false}
               style={
                 Array [
                   Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
-                    "justifyContent": "center",
+                    "color": "#424242",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
                   },
                   Object {
-                    "paddingVertical": 6,
+                    "textAlign": "left",
                   },
+                  Array [
+                    Object {
+                      "letterSpacing": 1,
+                      "marginHorizontal": 16,
+                      "marginVertical": 9,
+                      "textAlign": "center",
+                    },
+                    undefined,
+                    Object {
+                      "textTransform": "uppercase",
+                    },
+                    Object {
+                      "color": "#000000",
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    Object {
+                      "fontFamily": "System",
+                      "fontWeight": "500",
+                    },
+                    Object {
+                      "color": "#fff",
+                      "fontSize": 18,
+                    },
+                  ],
                 ]
               }
             >
               <Text
-                numberOfLines={1}
-                selectable={false}
+                mode="contained"
                 style={
                   Array [
                     Object {
@@ -642,58 +709,17 @@ exports[`Templates/NotificationsTemplate should render snapshot 1`] = `
                     },
                     Array [
                       Object {
-                        "letterSpacing": 1,
-                        "marginHorizontal": 16,
-                        "marginVertical": 9,
-                        "textAlign": "center",
-                      },
-                      undefined,
-                      Object {
-                        "textTransform": "uppercase",
-                      },
-                      Object {
-                        "color": "#000000",
-                        "fontFamily": "System",
-                        "fontWeight": "500",
-                      },
-                      Object {
-                        "fontFamily": "System",
-                        "fontWeight": "500",
-                      },
-                      Object {
                         "color": "#fff",
                         "fontSize": 18,
+                        "fontWeight": "bold",
                       },
                     ],
                   ]
                 }
               >
-                <Text
-                  mode="contained"
-                  style={
-                    Array [
-                      Object {
-                        "color": "#424242",
-                        "fontFamily": "System",
-                        "fontWeight": "400",
-                      },
-                      Object {
-                        "textAlign": "left",
-                      },
-                      Array [
-                        Object {
-                          "color": "#fff",
-                          "fontSize": 18,
-                          "fontWeight": "bold",
-                        },
-                      ],
-                    ]
-                  }
-                >
-                  Criar Lembrete
-                </Text>
+                Criar Lembrete
               </Text>
-            </View>
+            </Text>
           </View>
         </View>
       </View>

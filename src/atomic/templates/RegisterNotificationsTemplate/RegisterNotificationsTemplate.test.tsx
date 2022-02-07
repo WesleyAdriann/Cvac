@@ -7,7 +7,10 @@ import { RegisterNotificationsTemplate, IRegisterNotificationsTemplate } from '.
 
 describe('Templates/RegisterNotificationsTemplate', () => {
   const props: IRegisterNotificationsTemplate = {
-    testID: 'RegisterNotificationsTemplate'
+    testID: 'RegisterNotificationsTemplate',
+    form: {
+      onSubmit: jest.fn()
+    }
   }
 
   const elContainer = mockTestID('SafeAreaView', props.testID!).testID
