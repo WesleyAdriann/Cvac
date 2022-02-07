@@ -1,45 +1,35 @@
 import React from 'react'
+import { KeyboardAvoidingView } from 'react-native'
 
-import { AppPage, IAppPage, TextInput } from '../../molecules'
-import { Text, Flex, Button } from '../../atoms'
+import { Flex, Text } from '../../atoms'
+import { AppPage, IAppPage } from '../../molecules'
+import { RegisterNotificationsForm, IRegisterNotificationsForm } from '../../organisms'
 
 export interface IRegisterNotificationsTemplate extends Omit<IAppPage, 'children' | 'scroll'> {
   testID?: string
+  form: IRegisterNotificationsForm
 }
 
 export const RegisterNotificationsTemplate: React.FC<IRegisterNotificationsTemplate> = ({
   testID = 'RegisterNotificationsTemplate',
+  form,
   ...props
 }) => {
   return (
     <AppPage {...props} testID={testID}>
-      <Text size={30}>
-          Criar Lembrete
-      </Text>
-      <Flex flex={1} justifyContent='center'>
-        <TextInput
-          description='Descrição'
-          type='text'
-        />
+      <KeyboardAvoidingView
+        behavior='padding'
+        keyboardVerticalOffset={108}
+        style={{ flex: 1 }}
+      >
+        <Flex flex={0.5} marginStyle='16px 0 0'>
+          <Text size={34}>Criar Lembrete</Text>
+        </Flex>
+        <Flex flex={2}>
+          <RegisterNotificationsForm {...form} />
+        </Flex>
 
-        <TextInput
-          description='Data'
-          type='date'
-
-        />
-        <TextInput
-          description='hora'
-          type='number'
-
-        />
-      </Flex>
-      <Flex>
-        <Button
-          onPress={() => null}
-          text='Salvar'
-          mode='contained'
-        />
-      </Flex>
+      </KeyboardAvoidingView>
     </AppPage>
   )
 }

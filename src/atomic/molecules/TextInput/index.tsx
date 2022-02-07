@@ -6,13 +6,13 @@ import { useTheme } from 'styled-components/native'
 
 import { Flex } from '../../atoms'
 
-import { assignTestId, formatDate } from '../../../utils'
+import { assignTestId, formatDate, formatHour } from '../../../utils'
 
 export interface ITextInput extends Omit<TextInputProps, 'error' | 'theme' | 'mode'> {
   testID?: string,
   description?: string,
   withError?: boolean
-  type?: 'text' | 'password' | 'email' | 'date' | 'number'
+  type?: 'text' | 'password' | 'email' | 'date' | 'number' | 'hour'
   affix?: string
 }
 
@@ -32,6 +32,7 @@ const Component: React.FC<ITextInput> = ({
     if (type === 'date') return formatDate(value)
     if (type === 'email') return value.toLowerCase()
     if (type === 'number') return value.replace(/\D/g, '')
+    if (type === 'hour') return formatHour(value)
     return value
   }
 

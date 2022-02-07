@@ -16,7 +16,7 @@ export const VaccineCertificateCategoryTemplate: React.FC<IVaccineCertificateCat
   return (
     <AppPage {...props} testID={testID} padding={0}>
       <Flex flex={0.5} justifyContent='center'>
-        <Text align='center' size={30}>
+        <Text align='center' size={34}>
           Pessoa X
         </Text>
       </Flex>

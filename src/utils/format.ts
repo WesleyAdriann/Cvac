@@ -11,3 +11,9 @@ export const formatDate = (value: string) => {
   if (!year) return `${day}/${month}`
   return `${day}/${month}/${year}`
 }
+
+export const formatHour = (value: string) => {
+  const clearHour = value.replace(/\D/g, '').slice(0, 4)
+
+  return clearHour.replace(/(\d{2})(\d)/g, '$1h$2')
+}
