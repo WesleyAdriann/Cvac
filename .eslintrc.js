@@ -21,6 +21,12 @@ module.exports = {
     react: {
       version: "17.0.2"
     },
+    'import/resolver': {
+      'babel-plugin-root-import': {
+        'rootPathPrefix': '~',
+        'rootPathSuffix': 'src'
+      }
+    }
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
