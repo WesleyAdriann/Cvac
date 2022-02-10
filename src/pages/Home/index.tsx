@@ -1,19 +1,25 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useEffect } from 'react'
 import { NativeStackHeaderProps } from '@react-navigation/native-stack'
+import firestore from '@react-native-firebase/firestore'
 
-import { useAppSelector, useAppDispatch } from '../../store'
-import { sessionActions } from '../../store/slices/Session'
-
-import { HomeTemplate } from '../../atomic'
-
-import { TAuthItem, TMenuItem } from '../../atomic/templates/HomeTemplate'
+import {
+  useAppSelector,
+  useAppDispatch,
+  sessionActions,
+  calendarsActions
+} from '~/store'
+import { HomeTemplate } from '~/atomic'
+import { TAuthItem, TMenuItem } from '~/atomic/templates/HomeTemplate'
+import { isEmpty, logger } from '~/utils'
 
 export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
+  const TAG = 'Home'
   const dispatch = useAppDispatch()
 
   const {
     userProfileReducer: userProfile,
-    sessionReducer: session
+    sessionReducer: session,
+    calendarsReducer: calendars
   } = useAppSelector((state) => state)
 
   const displayName = useMemo(() => {
@@ -44,6 +50,23 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
       return navigation.push('register')
     }
   }
+
+  const getCalendars = async () => {
+    if (!isEmpty(calendars)) return null
+
+    try {
+      const calendarsSnap = await firestore().collection('calendar').get()
+      const calendars = calendarsSnap.docs.reduce((acc, item) => Object.assign(acc, { [item.id]: item.data() }), {})
+      dispatch(calendarsActions.setCalendars(calendars))
+    } catch (_error) {
+      const error = _error as Error
+      logger(TAG, 'error to get calendars', error.message)
+    }
+  }
+
+  useEffect(() => {
+    getCalendars()
+  }, [])
 
   return (
     <HomeTemplate
