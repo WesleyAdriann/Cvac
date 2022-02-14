@@ -6,7 +6,8 @@ import {
   useAppSelector,
   useAppDispatch,
   sessionActions,
-  calendarsActions
+  calendarsActions,
+  vaccinesActions
 } from '~/store'
 import { HomeTemplate } from '~/atomic'
 import { TAuthItem, TMenuItem } from '~/atomic/templates/HomeTemplate'
@@ -19,7 +20,8 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const {
     userProfileReducer: userProfile,
     sessionReducer: session,
-    calendarsReducer: calendars
+    calendarsReducer: calendars,
+    vaccinesReducer: vaccines
   } = useAppSelector((state) => state)
 
   const displayName = useMemo(() => {
@@ -64,8 +66,22 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
     }
   }
 
+  const getVaccines = async () => {
+    if (!isEmpty(vaccines)) return null
+
+    try {
+      const vaccinesSnap = await firestore().collection('vaccine').get()
+      const vaccines = vaccinesSnap.docs.reduce((acc, item) => Object.assign(acc, { [item.id]: item.data() }), {})
+      dispatch(vaccinesActions.setVaccines(vaccines))
+    } catch (_error) {
+      const error = _error as Error
+      logger(TAG, 'error to get vaccines', error.message)
+    }
+  }
+
   useEffect(() => {
     getCalendars()
+    getVaccines()
   }, [])
 
   return (
