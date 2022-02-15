@@ -5,6 +5,7 @@ import { AppPage, IAppPage, Accordion, ListItem } from '../../molecules'
 export interface ICalendar {
   id: string
   text: string
+  description: string
   vaccines: {
     text: string,
     id: string,
@@ -27,7 +28,7 @@ export const CalendarsTemplate: React.FC<ICalendarsTemplate> = ({
     <AppPage {...props} testID={testID} scroll padding={0}>
       {
         calendars?.map((calendar) => (
-          <Accordion text={calendar.text} key={calendar.id}>
+          <Accordion text={calendar.text} description={calendar.description} key={calendar.id}>
             {
               calendar.vaccines.map((vaccine, index) => (
                 <ListItem

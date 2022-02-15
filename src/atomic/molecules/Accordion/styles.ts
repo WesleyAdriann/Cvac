@@ -6,6 +6,9 @@ export const StyledAccordion = styled(List.Accordion).attrs((props) => ({
   titleStyle: {
     color: props.theme.fontColor
   },
+  descriptionStyle: {
+    color: props.theme.fontColor
+  },
   theme: {
     ...props.theme,
     colors: {

@@ -24,6 +24,7 @@ export const Calendars: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
           Object.assign(parsedCalendars, {
             [calendarId]: {
               text: ECalendarsName[calendars[calendarId].name],
+              description: `${calendars[calendarId].startAge} anos até ${calendars[calendarId].endAge} anos`,
               id: calendarId,
               vaccines: []
             }
