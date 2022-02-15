@@ -2,38 +2,46 @@ import React from 'react'
 
 import { AppPage, IAppPage, Accordion, ListItem } from '../../molecules'
 
+export interface ICalendar {
+  id: string
+  text: string
+  vaccines: {
+    text: string,
+    id: string,
+  }[]
+}
+
 export interface ICalendarsTemplate extends Omit<IAppPage, 'children' | 'scroll'> {
   testID?: string
-  onPress: () => void
+  onPress: (id: string) => void
+  calendars: ICalendar[]
 }
 
 export const CalendarsTemplate: React.FC<ICalendarsTemplate> = ({
   testID = 'CalendarsTemplate',
   onPress,
+  calendars,
   ...props
 }) => {
   return (
     <AppPage {...props} testID={testID} scroll padding={0}>
-      <Accordion text='Criança'>
-        <ListItem onPress={onPress} text='Vacina X' marginLeft={32} noBorder/>
-        <ListItem onPress={onPress} text='Vacina Y' marginLeft={32} noBorder/>
-        <ListItem onPress={onPress} text='Vacina Z' marginLeft={32} />
-      </Accordion>
-      <Accordion text='Adolescente'>
-        <ListItem onPress={onPress} text='Vacina X' marginLeft={32} noBorder/>
-        <ListItem onPress={onPress} text='Vacina Y' marginLeft={32} noBorder/>
-        <ListItem onPress={onPress} text='Vacina Z' marginLeft={32} />
-      </Accordion>
-      <Accordion text='Adulto'>
-        <ListItem onPress={onPress} text='Vacina X' marginLeft={32} noBorder/>
-        <ListItem onPress={onPress} text='Vacina Y' marginLeft={32} noBorder/>
-        <ListItem onPress={onPress} text='Vacina Z' marginLeft={32} />
-      </Accordion>
-      <Accordion text='Idoso'>
-        <ListItem onPress={onPress} text='Vacina X' marginLeft={32} noBorder/>
-        <ListItem onPress={onPress} text='Vacina Y' marginLeft={32} noBorder/>
-        <ListItem onPress={onPress} text='Vacina Z' marginLeft={32} />
-      </Accordion>
+      {
+        calendars?.map((calendar) => (
+          <Accordion text={calendar.text} key={calendar.id}>
+            {
+              calendar.vaccines.map((vaccine, index) => (
+                <ListItem
+                  key={vaccine.id}
+                  onPress={() => onPress(vaccine.id)}
+                  text={vaccine.text}
+                  marginLeft={32}
+                  noBorder={index !== calendar.vaccines.length}
+                />
+              ))
+            }
+          </Accordion>
+        ))
+      }
     </AppPage>
   )
 }

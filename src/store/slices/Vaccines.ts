@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { FirebaseFirestoreTypes } from '@react-native-firebase/firestore'
 
 interface IVaccine {
   name: string
   disease: string
   notes: string[]
   calendars: {
-    id: string
+    id: FirebaseFirestoreTypes.DocumentReference
     loop?: number
     when: number[]
   }[]

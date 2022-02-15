@@ -1,29 +1,43 @@
-import React, { useEffect } from 'react'
-
-// import firestore from '@react-native-firebase/firestore'
-
-import { CalendarsTemplate } from '../../atomic'
+import React, { useEffect, useState } from 'react'
 import { NativeStackHeaderProps } from '@react-navigation/native-stack'
 
+import { useAppSelector } from '~/store'
+import { ICalendar } from '~/atomic/templates/CalendarsTemplate'
+import { CalendarsTemplate } from '~/atomic'
+import { ECalendarsName } from '~/utils'
+
 export const Calendars: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
-  const getCalendars = async () => {
-    // const calendars = await firestore().collection('calendar')
-    // console.log('"""',calendars)
-    // console.log(await calendars.docs[0].id)
-    // const vaccines = await firestore().collection('vaccine').get()
+  const {
+    calendarsReducer: calendars,
+    vaccinesReducer: vaccines
+  } = useAppSelector((state) => state)
 
-    // const fullData: any[] = []
-    // vaccines.docs.forEach((doc) => {
-    // calendars.docs.map(foo => console.log('>>', foo))
-    // doc.get('calendars').map(async (ca) => console.log('>>', ca.id.id, await calendars.doc(ca.id.id).get()))
+  const [items, setItems] = useState<ICalendar[]>([])
+  const [isLoading, setIsLoading] = useState(true)
 
-    // await calendars.doc(ca.id.path).get()
-    // })
-    // console.log(fullData)
+  const parseCalendars = () => {
+    const parsedCalendars: {[key: string]: ICalendar} = {}
+    for (const vaccine in vaccines) {
+      vaccines[vaccine].calendars.map((calendar) => {
+        const calendarId = calendar?.id.id
+        parsedCalendars?.[calendarId] ??
+          Object.assign(parsedCalendars, {
+            [calendarId]: {
+              text: ECalendarsName[calendars[calendarId].name],
+              id: calendarId,
+              vaccines: []
+            }
+          })
+        parsedCalendars[calendarId].vaccines.push({ text: vaccines[vaccine].name, id: vaccine })
+        return undefined
+      })
+    }
+    setItems(Object.values(parsedCalendars))
+    setIsLoading(false)
   }
 
   useEffect(() => {
-    getCalendars()
+    if (!items.length) parseCalendars()
   }, [])
 
   const onPress = () => {
@@ -33,6 +47,8 @@ export const Calendars: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   return (
     <CalendarsTemplate
       onPress={onPress}
+      isLoading={isLoading}
+      calendars={items}
     />
   )
 }

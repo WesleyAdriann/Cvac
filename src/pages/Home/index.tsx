@@ -58,7 +58,10 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
 
     try {
       const calendarsSnap = await firestore().collection('calendar').get()
-      const calendars = calendarsSnap.docs.reduce((acc, item) => Object.assign(acc, { [item.id]: item.data() }), {})
+      const calendars =
+        calendarsSnap.docs.reduce((acc, item) =>
+          Object.assign(acc, { [item.id]: item.data() }), {}
+        )
       dispatch(calendarsActions.setCalendars(calendars))
     } catch (_error) {
       const error = _error as Error
