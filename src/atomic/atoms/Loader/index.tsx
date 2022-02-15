@@ -7,6 +7,7 @@ import { assignTestId } from '../../../utils'
 export interface ILoader {
   testID?: string
   margin?: number
+  size?: number
 }
 
 const Component: React.FC<ILoader> = ({ testID = 'Loader', ...props }) => <StyledLoader {...props} {...assignTestId('View', testID)} />
