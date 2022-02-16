@@ -6,6 +6,7 @@ module.exports = {
     'react-native/react-native': true
   },
   extends: [
+    'eslint:recommended',
     'plugin:react/recommended',
     'standard'
   ],
@@ -19,8 +20,11 @@ module.exports = {
   ],
   settings: {
     react: {
-      version: "17.0.2"
+      version: '17.0.2'
     },
+    'import/ignore': [
+      'react-native'
+    ],
     'import/resolver': {
       'babel-plugin-root-import': {
         'rootPathPrefix': '~',
