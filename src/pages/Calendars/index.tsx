@@ -16,7 +16,7 @@ export const Calendars: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState(true)
 
   const parseCalendars = () => {
-    const parsedCalendars: {[key: string]: ICalendar} = {}
+    const parsedCalendars: {[key: string]: ICalendar & {age:number}} = {}
     for (const vaccine in vaccines) {
       vaccines[vaccine].calendars.map((calendar) => {
         const calendarId = calendar?.id.id
@@ -25,7 +25,8 @@ export const Calendars: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
             [calendarId]: {
               text: ECalendarsName[calendars[calendarId].name],
               description: `${calendars[calendarId].startAge} anos até ${calendars[calendarId].endAge} anos`,
-              id: calendarId,
+              id: calendarId, 
+              age: calendars[calendarId].startAge, 
               vaccines: []
             }
           })
@@ -33,7 +34,10 @@ export const Calendars: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
         return undefined
       })
     }
-    setItems(Object.values(parsedCalendars))
+    const sortedCalendar = Object.values(parsedCalendars).sort((calendarA, calendarB) =>
+      calendarA.age - calendarB.age)
+
+    setItems(sortedCalendar)
     setIsLoading(false)
   }
 
