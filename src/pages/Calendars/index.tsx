@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { NativeStackHeaderProps } from '@react-navigation/native-stack'
 
 import { useAppSelector } from '~/store'
+import { TCalendarName } from '~/store/slices/Calendars'
 import { ICalendar } from '~/atomic/templates/CalendarsTemplate'
 import { CalendarsTemplate } from '~/atomic'
 import { ECalendarsName } from '~/utils'
@@ -15,6 +16,13 @@ export const Calendars: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const [items, setItems] = useState<ICalendar[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
+  const formatDescription = (type: TCalendarName, startAge: number, endAge: number) => {
+    if (type === 'elder') return `a partir de ${startAge} anos`
+    if (type === 'kid') return `ao nascer ate ${endAge} anos`
+
+    return `${startAge} anos até ${endAge} anos`
+  }
+
   const parseCalendars = () => {
     const parsedCalendars: {[key: string]: ICalendar & {age:number}} = {}
     for (const vaccine in vaccines) {
@@ -24,9 +32,9 @@ export const Calendars: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
           Object.assign(parsedCalendars, {
             [calendarId]: {
               text: ECalendarsName[calendars[calendarId].name],
-              description: `${calendars[calendarId].startAge} anos até ${calendars[calendarId].endAge} anos`,
-              id: calendarId, 
-              age: calendars[calendarId].startAge, 
+              description: formatDescription(calendars[calendarId].name, calendars[calendarId].startAge, calendars[calendarId].endAge),
+              id: calendarId,
+              age: calendars[calendarId].startAge,
               vaccines: []
             }
           })
@@ -34,8 +42,8 @@ export const Calendars: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
         return undefined
       })
     }
-    const sortedCalendar = Object.values(parsedCalendars).sort((calendarA, calendarB) =>
-      calendarA.age - calendarB.age)
+    const sortedCalendar = Object.values(parsedCalendars)
+      .sort((calendarA, calendarB) => calendarA.age - calendarB.age)
 
     setItems(sortedCalendar)
     setIsLoading(false)

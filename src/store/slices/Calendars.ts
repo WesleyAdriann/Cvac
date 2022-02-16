@@ -1,9 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
+export type TCalendarName = 'kid' | 'elder' | 'teen' | 'adult'
+
 interface ICalendar {
   startAge: number
   endAge: number
-  name: 'kid' | 'elder' | 'teen' | 'adult'
+  name: TCalendarName
 }
 
 export interface ICalendarsState {

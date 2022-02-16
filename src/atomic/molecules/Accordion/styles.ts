@@ -7,7 +7,7 @@ export const StyledAccordion = styled(List.Accordion).attrs((props) => ({
     color: props.theme.fontColor
   },
   descriptionStyle: {
-    color: props.theme.fontColor
+    color: `${props.theme.fontColor}aa`
   },
   theme: {
     ...props.theme,
