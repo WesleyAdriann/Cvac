@@ -8,7 +8,10 @@ import { rootReducer } from './rootReducer'
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: [],
+  blacklist: [
+    'vaccinesReducer',
+    'calendarsReducer'
+  ],
   whitelist: []
 }
 

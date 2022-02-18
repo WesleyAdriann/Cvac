@@ -8,4 +8,7 @@ export const StyledText = styled(PaperText)<IText>`
   font-size: ${(props) => props.size ?? props.theme.fontSize}px;
   text-align: ${(props) => props.align ?? 'left'};
   text-decoration: ${(props) => props.underline ? `underline ${props.theme.fontColor}` : 'none'};
+  margin-bottom: ${(props) => props.marginBottom ?? 0}px;
+  font-weight: ${(props) => props.weight ?? 'normal'};
+
 `

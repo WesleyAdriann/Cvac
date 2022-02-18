@@ -7,6 +7,7 @@ import { ICalendar } from '~/atomic/templates/CalendarsTemplate'
 import { CalendarsTemplate } from '~/atomic'
 import { ECalendarsName } from '~/utils'
 
+
 export const Calendars: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const {
     calendarsReducer: calendars,
@@ -53,8 +54,8 @@ export const Calendars: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
     if (!items.length) parseCalendars()
   }, [])
 
-  const onPress = () => {
-    navigation.push('vaccineDetails')
+  const onPress = (vaccineId: string, calendarId: string) => {
+    navigation.push('vaccineDetails', { vaccineId, calendarId })
   }
 
   return (

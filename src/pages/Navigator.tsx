@@ -12,14 +12,30 @@ import { Locations } from './Locations'
 import { Calendars } from './Calendars'
 import { DependentsNotification } from './DependentsNotifications'
 import { DependentsVaccineCertificate } from './DependentsVaccineCertificate'
-import { VaccineDetails } from './VaccineDetails'
+import { VaccineDetails, IVaccineDetails } from './VaccineDetails'
 import { RegisterDependents } from './RegisterDepentents'
 import { VaccineCertificateCategory } from './VaccineCertificateCategory'
 import { VaccineCertificates } from './VaccineCertificates'
 import { Notifications } from './Notifications'
 import { RegisterNotifications } from './RegisterNotifications'
 
-const Stack = createNativeStackNavigator()
+export type RootStackParamList = {
+  home: {},
+  login: {},
+  register: {},
+  locations: {},
+  calendars: {},
+  vaccineDetails: IVaccineDetails,
+  dependentsVaccineCertificate: {},
+  vaccineCertificateCategory: {},
+  vaccineCertificate: {},
+  registerDependents: {},
+  dependentsNotification: {},
+  notifications: {},
+  registerNotifications: {}
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>()
 
 export const Navigator: React.FC = () => {
   const routeNameRef = useRef<string>()

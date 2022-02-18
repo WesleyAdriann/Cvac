@@ -14,7 +14,7 @@ export interface ICalendar {
 
 export interface ICalendarsTemplate extends Omit<IAppPage, 'children' | 'scroll'> {
   testID?: string
-  onPress: (id: string) => void
+  onPress: (vaccineId: string, calendarId: string) => void
   calendars: ICalendar[]
 }
 
@@ -33,7 +33,7 @@ export const CalendarsTemplate: React.FC<ICalendarsTemplate> = ({
               calendar.vaccines.map((vaccine, index) => (
                 <ListItem
                   key={vaccine.id}
-                  onPress={() => onPress(vaccine.id)}
+                  onPress={() => onPress(vaccine.id, calendar.id)}
                   text={vaccine.text}
                   marginLeft={32}
                   noBorder={index !== calendar.vaccines.length}
