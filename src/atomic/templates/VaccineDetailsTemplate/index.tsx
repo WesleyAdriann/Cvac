@@ -21,13 +21,20 @@ export const VaccineDetailsTemplate: React.FC<IVaccineDetailsTemplate> = ({
   loop,
   ...props
 }) => {
-  console.log(notes)
-
-  const formatWhen = (value: number) => {
+  const formatWhen = (value: number, index: number) => {
     if (value === 0) return 'ao nascer'
     if (value < 16) return `${value} meses`
     if ((value / 12) % 1 === 0) return `${value / 12} anos`
-    return `${value % 12} meses após a primeira dose`
+    return `${index + 1}ª dose ${value % 12} meses após a primeira`
+  }
+
+  const formatLoop = () => {
+    const text = []
+    if (loop) {
+      text.push(`\na cada ${loop / 12} ano`)
+      if (loop / 12 > 1) text.push('s')
+    }
+    return text.join('')
   }
   return (
     <AppPage {...props} testID={testID} padding={16}>
@@ -38,21 +45,25 @@ export const VaccineDetailsTemplate: React.FC<IVaccineDetailsTemplate> = ({
       </Flex>
       <Flex flex={2} scroll>
         <Flex>
-          <Text marginBottom={4}>
-            <Text weight='bold'>Quando</Text>:{' '}
-            {when.map(formatWhen).join(' - ')} {!!loop && ` - a cada ${loop / 12} anos`}
+          <Text weight='bold'>Doses</Text>
+          <Text marginBottom={8}>
+            {when.length === 1 ? 'única' : when.length}
           </Text>
-          <Text marginBottom={4}>
-            <Text weight='bold'>Doses</Text>:{' '}
-            {when.length}
+
+          <Text weight='bold'>Quando</Text>
+          <Text marginBottom={8}>
+            {when.map(formatWhen).join('\n')}
+            {formatLoop()}
           </Text>
-          <Text marginBottom={4}>
-            <Text weight='bold'>Prevenção</Text>:{' '}
+
+          <Text weight='bold'>Prevenção</Text>
+          <Text marginBottom={8}>
             {disease}
           </Text>
+
           {!!notes.length &&
-            <Text marginBottom={4}>
-              <Text weight='bold'>Observaçōes</Text>:{' '}
+            <Text>
+              <Text weight='bold'>Observaçōes</Text>
             </Text>
           }
           {
