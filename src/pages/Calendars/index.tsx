@@ -7,7 +7,6 @@ import { ICalendar } from '~/atomic/templates/CalendarsTemplate'
 import { CalendarsTemplate } from '~/atomic'
 import { ECalendarsName } from '~/utils'
 
-
 export const Calendars: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const {
     calendarsReducer: calendars,

@@ -1,3 +1,4 @@
 babel.config.js
 .eslintrc.js
 node_modules
+enums.ts
