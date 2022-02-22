@@ -8,6 +8,7 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
     'standard'
   ],
   overrides: [
@@ -48,7 +49,8 @@ module.exports = {
   ],
   rules: {
     'no-use-before-define': 'off',
-    'indent': ['error', 2]
+    'indent': ['error', 2],
+    'react-hooks/exhaustive-deps': 'warn'
   },
   globals: {
     __DEV__: 'readonly'
