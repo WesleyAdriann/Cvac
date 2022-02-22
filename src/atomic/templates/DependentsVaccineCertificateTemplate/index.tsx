@@ -4,33 +4,36 @@ import { AppPage, IAppPage } from '../../molecules'
 
 import { Button, Flex } from '../../atoms'
 
+import { IDependent } from '~/store'
+
 export interface IDependentsVaccineCertificateTemplate extends Omit<IAppPage, 'children' | 'scroll'> {
   testID?: string
-  onPressDependent: () => void
+  onPressDependent: (dependentId: string) => void
   onPressRegister: () => void
+  dependents: { [key: string]: IDependent }
 }
 
 export const DependentsVaccineCertificateTemplate: React.FC<IDependentsVaccineCertificateTemplate> = ({
   testID = 'DependentsVaccineCertificateTemplate',
   onPressDependent,
   onPressRegister,
+  dependents,
   ...props
 }) => {
   return (
     <AppPage {...props} testID={testID} padding={0}>
       <Flex scroll paddingStyle={16} contentContainerStyle={{ justifyContent: 'center' }}>
-        <Button
-          onPress={onPressDependent}
-          text='Pessoa X'
-          mode='outlined'
-          marginStyle='0 0 16px'
-        />
-        <Button
-          onPress={onPressDependent}
-          text='Pessoa Y'
-          mode='outlined'
-          marginStyle='0 0 16px'
-        />
+        {
+          Object.entries(dependents ?? {}).map(([key, value]) => (
+            <Button
+              key={key}
+              onPress={() => onPressDependent(key)}
+              text={value.name}
+              mode='outlined'
+              marginStyle='0 0 16px'
+            />
+          ))
+        }
       </Flex>
       <Flex paddingStyle={16}>
         <Button

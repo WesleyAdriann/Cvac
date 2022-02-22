@@ -20,8 +20,8 @@ const persistedReducer = persistReducer(persistConfig, rootReducer)
 const middleware = []
 
 if (__DEV__) {
-  const createDebugger = require('redux-flipper').default
-  middleware.push(createDebugger())
+  // const createDebugger = require('redux-flipper').default
+  // middleware.push(createDebugger())
 }
 
 export const store = configureStore({

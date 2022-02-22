@@ -6,25 +6,34 @@ export interface ISessionState {
   doLogout: boolean
   isAuth: boolean
   infos: ISessionInfos | null
+  isLoading: boolean
 }
 
 const initialState: ISessionState = {
   doLogout: false,
   isAuth: false,
-  infos: null
+  infos: null,
+  isLoading: false
 }
 
 export const sessionSlice = createSlice({
   name: 'Session',
   initialState,
   reducers: {
-    startSession: (state, action: PayloadAction<ISessionInfos>) => {
+    setSessionInfos: (state, action: PayloadAction<ISessionInfos>) => {
       state.infos = action.payload
+    },
+    startSession: (state) => {
       state.isAuth = true
+      state.isLoading = false
     },
     endSession: () => initialState,
     startLogout: (state) => {
       state.doLogout = true
+      state.isLoading = true
+    },
+    setIsLoading: (state, action: PayloadAction<boolean>) => {
+      state.isLoading = action.payload
     }
   }
 })

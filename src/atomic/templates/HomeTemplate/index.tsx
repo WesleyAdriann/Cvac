@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Image } from 'react-native'
 
-import { Flex, Button, Text } from '../../atoms'
+import { Flex, Button, Text, Loader } from '../../atoms'
 import { AppPage, HomeItem, IAppPage } from '../../molecules'
 
 import Logotipo from '../../../assets/logotipo/logotipo.png'
@@ -15,6 +15,7 @@ export interface IHomeTemplate extends Omit<IAppPage, 'children' | 'scroll'> {
   username?: string
   onPressAuthItem: (item: TAuthItem) => void
   onPressMenuItem: (item: TMenuItem) => void
+  authIsLoading: boolean
 }
 
 export const HomeTemplate: React.FC<IHomeTemplate> = ({
@@ -23,8 +24,39 @@ export const HomeTemplate: React.FC<IHomeTemplate> = ({
   username = '',
   onPressAuthItem,
   onPressMenuItem,
+  authIsLoading,
   ...props
 }) => {
+  const authItems = useMemo(() => {
+    if (authIsLoading) {
+      return (
+        <Flex alignItems='center' justifyContent='center'>
+          <Loader />
+        </Flex>
+      )
+    }
+
+    if (isAuthenticated) {
+      return (
+        <Flex flexDirection='row' alignItems='flex-end'>
+          <Flex flex={1} marginStyle='0 16px 0 0'>
+            <Text size={26}>Bem-Vindo,{'\n'}{username}</Text>
+          </Flex>
+          <Flex flex={1}>
+            <Button text='sair' mode='outlined' onPress={() => onPressAuthItem('logout')}/>
+          </Flex>
+        </Flex>
+      )
+    }
+
+    return (
+      <Flex flexDirection='row'>
+        <Button flex={1} text='login' onPress={() => onPressAuthItem('login')} marginStyle='0 16px 0 0' />
+        <Button flex={1} text='cadastrar' mode='outlined' onPress={() => onPressAuthItem('register')} />
+      </Flex>
+    )
+  }, [authIsLoading, isAuthenticated, onPressAuthItem, username])
+
   return (
     <AppPage {...props} testID={testID} scroll>
       <Flex flex={1} alignItems='center' justifyContent='center' marginStyle={16}>
@@ -32,25 +64,7 @@ export const HomeTemplate: React.FC<IHomeTemplate> = ({
       </Flex>
       <Flex flex={2} justifyContent='center'>
         <Flex>
-          {
-            isAuthenticated
-              ? (
-                <Flex flexDirection='row' alignItems='flex-end'>
-                  <Flex flex={1} marginStyle='0 16px 0 0'>
-                    <Text size={26}>Bem Vindo,{'\n'}{username}</Text>
-                  </Flex>
-                  <Flex flex={1}>
-                    <Button text='sair' mode='outlined' onPress={() => onPressAuthItem('logout')}/>
-                  </Flex>
-                </Flex>
-              )
-              : (
-                <Flex flexDirection='row'>
-                  <Button flex={1} text='login' onPress={() => onPressAuthItem('login')} marginStyle='0 16px 0 0' />
-                  <Button flex={1} text='cadastrar' mode='outlined' onPress={() => onPressAuthItem('register')} />
-                </Flex>
-              )
-          }
+          {authItems}
         </Flex>
         <Flex marginStyle='16px 0 0'>
           <Flex flexDirection='row'>

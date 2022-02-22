@@ -60,10 +60,11 @@ export const Register: React.FC<IRegister> = ({ route, navigation }) => {
   const createInFirestore = async (form: IRegisterFormInputs, uid: string) => {
     try {
       const fire = firestore()
-      const ref = await fire.collection('users').add({
+      await fire.collection('users').doc(uid).set({
         name: form.name,
         uid
       })
+      const ref = fire.collection('users').doc(uid)
       await fire.collection('dependents').add({
         birthDate: new Date(form.birthDate),
         name: form.name,
@@ -71,7 +72,7 @@ export const Register: React.FC<IRegister> = ({ route, navigation }) => {
       })
     } catch (_error) {
       const error = _error as ReactNativeFirebase.NativeFirebaseError
-      logger(TAG, 'createInAuth error', error.message)
+      logger(TAG, 'createInFirestore error', error.message)
       throw error
     }
   }

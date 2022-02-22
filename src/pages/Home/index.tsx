@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect } from 'react'
+import React, { useMemo, useEffect, useCallback } from 'react'
 import { NativeStackHeaderProps } from '@react-navigation/native-stack'
 import firestore from '@react-native-firebase/firestore'
 
@@ -6,6 +6,7 @@ import {
   useAppSelector,
   useAppDispatch,
   sessionActions,
+  userProfileActions,
   calendarsActions,
   vaccinesActions
 } from '~/store'
@@ -36,9 +37,9 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
     case 'local':
       return navigation.push('locations')
     case 'notification':
-      return navigation.push('dependentsNotification')
+      return navigation.push(session.isAuth ? 'dependentsNotification' : 'login')
     case 'vaccineCertificate':
-      return navigation.push('dependentsVaccineCertificate')
+      return navigation.push(session.isAuth ? 'dependentsVaccineCertificate' : 'login')
     }
   }
 
@@ -56,6 +57,7 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const getCalendars = async () => {
     if (!isEmpty(calendars)) return null
 
+    logger(TAG, 'try to get calendars')
     try {
       const calendarsSnap = await firestore().collection('calendar').get()
       const calendars =
@@ -72,6 +74,7 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const getVaccines = async () => {
     if (!isEmpty(vaccines)) return null
 
+    logger(TAG, 'try to get vaccines')
     try {
       const vaccinesSnap = await firestore().collection('vaccine').get()
       const vaccines = vaccinesSnap.docs.reduce((acc, item) => Object.assign(acc, { [item.id]: item.data() }), {})
@@ -82,10 +85,30 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
     }
   }
 
+  const getDependents = useCallback(async () => {
+    if (!isEmpty(userProfile.depentents)) return null
+
+    logger(TAG, 'try to get dependents', userProfile.documentRef)
+    try {
+      const dependentsSnap = await firestore().collection('dependents').where('userUid', '==', userProfile.documentRef).get()
+
+      const dependents = dependentsSnap.docs.reduce((acc, item) => Object.assign(acc, { [item.id]: item.data() }), {})
+      dispatch(userProfileActions.setDepentents(dependents))
+      logger(TAG, 'success to get dependents', dependents)
+    } catch (_error) {
+      const error = _error as Error
+      logger(TAG, 'error to get dependents', error.message)
+    }
+  }, [dispatch, userProfile.depentents, userProfile.documentRef])
+
   useEffect(() => {
     getCalendars()
     getVaccines()
   }, [])
+
+  useEffect(() => {
+    if (session.isAuth) getDependents()
+  }, [session.isAuth])
 
   return (
     <HomeTemplate
@@ -93,6 +116,7 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
       username={displayName}
       onPressAuthItem={onAuthItem}
       onPressMenuItem={onMenuItem}
+      authIsLoading={session.isLoading}
     />
   )
 }

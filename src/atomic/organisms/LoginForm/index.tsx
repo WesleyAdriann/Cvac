@@ -16,9 +16,10 @@ export interface ILoginFormInputs {
 export interface ILoginForm {
   testID?: string,
   onSubmit: (data: ILoginFormInputs) => void
+  isLoading: boolean
 }
 
-export const LoginForm : React.FC<ILoginForm> = ({ testID = 'LoginForm', onSubmit, ...props }) => {
+export const LoginForm : React.FC<ILoginForm> = ({ testID = 'LoginForm', onSubmit, isLoading,...props }) => {
   const { control, handleSubmit, formState: { errors } } = useForm<ILoginFormInputs>({
     resolver: yupResolver(validation),
     defaultValues: {
@@ -41,6 +42,7 @@ export const LoginForm : React.FC<ILoginForm> = ({ testID = 'LoginForm', onSubmi
             type='email'
             withError={!!errors.email?.message}
             description={errors.email?.message}
+            disabled={isLoading}
           />
         )}
       />
@@ -54,11 +56,12 @@ export const LoginForm : React.FC<ILoginForm> = ({ testID = 'LoginForm', onSubmi
             onChangeText={field.onChange}
             withError={!!errors.password?.message}
             description={errors.password?.message}
+            disabled={isLoading}
           />
         )}
       />
       <Flex marginStyle='4px 0 0'>
-        <Button text='entrar' onPress={onSubmitPress}/>
+        <Button text='entrar' onPress={onSubmitPress} isLoading={isLoading} />
       </Flex>
     </Flex>
   )
