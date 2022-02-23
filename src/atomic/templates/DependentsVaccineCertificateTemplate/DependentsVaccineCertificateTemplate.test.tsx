@@ -2,7 +2,7 @@
 import React from 'react'
 import { render, cleanup } from '@testing-library/react-native'
 
-import { AllTheProviders as wrapper, mockTestID } from '../../../utils'
+import { AllTheProviders as wrapper, mockTestID } from '~/utils'
 
 import { DependentsVaccineCertificateTemplate, IDependentsVaccineCertificateTemplate } from './index'
 

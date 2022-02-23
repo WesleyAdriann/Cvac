@@ -1,7 +1,7 @@
 import React from 'react'
 import { Pressable as RNPressable, PressableProps } from 'react-native'
 
-import { assignTestId } from '../../../utils'
+import { assignTestId } from '~/utils'
 
 export interface IPressable extends PressableProps {
   testID?: string

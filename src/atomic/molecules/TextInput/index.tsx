@@ -6,7 +6,7 @@ import { useTheme } from 'styled-components/native'
 
 import { Flex } from '../../atoms'
 
-import { assignTestId, formatDate, formatHour } from '../../../utils'
+import { assignTestId, formatDate, formatHour } from '~/utils'
 
 export interface ITextInput extends Omit<TextInputProps, 'error' | 'theme' | 'mode'> {
   testID?: string,

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { StyledButton, StyledText } from './styles'
 
-import { assignTestId } from '../../../utils'
+import { assignTestId } from '~/utils'
 
 export interface IButtomCustomStyle {
   marginStyle?: number | string

@@ -2,7 +2,7 @@ import React from 'react'
 import { Modal } from 'react-native'
 import { Dialog as PaperDialog } from 'react-native-paper'
 
-import { assignTestId } from '../../../utils'
+import { assignTestId } from '~/utils'
 
 import { Text, Button } from '../../atoms'
 

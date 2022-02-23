@@ -3,7 +3,7 @@ import { Text as PaperText, Button as PaperButton } from 'react-native-paper'
 
 import { TButtonMore, IButton } from './index'
 
-import { TTheme } from '../../../tokens'
+import { TTheme } from '~/tokens'
 
 type IStyledButton = Omit<IButton, 'text'>
 export const StyledButton = styled(PaperButton).attrs<IStyledButton>((props) => ({

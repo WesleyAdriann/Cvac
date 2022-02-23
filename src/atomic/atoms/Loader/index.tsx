@@ -2,7 +2,7 @@ import React from 'react'
 
 import { StyledLoader } from './styles'
 
-import { assignTestId } from '../../../utils'
+import { assignTestId } from '~/utils'
 
 export interface ILoader {
   testID?: string

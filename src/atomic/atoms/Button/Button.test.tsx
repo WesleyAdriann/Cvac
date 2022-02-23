@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, cleanup, fireEvent } from '@testing-library/react-native'
 
-import { AllTheProviders as wrapper, mockTestID } from '../../../utils'
+import { AllTheProviders as wrapper, mockTestID } from '~/utils'
 
 import { Button, IButton } from './index'
 

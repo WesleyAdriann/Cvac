@@ -1,7 +1,7 @@
 import React from 'react'
 import { ViewProps, ViewStyle, ScrollViewProps } from 'react-native'
 
-import { assignTestId } from '../../../utils'
+import { assignTestId } from '~/utils'
 
 import { StyledView, StyledSafeAreaView, StyledScroll } from './styles'
 
