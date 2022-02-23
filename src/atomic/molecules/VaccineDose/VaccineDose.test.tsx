@@ -3,18 +3,18 @@ import { render, cleanup } from '@testing-library/react-native'
 
 import { AllTheProviders as wrapper, mockTestID } from '../../../utils'
 
-import { VaccineCertificatesTemplate, IVaccineCertificatesTemplate } from './index'
+import { VaccineDose, IVaccineDose } from './index'
 
-describe('Templates/VaccineCertificatesTemplate', () => {
-  const props: IVaccineCertificatesTemplate = {
-    testID: 'VaccineCertificatesTemplate',
-    onPressSave: jest.fn(),
-    onPressVaccine: jest.fn()
+describe('Molecules/VaccineDose', () => {
+  const props: IVaccineDose = {
+    testID: 'VaccineDose',
+    onPress: jest.fn(),
+    text: '1 dose'
   }
 
-  const elContainer = mockTestID('SafeAreaView', props.testID!).testID
+  const elContainer = mockTestID('Pressable', props.testID!).testID
 
-  const renderComponent = () => render(<VaccineCertificatesTemplate {...props} />, { wrapper })
+  const renderComponent = () => render(<VaccineDose {...props} />, { wrapper })
   let component = renderComponent()
 
   beforeEach(() => {

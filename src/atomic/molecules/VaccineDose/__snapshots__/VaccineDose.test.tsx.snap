@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Molecules/VaccineDose should render snapshot 1`] = `
+<View
+  collapsable={false}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    accessible={false}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    selected={false}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#FAFAFA",
+          "borderColor": "#FAFAFA",
+          "borderRadius": 4,
+          "borderWidth": 1,
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
+          "paddingBottom": 16,
+          "paddingLeft": 16,
+          "paddingRight": 16,
+          "paddingTop": 16,
+          "position": "relative",
+        },
+      ]
+    }
+    testID="Pressable_VaccineDose"
+  >
+    <Text
+      accessible={false}
+      style={
+        Array [
+          Object {
+            "color": "#424242",
+            "fontFamily": "System",
+            "fontWeight": "400",
+          },
+          Object {
+            "textAlign": "left",
+          },
+          Array [
+            Object {
+              "color": "#424242",
+              "fontSize": 16,
+              "fontWeight": "normal",
+              "marginBottom": 0,
+              "textAlign": "left",
+              "textDecorationColor": "black",
+              "textDecorationLine": "none",
+              "textDecorationStyle": "solid",
+            },
+            Object {
+              "textAlign": "center",
+            },
+          ],
+        ]
+      }
+      testID="Text_Text"
+    >
+      1 dose
+    </Text>
+    <Text
+      allowFontScaling={false}
+      selected={false}
+      style={
+        Array [
+          Object {
+            "color": "#424242",
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "fontSize": 24,
+              "position": "absolute",
+              "right": 8,
+              "top": 8,
+            },
+          ],
+          Object {
+            "fontFamily": "Material Design Icons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          Object {},
+        ]
+      }
+    >
+      󰗡
+    </Text>
+  </View>
+</View>
+`;

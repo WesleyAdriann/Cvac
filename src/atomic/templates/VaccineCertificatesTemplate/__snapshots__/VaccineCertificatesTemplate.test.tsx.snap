@@ -84,90 +84,874 @@ exports[`Templates/VaccineCertificatesTemplate should render snapshot 1`] = `
         }
         testID="View_Flex"
       >
-        <Text
+        <View
           accessible={false}
+          marginStyle="0 0 16px"
           style={
             Array [
               Object {
-                "color": "#424242",
-                "fontFamily": "System",
-                "fontWeight": "400",
+                "flexDirection": "column",
+                "marginBottom": 16,
+                "marginLeft": 0,
+                "marginRight": 0,
+                "marginTop": 0,
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
               },
-              Object {
-                "textAlign": "left",
-              },
+            ]
+          }
+          testID="View_Flex"
+        >
+          <Text
+            accessible={false}
+            marginBottom={8}
+            style={
               Array [
                 Object {
                   "color": "#424242",
-                  "fontSize": 16,
-                  "textAlign": "left",
-                  "textDecorationColor": "black",
-                  "textDecorationLine": "none",
-                  "textDecorationStyle": "solid",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-              ],
-            ]
-          }
-          testID="Text_Text"
-        >
-          Vacina X
-        </Text>
-        <Text
+                Object {
+                  "textAlign": "left",
+                },
+                Array [
+                  Object {
+                    "color": "#424242",
+                    "fontSize": 16,
+                    "fontWeight": "normal",
+                    "marginBottom": 8,
+                    "textAlign": "left",
+                    "textDecorationColor": "black",
+                    "textDecorationLine": "none",
+                    "textDecorationStyle": "solid",
+                  },
+                ],
+              ]
+            }
+            testID="Text_Text"
+          >
+            Vacina X
+          </Text>
+          <View
+            accessible={false}
+            flexDirection="row"
+            style={
+              Array [
+                Object {
+                  "flexDirection": "row",
+                  "marginBottom": 0,
+                  "marginLeft": 0,
+                  "marginRight": 0,
+                  "marginTop": 0,
+                  "paddingBottom": 0,
+                  "paddingLeft": 0,
+                  "paddingRight": 0,
+                  "paddingTop": 0,
+                },
+              ]
+            }
+            testID="View_Flex"
+          >
+            <View
+              accessible={false}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              selected={true}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#F1FAFC",
+                    "borderColor": "#00C9D2",
+                    "borderRadius": 4,
+                    "borderWidth": 1,
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "paddingBottom": 16,
+                    "paddingLeft": 16,
+                    "paddingRight": 16,
+                    "paddingTop": 16,
+                    "position": "relative",
+                  },
+                ]
+              }
+              testID="Pressable_VaccineDose"
+            >
+              <Text
+                accessible={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "#424242",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                    },
+                    Object {
+                      "textAlign": "left",
+                    },
+                    Array [
+                      Object {
+                        "color": "#424242",
+                        "fontSize": 16,
+                        "fontWeight": "normal",
+                        "marginBottom": 0,
+                        "textAlign": "left",
+                        "textDecorationColor": "black",
+                        "textDecorationLine": "none",
+                        "textDecorationStyle": "solid",
+                      },
+                      Object {
+                        "textAlign": "center",
+                      },
+                    ],
+                  ]
+                }
+                testID="Text_Text"
+              >
+                1 dose
+              </Text>
+              <Text
+                allowFontScaling={false}
+                selected={true}
+                style={
+                  Array [
+                    Object {
+                      "color": "#00C9D2",
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 24,
+                        "position": "absolute",
+                        "right": 8,
+                        "top": 8,
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "Material Design Icons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                󰗠
+              </Text>
+            </View>
+            <View
+              accessible={false}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#FAFAFA",
+                    "borderColor": "#FAFAFA",
+                    "borderRadius": 4,
+                    "borderWidth": 1,
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "paddingBottom": 16,
+                    "paddingLeft": 16,
+                    "paddingRight": 16,
+                    "paddingTop": 16,
+                    "position": "relative",
+                  },
+                ]
+              }
+              testID="Pressable_VaccineDose"
+            >
+              <Text
+                accessible={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "#424242",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                    },
+                    Object {
+                      "textAlign": "left",
+                    },
+                    Array [
+                      Object {
+                        "color": "#424242",
+                        "fontSize": 16,
+                        "fontWeight": "normal",
+                        "marginBottom": 0,
+                        "textAlign": "left",
+                        "textDecorationColor": "black",
+                        "textDecorationLine": "none",
+                        "textDecorationStyle": "solid",
+                      },
+                      Object {
+                        "textAlign": "center",
+                      },
+                    ],
+                  ]
+                }
+                testID="Text_Text"
+              >
+                2 dose
+              </Text>
+              <Text
+                allowFontScaling={false}
+                selected={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "#424242",
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 24,
+                        "position": "absolute",
+                        "right": 8,
+                        "top": 8,
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "Material Design Icons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                󰗡
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
           accessible={false}
+          marginStyle="0 0 16px"
           style={
             Array [
               Object {
-                "color": "#424242",
-                "fontFamily": "System",
-                "fontWeight": "400",
+                "flexDirection": "column",
+                "marginBottom": 16,
+                "marginLeft": 0,
+                "marginRight": 0,
+                "marginTop": 0,
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
               },
-              Object {
-                "textAlign": "left",
-              },
+            ]
+          }
+          testID="View_Flex"
+        >
+          <Text
+            accessible={false}
+            marginBottom={8}
+            style={
               Array [
                 Object {
                   "color": "#424242",
-                  "fontSize": 16,
-                  "textAlign": "left",
-                  "textDecorationColor": "black",
-                  "textDecorationLine": "none",
-                  "textDecorationStyle": "solid",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-              ],
-            ]
-          }
-          testID="Text_Text"
-        >
-          Vacina Y
-        </Text>
-        <Text
+                Object {
+                  "textAlign": "left",
+                },
+                Array [
+                  Object {
+                    "color": "#424242",
+                    "fontSize": 16,
+                    "fontWeight": "normal",
+                    "marginBottom": 8,
+                    "textAlign": "left",
+                    "textDecorationColor": "black",
+                    "textDecorationLine": "none",
+                    "textDecorationStyle": "solid",
+                  },
+                ],
+              ]
+            }
+            testID="Text_Text"
+          >
+            Vacina Y
+          </Text>
+          <View
+            accessible={false}
+            flexDirection="row"
+            style={
+              Array [
+                Object {
+                  "flexDirection": "row",
+                  "marginBottom": 0,
+                  "marginLeft": 0,
+                  "marginRight": 0,
+                  "marginTop": 0,
+                  "paddingBottom": 0,
+                  "paddingLeft": 0,
+                  "paddingRight": 0,
+                  "paddingTop": 0,
+                },
+              ]
+            }
+            testID="View_Flex"
+          >
+            <View
+              accessible={false}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#FAFAFA",
+                    "borderColor": "#FAFAFA",
+                    "borderRadius": 4,
+                    "borderWidth": 1,
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "paddingBottom": 16,
+                    "paddingLeft": 16,
+                    "paddingRight": 16,
+                    "paddingTop": 16,
+                    "position": "relative",
+                  },
+                ]
+              }
+              testID="Pressable_VaccineDose"
+            >
+              <Text
+                accessible={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "#424242",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                    },
+                    Object {
+                      "textAlign": "left",
+                    },
+                    Array [
+                      Object {
+                        "color": "#424242",
+                        "fontSize": 16,
+                        "fontWeight": "normal",
+                        "marginBottom": 0,
+                        "textAlign": "left",
+                        "textDecorationColor": "black",
+                        "textDecorationLine": "none",
+                        "textDecorationStyle": "solid",
+                      },
+                      Object {
+                        "textAlign": "center",
+                      },
+                    ],
+                  ]
+                }
+                testID="Text_Text"
+              >
+                dose unica
+              </Text>
+              <Text
+                allowFontScaling={false}
+                selected={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "#424242",
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 24,
+                        "position": "absolute",
+                        "right": 8,
+                        "top": 8,
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "Material Design Icons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                󰗡
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
           accessible={false}
+          marginStyle="0 0 16px"
           style={
             Array [
               Object {
-                "color": "#424242",
-                "fontFamily": "System",
-                "fontWeight": "400",
+                "flexDirection": "column",
+                "marginBottom": 16,
+                "marginLeft": 0,
+                "marginRight": 0,
+                "marginTop": 0,
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
               },
-              Object {
-                "textAlign": "left",
-              },
+            ]
+          }
+          testID="View_Flex"
+        >
+          <Text
+            accessible={false}
+            marginBottom={8}
+            style={
               Array [
                 Object {
                   "color": "#424242",
-                  "fontSize": 16,
-                  "textAlign": "left",
-                  "textDecorationColor": "black",
-                  "textDecorationLine": "none",
-                  "textDecorationStyle": "solid",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
                 },
-              ],
+                Object {
+                  "textAlign": "left",
+                },
+                Array [
+                  Object {
+                    "color": "#424242",
+                    "fontSize": 16,
+                    "fontWeight": "normal",
+                    "marginBottom": 8,
+                    "textAlign": "left",
+                    "textDecorationColor": "black",
+                    "textDecorationLine": "none",
+                    "textDecorationStyle": "solid",
+                  },
+                ],
+              ]
+            }
+            testID="Text_Text"
+          >
+            Vacina Y
+          </Text>
+          <View
+            accessible={false}
+            flexDirection="row"
+            style={
+              Array [
+                Object {
+                  "flexDirection": "row",
+                  "marginBottom": 0,
+                  "marginLeft": 0,
+                  "marginRight": 0,
+                  "marginTop": 0,
+                  "paddingBottom": 0,
+                  "paddingLeft": 0,
+                  "paddingRight": 0,
+                  "paddingTop": 0,
+                },
+              ]
+            }
+            testID="View_Flex"
+          >
+            <View
+              accessible={false}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              selected={true}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#F1FAFC",
+                    "borderColor": "#00C9D2",
+                    "borderRadius": 4,
+                    "borderWidth": 1,
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "paddingBottom": 16,
+                    "paddingLeft": 16,
+                    "paddingRight": 16,
+                    "paddingTop": 16,
+                    "position": "relative",
+                  },
+                ]
+              }
+              testID="Pressable_VaccineDose"
+            >
+              <Text
+                accessible={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "#424242",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                    },
+                    Object {
+                      "textAlign": "left",
+                    },
+                    Array [
+                      Object {
+                        "color": "#424242",
+                        "fontSize": 16,
+                        "fontWeight": "normal",
+                        "marginBottom": 0,
+                        "textAlign": "left",
+                        "textDecorationColor": "black",
+                        "textDecorationLine": "none",
+                        "textDecorationStyle": "solid",
+                      },
+                      Object {
+                        "textAlign": "center",
+                      },
+                    ],
+                  ]
+                }
+                testID="Text_Text"
+              >
+                dose unica
+              </Text>
+              <Text
+                allowFontScaling={false}
+                selected={true}
+                style={
+                  Array [
+                    Object {
+                      "color": "#00C9D2",
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 24,
+                        "position": "absolute",
+                        "right": 8,
+                        "top": 8,
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "Material Design Icons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                󰗠
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          accessible={false}
+          marginStyle="0 0 16px"
+          style={
+            Array [
+              Object {
+                "flexDirection": "column",
+                "marginBottom": 16,
+                "marginLeft": 0,
+                "marginRight": 0,
+                "marginTop": 0,
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+              },
             ]
           }
-          testID="Text_Text"
+          testID="View_Flex"
         >
-          Vacina Z
-        </Text>
+          <Text
+            accessible={false}
+            marginBottom={8}
+            style={
+              Array [
+                Object {
+                  "color": "#424242",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Array [
+                  Object {
+                    "color": "#424242",
+                    "fontSize": 16,
+                    "fontWeight": "normal",
+                    "marginBottom": 8,
+                    "textAlign": "left",
+                    "textDecorationColor": "black",
+                    "textDecorationLine": "none",
+                    "textDecorationStyle": "solid",
+                  },
+                ],
+              ]
+            }
+            testID="Text_Text"
+          >
+            Vacina Y
+          </Text>
+          <View
+            accessible={false}
+            flexDirection="row"
+            style={
+              Array [
+                Object {
+                  "flexDirection": "row",
+                  "marginBottom": 0,
+                  "marginLeft": 0,
+                  "marginRight": 0,
+                  "marginTop": 0,
+                  "paddingBottom": 0,
+                  "paddingLeft": 0,
+                  "paddingRight": 0,
+                  "paddingTop": 0,
+                },
+              ]
+            }
+            testID="View_Flex"
+          >
+            <View
+              accessible={false}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#FAFAFA",
+                    "borderColor": "#FAFAFA",
+                    "borderRadius": 4,
+                    "borderWidth": 1,
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "paddingBottom": 16,
+                    "paddingLeft": 16,
+                    "paddingRight": 16,
+                    "paddingTop": 16,
+                    "position": "relative",
+                  },
+                ]
+              }
+              testID="Pressable_VaccineDose"
+            >
+              <Text
+                accessible={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "#424242",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                    },
+                    Object {
+                      "textAlign": "left",
+                    },
+                    Array [
+                      Object {
+                        "color": "#424242",
+                        "fontSize": 16,
+                        "fontWeight": "normal",
+                        "marginBottom": 0,
+                        "textAlign": "left",
+                        "textDecorationColor": "black",
+                        "textDecorationLine": "none",
+                        "textDecorationStyle": "solid",
+                      },
+                      Object {
+                        "textAlign": "center",
+                      },
+                    ],
+                  ]
+                }
+                testID="Text_Text"
+              >
+                1 dose
+              </Text>
+              <Text
+                allowFontScaling={false}
+                selected={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "#424242",
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 24,
+                        "position": "absolute",
+                        "right": 8,
+                        "top": 8,
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "Material Design Icons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                󰗡
+              </Text>
+            </View>
+            <View
+              accessible={false}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#FAFAFA",
+                    "borderColor": "#FAFAFA",
+                    "borderRadius": 4,
+                    "borderWidth": 1,
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "paddingBottom": 16,
+                    "paddingLeft": 16,
+                    "paddingRight": 16,
+                    "paddingTop": 16,
+                    "position": "relative",
+                  },
+                ]
+              }
+              testID="Pressable_VaccineDose"
+            >
+              <Text
+                accessible={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "#424242",
+                      "fontFamily": "System",
+                      "fontWeight": "400",
+                    },
+                    Object {
+                      "textAlign": "left",
+                    },
+                    Array [
+                      Object {
+                        "color": "#424242",
+                        "fontSize": 16,
+                        "fontWeight": "normal",
+                        "marginBottom": 0,
+                        "textAlign": "left",
+                        "textDecorationColor": "black",
+                        "textDecorationLine": "none",
+                        "textDecorationStyle": "solid",
+                      },
+                      Object {
+                        "textAlign": "center",
+                      },
+                    ],
+                  ]
+                }
+                testID="Text_Text"
+              >
+                2 dose
+              </Text>
+              <Text
+                allowFontScaling={false}
+                selected={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "#424242",
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "fontSize": 24,
+                        "position": "absolute",
+                        "right": 8,
+                        "top": 8,
+                      },
+                    ],
+                    Object {
+                      "fontFamily": "Material Design Icons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                󰗡
+              </Text>
+            </View>
+          </View>
+        </View>
       </View>
       <View
         accessible={false}
