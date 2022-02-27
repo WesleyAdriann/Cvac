@@ -14,7 +14,7 @@ import { DependentsNotification } from './DependentsNotifications'
 import { DependentsVaccineCertificate } from './DependentsVaccineCertificate'
 import { VaccineDetails, IVaccineDetails } from './VaccineDetails'
 import { RegisterDependents } from './RegisterDepentents'
-import { VaccineCertificateCategory } from './VaccineCertificateCategory'
+import { VaccineCertificateCalendars } from './VaccineCertificateCalendars'
 import { VaccineCertificates } from './VaccineCertificates'
 import { Notifications } from './Notifications'
 import { RegisterNotifications } from './RegisterNotifications'
@@ -27,13 +27,13 @@ export type RootStackParamList = {
   calendars: {},
   vaccineDetails: IVaccineDetails,
   dependentsVaccineCertificate: {},
-  vaccineCertificateCategory: {},
+  vaccineCertificateCalendars: {},
   vaccineCertificate: {},
   registerDependents: {},
   dependentsNotification: {},
   notifications: {},
   registerNotifications: {}
-};
+}
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -68,7 +68,7 @@ export const Navigator: React.FC = () => {
         <Stack.Screen name='calendars' component={Calendars} options={{ title: 'Calendarios' }} />
         <Stack.Screen name='vaccineDetails' component={VaccineDetails} options={{ title: 'Detalhes' }}/>
         <Stack.Screen name='dependentsVaccineCertificate' component={DependentsVaccineCertificate} options={{ title: 'Carteiras' }}/>
-        <Stack.Screen name='vaccineCertificateCategory' component={VaccineCertificateCategory} options={{ title: 'Carteiras' }}/>
+        <Stack.Screen name='vaccineCertificateCalendars' component={VaccineCertificateCalendars} options={{ title: 'Carteiras' }}/>
         <Stack.Screen name='vaccineCertificate' component={VaccineCertificates} options={{ title: 'Carteira de Vacina' }}/>
         <Stack.Screen name='registerDependents' component={RegisterDependents} options={{ title: 'Cadastro de Dependente' }}/>
         <Stack.Screen name='dependentsNotification' component={DependentsNotification} options={{ title: 'Lembretes' }} />

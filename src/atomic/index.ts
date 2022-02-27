@@ -26,7 +26,7 @@ export { DependentsNotificationsTemplate } from './templates/DependentsNotificat
 export { DependentsVaccineCertificateTemplate } from './templates/DependentsVaccineCertificateTemplate'
 export { VaccineDetailsTemplate } from './templates/VaccineDetailsTemplate'
 export { RegisterDependentsTemplate } from './templates/RegisterDependentsTemplate'
-export { VaccineCertificateCategoryTemplate } from './templates/VaccineCertificateCategoryTemplate'
+export { VaccineCertificateCalendarsTemplate } from './templates/VaccineCertificateCalendarsTemplate'
 export { VaccineCertificatesTemplate } from './templates/VaccineCertificatesTemplate'
 export { NotificationsTemplate } from './templates/NotificationsTemplate'
 export { RegisterNotificationsTemplate } from './templates/RegisterNotificationsTemplate'

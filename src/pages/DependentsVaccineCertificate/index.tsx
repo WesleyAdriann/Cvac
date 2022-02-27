@@ -2,16 +2,20 @@ import React from 'react'
 import { NativeStackHeaderProps } from '@react-navigation/native-stack'
 
 import { DependentsVaccineCertificateTemplate } from '~/atomic'
-import { useAppSelector } from '~/store'
+import { useAppSelector, useAppDispatch, vaccineCertificatesActions } from '~/store'
 import { logger } from '~/utils'
 
 export const DependentsVaccineCertificate: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const TAG = 'DependentsVaccineCertificate'
+  const dispatch = useAppDispatch()
   const dependents = useAppSelector((state) => state.userProfileReducer.depentents)
 
-  logger(TAG, 'dependents', dependents)
+  const onPressDependent = (dependentId: string) => {
+    logger(TAG, 'dependent id', dependentId)
+    dispatch(vaccineCertificatesActions.setDependentId(dependentId))
+    navigation.push('vaccineCertificateCalendars')
+  }
 
-  const onPressDependent = () => navigation.push('vaccineCertificateCategory')
   const onPressRegister = () => navigation.push('registerDependents')
 
   return (

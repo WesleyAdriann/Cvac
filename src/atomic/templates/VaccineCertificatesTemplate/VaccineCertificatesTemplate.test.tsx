@@ -9,7 +9,8 @@ describe('Templates/VaccineCertificatesTemplate', () => {
   const props: IVaccineCertificatesTemplate = {
     testID: 'VaccineCertificatesTemplate',
     onPressSave: jest.fn(),
-    onPressVaccine: jest.fn()
+    onPressVaccine: jest.fn(),
+    vaccineCertificates: []
   }
 
   const elContainer = mockTestID('SafeAreaView', props.testID!).testID

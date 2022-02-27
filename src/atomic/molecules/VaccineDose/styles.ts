@@ -4,7 +4,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { Text as AtomText, Pressable } from '../../atoms'
 import { IVaccineDose } from './index'
 
-type TProps = Pick<IVaccineDose, 'selected'>
+type TProps = Pick<IVaccineDose, 'selected' | 'flexBasis'>
 
 export const Container = styled(Pressable)<TProps>`
   background-color: ${({ theme, selected }) => selected ? theme.palette.secondary : theme.colors.gray};
@@ -13,7 +13,9 @@ export const Container = styled(Pressable)<TProps>`
   border-width: 1px;
   border-color: ${({ theme, selected }) => selected ? theme.palette.primary : theme.colors.gray};
   position: relative;
-  flex: 1;
+  flex-basis: ${(props) => props.flexBasis ?? 100}%;
+  flex-grow: 1;
+  flex-shrink: 1;
 `
 
 export const Text = styled(AtomText)`
