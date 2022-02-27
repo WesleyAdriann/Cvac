@@ -39,11 +39,20 @@ export const VaccineCertificates: React.FC = () => {
       }
       logger(TAG, 'vaccines from calendar', vaccinesFromCalendar)
 
-      const dependentsSnap = firestore().collection('dependents').doc(vaccineCertificates.dependentId)
+      const fire = firestore()
+
+      const dependentsSnap = fire.collection('dependents').doc(vaccineCertificates.dependentId)
+      const calendarSnap = fire.collection('calendar').doc(vaccineCertificates.calendarId)
       const vaccineWithCertificates: IVaccinesWithCertificate[] = []
       for (const vaccine of vaccinesFromCalendar) {
-        const vaccineSnap = firestore().collection('vaccine').doc(vaccine.id)
-        const dependentCertificates = await firestore().collection('dependentVaccineDoc').where('dependentId', '==', dependentsSnap).where('vaccineId', '==', vaccineSnap).get()
+        const vaccineSnap = fire.collection('vaccine').doc(vaccine.id)
+        const dependentCertificates =
+          await firestore()
+            .collection('dependentVaccineDoc')
+            .where('dependentId', '==', dependentsSnap)
+            .where('vaccineId', '==', vaccineSnap)
+            .where('calendarId', '==', calendarSnap)
+            .get()
         vaccineWithCertificates.push({
           ...vaccine,
           appliedDoses: dependentCertificates.empty ? 0 : dependentCertificates.docs[0].data().doses,
