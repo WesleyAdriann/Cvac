@@ -9,7 +9,8 @@ describe('Templates/LoginTemplate', () => {
   const props: ILoginTemplate = {
     testID: 'LoginTemplate',
     form: {
-      onSubmit: jest.fn()
+      onSubmit: jest.fn(),
+      isLoading: false
     },
     onPressRegister: jest.fn(),
     onPressSocial: jest.fn()

@@ -992,6 +992,8 @@ exports[`Templates/LoginTemplate should render snapshot 1`] = `
                     Object {
                       "color": "#424242",
                       "fontSize": 16,
+                      "fontWeight": "normal",
+                      "marginBottom": 0,
                       "textAlign": "center",
                       "textDecorationColor": "black",
                       "textDecorationLine": "none",
@@ -1306,6 +1308,8 @@ exports[`Templates/LoginTemplate should render snapshot 1`] = `
                     Object {
                       "color": "#424242",
                       "fontSize": 16,
+                      "fontWeight": "normal",
+                      "marginBottom": 0,
                       "textAlign": "center",
                       "textDecorationColor": "black",
                       "textDecorationLine": "none",
@@ -1333,6 +1337,8 @@ exports[`Templates/LoginTemplate should render snapshot 1`] = `
                       Object {
                         "color": "#424242",
                         "fontSize": 16,
+                        "fontWeight": "normal",
+                        "marginBottom": 0,
                         "textAlign": "left",
                         "textDecorationColor": "#424242",
                         "textDecorationLine": "underline",

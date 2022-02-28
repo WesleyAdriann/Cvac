@@ -31,7 +31,7 @@ exports[`Molecules/VaccineDose should render snapshot 1`] = `
           "borderColor": "#FAFAFA",
           "borderRadius": 4,
           "borderWidth": 1,
-          "flexBasis": 0,
+          "flexBasis": "100%",
           "flexGrow": 1,
           "flexShrink": 1,
           "paddingBottom": 16,

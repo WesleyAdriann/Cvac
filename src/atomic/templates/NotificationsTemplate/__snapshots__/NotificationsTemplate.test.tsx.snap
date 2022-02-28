@@ -13,7 +13,6 @@ exports[`Templates/NotificationsTemplate should render snapshot 1`] = `
   <RCTSafeAreaView
     accessible={false}
     emulateUnlessSupported={true}
-    onPress={[MockFunction]}
     style={
       Array [
         Object {
@@ -121,6 +120,8 @@ exports[`Templates/NotificationsTemplate should render snapshot 1`] = `
                   Object {
                     "color": "#424242",
                     "fontSize": 34,
+                    "fontWeight": "normal",
+                    "marginBottom": 0,
                     "textAlign": "left",
                     "textDecorationColor": "black",
                     "textDecorationLine": "none",
@@ -161,11 +162,11 @@ exports[`Templates/NotificationsTemplate should render snapshot 1`] = `
               accessibilityRole="button"
               accessibilityState={
                 Object {
-                  "disabled": true,
+                  "disabled": false,
                 }
               }
               accessible={false}
-              focusable={false}
+              focusable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
@@ -296,11 +297,11 @@ exports[`Templates/NotificationsTemplate should render snapshot 1`] = `
               accessibilityRole="button"
               accessibilityState={
                 Object {
-                  "disabled": true,
+                  "disabled": false,
                 }
               }
               accessible={false}
-              focusable={false}
+              focusable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
@@ -440,6 +441,8 @@ exports[`Templates/NotificationsTemplate should render snapshot 1`] = `
                   Object {
                     "color": "#424242",
                     "fontSize": 34,
+                    "fontWeight": "normal",
+                    "marginBottom": 0,
                     "textAlign": "left",
                     "textDecorationColor": "black",
                     "textDecorationLine": "none",
@@ -480,11 +483,11 @@ exports[`Templates/NotificationsTemplate should render snapshot 1`] = `
               accessibilityRole="button"
               accessibilityState={
                 Object {
-                  "disabled": true,
+                  "disabled": false,
                 }
               }
               accessible={false}
-              focusable={false}
+              focusable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
@@ -616,11 +619,11 @@ exports[`Templates/NotificationsTemplate should render snapshot 1`] = `
           accessibilityRole="button"
           accessibilityState={
             Object {
-              "disabled": true,
+              "disabled": false,
             }
           }
           accessible={false}
-          focusable={false}
+          focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}

@@ -7,7 +7,10 @@ import { VaccineDetailsTemplate, IVaccineDetailsTemplate } from './index'
 
 describe('Templates/VaccineDetailsTemplate', () => {
   const props: IVaccineDetailsTemplate = {
-    testID: 'VaccineDetailsTemplate'
+    testID: 'VaccineDetailsTemplate',
+    disease: 'Febre Amarela',
+    name: 'Febre Amarela',
+    when: [1, 2, 3]
   }
 
   const elContainer = mockTestID('SafeAreaView', props.testID!).testID

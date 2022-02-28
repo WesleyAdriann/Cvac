@@ -10,7 +10,8 @@ describe('Templates/HomeTemplate', () => {
   const props: IHomeTemplate = {
     testID: 'HomeTemplate',
     onPressAuthItem: jest.fn(),
-    onPressMenuItem: jest.fn()
+    onPressMenuItem: jest.fn(),
+    authIsLoading: false
   }
 
   const elContainer = mockTestID('SafeAreaView', props.testID!).testID

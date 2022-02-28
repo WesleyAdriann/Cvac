@@ -8,7 +8,8 @@ import { CalendarsTemplate, ICalendarsTemplate } from './index'
 describe('Templates/CalendarsTemplate', () => {
   const props: ICalendarsTemplate = {
     testID: 'CalendarsTemplate',
-    onPress: jest.fn()
+    onPress: jest.fn(),
+    calendars: []
   }
 
   const elContainer = mockTestID('SafeAreaView', props.testID!).testID
