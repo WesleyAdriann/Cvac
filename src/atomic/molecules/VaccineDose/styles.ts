@@ -4,9 +4,9 @@ import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { Text as AtomText, Pressable } from '../../atoms'
 import { IVaccineDose } from './index'
 
-type TProps = Pick<IVaccineDose, 'selected' | 'flexBasis'>
+type TContainer = Pick<IVaccineDose, 'selected' | 'flexBasis'>
 
-export const Container = styled(Pressable)<TProps>`
+export const Container = styled(Pressable)<TContainer>`
   background-color: ${({ theme, selected }) => selected ? theme.palette.secondary : theme.colors.gray};
   border-radius: 4px;
   padding: 16px;
@@ -22,9 +22,10 @@ export const Text = styled(AtomText)`
   text-align: center;
 `
 
-export const Icon = styled(MaterialIcons).attrs<TProps>((props) => ({
+type TIcon = Pick<IVaccineDose, 'selected'>
+export const Icon = styled(MaterialIcons).attrs<TIcon>((props) => ({
   color: props.selected ? props.theme.palette.primary : props.theme.fontColor
-}))<TProps>`
+}))<TIcon>`
   font-size: 24px
   position: absolute;
   right: 8px;

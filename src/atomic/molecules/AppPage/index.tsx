@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { Flex, Loader } from '../../atoms'
 import { Dialog, IDialog } from '../Dialog'
+import { Flex, Loader } from '../../atoms'
 
 import { Container, LoadingOverlay } from './styles'
 

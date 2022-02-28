@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { AppPage, IAppPage } from '../../molecules'
-
 import { Button, Flex } from '../../atoms'
 
 export interface IDependentsNotificationsTemplate extends Omit<IAppPage, 'children' | 'scroll'> {

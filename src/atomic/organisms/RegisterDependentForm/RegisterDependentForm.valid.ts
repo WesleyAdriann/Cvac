@@ -1,5 +1,4 @@
 import * as yup from 'yup'
-
 import { parse } from 'date-fns'
 
 const minDiffAge = new Date(Date.UTC(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + 1))

@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react'
 import { Image } from 'react-native'
 
+import Logotipo from '~/assets/logotipo/logotipo.png'
+
 import { Flex, Button, Text, Loader } from '../../atoms'
 import { AppPage, HomeItem, IAppPage } from '../../molecules'
-
-import Logotipo from '~/assets/logotipo/logotipo.png'
 
 export type TAuthItem = 'login' | 'logout' | 'register'
 export type TMenuItem = 'calendar' | 'vaccineCertificate' | 'local' | 'notification'

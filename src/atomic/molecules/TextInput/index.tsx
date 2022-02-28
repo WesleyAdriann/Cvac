@@ -1,5 +1,4 @@
 import React, { useState, useMemo } from 'react'
-
 import { HelperText, TextInput as PaperTextInput } from 'react-native-paper'
 import { TextInputProps } from 'react-native-paper/lib/typescript/components/TextInput/TextInput'
 import { useTheme } from 'styled-components/native'

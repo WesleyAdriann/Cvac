@@ -1,8 +1,9 @@
 import React from 'react'
 
+import { IVaccinesWithCertificate } from '~/store'
+
 import { Text, Flex, Button } from '../../atoms'
 import { AppPage, IAppPage, VaccineDose } from '../../molecules'
-import { IVaccinesWithCertificate } from '~/store'
 
 export interface IVaccineCertificatesTemplate extends Omit<IAppPage, 'children' | 'scroll'> {
   testID?: string

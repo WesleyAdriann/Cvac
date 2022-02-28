@@ -1,5 +1,4 @@
 import styled from 'styled-components/native'
-
 import { List } from 'react-native-paper'
 
 export const StyledAccordion = styled(List.Accordion).attrs((props) => ({

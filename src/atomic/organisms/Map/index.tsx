@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react'
-
 import { LatLng, Marker, Region } from 'react-native-maps'
 
 import { Flex } from '../../atoms'

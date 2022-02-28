@@ -1,5 +1,4 @@
 import styled from 'styled-components/native'
-
 import { List } from 'react-native-paper'
 
 import { IListItemStyle } from './index'

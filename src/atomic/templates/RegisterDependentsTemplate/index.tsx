@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { AppPage, IAppPage } from '../../molecules'
-
 import { RegisterDependentForm, IRegisterDependentForm } from '../../organisms'
 
 export interface IRegisterDependentsTemplate extends Omit<IAppPage, 'children' | 'scroll'> {

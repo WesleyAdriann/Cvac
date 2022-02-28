@@ -8,7 +8,8 @@ import { LoginForm, ILoginForm } from './index'
 describe('Organisms/LoginForm', () => {
   const props: ILoginForm = {
     testID: 'LoginForm',
-    onSubmit: jest.fn()
+    onSubmit: jest.fn(),
+    isLoading: false
   }
 
   const elContainer = mockTestID('View', props.testID!).testID
