@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import { VaccineCertificatesTemplate } from '../../atomic'
 import { useAppSelector, useAppDispatch, vaccineCertificatesActions, IVaccinesWithCertificate } from '~/store'
-import { logger } from '~/utils'
+import { logger, ECalendarsName } from '~/utils'
 import {
   collectionDependents,
   colletionCalendar,
@@ -18,7 +18,7 @@ export const VaccineCertificates: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   const { vaccineCertificates, calendarName, vaccines } = useAppSelector((state) => ({
-    calendarName: state.calendarsReducer[state.vaccineCertificates.calendarId]?.name,
+    calendarName: ECalendarsName[state.calendarsReducer[state.vaccineCertificates.calendarId]?.name],
     vaccineCertificates: state.vaccineCertificates,
     vaccines: state.vaccinesReducer
   }))
@@ -33,7 +33,7 @@ export const VaccineCertificates: React.FC = () => {
           const calendarId = calendar?.id.id
           if (calendarId === vaccineCertificates.calendarId) {
             vaccinesFromCalendar.push({
-              doses: vaccines[vaccine].doses,
+              doses: calendar.when.length,
               calendar,
               id: vaccine,
               name: vaccines[vaccine].name
@@ -81,6 +81,7 @@ export const VaccineCertificates: React.FC = () => {
       isLoading={isLoading}
       onPressVaccine={() => null} onPressSave={() => null}
       vaccineCertificates={vaccineCertificates.vaccinesWithCertificates}
+      calendarName={calendarName}
     />
   )
 }

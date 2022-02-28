@@ -2,12 +2,14 @@ import React from 'react'
 
 import { Text, Flex, Button } from '../../atoms'
 import { AppPage, IAppPage, VaccineDose } from '../../molecules'
+import { IVaccinesWithCertificate } from '~/store'
 
 export interface IVaccineCertificatesTemplate extends Omit<IAppPage, 'children' | 'scroll'> {
   testID?: string
   onPressSave: () => void
   onPressVaccine: (vaccineId: string, doses: number) => void
-  vaccineCertificates: any[]
+  vaccineCertificates: IVaccinesWithCertificate[]
+  calendarName: string
 }
 
 export const VaccineCertificatesTemplate: React.FC<IVaccineCertificatesTemplate> = ({
@@ -15,11 +17,17 @@ export const VaccineCertificatesTemplate: React.FC<IVaccineCertificatesTemplate>
   onPressSave,
   onPressVaccine,
   vaccineCertificates,
+  calendarName,
   ...props
 }) => {
   return (
     <AppPage {...props} testID={testID} padding={0}>
-      <Flex flex={1} contentContainerStyle={{ justifyContent: 'center' }} scroll paddingStyle={16}>
+      <Flex flex={0.5} justifyContent='center'>
+        <Text align='center' size={30}>
+          { calendarName }
+        </Text>
+      </Flex>
+      <Flex flex={2} scroll paddingStyle={16}>
         {
           vaccineCertificates.map((vaccine) => (
             <Flex marginStyle='0 0 16px' key={vaccine.id}>

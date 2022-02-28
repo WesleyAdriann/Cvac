@@ -1,15 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-export type TCalendarName = 'kid' | 'elder' | 'teen' | 'adult'
-
-interface ICalendar {
-  startAge: number
-  endAge: number
-  name: TCalendarName
-}
+import { ICollectionCalendar } from '~/services/firebase/firestore.types'
 
 export interface ICalendarsState {
-  [key: string]: ICalendar
+  [key: string]: ICollectionCalendar
 }
 
 const initialState: ICalendarsState = {}

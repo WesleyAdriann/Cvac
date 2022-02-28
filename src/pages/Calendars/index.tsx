@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { NativeStackHeaderProps } from '@react-navigation/native-stack'
 
 import { useAppSelector } from '~/store'
-import { TCalendarName } from '~/store/slices/Calendars'
 import { ICalendar } from '~/atomic/templates/CalendarsTemplate'
 import { CalendarsTemplate } from '~/atomic'
 import { ECalendarsName } from '~/utils'
+import { TCollectionCalendarName } from '~/services/firebase'
 
 export const Calendars: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const {
@@ -16,7 +16,7 @@ export const Calendars: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const [items, setItems] = useState<ICalendar[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
-  const formatDescription = (type: TCalendarName, startAge: number, endAge: number) => {
+  const formatDescription = (type: TCollectionCalendarName, startAge: number, endAge: number) => {
     if (type === 'elder') return `a partir de ${startAge} anos`
     if (type === 'kid') return `ao nascer ate ${endAge} anos`
 

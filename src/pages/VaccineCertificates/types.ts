@@ -1,8 +1,8 @@
-import { IVaccine, IVaccineCalendar } from '~/store'
+import { ICollectionVaccineCalendar } from '~/services/firebase'
 
-export type IVaccineFromCalendar =
-  Pick<IVaccine, 'doses' | 'name'> &
-  {
-    id: string,
-    calendar: IVaccineCalendar
-  }
+export interface IVaccineFromCalendar {
+  name: string
+  id: string,
+  calendar: ICollectionVaccineCalendar
+  doses: number
+}

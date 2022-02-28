@@ -1,12 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { IVaccineCalendar, IVaccine } from './Vaccines'
+import { ICollectionVaccineCalendar, ICollectionVaccine } from '~/services/firebase'
 
-export interface IVaccinesWithCertificate extends Pick<IVaccine, 'doses' | 'name'> {
-  calendar: IVaccineCalendar
+export interface IVaccinesWithCertificate extends Pick<ICollectionVaccine, 'name'> {
+  calendar: ICollectionVaccineCalendar
   id: string
   appliedDoses: number
   certificateId: string
+  doses: number
 }
 
 export interface IVaccineCertificates {
