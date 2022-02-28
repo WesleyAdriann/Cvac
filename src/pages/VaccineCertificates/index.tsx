@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import firestore from '@react-native-firebase/firestore'
 
 import { VaccineCertificatesTemplate } from '../../atomic'
 import { useAppSelector, useAppDispatch, vaccineCertificatesActions, IVaccinesWithCertificate } from '~/store'
 import { logger } from '~/utils'
+import {
+  collectionDependents,
+  colletionCalendar,
+  collectionVaccine,
+  colletionDependentVaccineDoc
+} from '~/services/firebase'
 
 import { IVaccineFromCalendar } from './types'
 
@@ -39,16 +44,13 @@ export const VaccineCertificates: React.FC = () => {
       }
       logger(TAG, 'vaccines from calendar', vaccinesFromCalendar)
 
-      const fire = firestore()
-
-      const dependentsSnap = fire.collection('dependents').doc(vaccineCertificates.dependentId)
-      const calendarSnap = fire.collection('calendar').doc(vaccineCertificates.calendarId)
+      const dependentsSnap = collectionDependents.doc(vaccineCertificates.dependentId)
+      const calendarSnap = colletionCalendar.doc(vaccineCertificates.calendarId)
       const vaccineWithCertificates: IVaccinesWithCertificate[] = []
       for (const vaccine of vaccinesFromCalendar) {
-        const vaccineSnap = fire.collection('vaccine').doc(vaccine.id)
+        const vaccineSnap = collectionVaccine.doc(vaccine.id)
         const dependentCertificates =
-          await firestore()
-            .collection('dependentVaccineDoc')
+          await colletionDependentVaccineDoc
             .where('dependentId', '==', dependentsSnap)
             .where('vaccineId', '==', vaccineSnap)
             .where('calendarId', '==', calendarSnap)

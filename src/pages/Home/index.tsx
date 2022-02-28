@@ -13,6 +13,11 @@ import {
 import { HomeTemplate } from '~/atomic'
 import { TAuthItem, TMenuItem } from '~/atomic/templates/HomeTemplate'
 import { isEmpty, logger } from '~/utils'
+import {
+  collectionVaccine,
+  collectionDependents,
+  colletionCalendar
+} from '~/services/firebase'
 
 export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const TAG = 'Home'
@@ -59,7 +64,7 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
 
     logger(TAG, 'try to get calendars')
     try {
-      const calendarsSnap = await firestore().collection('calendar').get()
+      const calendarsSnap = await colletionCalendar.get()
       const calendars =
         calendarsSnap.docs.reduce((acc, item) =>
           Object.assign(acc, { [item.id]: item.data() }), {}
@@ -76,7 +81,7 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
 
     logger(TAG, 'try to get vaccines')
     try {
-      const vaccinesSnap = await firestore().collection('vaccine').get()
+      const vaccinesSnap = await collectionVaccine.get()
       const vaccines = vaccinesSnap.docs.reduce((acc, item) => Object.assign(acc, { [item.id]: item.data() }), {})
       dispatch(vaccinesActions.setVaccines(vaccines))
     } catch (_error) {
@@ -90,7 +95,7 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
 
     logger(TAG, 'try to get dependents', userProfile.documentRef)
     try {
-      const dependentsSnap = await firestore().collection('dependents').where('userUid', '==', userProfile.documentRef).get()
+      const dependentsSnap = await collectionDependents.where('userUid', '==', userProfile.documentRef).get()
 
       const dependents = dependentsSnap.docs.reduce((acc, item) => Object.assign(acc, { [item.id]: item.data() }), {})
       dispatch(userProfileActions.setDepentents(dependents))

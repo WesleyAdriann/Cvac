@@ -13,6 +13,7 @@ import { useAppDispatch } from '../../store'
 import { userProfileActions } from '../../store/slices/UserProfile'
 
 import { logger } from '../../utils'
+import { collectionUsers, collectionDependents } from '~/services/firebase'
 
 interface IRegister extends NativeStackHeaderProps {
   route: RouteProp<{
@@ -59,14 +60,13 @@ export const Register: React.FC<IRegister> = ({ route, navigation }) => {
 
   const createInFirestore = async (form: IRegisterFormInputs, uid: string) => {
     try {
-      const fire = firestore()
-      await fire.collection('users').doc(uid).set({
+      await collectionUsers.doc(uid).set({
         name: form.name,
         uid
       })
-      const ref = fire.collection('users').doc(uid)
-      await fire.collection('dependents').add({
-        birthDate: new Date(form.birthDate),
+      const ref = collectionUsers.doc(uid)
+      await collectionDependents.add({
+        birthDate: firestore.Timestamp.fromDate(new Date(form.birthDate)),
         name: form.name,
         userUid: ref
       })
