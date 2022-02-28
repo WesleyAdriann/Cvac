@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { RegisterNotificationsTemplate } from '../../atomic'
+import { RegisterNotificationsTemplate } from '~/atomic'
 
 export const RegisterNotifications: React.FC = () => {
   return <RegisterNotificationsTemplate form={{ onSubmit: () => null }} />

@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { NativeStackHeaderProps } from '@react-navigation/native-stack'
 
-import { VaccineCertificateCalendarsTemplate } from '../../atomic'
+import { VaccineCertificateCalendarsTemplate } from '~/atomic'
 import { useAppSelector, useAppDispatch, vaccineCertificatesActions } from '~/store'
 import { logger, ECalendarsName } from '~/utils'
 

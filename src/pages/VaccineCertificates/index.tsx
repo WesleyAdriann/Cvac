@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { VaccineCertificatesTemplate } from '../../atomic'
+import { VaccineCertificatesTemplate } from '~/atomic'
 import { useAppSelector, useAppDispatch, vaccineCertificatesActions, IVaccinesWithCertificate } from '~/store'
 import { logger, ECalendarsName } from '~/utils'
 import {

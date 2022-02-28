@@ -5,14 +5,11 @@ import auth from '@react-native-firebase/auth'
 import firestore from '@react-native-firebase/firestore'
 import { ReactNativeFirebase } from '@react-native-firebase/app'
 
-import { IDialog } from '../../atomic/molecules'
-import { IRegisterFormInputs } from '../../atomic/organisms'
-import { RegisterTemplate } from '../../atomic/templates'
-
-import { useAppDispatch } from '../../store'
-import { userProfileActions } from '../../store/slices/UserProfile'
-
-import { logger } from '../../utils'
+import { IDialog } from '~/atomic/molecules'
+import { IRegisterFormInputs } from '~/atomic/organisms'
+import { RegisterTemplate } from '~/atomic/templates'
+import { useAppDispatch, userProfileActions } from '~/store'
+import { logger } from '~/utils'
 import { collectionUsers, collectionDependents } from '~/services/firebase'
 
 interface IRegister extends NativeStackHeaderProps {

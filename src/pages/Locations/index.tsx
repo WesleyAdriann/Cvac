@@ -3,11 +3,10 @@ import { Dimensions } from 'react-native'
 import RNLocation from 'react-native-location'
 import { Region, LatLng } from 'react-native-maps'
 
-import { LocationsTemplate } from '../../atomic'
-import { IDialog } from '../../atomic/molecules/Dialog'
-
-import { getLocations } from '../../services/mapLocations'
-import { ILocation } from '../../atomic/organisms'
+import { LocationsTemplate } from '~/atomic'
+import { IDialog } from '~/atomic/molecules/Dialog'
+import { getLocations } from '~/services/mapLocations'
+import { ILocation } from '~/atomic/organisms'
 
 const ASPECT_RATIO = Dimensions.get('window').width / Dimensions.get('window').height
 

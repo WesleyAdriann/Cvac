@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-import { RegisterDependentsTemplate } from '../../atomic'
-import { IRegisterDependentFormInputs } from '../../atomic/organisms'
+import { RegisterDependentsTemplate } from '~/atomic'
+import { IRegisterDependentFormInputs } from '~/atomic/organisms'
 
 export const RegisterDependents: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false)

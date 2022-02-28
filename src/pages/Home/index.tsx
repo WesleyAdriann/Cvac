@@ -1,6 +1,5 @@
 import React, { useMemo, useEffect, useCallback } from 'react'
 import { NativeStackHeaderProps } from '@react-navigation/native-stack'
-import firestore from '@react-native-firebase/firestore'
 
 import {
   useAppSelector,
