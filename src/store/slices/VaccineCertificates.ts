@@ -8,6 +8,7 @@ export interface IVaccinesWithCertificate extends Pick<ICollectionVaccine, 'name
   appliedDoses: number
   certificateId: string
   doses: number
+  edited?: boolean
 }
 
 export interface IVaccineCertificates {

@@ -9,7 +9,7 @@ describe('Templates/VaccineCertificatesTemplate', () => {
   const props: IVaccineCertificatesTemplate = {
     testID: 'VaccineCertificatesTemplate',
     onPressSave: jest.fn(),
-    onPressVaccine: jest.fn(),
+    onPressCertificate: jest.fn(),
     vaccineCertificates: [],
     calendarName: 'Criança'
   }

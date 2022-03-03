@@ -18,7 +18,7 @@ export interface ILoginForm {
   isLoading: boolean
 }
 
-export const LoginForm : React.FC<ILoginForm> = ({ testID = 'LoginForm', onSubmit, isLoading,...props }) => {
+export const LoginForm : React.FC<ILoginForm> = ({ testID = 'LoginForm', onSubmit, isLoading, ...props }) => {
   const { control, handleSubmit, formState: { errors } } = useForm<ILoginFormInputs>({
     resolver: yupResolver(validation),
     defaultValues: {

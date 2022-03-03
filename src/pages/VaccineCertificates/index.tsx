@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 
 import { VaccineCertificatesTemplate } from '~/atomic'
 import { useAppSelector, useAppDispatch, vaccineCertificatesActions, IVaccinesWithCertificate } from '~/store'
@@ -72,6 +72,19 @@ export const VaccineCertificates: React.FC = () => {
     }
   }
 
+  const onPressDose = useCallback(async (vaccineId: string, doses: number) => {
+    const certificates = vaccineCertificates.vaccinesWithCertificates.map((certificate) => ({
+      ...certificate,
+      appliedDoses: certificate.id === vaccineId ? doses : certificate.appliedDoses
+    }))
+
+    dispatch(vaccineCertificatesActions.setVaccinesWithCertificates(certificates))
+  }, [dispatch, vaccineCertificates.vaccinesWithCertificates])
+
+  const onPressSave = useCallback(async () => {
+
+  }, [])
+
   useEffect(() => {
     getVaccineCertificates()
   }, [])
@@ -79,7 +92,8 @@ export const VaccineCertificates: React.FC = () => {
   return (
     <VaccineCertificatesTemplate
       isLoading={isLoading}
-      onPressVaccine={() => null} onPressSave={() => null}
+      onPressCertificate={onPressDose}
+      onPressSave={onPressSave}
       vaccineCertificates={vaccineCertificates.vaccinesWithCertificates}
       calendarName={calendarName}
     />
