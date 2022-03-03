@@ -75,7 +75,8 @@ export const VaccineCertificates: React.FC = () => {
   const onPressDose = useCallback(async (vaccineId: string, doses: number) => {
     const certificates = vaccineCertificates.vaccinesWithCertificates.map((certificate) => ({
       ...certificate,
-      appliedDoses: certificate.id === vaccineId ? doses : certificate.appliedDoses
+      appliedDoses: certificate.id === vaccineId ? doses : certificate.appliedDoses,
+      edited: true
     }))
 
     dispatch(vaccineCertificatesActions.setVaccinesWithCertificates(certificates))

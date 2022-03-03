@@ -50,7 +50,8 @@ module.exports = {
   rules: {
     'no-use-before-define': 'off',
     'indent': ['error', 2],
-    'react-hooks/exhaustive-deps': 'warn'
+    'react-hooks/exhaustive-deps': 'warn',
+    'no-console': 'error'
   },
   globals: {
     __DEV__: 'readonly'
