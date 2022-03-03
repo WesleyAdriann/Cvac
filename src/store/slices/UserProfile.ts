@@ -30,8 +30,8 @@ export const userProfileSlice = createSlice({
     setDepentents: (state, action: PayloadAction<{ [key: string]: ICollectionDependents }>) => {
       state.depentents = action.payload
     },
-    setDepentent: (state, action: PayloadAction<ICollectionDependents>) => {
-      state.depentents = Object.assign(state.depentents, action.payload)
+    setDepentent: (state, action: PayloadAction<ICollectionDependents & { id: string }>) => {
+      state.depentents = Object.assign(state.depentents, { [action.payload.id]: action.payload })
     },
     setName: (state, action: PayloadAction<string>) => {
       state.name = action.payload
