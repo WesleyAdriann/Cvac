@@ -28,7 +28,13 @@ export const RegisterNotificationsForm : React.FC<IRegisterNotificationsForm> = 
     }
   })
 
-  const onSubmitPress = handleSubmit(onSubmit)
+  const onSubmitPress = handleSubmit((form) => {
+    onSubmit({
+      date: `${form.date}`,
+      description: form.description,
+      hour: `${form.hour}`
+    })
+  })
 
   return (
     <Flex {...props} testID={testID} flex={1}>

@@ -1,6 +1,7 @@
 import PushNotification, { Importance } from 'react-native-push-notification'
 import PushNotificationIOS from '@react-native-community/push-notification-ios'
 
+import { useAppSelector } from '~/store'
 import { logger } from '~/utils'
 
 const TAG = 'usePushNotification'
@@ -34,19 +35,18 @@ export const PushNotificationConfigure = () => {
 }
 
 export const usePushNotification = () => {
-  const createLocal = (message: string, date: string, hour: string) => {
+  const userId = useAppSelector((state) => state.userProfileReducer.uid)
+
+  const createLocal = (message: string, date: Date) => {
     logger(TAG, 'local notification')
     PushNotification.localNotificationSchedule({
       channelId: PUSH_CHANNEL,
       title: 'CVAC',
       message,
-      userInfo: { foo: 'bar' },
-      date: new Date(Date.now() + 5 * 1000), // in 60 secs
-      allowWhileIdle: false, // (optional) set notification to work while on doze, default: false
-
-      /* Android Only Properties */
-      repeatTime: 1 // (optional) Increment of configured repeatType. Check 'Repeating Notifications' section for more info.
-
+      userInfo: { userId: userId },
+      date,
+      allowWhileIdle: false,
+      repeatTime: 1
     })
   }
 

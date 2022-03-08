@@ -16,14 +16,14 @@ export const RegisterNotificationsTemplate: React.FC<IRegisterNotificationsTempl
 }) => {
   return (
     <AppPage {...props} testID={testID} scroll>
-    <Flex flex={1}>
-      <Flex flex={0.5} marginStyle='16px 0 0'>
-        <Text size={34}>Criar Lembrete</Text>
+      <Flex flex={1}>
+        <Flex flex={0.5} marginStyle='16px 0 0'>
+          <Text size={34}>Criar Lembrete</Text>
+        </Flex>
+        <Flex flex={2}>
+          <RegisterNotificationsForm {...form} />
+        </Flex>
       </Flex>
-      <Flex flex={2}>
-        <RegisterNotificationsForm {...form} />
-      </Flex>
-    </Flex>
-  </AppPage>
+    </AppPage>
   )
 }
