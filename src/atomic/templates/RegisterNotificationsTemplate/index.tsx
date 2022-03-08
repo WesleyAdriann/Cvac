@@ -1,5 +1,4 @@
 import React from 'react'
-import { KeyboardAvoidingView } from 'react-native'
 
 import { Flex, Text } from '../../atoms'
 import { AppPage, IAppPage } from '../../molecules'
@@ -16,20 +15,15 @@ export const RegisterNotificationsTemplate: React.FC<IRegisterNotificationsTempl
   ...props
 }) => {
   return (
-    <AppPage {...props} testID={testID}>
-      <KeyboardAvoidingView
-        behavior='padding'
-        keyboardVerticalOffset={108}
-        style={{ flex: 1 }}
-      >
-        <Flex flex={0.5} marginStyle='16px 0 0'>
-          <Text size={34}>Criar Lembrete</Text>
-        </Flex>
-        <Flex flex={2}>
-          <RegisterNotificationsForm {...form} />
-        </Flex>
-
-      </KeyboardAvoidingView>
-    </AppPage>
+    <AppPage {...props} testID={testID} scroll>
+    <Flex flex={1}>
+      <Flex flex={0.5} marginStyle='16px 0 0'>
+        <Text size={34}>Criar Lembrete</Text>
+      </Flex>
+      <Flex flex={2}>
+        <RegisterNotificationsForm {...form} />
+      </Flex>
+    </Flex>
+  </AppPage>
   )
 }

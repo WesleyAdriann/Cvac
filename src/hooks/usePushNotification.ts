@@ -34,12 +34,12 @@ export const PushNotificationConfigure = () => {
 }
 
 export const usePushNotification = () => {
-  const local = () => {
+  const createLocal = (message: string, date: string, hour: string) => {
     logger(TAG, 'local notification')
     PushNotification.localNotificationSchedule({
       channelId: PUSH_CHANNEL,
-      title: 'titulo',
-      message: 'message',
+      title: 'CVAC',
+      message,
       userInfo: { foo: 'bar' },
       date: new Date(Date.now() + 5 * 1000), // in 60 secs
       allowWhileIdle: false, // (optional) set notification to work while on doze, default: false
@@ -51,6 +51,6 @@ export const usePushNotification = () => {
   }
 
   return {
-    local
+    createLocal
   }
 }
