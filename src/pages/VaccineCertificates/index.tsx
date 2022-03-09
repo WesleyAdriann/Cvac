@@ -83,8 +83,34 @@ export const VaccineCertificates: React.FC = () => {
   }, [dispatch, vaccineCertificates.vaccinesWithCertificates])
 
   const onPressSave = useCallback(async () => {
+    try {
+      logger(TAG, 'onPressSave')
+      setIsLoading(true)
+      const editedCertificates = vaccineCertificates.vaccinesWithCertificates.filter((certificate) => certificate.edited)
+      const reqPromisses = editedCertificates.map((certificate) => {
+        if (certificate.certificateId) {
+          return colletionDependentVaccineDoc.doc(certificate.certificateId).update({
+            doses: certificate.appliedDoses
+          })
+        }
 
-  }, [])
+        if (certificate.appliedDoses === 0) return Promise.resolve()
+
+        return colletionDependentVaccineDoc.add({
+          doses: certificate.appliedDoses,
+          calendarId: colletionCalendar.doc(vaccineCertificates.calendarId),
+          dependentId: collectionDependents.doc(vaccineCertificates.dependentId),
+          vaccineId: collectionVaccine.doc(certificate.id)
+        })
+      })
+
+      await Promise.all(reqPromisses)
+    } catch (_error) {
+      //
+    } finally {
+      setIsLoading(false)
+    }
+  }, [vaccineCertificates.calendarId, vaccineCertificates.dependentId, vaccineCertificates.vaccinesWithCertificates])
 
   useEffect(() => {
     getVaccineCertificates()
