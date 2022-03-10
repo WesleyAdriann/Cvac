@@ -5,11 +5,10 @@ import { NotificationsTemplate } from '~/atomic'
 import { usePushNotification } from '~/hooks'
 
 export const Notifications: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
-  const { local } = usePushNotification()
   const onPressCreate = () => navigation.push('registerNotifications')
 
   const onPressNotification = () => {
-    local()
+
   }
 
   return (

@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { StatusBar } from 'react-native'
+import SplashScreen from 'react-native-splash-screen'
 
 import { useSessionControl } from '../hooks/useSessionControl'
 
@@ -10,6 +11,11 @@ PushNotificationConfigure()
 
 export const Pages = () => {
   useSessionControl()
+
+  useEffect(() => {
+    SplashScreen.hide()
+  }, [])
+
   return (
     <>
       <StatusBar barStyle='dark-content' />
