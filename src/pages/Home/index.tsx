@@ -15,7 +15,8 @@ import { isEmpty, logger } from '~/utils'
 import {
   collectionVaccine,
   collectionDependents,
-  colletionCalendar
+  colletionCalendar,
+  collectionUsers
 } from '~/services/firebase'
 
 export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
@@ -92,18 +93,21 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const getDependents = useCallback(async () => {
     if (!isEmpty(userProfile.depentents)) return null
 
-    logger(TAG, 'try to get dependents', userProfile.documentRef)
+    logger(TAG, 'try to get dependents', userProfile.uid)
     try {
-      const dependentsSnap = await collectionDependents.where('userUid', '==', userProfile.documentRef).get()
+      const userRef = collectionUsers.doc(userProfile.uid ?? '')
+      const dependentsSnap = await collectionDependents.where('userUid', '==', userRef).get()
 
-      const dependents = dependentsSnap.docs.reduce((acc, item) => Object.assign(acc, { [item.id]: item.data() }), {})
+      const dependents = dependentsSnap.docs.reduce((acc, item) =>
+        Object.assign(acc, { [item.id]: { ...item.data(), userUid: undefined } }), {}
+      )
       dispatch(userProfileActions.setDepentents(dependents))
       logger(TAG, 'success to get dependents', dependents)
     } catch (_error) {
       const error = _error as Error
       logger(TAG, 'error to get dependents', error.message)
     }
-  }, [dispatch, userProfile.depentents, userProfile.documentRef])
+  }, [dispatch, userProfile.depentents, userProfile.uid])
 
   useEffect(() => {
     getCalendars()

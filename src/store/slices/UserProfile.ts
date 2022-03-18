@@ -1,22 +1,21 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { FirebaseFirestoreTypes } from '@react-native-firebase/firestore'
 
 import { ICollectionDependents } from '~/services/firebase'
+
+export type IDependent = Omit<ICollectionDependents, 'userUid'>
 
 export interface IUserProfile {
   uid: string | null
   name: string | null,
   email: string | null,
-  depentents: { [key: string]: ICollectionDependents } | null,
-  documentRef: FirebaseFirestoreTypes.DocumentReference | null
+  depentents: { [key: string]: IDependent } | null,
 }
 
 const initialState: IUserProfile = {
   uid: null,
   name: null,
   email: null,
-  depentents: null,
-  documentRef: null
+  depentents: null
 }
 
 export const userProfileSlice = createSlice({
@@ -27,10 +26,10 @@ export const userProfileSlice = createSlice({
       ...action.payload,
       depentents: state.depentents
     }),
-    setDepentents: (state, action: PayloadAction<{ [key: string]: ICollectionDependents }>) => {
+    setDepentents: (state, action: PayloadAction<{ [key: string]: IDependent }>) => {
       state.depentents = action.payload
     },
-    setDepentent: (state, action: PayloadAction<ICollectionDependents & { id: string }>) => {
+    setDepentent: (state, action: PayloadAction<IDependent & { id: string }>) => {
       state.depentents = Object.assign(state.depentents, { [action.payload.id]: action.payload })
     },
     setName: (state, action: PayloadAction<string>) => {

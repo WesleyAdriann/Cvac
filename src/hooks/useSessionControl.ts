@@ -8,7 +8,6 @@ import {
   userProfileActions
 } from '~/store'
 import { logger } from '~/utils'
-import { collectionUsers } from '~/services/firebase'
 
 export const useSessionControl = () => {
   const TAG = 'useSessionControl'
@@ -20,13 +19,11 @@ export const useSessionControl = () => {
       logger(TAG, 'effect user start')
       if (userState && userState.uid !== session.infos?.uid) {
         logger(TAG, 'effect user state change', userState.uid)
-        const ref = collectionUsers.doc(userState.uid)
 
         dispatch(userProfileActions.startSession({
           email: userState.email,
           name: userState.displayName,
-          uid: userState.uid,
-          documentRef: ref
+          uid: userState.uid
         }))
         dispatch(sessionActions.setSessionInfos({
           metadata: userState.metadata,

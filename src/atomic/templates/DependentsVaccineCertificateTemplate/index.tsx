@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ICollectionDependents } from '~/services/firebase'
+import { IDependent } from '~/store'
 
 import { AppPage, IAppPage } from '../../molecules'
 import { Button, Flex } from '../../atoms'
@@ -9,7 +9,7 @@ export interface IDependentsVaccineCertificateTemplate extends Omit<IAppPage, 'c
   testID?: string
   onPressDependent: (dependentId: string) => void
   onPressRegister: () => void
-  dependents: { [key: string]: ICollectionDependents }
+  dependents: { [key: string]: IDependent }
 }
 
 export const DependentsVaccineCertificateTemplate: React.FC<IDependentsVaccineCertificateTemplate> = ({

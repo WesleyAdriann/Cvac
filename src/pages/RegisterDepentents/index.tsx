@@ -4,13 +4,13 @@ import firestore from '@react-native-firebase/firestore'
 import { RegisterDependentsTemplate } from '~/atomic'
 import { IRegisterDependentFormInputs } from '~/atomic/organisms'
 import { logger } from '~/utils'
-import { collectionDependents } from '~/services/firebase/firestore'
+import { collectionDependents, collectionUsers } from '~/services/firebase/firestore'
 import { useAppSelector, useAppDispatch, userProfileActions } from '~/store'
 
 export const RegisterDependents: React.FC = () => {
   const TAG = 'RegisterDependents'
   const dispatch = useAppDispatch()
-  const userRef = useAppSelector((state) => state.userProfileReducer.documentRef!)
+  const userUid = useAppSelector((state) => state.userProfileReducer.uid!)
 
   const [isLoading, setIsLoading] = useState(false)
 
@@ -19,12 +19,13 @@ export const RegisterDependents: React.FC = () => {
     try {
       setIsLoading(true)
       const birthDate = firestore.Timestamp.fromDate(new Date(form.birthDate))
+      const userRef = collectionUsers.doc(userUid)
       const dependentRef = await collectionDependents.add({
         name: form.name,
         birthDate,
         userUid: userRef
       })
-      dispatch(userProfileActions.setDepentent({ name: form.name, birthDate, userUid: userRef, id: dependentRef.id }))
+      dispatch(userProfileActions.setDepentent({ name: form.name, birthDate, id: dependentRef.id }))
     } catch (_error) {
       //
     } finally {
