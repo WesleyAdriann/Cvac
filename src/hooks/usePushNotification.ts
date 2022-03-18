@@ -1,4 +1,5 @@
-import PushNotification, { Importance } from 'react-native-push-notification'
+import { useCallback, useMemo } from 'react'
+import PushNotification, { Importance, PushNotificationScheduledLocalObject } from 'react-native-push-notification'
 import PushNotificationIOS from '@react-native-community/push-notification-ios'
 
 import { useAppSelector } from '~/store'
@@ -35,22 +36,48 @@ export const PushNotificationConfigure = () => {
 }
 
 export const usePushNotification = () => {
-  const userId = useAppSelector((state) => state.userProfileReducer.uid)
+  const { userId, dependentId } = useAppSelector((state) => ({
+    userId: state.userProfile.uid,
+    dependentId: state.notifications.dependentId
+  }))
 
-  const createLocal = (message: string, date: Date) => {
+  const createLocal = useCallback((message: string, date: Date, type: 'default' | 'custom' = 'default') => {
     logger(TAG, 'local notification')
     PushNotification.localNotificationSchedule({
       channelId: PUSH_CHANNEL,
       title: 'CVAC',
       message,
-      userInfo: { userId: userId },
+      userInfo: { userId, type, dependentId },
       date,
       allowWhileIdle: false,
       repeatTime: 1
     })
-  }
+  }, [dependentId, userId])
 
-  return {
-    createLocal
-  }
+  const getLocal = useCallback((): Promise<{custom: PushNotificationScheduledLocalObject[], default: PushNotificationScheduledLocalObject[]}> => (
+    new Promise((resolve) => {
+      const handler = (notifications: PushNotificationScheduledLocalObject[]) => {
+        const response = {
+          custom: [] as PushNotificationScheduledLocalObject[],
+          default: [] as PushNotificationScheduledLocalObject[]
+        }
+        const userNotifications = notifications.filter((notification) =>
+          notification.data.userId === userId && notification.data.dependentId === dependentId
+        )
+        userNotifications.map((notification) => {
+          if (notification.data.userId === userId && notification.data.dependentId) {
+            response[notification.data.type as 'custom' | 'default'].push(notification)
+          }
+          return null
+        })
+        resolve(response)
+      }
+      PushNotification.getScheduledLocalNotifications(handler)
+    })
+  ), [dependentId, userId])
+
+  return useMemo(() => ({
+    createLocal,
+    getLocal
+  }), [createLocal, getLocal])
 }

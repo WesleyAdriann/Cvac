@@ -2,12 +2,14 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { PushNotificationScheduledLocalObject } from 'react-native-push-notification'
 
 export interface INotificationsState {
+  update: number
   dependentId?: string
   defaultNotifications: PushNotificationScheduledLocalObject[]
   customNotifications: PushNotificationScheduledLocalObject[]
 }
 
 const initialState: INotificationsState = {
+  update: 0,
   defaultNotifications: [],
   customNotifications: []
 }
@@ -23,8 +25,8 @@ export const notificationsSlice = createSlice({
       state.customNotifications = action.payload.custom
       state.defaultNotifications = action.payload.default
     },
-    pushCustomNotification: (state, action: PayloadAction<PushNotificationScheduledLocalObject>) => {
-      state.customNotifications.push(action.payload)
+    setUpdateNotifications: (state) => {
+      state.update++
     }
   }
 })
