@@ -10,8 +10,8 @@ export const VaccineCertificateCalendars: React.FC<NativeStackHeaderProps> = ({ 
   const dispatch = useAppDispatch()
 
   const { dependentName, calendars } = useAppSelector((state) => ({
-    dependentName: state.userProfileReducer.depentents?.[state.vaccineCertificates.dependentId]?.name,
-    calendars: state.calendarsReducer
+    dependentName: state.userProfile.depentents?.[state.vaccineCertificates.dependentId]?.name,
+    calendars: state.calendars
   }))
 
   const formatCalendars = useMemo(() => (

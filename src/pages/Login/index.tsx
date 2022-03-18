@@ -12,7 +12,7 @@ export const Login: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const TAG = 'Login'
   const authentication = useMemo(auth, [])
   const dispatch = useAppDispatch()
-  const isLoading = useAppSelector((state) => state.sessionReducer.isLoading)
+  const isLoading = useAppSelector((state) => state.session.isLoading)
 
   const handleSubmitLoginEmail = async (form: ILoginFormInputs) => {
     try {

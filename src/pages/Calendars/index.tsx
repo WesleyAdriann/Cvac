@@ -9,9 +9,12 @@ import { TCollectionCalendarName } from '~/services/firebase'
 
 export const Calendars: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const {
-    calendarsReducer: calendars,
-    vaccinesReducer: vaccines
-  } = useAppSelector((state) => state)
+    calendars,
+    vaccines
+  } = useAppSelector((state) => ({
+    calendars: state.calendars,
+    vaccines: state.vaccines
+  }))
 
   const [items, setItems] = useState<ICalendar[]>([])
   const [isLoading, setIsLoading] = useState(true)

@@ -25,11 +25,16 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const dispatch = useAppDispatch()
 
   const {
-    userProfileReducer: userProfile,
-    sessionReducer: session,
-    calendarsReducer: calendars,
-    vaccinesReducer: vaccines
-  } = useAppSelector((state) => state)
+    userProfile,
+    session,
+    calendars,
+    vaccines
+  } = useAppSelector((state) => ({
+    userProfile: state.userProfile,
+    session: state.session,
+    calendars: state.calendars,
+    vaccines: state.vaccines
+  }))
 
   const displayName = useMemo(() => {
     if (userProfile.name) return userProfile.name.split(' ').shift()

@@ -1,11 +1,19 @@
 import { combineReducers } from '@reduxjs/toolkit'
 
-import { sessionSlice, userProfileSlice, calendarsSlice, vaccinesSlice, vaccineCertificatesSlice } from './slices'
+import {
+  sessionSlice,
+  userProfileSlice,
+  calendarsSlice,
+  vaccinesSlice,
+  vaccineCertificatesSlice,
+  notificationsSlice
+} from './slices'
 
 export const rootReducer = combineReducers({
-  sessionReducer: sessionSlice.reducer,
-  userProfileReducer: userProfileSlice.reducer,
-  calendarsReducer: calendarsSlice.reducer,
-  vaccinesReducer: vaccinesSlice.reducer,
-  vaccineCertificates: vaccineCertificatesSlice.reducer
+  session: sessionSlice.reducer,
+  userProfile: userProfileSlice.reducer,
+  calendars: calendarsSlice.reducer,
+  vaccines: vaccinesSlice.reducer,
+  vaccineCertificates: vaccineCertificatesSlice.reducer,
+  notifications: notificationsSlice.reducer
 })

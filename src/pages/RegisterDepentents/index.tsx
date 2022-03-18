@@ -11,7 +11,7 @@ import { useAppSelector, useAppDispatch, userProfileActions } from '~/store'
 export const RegisterDependents: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const TAG = 'RegisterDependents'
   const dispatch = useAppDispatch()
-  const userUid = useAppSelector((state) => state.userProfileReducer.uid!)
+  const userUid = useAppSelector((state) => state.userProfile.uid!)
 
   const [isLoading, setIsLoading] = useState(false)
 

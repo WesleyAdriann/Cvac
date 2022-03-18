@@ -9,9 +9,9 @@ const persistConfig = {
   key: 'root',
   storage,
   blacklist: [
-    'vaccinesReducer',
-    'calendarsReducer',
-    'notificationsSlice'
+    'vaccines',
+    'calendars',
+    'notifications'
   ],
   whitelist: []
 }

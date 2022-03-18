@@ -18,9 +18,9 @@ export const VaccineCertificates: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   const { vaccineCertificates, calendarName, vaccines } = useAppSelector((state) => ({
-    calendarName: ECalendarsName[state.calendarsReducer[state.vaccineCertificates.calendarId]?.name],
+    calendarName: ECalendarsName[state.calendars[state.vaccineCertificates.calendarId]?.name],
     vaccineCertificates: state.vaccineCertificates,
-    vaccines: state.vaccinesReducer
+    vaccines: state.vaccines
   }))
 
   const getVaccineCertificates = async () => {

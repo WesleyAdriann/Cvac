@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { IDependent } from '~/store'
+import { IDependent } from '~/types'
 
 import { AppPage, IAppPage } from '../../molecules'
 import { Button, Flex } from '../../atoms'

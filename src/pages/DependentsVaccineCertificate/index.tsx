@@ -8,7 +8,7 @@ import { logger } from '~/utils'
 export const DependentsVaccineCertificate: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const TAG = 'DependentsVaccineCertificate'
   const dispatch = useAppDispatch()
-  const dependents = useAppSelector((state) => state.userProfileReducer.depentents)
+  const dependents = useAppSelector((state) => state.userProfile.depentents)
 
   const onPressDependent = (dependentId: string) => {
     logger(TAG, 'dependent id', dependentId)

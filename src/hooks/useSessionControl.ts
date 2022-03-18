@@ -12,7 +12,7 @@ import { logger } from '~/utils'
 export const useSessionControl = () => {
   const TAG = 'useSessionControl'
   const dispatch = useAppDispatch()
-  const session = useAppSelector((state) => state.sessionReducer)
+  const session = useAppSelector((state) => state.session)
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(async (userState) => {
