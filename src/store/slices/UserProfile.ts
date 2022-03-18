@@ -1,8 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { ICollectionDependents } from '~/services/firebase'
-
-export type IDependent = Omit<ICollectionDependents, 'userUid'>
+import { IDependent } from '~/types'
 
 export interface IUserProfile {
   uid: string | null

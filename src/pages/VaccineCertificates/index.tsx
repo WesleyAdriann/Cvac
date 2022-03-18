@@ -10,7 +10,7 @@ import {
   colletionDependentVaccineDoc
 } from '~/services/firebase'
 
-import { IVaccineFromCalendar } from './types'
+import { IVaccineFromCalendar } from '~/types'
 
 export const VaccineCertificates: React.FC = () => {
   const TAG = 'VaccineCertificates'
@@ -30,7 +30,7 @@ export const VaccineCertificates: React.FC = () => {
       const vaccinesFromCalendar: IVaccineFromCalendar[] = []
       for (const vaccine in vaccines) {
         vaccines[vaccine].calendars.map((calendar) => {
-          const calendarId = calendar?.id.id
+          const calendarId = calendar.id
           if (calendarId === vaccineCertificates.calendarId) {
             vaccinesFromCalendar.push({
               doses: calendar.when.length,

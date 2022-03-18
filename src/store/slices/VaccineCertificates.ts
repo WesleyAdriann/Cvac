@@ -1,14 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { ICollectionVaccineCalendar, ICollectionVaccine } from '~/services/firebase'
+import { IVaccineCalendar } from '~/types'
 
-export interface IVaccinesWithCertificate extends Pick<ICollectionVaccine, 'name'> {
-  calendar: ICollectionVaccineCalendar
+export interface IVaccinesWithCertificate {
+  calendar: IVaccineCalendar
   id: string
   appliedDoses: number
   certificateId: string
   doses: number
   edited?: boolean
+  name: string
 }
 
 export interface IVaccineCertificates {
@@ -24,7 +25,7 @@ const initialState: IVaccineCertificates = {
 }
 
 export const vaccineCertificatesSlice = createSlice({
-  name: 'Session',
+  name: 'VaccineCertificates',
   initialState,
   reducers: {
     setDependentId: (state, action: PayloadAction<string>) => {

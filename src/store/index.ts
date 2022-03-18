@@ -10,7 +10,8 @@ const persistConfig = {
   storage,
   blacklist: [
     'vaccinesReducer',
-    'calendarsReducer'
+    'calendarsReducer',
+    'notificationsSlice'
   ],
   whitelist: []
 }
@@ -20,8 +21,8 @@ const persistedReducer = persistReducer(persistConfig, rootReducer)
 const middleware = []
 
 if (__DEV__) {
-  // const createDebugger = require('redux-flipper').default
-  // middleware.push(createDebugger())
+  const createDebugger = require('redux-flipper').default
+  middleware.push(createDebugger({ resolveCyclic: false }))
 }
 
 export const store = configureStore({

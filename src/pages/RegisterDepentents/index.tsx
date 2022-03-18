@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import firestore from '@react-native-firebase/firestore'
+import { NativeStackHeaderProps } from '@react-navigation/native-stack'
 
 import { RegisterDependentsTemplate } from '~/atomic'
 import { IRegisterDependentFormInputs } from '~/atomic/organisms'
@@ -7,7 +8,7 @@ import { logger } from '~/utils'
 import { collectionDependents, collectionUsers } from '~/services/firebase/firestore'
 import { useAppSelector, useAppDispatch, userProfileActions } from '~/store'
 
-export const RegisterDependents: React.FC = () => {
+export const RegisterDependents: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const TAG = 'RegisterDependents'
   const dispatch = useAppDispatch()
   const userUid = useAppSelector((state) => state.userProfileReducer.uid!)
@@ -26,6 +27,7 @@ export const RegisterDependents: React.FC = () => {
         userUid: userRef
       })
       dispatch(userProfileActions.setDepentent({ name: form.name, birthDate, id: dependentRef.id }))
+      navigation.pop()
     } catch (_error) {
       //
     } finally {

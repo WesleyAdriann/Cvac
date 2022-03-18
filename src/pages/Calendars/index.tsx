@@ -26,8 +26,7 @@ export const Calendars: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const parseCalendars = () => {
     const parsedCalendars: {[key: string]: ICalendar & {age:number}} = {}
     for (const vaccine in vaccines) {
-      vaccines[vaccine].calendars.map((calendar) => {
-        const calendarId = calendar?.id.id
+      vaccines[vaccine].calendars.map(({ id: calendarId }) => {
         parsedCalendars?.[calendarId] ??
           Object.assign(parsedCalendars, {
             [calendarId]: {
