@@ -41,13 +41,13 @@ export const usePushNotification = () => {
     dependentId: state.notifications.dependentId
   }))
 
-  const createLocal = useCallback((message: string, date: Date, type: 'default' | 'custom' = 'default') => {
+  const createLocal = useCallback((message: string, date: Date, type: 'default' | 'custom' = 'default', dependent = dependentId) => {
     logger(TAG, 'local notification')
     PushNotification.localNotificationSchedule({
       channelId: PUSH_CHANNEL,
       title: 'CVAC',
       message,
-      userInfo: { userId, type, dependentId },
+      userInfo: { userId, type, dependentId: dependent },
       date,
       allowWhileIdle: false,
       repeatTime: 1
