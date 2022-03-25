@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { NativeStackHeaderProps } from '@react-navigation/native-stack'
 
 import { useAppSelector } from '~/store'
 import { ICalendar } from '~/atomic/templates/CalendarsTemplate'
 import { CalendarsTemplate } from '~/atomic'
-import { ECalendarsName } from '~/utils'
-import { TCollectionCalendarName } from '~/services/firebase'
+import { ECalendarsName, logger } from '~/utils'
+import { TCollectionCalendarName, collectionCalendarVaccine, colletionCalendar } from '~/services/firebase'
 
 export const Calendars: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
+  const TAG = 'Calendars'
   const {
     calendars,
     vaccines
@@ -16,7 +17,7 @@ export const Calendars: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
     vaccines: state.vaccines
   }))
 
-  const [items, setItems] = useState<ICalendar[]>([])
+  const [calendarVaccines, setCalendarVaccines] = useState<ICalendar[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
   const formatDescription = (type: TCollectionCalendarName, startAge: number, endAge: number) => {
@@ -26,34 +27,36 @@ export const Calendars: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
     return `${startAge} anos até ${endAge} anos`
   }
 
-  const parseCalendars = () => {
-    const parsedCalendars: {[key: string]: ICalendar & {age:number}} = {}
-    for (const vaccine in vaccines) {
-      vaccines[vaccine].calendars.map(({ id: calendarId }) => {
-        parsedCalendars?.[calendarId] ??
-          Object.assign(parsedCalendars, {
-            [calendarId]: {
-              text: ECalendarsName[calendars[calendarId].name],
-              description: formatDescription(calendars[calendarId].name, calendars[calendarId].startAge, calendars[calendarId].endAge),
-              id: calendarId,
-              age: calendars[calendarId].startAge,
-              vaccines: []
-            }
-          })
-        parsedCalendars[calendarId].vaccines.push({ text: vaccines[vaccine].name, id: vaccine })
-        return undefined
+  const getCalendarVaccine = useCallback(async () => {
+    setIsLoading(true)
+    const calendarVaccine = []
+    for (const calendarId in calendars) {
+      const calendarRef = colletionCalendar.doc(calendarId)
+      const collectionData = await collectionCalendarVaccine.where('calendarId', '==', calendarRef).get()
+      const responseVaccines = collectionData.docs.map((value) => ({
+        id: value.data().vaccineId.id,
+        text: vaccines[value.data().vaccineId.id].name
+      }))
+
+      const { name, startAge, endAge } = calendars[calendarId]
+      calendarVaccine.push({
+        id: calendarId,
+        text: ECalendarsName[name],
+        description: formatDescription(name, startAge, endAge),
+        vaccines: responseVaccines,
+        age: startAge
       })
     }
-    const sortedCalendar = Object.values(parsedCalendars)
-      .sort((calendarA, calendarB) => calendarA.age - calendarB.age)
 
-    setItems(sortedCalendar)
+    const sortedCalendar = calendarVaccine.sort(({ age: ageA }, { age: ageB }) => ageA - ageB)
+    logger(TAG, 'response', calendarVaccine)
+    setCalendarVaccines(sortedCalendar)
     setIsLoading(false)
-  }
+  }, [calendars, vaccines])
 
   useEffect(() => {
-    if (!items.length) parseCalendars()
-  }, [])
+    if (!calendarVaccines.length) getCalendarVaccine()
+  }, [calendarVaccines.length, getCalendarVaccine])
 
   const onPress = (vaccineId: string, calendarId: string) => {
     navigation.push('vaccineDetails', { vaccineId, calendarId })
@@ -63,7 +66,7 @@ export const Calendars: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
     <CalendarsTemplate
       onPress={onPress}
       isLoading={isLoading}
-      calendars={items}
+      calendars={calendarVaccines}
     />
   )
 }

@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { IVaccine } from '~/types'
+import { ICollectionVaccine } from '~/services/firebase/firestore.types'
 
 export interface IVaccinesState {
-  [key: string]: IVaccine
+  [key: string]: ICollectionVaccine
 }
 
 const initialState: IVaccinesState = {}

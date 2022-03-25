@@ -26,15 +26,15 @@ export interface ICollectionUsers {
   uid: string
 }
 
-export interface ICollectionVaccineCalendar {
-  id: FirebaseFirestoreTypes.DocumentReference
-  loop?: number
-  when: number[]
-}
-
 export interface ICollectionVaccine {
-  calendars: ICollectionVaccineCalendar[]
   disease: string
   name: string
   notes: string[]
+}
+
+export interface ICollectionCalendarVaccine {
+  calendarId: FirebaseFirestoreTypes.DocumentReference,
+  vaccineId: FirebaseFirestoreTypes.DocumentReference,
+  loop?: number
+  when: number[]
 }

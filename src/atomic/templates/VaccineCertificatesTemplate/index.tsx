@@ -35,18 +35,18 @@ export const VaccineCertificatesTemplate: React.FC<IVaccineCertificatesTemplate>
       </Flex>
       <Flex flex={2} scroll paddingStyle={16}>
         {
-          !isLoading && vaccineCertificates.map((vaccine) => (
-            <Flex marginStyle='0 0 16px' key={vaccine.id}>
-              <Text marginBottom={8}>{vaccine.name}</Text>
+          !isLoading && vaccineCertificates.map((certificate) => (
+            <Flex marginStyle='0 0 16px' key={certificate.vaccineId}>
+              <Text marginBottom={8}>{certificate.name}</Text>
               <Flex flexDirection='row' style={{ flexWrap: 'wrap' }}>
                 {
-                  new Array(vaccine.doses).fill('').map((_dose, doseIndex) => (
+                  new Array(certificate.doses).fill('').map((_dose, doseIndex) => (
                     <VaccineDose
-                      flexBasis={vaccine.doses % 4 === 0 ? 50 : 33}
-                      key={`${vaccine.id}-${doseIndex}`}
-                      onPress={() => onPressItem(vaccine.id, vaccine.appliedDoses, doseIndex)}
-                      text={vaccine.doses === 1 ? 'dose única' : `${doseIndex + 1}ª dose`}
-                      selected={vaccine.appliedDoses >= doseIndex + 1}
+                      flexBasis={certificate.doses % 4 === 0 ? 50 : 33}
+                      key={`${certificate.vaccineId}-${doseIndex}`}
+                      onPress={() => onPressItem(certificate.vaccineId, certificate.appliedDoses, doseIndex)}
+                      text={certificate.doses === 1 ? 'dose única' : `${doseIndex + 1}ª dose`}
+                      selected={certificate.appliedDoses >= doseIndex + 1}
                     />
                   ))
                 }

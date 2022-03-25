@@ -7,10 +7,9 @@ import {
   collectionDependents,
   colletionCalendar,
   collectionVaccine,
-  colletionDependentVaccineDoc
+  colletionDependentVaccineDoc,
+  collectionCalendarVaccine
 } from '~/services/firebase'
-
-import { IVaccineFromCalendar } from '~/types'
 
 export const VaccineCertificates: React.FC = () => {
   const TAG = 'VaccineCertificates'
@@ -23,59 +22,44 @@ export const VaccineCertificates: React.FC = () => {
     vaccines: state.vaccines
   }))
 
-  const getVaccineCertificates = async () => {
+  const getVaccineCertificates = useCallback(async () => {
     try {
       setIsLoading(true)
 
-      const vaccinesFromCalendar: IVaccineFromCalendar[] = []
-      for (const vaccine in vaccines) {
-        vaccines[vaccine].calendars.map((calendar) => {
-          const calendarId = calendar.id
-          if (calendarId === vaccineCertificates.calendarId) {
-            vaccinesFromCalendar.push({
-              doses: calendar.when.length,
-              calendar,
-              id: vaccine,
-              name: vaccines[vaccine].name
-            })
-          }
-          return null
-        })
-      }
-      logger(TAG, 'vaccines from calendar', vaccinesFromCalendar)
+      const calendarRef = colletionCalendar.doc(vaccineCertificates.calendarId)
+      const dependentsRef = collectionDependents.doc(vaccineCertificates.dependentId)
 
-      const dependentsSnap = collectionDependents.doc(vaccineCertificates.dependentId)
-      const calendarSnap = colletionCalendar.doc(vaccineCertificates.calendarId)
+      const calendarVaccines = await collectionCalendarVaccine.where('calendarId', '==', calendarRef).get()
+      const baseVaccineDoc = await colletionDependentVaccineDoc.where('dependentId', '==', dependentsRef).where('calendarId', '==', calendarRef).get()
+
       const vaccineWithCertificates: IVaccinesWithCertificate[] = []
-      for (const vaccine of vaccinesFromCalendar) {
-        const vaccineSnap = collectionVaccine.doc(vaccine.id)
-        const dependentCertificates =
-          await colletionDependentVaccineDoc
-            .where('dependentId', '==', dependentsSnap)
-            .where('vaccineId', '==', vaccineSnap)
-            .where('calendarId', '==', calendarSnap)
-            .get()
+      for (const calendarVaccine of calendarVaccines.docs) {
+        const { vaccineId, when } = calendarVaccine.data()
+        const { empty, docs } = await baseVaccineDoc.query.where('vaccineId', '==', vaccineId).get()
+        const vaccine = vaccines[vaccineId.id]
         vaccineWithCertificates.push({
-          ...vaccine,
-          appliedDoses: dependentCertificates.empty ? 0 : dependentCertificates.docs[0].data().doses,
-          certificateId: dependentCertificates.empty ? '' : dependentCertificates.docs[0].id
+          doses: when.length,
+          vaccineId: vaccineId.id,
+          name: vaccine.name,
+          appliedDoses: empty ? 0 : docs[0].data().doses,
+          certificateId: empty ? '' : docs[0].id,
+          when: when[0]
         })
       }
+      const sortedCertificates = vaccineWithCertificates.sort(({ when: whenA }, { when: whenB }) => whenA - whenB)
 
-      logger(TAG, 'vaccines with Certificates', vaccineWithCertificates)
-
-      dispatch(vaccineCertificatesActions.setVaccinesWithCertificates(vaccineWithCertificates))
+      dispatch(vaccineCertificatesActions.setVaccinesWithCertificates(sortedCertificates))
     } catch (_error) {
 
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [dispatch, vaccineCertificates.calendarId, vaccineCertificates.dependentId, vaccines])
 
   const onPressDose = useCallback(async (vaccineId: string, doses: number) => {
     const certificates = vaccineCertificates.vaccinesWithCertificates.map((certificate) => ({
       ...certificate,
-      appliedDoses: certificate.id === vaccineId ? doses : certificate.appliedDoses,
+      appliedDoses: certificate.vaccineId === vaccineId ? doses : certificate.appliedDoses,
       edited: true
     }))
 
@@ -100,7 +84,7 @@ export const VaccineCertificates: React.FC = () => {
           doses: certificate.appliedDoses,
           calendarId: colletionCalendar.doc(vaccineCertificates.calendarId),
           dependentId: collectionDependents.doc(vaccineCertificates.dependentId),
-          vaccineId: collectionVaccine.doc(certificate.id)
+          vaccineId: collectionVaccine.doc(certificate.vaccineId)
         })
       })
 

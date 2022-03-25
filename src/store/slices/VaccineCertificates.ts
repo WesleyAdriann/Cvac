@@ -1,15 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { IVaccineCalendar } from '~/types'
-
 export interface IVaccinesWithCertificate {
-  calendar: IVaccineCalendar
-  id: string
   appliedDoses: number
   certificateId: string
   doses: number
   edited?: boolean
   name: string
+  vaccineId: string
+  when: number
 }
 
 export interface IVaccineCertificates {

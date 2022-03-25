@@ -36,7 +36,7 @@ export const CalendarsTemplate: React.FC<ICalendarsTemplate> = ({
                   onPress={() => onPress(vaccine.id, calendar.id)}
                   text={vaccine.text}
                   marginLeft={32}
-                  noBorder={index !== calendar.vaccines.length}
+                  noBorder={index !== (calendar.vaccines.length - 1)}
                 />
               ))
             }

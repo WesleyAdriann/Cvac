@@ -18,7 +18,6 @@ import {
   colletionCalendar,
   collectionUsers
 } from '~/services/firebase'
-import { IVaccineCalendar } from '~/types'
 
 export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const TAG = 'Home'
@@ -90,8 +89,7 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
       const vaccinesSnap = await collectionVaccine.get()
       const vaccines = vaccinesSnap.docs.reduce((acc, item) => {
         const vaccine = item.data()
-        const calendars: IVaccineCalendar[] = vaccine.calendars.map((calendar) => ({ ...calendar, id: calendar.id.id }))
-        return Object.assign(acc, { [item.id]: { ...vaccine, calendars } })
+        return Object.assign(acc, { [item.id]: vaccine })
       }, {})
       dispatch(vaccinesActions.setVaccines(vaccines))
     } catch (_error) {

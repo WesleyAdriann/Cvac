@@ -1,18 +1,5 @@
-import { ICollectionVaccine, ICollectionVaccineCalendar, ICollectionDependents } from '~/services/firebase'
-
-export interface IVaccineCalendar extends Omit<ICollectionVaccineCalendar, 'id'> {
-  id: string
-}
-
-export interface IVaccine extends Omit<ICollectionVaccine, 'calendars'> {
-  calendars: IVaccineCalendar[]
-}
+import { ICollectionDependents, ICollectionCalendarVaccine } from '~/services/firebase'
 
 export type IDependent = Omit<ICollectionDependents, 'userUid'>
 
-export interface IVaccineFromCalendar {
-  name: string
-  id: string,
-  calendar: IVaccineCalendar
-  doses: number
-}
+export type ICalendarVaccine = Pick<ICollectionCalendarVaccine, 'loop' | 'when'>
