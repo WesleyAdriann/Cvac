@@ -41,13 +41,13 @@ export const usePushNotification = () => {
     dependentId: state.notifications.dependentId
   }))
 
-  const createLocal = useCallback((message: string, date: Date, type: 'default' | 'custom' = 'default', dependent = dependentId) => {
+  const createLocal = useCallback((message: string, date: Date, type: 'default' | 'custom' = 'default', dependent = dependentId, ...infos) => {
     logger(TAG, 'local notification')
     PushNotification.localNotificationSchedule({
       channelId: PUSH_CHANNEL,
       title: 'CVAC',
       message,
-      userInfo: { userId, type, dependentId: dependent },
+      userInfo: { userId, type, dependentId: dependent, ...infos },
       date,
       allowWhileIdle: false,
       repeatTime: 1
@@ -61,14 +61,11 @@ export const usePushNotification = () => {
           custom: [] as PushNotificationScheduledLocalObject[],
           default: [] as PushNotificationScheduledLocalObject[]
         }
-        const userNotifications = notifications.filter((notification) =>
-          notification.data.userId === userId && notification.data.dependentId === dependentId
-        )
-        userNotifications.map((notification) => {
-          if (notification.data.userId === userId && notification.data.dependentId) {
-            response[notification.data.type as 'custom' | 'default'].push(notification)
+        notifications.forEach((notification) => {
+          const type = notification.data.type as 'custom' | 'default'
+          if (notification.data.userId === userId && notification.data.dependentId === dependentId) {
+            response[type as 'custom' | 'default'].push(notification)
           }
-          return null
         })
         resolve(response)
       }
