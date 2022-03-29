@@ -2,4 +2,7 @@ import { ICollectionDependents, ICollectionCalendarVaccine } from '~/services/fi
 
 export type IDependent = Omit<ICollectionDependents, 'userUid'>
 
-export type ICalendarVaccine = Pick<ICollectionCalendarVaccine, 'loop' | 'when'>
+export interface ICalendarVaccine extends Omit<ICollectionCalendarVaccine, 'calendarId' | 'vaccineId'> {
+  calendarId: string
+  vaccineId: string
+}

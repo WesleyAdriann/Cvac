@@ -17,8 +17,10 @@ export interface IVaccineDetails {
   calendarId: string
 }
 
+type IStateCalendarVacine = Pick<ICalendarVaccine, 'loop' | 'when'>
+
 export const VaccineDetails: React.FC<NativeStackScreenProps<RootStackParamList, 'vaccineDetails'>> = ({ route }) => {
-  const [calendar, setCalendar] = useState<ICalendarVaccine>({ when: [], loop: 0 })
+  const [calendar, setCalendar] = useState<IStateCalendarVacine>({ when: [], loop: 0 })
   const vaccine = useAppSelector((state) => state.vaccines[route.params.vaccineId])
 
   const getDetails = async () => {

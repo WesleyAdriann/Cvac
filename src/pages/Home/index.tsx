@@ -72,7 +72,12 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
       const calendarsSnap = await colletionCalendar.get()
       const calendars =
         calendarsSnap.docs.reduce((acc, item) =>
-          Object.assign(acc, { [item.id]: item.data() }), {}
+          Object.assign(acc, {
+            [item.id]: {
+              ...item.data(),
+              name: item.data().name.trim()
+            }
+          }), {}
         )
       dispatch(calendarsActions.setCalendars(calendars))
     } catch (_error) {
