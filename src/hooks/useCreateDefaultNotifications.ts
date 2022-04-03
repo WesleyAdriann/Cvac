@@ -15,6 +15,12 @@ import { ICalendarVaccine } from '~/types'
 
 import { usePushNotification } from './usePushNotification'
 
+interface INotificationFormated {
+  message : string
+  calendarId: string
+  date: Date
+}
+
 export const useCreateDefaultNotifications = () => {
   const TAG = 'useCreateDefaultNotifications'
   const pushNotification = usePushNotification()
@@ -53,53 +59,62 @@ export const useCreateDefaultNotifications = () => {
     return notifications
   }, [])
 
-  const formatMessage = (vaccineId: string, when: number[], index: number) => (
-    `${vaccines[vaccineId].name} ${when.length === 1 ? 'dose única' : `${index + 1}ª dose`}`
-  )
+  const formatMessage = useCallback((vaccineId: string, when: number[], index: number) => (
+    `${vaccines[vaccineId].name}, ${when.length === 1 ? 'dose única' : `${index + 1}ª dose`}`
+  ), [vaccines])
 
   const dateHourFormat = (date = new Date()) => setHours(startOfHour(date), 9)
 
   const formatNotificationsDate = useCallback((notificationsToCreate: ICalendarVaccine[], birthDate: Date) => {
     const userMonths = differenceInMonths(new Date(), birthDate)
-    let adultVaccines = 0
-    const formated: any = []
+    const formated: INotificationFormated[] = []
 
-    notificationsToCreate.forEach((notification, indexNotification) => {
-      const tempParse: any = []
+    let adultVaccines = 0
+    notificationsToCreate.forEach((notification) => {
+      const tempParse: INotificationFormated[] = []
       logger(TAG, calendars[notification.calendarId])
-      if (calendars[notification.calendarId].name === 'kid') {
-        return
-      }
-      adultVaccines++
-      const doseMissed = userMonths > notification.when[0]
+      const isKidVaccine = calendars[notification.calendarId].name === 'kid'
+      !isKidVaccine && adultVaccines++
+
+      const firstDoseMissed = userMonths > notification.when[0]
       notification.when.forEach((whenDose, indexDose) => {
-        const fnDate = indexDose === 0
-          ? () => addMonths(addDays(dateHourFormat(), adultVaccines * 15), doseMissed ? 0 : whenDose - userMonths)
+        const fnDateVaccineKid = () => addMonths(addDays(dateHourFormat(), 1), whenDose - userMonths)
+        const fnDatevaccine = indexDose === 0
+          ? () => addMonths(addDays(dateHourFormat(), adultVaccines * 15), firstDoseMissed ? 0 : whenDose - userMonths)
           : () => addMonths(tempParse[0].date, whenDose - notification.when[0])
+
+        if (isKidVaccine && userMonths > whenDose) return null
+
         tempParse.push({
           message: formatMessage(notification.vaccineId, notification.when, indexDose),
-          calendar: calendars[notification.calendarId].name,
-          date: fnDate()
+          calendarId: notification.calendarId,
+          date: isKidVaccine ? fnDateVaccineKid() : fnDatevaccine()
         })
       })
       formated.push(...tempParse)
     })
     logger(TAG, 'formated', JSON.stringify(formated))
     return formated
-  }, [calendars])
+  }, [calendars, formatMessage])
 
-  const createNotifications = useCallback((notificationsToCreate: ICalendarVaccine[]) => {
-    pushNotification.createLocal('vacina x', new Date(), 'default')
+  const createNotifications = useCallback((notificationsToCreate: INotificationFormated[], dependentId: string, dependentName: string) => {
+    notificationsToCreate.forEach((notification) => {
+      pushNotification.createLocal(
+        `${dependentName} - ${notification.message}`,
+        notification.date, 'default',
+        dependentId,
+        notification.calendarId)
+    })
   }, [pushNotification])
 
-  const main = useCallback(async (birthDate: Date, dependentId: string) => {
+  const main = useCallback(async (birthDate: Date, dependentId: string, dependentName: string) => {
     const calendarIds = getCalendars(birthDate)
     const notificationsToCreate = await getNotificationsToCreate(calendarIds ?? '')
-    const notifications = formatNotificationsDate(notificationsToCreate, birthDate)
-    // createNotifications(notificationsToCreate)
+    const notificationsFormated = formatNotificationsDate(notificationsToCreate, birthDate)
+    createNotifications(notificationsFormated, dependentId, dependentName)
 
     logger(TAG, calendarIds, notificationsToCreate)
-  }, [formatNotificationsDate, getCalendars, getNotificationsToCreate])
+  }, [createNotifications, formatNotificationsDate, getCalendars, getNotificationsToCreate])
 
   return main
 }

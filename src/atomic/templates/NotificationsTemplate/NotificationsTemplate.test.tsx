@@ -9,7 +9,9 @@ describe('Templates/NotificationsTemplate', () => {
   const props: INotificationsTemplate = {
     testID: 'NotificationsTemplate',
     onPressCreate: jest.fn(),
-    onPressNotification: jest.fn()
+    onPressNotification: jest.fn(),
+    defaultNotifications: [],
+    customNotifications: []
   }
 
   const elContainer = mockTestID('SafeAreaView', props.testID!).testID

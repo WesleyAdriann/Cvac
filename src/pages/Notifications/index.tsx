@@ -20,7 +20,14 @@ export const Notifications: React.FC<NativeStackHeaderProps> = ({ navigation }) 
 
   const getNotifications = useCallback(async () => {
     const notifications = await pushNotification.getLocal()
-    dispatch(notificationsActions.setNotifications(notifications))
+    const formatedDefault = notifications.default.map((notification) => ({
+      ...notification,
+      message: notification.message.split(' - ').pop()
+    }))
+    dispatch(notificationsActions.setNotifications({
+      ...notifications,
+      default: formatedDefault
+    }))
     setIsLoading(false)
   }, [dispatch, pushNotification])
 

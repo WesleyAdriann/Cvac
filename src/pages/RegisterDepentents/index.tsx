@@ -7,11 +7,13 @@ import { IRegisterDependentFormInputs } from '~/atomic/organisms'
 import { logger } from '~/utils'
 import { collectionDependents, collectionUsers } from '~/services/firebase/firestore'
 import { useAppSelector, useAppDispatch, userProfileActions } from '~/store'
+import { useCreateDefaultNotifications } from '~/hooks'
 
 export const RegisterDependents: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const TAG = 'RegisterDependents'
   const dispatch = useAppDispatch()
   const userUid = useAppSelector((state) => state.userProfile.uid!)
+  const createNotifications = useCreateDefaultNotifications()
 
   const [isLoading, setIsLoading] = useState(false)
 
@@ -27,6 +29,7 @@ export const RegisterDependents: React.FC<NativeStackHeaderProps> = ({ navigatio
         userUid: userRef
       })
       dispatch(userProfileActions.setDepentent({ name: form.name, birthDate, id: dependentRef.id }))
+      await createNotifications(new Date(form.birthDate), dependentRef.id, form.name)
       navigation.pop()
     } catch (_error) {
       //
@@ -35,5 +38,12 @@ export const RegisterDependents: React.FC<NativeStackHeaderProps> = ({ navigatio
     }
   }
 
-  return <RegisterDependentsTemplate form={{ onSubmit: onRegister, isLoading }}/>
+  return (
+    <RegisterDependentsTemplate
+      form={{
+        onSubmit: onRegister,
+        isLoading
+      }}
+    />
+  )
 }

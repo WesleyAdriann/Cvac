@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react'
 import { PushNotificationScheduledLocalObject } from 'react-native-push-notification'
+import { Agenda } from 'react-native-calendars'
 
 import { AppPage, IAppPage } from '../../molecules'
 import { Text, Flex, Button } from '../../atoms'
@@ -59,15 +60,17 @@ export const NotificationsTemplate: React.FC<INotificationsTemplate> = ({
   }, [customNotifications, defaultNotifications, onPressNotification])
 
   return (
-    <AppPage {...props} testID={testID}>
-      <Flex flex={1} scroll>
+    <AppPage {...props} testID={testID} padding={0}>
+      <Flex flex={1} scroll contentContainerStyle={{ paddingHorizontal: 16 }}>
         {renderItems}
       </Flex>
-      <Button
-        onPress={onPressCreate}
-        text='Criar Lembrete'
-        mode='contained'
-      />
+      <Flex paddingStyle={16}>
+        <Button
+          onPress={onPressCreate}
+          text='Criar Lembrete'
+          mode='contained'
+        />
+      </Flex>
     </AppPage>
   )
 }
