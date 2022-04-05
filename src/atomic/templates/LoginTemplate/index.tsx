@@ -18,10 +18,10 @@ export const LoginTemplate: React.FC<ILoginTemplate> = ({ testID = 'LoginTemplat
   return (
     <AppPage {...props} testID={testID} scroll>
       <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} style={{ flex: 1 }} keyboardVerticalOffset={16}>
-        <Flex flex={1} alignItems='center' justifyContent='center' marginStyle={16}>
+        <Flex flex={0.6} alignItems='center' justifyContent='center' marginStyle={16}>
           <Image source={Logotipo} />
         </Flex>
-        <Flex flex={2} justifyContent='center'>
+        <Flex justifyContent='center'>
           <LoginForm {...form}/>
           <Flex marginStyle='20px 0'>
             <Text align='center'>ou continue com</Text>
