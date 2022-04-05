@@ -12,7 +12,7 @@ export const RegisterNotifications: React.FC<NativeStackHeaderProps> = ({ naviga
 
   const onSubmit = ({ date, hour, description }: IRegisterNotificationsFormInputs) => {
     const parseNotificationDateTime = date.replace('00:00', hour.match(/\d{2}:\d{2}/g)?.shift() ?? '')
-    pushNotification.createLocal(description, new Date(parseNotificationDateTime), 'custom')
+    pushNotification.createLocal({ message: description, date: new Date(parseNotificationDateTime), type: 'custom' })
     dispatch(notificationsActions.setUpdateNotifications())
     navigation.pop()
   }

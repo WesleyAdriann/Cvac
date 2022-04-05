@@ -4,10 +4,15 @@ import { NativeStackHeaderProps } from '@react-navigation/native-stack'
 import { NotificationsTemplate } from '~/atomic'
 import { usePushNotification } from '~/hooks'
 import { useAppDispatch, useAppSelector, notificationsActions } from '~/store'
+import { ECalendarsName } from '~/utils'
+import { INotification } from '~/types'
 
 export const Notifications: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const dispatch = useAppDispatch()
-  const { customNotifications, defaultNotifications, update } = useAppSelector((state) => state.notifications)
+  const { notifications, calendars } = useAppSelector((state) => ({
+    notifications: state.notifications,
+    calendars: state.calendars
+  }))
   const [isLoading, setIsLoading] = useState(true)
 
   const pushNotification = usePushNotification()
@@ -20,28 +25,34 @@ export const Notifications: React.FC<NativeStackHeaderProps> = ({ navigation }) 
 
   const getNotifications = useCallback(async () => {
     const notifications = await pushNotification.getLocal()
-    const formatedDefault = notifications.default.map((notification) => ({
-      ...notification,
-      message: notification.message.split(' - ').pop()
-    }))
+    const formatedDefault: INotification[] = notifications.default.map((notification) => {
+      const message: string = notification.message
+
+      return {
+        ...notification,
+        message: message.split(' - ').pop() ?? '',
+        calendar: ECalendarsName[calendars[notification.data.calendarId ?? ''].name],
+        dose: notification.data.dose
+      }
+    })
     dispatch(notificationsActions.setNotifications({
       ...notifications,
       default: formatedDefault
     }))
     setIsLoading(false)
-  }, [dispatch, pushNotification])
+  }, [calendars, dispatch, pushNotification])
 
   useEffect(() => {
     getNotifications()
-  }, [getNotifications, update])
+  }, [getNotifications, notifications.update])
 
   return (
     <NotificationsTemplate
       onPressCreate={onPressCreate}
       onPressNotification={onPressNotification}
       isLoading={isLoading}
-      defaultNotifications={defaultNotifications}
-      customNotifications={customNotifications}
+      defaultNotifications={notifications.defaultNotifications}
+      customNotifications={notifications.customNotifications}
     />
   )
 }

@@ -19,6 +19,8 @@ interface INotificationFormated {
   message : string
   calendarId: string
   date: Date
+  dose: string
+  vaccine: string
 }
 
 export const useCreateDefaultNotifications = () => {
@@ -60,8 +62,10 @@ export const useCreateDefaultNotifications = () => {
   }, [])
 
   const formatMessage = useCallback((vaccineId: string, when: number[], index: number) => (
-    `${vaccines[vaccineId].name}, ${when.length === 1 ? 'dose única' : `${index + 1}ª dose`}`
+    `${vaccines[vaccineId].name}, ${formatDose(when, index)}`
   ), [vaccines])
+
+  const formatDose = (when: number[], index: number) => `${when.length === 1 ? 'dose única' : `${index + 1}ª dose`}`
 
   const dateHourFormat = (date = new Date()) => setHours(startOfHour(date), 9)
 
@@ -88,22 +92,25 @@ export const useCreateDefaultNotifications = () => {
         tempParse.push({
           message: formatMessage(notification.vaccineId, notification.when, indexDose),
           calendarId: notification.calendarId,
-          date: isKidVaccine ? fnDateVaccineKid() : fnDatevaccine()
+          date: isKidVaccine ? fnDateVaccineKid() : fnDatevaccine(),
+          dose: formatDose(notification.when, indexDose),
+          vaccine: vaccines[notification.vaccineId].name
         })
       })
       formated.push(...tempParse)
     })
     logger(TAG, 'formated', JSON.stringify(formated))
     return formated
-  }, [calendars, formatMessage])
+  }, [calendars, formatMessage, vaccines])
 
   const createNotifications = useCallback((notificationsToCreate: INotificationFormated[], dependentId: string, dependentName: string) => {
     notificationsToCreate.forEach((notification) => {
-      pushNotification.createLocal(
-        `${dependentName} - ${notification.message}`,
-        notification.date, 'default',
-        dependentId,
-        notification.calendarId)
+      pushNotification.createLocal({
+        ...notification,
+        message: `${dependentName} - ${notification.message}`,
+        date: notification.date,
+        dependentId
+      })
     })
   }, [pushNotification])
 

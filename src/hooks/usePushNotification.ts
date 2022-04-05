@@ -8,6 +8,14 @@ import { logger } from '~/utils'
 const TAG = 'usePushNotification'
 const PUSH_CHANNEL = 'cvacPushChannel'
 
+interface ICreateLocal {
+  message: string,
+  date: Date,
+  type?: 'default' | 'custom',
+  dependentId?: string
+  [key: string]: any
+}
+
 export const PushNotificationConfigure = () => {
   PushNotification.configure({
     onRegister: (token) => logger(TAG, 'onRegister token', token),
@@ -41,7 +49,7 @@ export const usePushNotification = () => {
     dependentId: state.notifications.dependentId
   }))
 
-  const createLocal = useCallback((message: string, date: Date, type: 'default' | 'custom' = 'default', dependent = dependentId, ...infos) => {
+  const createLocal = useCallback(({ message, date, type = 'default', dependent = dependentId, ...infos }: ICreateLocal) => {
     logger(TAG, 'local notification')
     PushNotification.localNotificationSchedule({
       channelId: PUSH_CHANNEL,
