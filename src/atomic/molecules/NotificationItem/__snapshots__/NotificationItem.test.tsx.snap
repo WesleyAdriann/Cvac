@@ -1,0 +1,266 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Molecules/NotificationItem should render snapshot 1`] = `
+<View
+  collapsable={false}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    accessible={false}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    testID="Pressable_NotificationItem"
+  >
+    <View
+      accessible={false}
+      flexDirection="row"
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "marginBottom": 0,
+            "marginLeft": 0,
+            "marginRight": 0,
+            "marginTop": 0,
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+          },
+          Object {
+            "borderColor": "#0000001f",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 1,
+            "marginBottom": 8,
+          },
+        ]
+      }
+      testID="View_Flex"
+    >
+      <View
+        accessible={false}
+        alignItems="center"
+        flex={1.2}
+        justifyContent="center"
+        style={
+          Array [
+            Object {
+              "flexBasis": 0,
+              "flexDirection": "column",
+              "flexGrow": 1.2,
+              "flexShrink": 1,
+              "marginBottom": 0,
+              "marginLeft": 0,
+              "marginRight": 0,
+              "marginTop": 0,
+              "paddingBottom": 0,
+              "paddingLeft": 0,
+              "paddingRight": 0,
+              "paddingTop": 0,
+            },
+            Object {
+              "backgroundColor": "#F1FAFC",
+            },
+          ]
+        }
+        testID="View_Flex"
+      >
+        <Text
+          accessible={false}
+          size={24}
+          style={
+            Array [
+              Object {
+                "color": "#424242",
+                "fontFamily": "System",
+                "fontWeight": "400",
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Array [
+                Object {
+                  "color": "#424242",
+                  "fontSize": 24,
+                  "fontWeight": "bold",
+                  "marginBottom": 0,
+                  "textAlign": "left",
+                  "textDecorationColor": "black",
+                  "textDecorationLine": "none",
+                  "textDecorationStyle": "solid",
+                },
+                Object {
+                  "textTransform": "capitalize",
+                },
+              ],
+            ]
+          }
+          testID="Text_Text"
+          weight="bold"
+        >
+          25
+        </Text>
+        <Text
+          accessible={false}
+          style={
+            Array [
+              Object {
+                "color": "#424242",
+                "fontFamily": "System",
+                "fontWeight": "400",
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Array [
+                Object {
+                  "color": "#424242",
+                  "fontSize": 16,
+                  "fontWeight": "normal",
+                  "marginBottom": 0,
+                  "textAlign": "left",
+                  "textDecorationColor": "black",
+                  "textDecorationLine": "none",
+                  "textDecorationStyle": "solid",
+                },
+                Object {
+                  "textTransform": "capitalize",
+                },
+              ],
+            ]
+          }
+          testID="Text_Text"
+        >
+          Janeiro
+        </Text>
+        <Text
+          accessible={false}
+          style={
+            Array [
+              Object {
+                "color": "#424242",
+                "fontFamily": "System",
+                "fontWeight": "400",
+              },
+              Object {
+                "textAlign": "left",
+              },
+              Array [
+                Object {
+                  "color": "#424242",
+                  "fontSize": 16,
+                  "fontWeight": "normal",
+                  "marginBottom": 0,
+                  "textAlign": "left",
+                  "textDecorationColor": "black",
+                  "textDecorationLine": "none",
+                  "textDecorationStyle": "solid",
+                },
+                Object {
+                  "textTransform": "capitalize",
+                },
+              ],
+            ]
+          }
+          testID="Text_Text"
+        >
+          2022
+        </Text>
+      </View>
+      <View
+        accessible={false}
+        flex={3}
+        justifyContent="center"
+        paddingStyle={24}
+        style={
+          Array [
+            Object {
+              "flexBasis": 0,
+              "flexDirection": "column",
+              "flexGrow": 3,
+              "flexShrink": 1,
+              "marginBottom": 0,
+              "marginLeft": 0,
+              "marginRight": 0,
+              "marginTop": 0,
+              "paddingBottom": 24,
+              "paddingLeft": 24,
+              "paddingRight": 24,
+              "paddingTop": 24,
+            },
+          ]
+        }
+        testID="View_Flex"
+      >
+        <View
+          accessible={false}
+          marginStyle="0 8px 8px 0"
+          style={
+            Array [
+              Object {
+                "flexDirection": "column",
+                "marginBottom": 8,
+                "marginLeft": 0,
+                "marginRight": 8,
+                "marginTop": 0,
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+              },
+            ]
+          }
+          testID="View_Flex"
+        >
+          <Text
+            accessible={false}
+            size={22}
+            style={
+              Array [
+                Object {
+                  "color": "#424242",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                },
+                Object {
+                  "textAlign": "left",
+                },
+                Array [
+                  Object {
+                    "color": "#424242",
+                    "fontSize": 22,
+                    "fontWeight": "normal",
+                    "marginBottom": 0,
+                    "textAlign": "left",
+                    "textDecorationColor": "black",
+                    "textDecorationLine": "none",
+                    "textDecorationStyle": "solid",
+                  },
+                ],
+              ]
+            }
+            testID="Text_Text"
+          >
+            Vaccina
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
