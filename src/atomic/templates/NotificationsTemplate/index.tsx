@@ -3,7 +3,7 @@ import { PushNotificationScheduledLocalObject } from 'react-native-push-notifica
 import { format } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
 
-import { INotification } from '~/types'
+import { IPushNotification } from '~/types'
 
 import { AppPage, IAppPage, NotificationItem } from '../../molecules'
 import { Text, Flex, Button } from '../../atoms'
@@ -11,8 +11,8 @@ import { Text, Flex, Button } from '../../atoms'
 export interface INotificationsTemplate extends Omit<IAppPage, 'children' | 'scroll'> {
   testID?: string
   onPressCreate: () => void
-  onPressNotification: () => void
-  defaultNotifications: INotification[]
+  onPressNotification: (notification: IPushNotification | PushNotificationScheduledLocalObject, date: string) => void
+  defaultNotifications: IPushNotification[]
   customNotifications: PushNotificationScheduledLocalObject[]
 }
 
@@ -35,7 +35,7 @@ export const NotificationsTemplate: React.FC<INotificationsTemplate> = ({
 
     const render: React.ReactNode[] = []
 
-    const items = (title: string, notifications: INotification[] | PushNotificationScheduledLocalObject[]) => (
+    const items = (title: string, notifications: IPushNotification[] | PushNotificationScheduledLocalObject[]) => (
       <React.Fragment key={render.length}>
         <Flex marginStyle='32px 0 8px'>
           <Text size={34}>
@@ -43,20 +43,30 @@ export const NotificationsTemplate: React.FC<INotificationsTemplate> = ({
           </Text>
         </Flex>
         {
-          notifications.map((notification) => (
-            <NotificationItem
-              key={notification.id}
-              day={format(notification.date, 'dd')}
-              month={format(notification.date, 'MMMM', { locale: ptBR })}
-              year={format(notification.date, 'yyyy')}
-              title={notification.data.vaccine ? notification.data.vaccine : notification.message}
-              onPress={() => null}
-              descriptions={[
-                notification.data.dose ? `${notification.calendar} - ${notification.data.dose}` : '',
-                format(notification.date, "HH'h'mm")
-              ]}
-            />
-          ))
+          notifications.map((notification) => {
+            const date = {
+              day: format(notification.date, 'dd'),
+              month: format(notification.date, 'MMMM', { locale: ptBR }),
+              year: format(notification.date, 'yyyy')
+            }
+            return (
+              <NotificationItem
+                key={notification.id}
+                {...date}
+                title={notification.data.vaccine ? notification.data.vaccine : notification.message}
+                onPress={() =>
+                  onPressNotification(
+                    notification,
+                    `${date.day} de ${date.month} de ${date.year} às ${format(notification.date, "HH'h'mm")}`
+                  )
+                }
+                descriptions={[
+                  notification.data.dose ? `${notification.calendar} - ${notification.data.dose}` : '',
+                  format(notification.date, "HH'h'mm")
+                ]}
+              />
+            )
+          })
         }
       </React.Fragment>
     )
@@ -65,7 +75,7 @@ export const NotificationsTemplate: React.FC<INotificationsTemplate> = ({
     if (customNotifications.length) render.push(items('Lembretes Criados', customNotifications))
 
     return render
-  }, [customNotifications, defaultNotifications, props.isLoading])
+  }, [customNotifications, defaultNotifications, onPressNotification, props.isLoading])
 
   return (
     <AppPage {...props} testID={testID} padding={0}>

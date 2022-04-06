@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { NativeStackHeaderProps } from '@react-navigation/native-stack'
+import { PushNotificationScheduledLocalObject } from 'react-native-push-notification'
 
 import { NotificationsTemplate } from '~/atomic'
 import { usePushNotification } from '~/hooks'
 import { useAppDispatch, useAppSelector, notificationsActions } from '~/store'
 import { ECalendarsName } from '~/utils'
-import { INotification } from '~/types'
+import { IPushNotification } from '~/types'
+import { IDialog } from '~/atomic/molecules'
 
 export const Notifications: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const dispatch = useAppDispatch()
@@ -14,18 +16,32 @@ export const Notifications: React.FC<NativeStackHeaderProps> = ({ navigation }) 
     calendars: state.calendars
   }))
   const [isLoading, setIsLoading] = useState(true)
+  const [dialog, setDialog] = useState<IDialog>({ visible: false })
 
   const pushNotification = usePushNotification()
 
   const onPressCreate = () => navigation.push('registerNotifications')
 
-  const onPressNotification = () => {
-    // logger(TAG, x)
+  const onDeleteNotification = (id: string, type: 'custom' | 'default') => {
+    // pushNotification.deleteLocal(id)
+    const newNotifications = notifications[`${type}Notifications`].filter((notification) => notification.id !== id)
+    dispatch(notificationsActions.setNotifications({
+      [type]: newNotifications
+    }))
+  }
+
+  const onPressNotification = (notification: IPushNotification | PushNotificationScheduledLocalObject, date: string) => {
+    setDialog({
+      visible: true,
+      content: `${notification.message}\n\n${date}`,
+      btnCloseText: 'Deletar',
+      onPressClose: () => onDeleteNotification(notification.id, notification.data.type)
+    })
   }
 
   const getNotifications = useCallback(async () => {
     const notifications = await pushNotification.getLocal()
-    const formatedDefault: INotification[] = notifications.default.map((notification) => {
+    const formatedDefault: IPushNotification[] = notifications.default.map((notification) => {
       const message: string = notification.message
 
       return {
@@ -53,6 +69,10 @@ export const Notifications: React.FC<NativeStackHeaderProps> = ({ navigation }) 
       isLoading={isLoading}
       defaultNotifications={notifications.defaultNotifications}
       customNotifications={notifications.customNotifications}
+      dialog={{
+        ...dialog,
+        onClose: () => setDialog({ visible: false })
+      }}
     />
   )
 }

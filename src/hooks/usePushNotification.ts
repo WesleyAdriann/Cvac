@@ -81,8 +81,13 @@ export const usePushNotification = () => {
     })
   ), [dependentId, userId])
 
+  const deleteLocal = useCallback((id: string) => {
+    PushNotification.cancelLocalNotification(id)
+  }, [])
+
   return useMemo(() => ({
     createLocal,
-    getLocal
-  }), [createLocal, getLocal])
+    getLocal,
+    deleteLocal
+  }), [createLocal, deleteLocal, getLocal])
 }

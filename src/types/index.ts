@@ -8,7 +8,7 @@ export interface ICalendarVaccine extends Omit<ICollectionCalendarVaccine, 'cale
   vaccineId: string
 }
 
-export interface INotification extends PushNotificationScheduledLocalObject {
+export interface IPushNotification extends PushNotificationScheduledLocalObject {
   message: string
   dose: string
   calendar: string
