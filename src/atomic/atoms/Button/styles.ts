@@ -8,16 +8,18 @@ import { TTheme } from '~/tokens'
 type IStyledButton = Omit<IButton, 'text'>
 export const StyledButton = styled(PaperButton).attrs<IStyledButton>((props) => ({
   labelStyle: {
-    color: defineColorText(props.theme, props.mode),
+    color: defineColorText(props.theme, props.error, props.mode),
     fontSize: props.iconSize ?? 18
   },
   contentStyle: {
     paddingVertical: 6
-  }
+  },
+  color: props.error ? props.theme.palette.complementary2 : undefined
 }))<IStyledButton>`
-  border-color: ${(props) => props.mode === 'outlined'
-    ? props.theme.palette.complementary3
-    : props.theme.palette.primary
+  border-color: ${({ mode, theme: { palette } }) =>
+    mode === 'outlined'
+      ? palette.complementary3
+      : palette.primary
 };
   border-width: ${(props) => props.mode === 'text' ? 0 : 1}px;
   margin: ${({ marginStyle }) => (typeof marginStyle === 'number') ? `${marginStyle}px` : (marginStyle ?? 0)};
@@ -30,7 +32,8 @@ export const StyledButton = styled(PaperButton).attrs<IStyledButton>((props) => 
   `}
 `
 
-const defineColorText = (theme: TTheme, mode?: TButtonMore): string => {
+const defineColorText = (theme: TTheme, error?: boolean, mode?: TButtonMore): string => {
+  if (error) return theme.palette.complementary2
   switch (mode) {
   case 'contained':
     return theme.fontColorInvert
@@ -41,8 +44,8 @@ const defineColorText = (theme: TTheme, mode?: TButtonMore): string => {
   }
 }
 
-export const StyledText = styled(PaperText)<Pick<IButton, 'mode' | 'fontSize'>>`
-  color: ${(props) => defineColorText(props.theme, props.mode)};
+export const StyledText = styled(PaperText)<Pick<IButton, 'mode' | 'fontSize' | 'error'>>`
+  color: ${({ theme, mode, error }) => defineColorText(theme, error, mode)};
 
   font-weight: ${(props) => props.mode === 'contained' ? 'bold' : 'normal'};
   font-size: ${(props) => props.fontSize ?? 18}px;

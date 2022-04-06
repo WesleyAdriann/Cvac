@@ -166,116 +166,94 @@ exports[`Molecules/Dialog should render snapshot 1`] = `
             }
           >
             <View
-              collapsable={false}
-              nativeID="animatedComponent"
+              accessible={false}
+              compact={true}
+              marginStyle="0 4px 0"
               style={
-                Object {
-                  "backgroundColor": "transparent",
-                  "borderColor": "#00C9D2",
-                  "borderRadius": 4,
-                  "borderStyle": "solid",
-                  "borderWidth": 0,
-                  "elevation": 0,
-                  "marginBottom": 0,
-                  "marginLeft": 0,
-                  "marginRight": 0,
-                  "marginTop": 0,
-                  "minWidth": "auto",
-                  "paddingBottom": 0,
-                  "paddingLeft": 0,
-                  "paddingRight": 0,
-                  "paddingTop": 0,
-                }
+                Array [
+                  Object {
+                    "flexDirection": "column",
+                    "marginBottom": 0,
+                    "marginLeft": 4,
+                    "marginRight": 4,
+                    "marginTop": 0,
+                    "paddingBottom": 0,
+                    "paddingLeft": 0,
+                    "paddingRight": 0,
+                    "paddingTop": 0,
+                  },
+                ]
               }
+              testID="View_Flex"
             >
               <View
-                accessibilityRole="button"
-                accessibilityState={
+                collapsable={false}
+                nativeID="animatedComponent"
+                style={
                   Object {
-                    "disabled": false,
+                    "backgroundColor": "transparent",
+                    "borderColor": "#00C9D2",
+                    "borderRadius": 4,
+                    "borderStyle": "solid",
+                    "borderWidth": 0,
+                    "elevation": 0,
+                    "marginBottom": 0,
+                    "marginLeft": 0,
+                    "marginRight": 0,
+                    "marginTop": 0,
+                    "minWidth": 64,
+                    "paddingBottom": 0,
+                    "paddingLeft": 0,
+                    "paddingRight": 0,
+                    "paddingTop": 0,
                   }
                 }
-                accessible={false}
-                focusable={true}
-                onClick={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Array [
-                    Object {
-                      "overflow": "hidden",
-                    },
-                    Object {
-                      "borderRadius": 4,
-                    },
-                  ]
-                }
-                testID="Pressable_Button"
               >
                 <View
+                  accessibilityRole="button"
+                  accessibilityState={
+                    Object {
+                      "disabled": false,
+                    }
+                  }
+                  accessible={false}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
                   style={
                     Array [
                       Object {
-                        "alignItems": "center",
-                        "flexDirection": "row",
-                        "justifyContent": "center",
+                        "overflow": "hidden",
                       },
                       Object {
-                        "paddingVertical": 6,
+                        "borderRadius": 4,
                       },
                     ]
                   }
+                  testID="Pressable_Button"
                 >
-                  <Text
-                    numberOfLines={1}
-                    selectable={false}
+                  <View
                     style={
                       Array [
                         Object {
-                          "color": "#424242",
-                          "fontFamily": "System",
-                          "fontWeight": "400",
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                          "justifyContent": "center",
                         },
                         Object {
-                          "textAlign": "left",
+                          "paddingVertical": 6,
                         },
-                        Array [
-                          Object {
-                            "letterSpacing": 1,
-                            "marginHorizontal": 16,
-                            "marginVertical": 9,
-                            "textAlign": "center",
-                          },
-                          Object {
-                            "marginHorizontal": 8,
-                          },
-                          Object {
-                            "textTransform": "uppercase",
-                          },
-                          Object {
-                            "color": "#00C9D2",
-                            "fontFamily": "System",
-                            "fontWeight": "500",
-                          },
-                          Object {
-                            "fontFamily": "System",
-                            "fontWeight": "500",
-                          },
-                          Object {
-                            "color": "#424242",
-                            "fontSize": 18,
-                          },
-                        ],
                       ]
                     }
                   >
                     <Text
-                      fontSize={16}
-                      mode="text"
+                      numberOfLines={1}
+                      selectable={false}
                       style={
                         Array [
                           Object {
@@ -288,17 +266,59 @@ exports[`Molecules/Dialog should render snapshot 1`] = `
                           },
                           Array [
                             Object {
+                              "letterSpacing": 1,
+                              "marginHorizontal": 16,
+                              "marginVertical": 9,
+                              "textAlign": "center",
+                            },
+                            undefined,
+                            Object {
+                              "textTransform": "uppercase",
+                            },
+                            Object {
+                              "color": "#00C9D2",
+                              "fontFamily": "System",
+                              "fontWeight": "500",
+                            },
+                            Object {
+                              "fontFamily": "System",
+                              "fontWeight": "500",
+                            },
+                            Object {
                               "color": "#424242",
-                              "fontSize": 16,
-                              "fontWeight": "normal",
+                              "fontSize": 18,
                             },
                           ],
                         ]
                       }
                     >
-                      Ok
+                      <Text
+                        fontSize={16}
+                        mode="text"
+                        style={
+                          Array [
+                            Object {
+                              "color": "#424242",
+                              "fontFamily": "System",
+                              "fontWeight": "400",
+                            },
+                            Object {
+                              "textAlign": "left",
+                            },
+                            Array [
+                              Object {
+                                "color": "#424242",
+                                "fontSize": 16,
+                                "fontWeight": "normal",
+                              },
+                            ],
+                          ]
+                        }
+                      >
+                        Ok
+                      </Text>
                     </Text>
-                  </Text>
+                  </View>
                 </View>
               </View>
             </View>

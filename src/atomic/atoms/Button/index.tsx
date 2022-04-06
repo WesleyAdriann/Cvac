@@ -9,6 +9,7 @@ export interface IButtomCustomStyle {
   paddingStyle?: number | string
   flex?: number
   square?: boolean
+  error?: boolean
 }
 
 export type TButtonMore = 'text' | 'outlined' | 'contained'
@@ -30,7 +31,7 @@ const Component: React.FC<IButton> = ({ testID = 'Button', text, mode = 'contain
     {...props}
     {...assignTestId('Pressable', testID)}
   >
-    <StyledText mode={mode} fontSize={fontSize}>{text}</StyledText>
+    <StyledText mode={mode} error={props.error} fontSize={fontSize}>{text}</StyledText>
   </StyledButton>
 )
 

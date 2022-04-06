@@ -4,7 +4,7 @@ import { Dialog as PaperDialog } from 'react-native-paper'
 
 import { assignTestId } from '~/utils'
 
-import { Text, Button } from '../../atoms'
+import { Text, Button, Flex } from '../../atoms'
 
 export interface IDialog {
   testID?: string
@@ -48,16 +48,20 @@ const Component: React.FC<IDialog> = ({
               onClose?.()
               onPressClose?.()
             }}
-          />}
-        <Button
-          mode='text'
-          text={btnOkText}
-          fontSize={16}
-          onPress={() => {
-            onClose?.()
-            onPressOk?.()
-          }}
-        />
+            error
+          />
+        }
+        <Flex marginStyle='0 4px 0'>
+          <Button
+            mode='text'
+            text={btnOkText}
+            fontSize={16}
+            onPress={() => {
+              onClose?.()
+              onPressOk?.()
+            }}
+          />
+        </Flex>
       </PaperDialog.Actions>
     </PaperDialog>
   </Modal>
