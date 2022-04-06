@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
+import { ReactNativeFirebase } from '@react-native-firebase/app'
 
 import { VaccineCertificatesTemplate } from '~/atomic'
 import { useAppSelector, useAppDispatch, vaccineCertificatesActions, IVaccinesWithCertificate } from '~/store'
@@ -10,11 +11,13 @@ import {
   colletionDependentVaccineDoc,
   collectionCalendarVaccine
 } from '~/services/firebase'
+import { IDialog } from '~/atomic/molecules'
 
 export const VaccineCertificates: React.FC = () => {
   const TAG = 'VaccineCertificates'
   const dispatch = useAppDispatch()
   const [isLoading, setIsLoading] = useState(true)
+  const [dialog, setDialog] = useState<IDialog>({ visible: false })
 
   const { vaccineCertificates, calendarName, vaccines } = useAppSelector((state) => ({
     calendarName: ECalendarsName[state.calendars[state.vaccineCertificates.calendarId]?.name],
@@ -50,7 +53,14 @@ export const VaccineCertificates: React.FC = () => {
 
       dispatch(vaccineCertificatesActions.setVaccinesWithCertificates(sortedCertificates))
     } catch (_error) {
+      const error = _error as ReactNativeFirebase.NativeFirebaseError
+      logger(TAG, 'error in getVaccineCertificates', error.message)
 
+      setDialog({
+        visible: true,
+        title: 'Erro!',
+        content: 'Houve um erro para carregar suas vacinas.'
+      })
     } finally {
       setIsLoading(false)
     }
@@ -90,7 +100,14 @@ export const VaccineCertificates: React.FC = () => {
 
       await Promise.all(reqPromisses)
     } catch (_error) {
-      //
+      const error = _error as ReactNativeFirebase.NativeFirebaseError
+      logger(TAG, 'error in onPressSave', error.message)
+
+      setDialog({
+        visible: true,
+        title: 'Erro!',
+        content: 'Houve um erro para salvar suas vacinas.'
+      })
     } finally {
       setIsLoading(false)
     }
@@ -107,6 +124,10 @@ export const VaccineCertificates: React.FC = () => {
       onPressSave={onPressSave}
       vaccineCertificates={vaccineCertificates.vaccinesWithCertificates}
       calendarName={calendarName}
+      dialog={{
+        ...dialog,
+        onClose: () => setDialog({ visible: false })
+      }}
     />
   )
 }

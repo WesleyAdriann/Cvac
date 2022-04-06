@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect, useCallback } from 'react'
+import React, { useMemo, useEffect, useCallback, useState } from 'react'
 import { NativeStackHeaderProps } from '@react-navigation/native-stack'
 
 import {
@@ -18,10 +18,13 @@ import {
   colletionCalendar,
   collectionUsers
 } from '~/services/firebase'
+import { IDialog } from '~/atomic/molecules'
 
 export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   const TAG = 'Home'
   const dispatch = useAppDispatch()
+
+  const [dialog, setDialog] = useState<IDialog>({ visible: false })
 
   const {
     userProfile,
@@ -64,7 +67,7 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
     }
   }
 
-  const getCalendars = async () => {
+  const getCalendars = useCallback(async () => {
     if (!isEmpty(calendars)) return null
 
     logger(TAG, 'try to get calendars')
@@ -83,10 +86,17 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
     } catch (_error) {
       const error = _error as Error
       logger(TAG, 'error to get calendars', error.message)
+      if (dialog.visible) return
+      setDialog({
+        visible: true,
+        title: 'Erro!',
+        content: 'Houve um erro para carregar as vacinas',
+        onPressOk: () => navigation.replace('home')
+      })
     }
-  }
+  }, [calendars, dialog.visible, dispatch, navigation])
 
-  const getVaccines = async () => {
+  const getVaccines = useCallback(async () => {
     if (!isEmpty(vaccines)) return null
 
     logger(TAG, 'try to get vaccines')
@@ -100,8 +110,15 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
     } catch (_error) {
       const error = _error as Error
       logger(TAG, 'error to get vaccines', error.message)
+      if (dialog.visible) return
+      setDialog({
+        visible: true,
+        title: 'Erro!',
+        content: 'Houve um erro para carregar as vacinas',
+        onPressOk: () => navigation.replace('home')
+      })
     }
-  }
+  }, [dialog.visible, dispatch, navigation, vaccines])
 
   const getDependents = useCallback(async () => {
     if (!isEmpty(userProfile.depentents)) return null
@@ -119,8 +136,15 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
     } catch (_error) {
       const error = _error as Error
       logger(TAG, 'error to get dependents', error.message)
+      if (dialog.visible) return
+      setDialog({
+        visible: true,
+        title: 'Erro!',
+        content: 'Houve um erro para carregar seus dependentes',
+        onPressOk: () => navigation.replace('home')
+      })
     }
-  }, [dispatch, userProfile.depentents, userProfile.uid])
+  }, [dialog.visible, dispatch, navigation, userProfile.depentents, userProfile.uid])
 
   useEffect(() => {
     getCalendars()
@@ -138,6 +162,10 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
       onPressAuthItem={onAuthItem}
       onPressMenuItem={onMenuItem}
       authIsLoading={session.isLoading}
+      dialog={{
+        ...dialog,
+        onClose: () => setDialog({ visible: false })
+      }}
     />
   )
 }

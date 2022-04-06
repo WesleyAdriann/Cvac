@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import firestore from '@react-native-firebase/firestore'
 import { NativeStackHeaderProps } from '@react-navigation/native-stack'
+import { ReactNativeFirebase } from '@react-native-firebase/app'
 
 import { RegisterDependentsTemplate } from '~/atomic'
 import { IRegisterDependentFormInputs } from '~/atomic/organisms'
+import { IDialog } from '~/atomic/molecules'
 import { logger } from '~/utils'
 import { collectionDependents, collectionUsers } from '~/services/firebase/firestore'
 import { useAppSelector, useAppDispatch, userProfileActions } from '~/store'
@@ -16,6 +18,7 @@ export const RegisterDependents: React.FC<NativeStackHeaderProps> = ({ navigatio
   const createNotifications = useCreateDefaultNotifications()
 
   const [isLoading, setIsLoading] = useState(false)
+  const [dialog, setDialog] = useState<IDialog>({ visible: false })
 
   const onRegister = async (form: IRegisterDependentFormInputs) => {
     logger(TAG, 'onRegister', form)
@@ -30,9 +33,20 @@ export const RegisterDependents: React.FC<NativeStackHeaderProps> = ({ navigatio
       })
       dispatch(userProfileActions.setDepentent({ name: form.name, birthDate, id: dependentRef.id }))
       await createNotifications(new Date(form.birthDate), dependentRef.id, form.name)
-      navigation.pop()
+      setDialog({
+        visible: true,
+        title: 'Sucesso',
+        content: 'Dependente cadastrado com sucesso!',
+        onPressOk: navigation.pop
+      })
     } catch (_error) {
-      //
+      const error = _error as ReactNativeFirebase.NativeFirebaseError
+      logger(TAG, 'error in onRegister', error.message)
+      setDialog({
+        visible: true,
+        title: 'Erro!',
+        content: 'Houve um erro para cadastrar o dependente'
+      })
     } finally {
       setIsLoading(false)
     }
@@ -43,6 +57,10 @@ export const RegisterDependents: React.FC<NativeStackHeaderProps> = ({ navigatio
       form={{
         onSubmit: onRegister,
         isLoading
+      }}
+      dialog={{
+        ...dialog,
+        onClose: () => setDialog({ visible: false })
       }}
     />
   )

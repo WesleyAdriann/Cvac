@@ -73,7 +73,8 @@ export const Locations = () => {
     } catch (_error) {
       setDialog({
         visible: true,
-        title: 'Erro para o encontrar os locais proximos'
+        title: 'Erro!',
+        content: 'Houve um erro para encontrar os locais proximos'
       })
     } finally {
       setIsLoading(false)

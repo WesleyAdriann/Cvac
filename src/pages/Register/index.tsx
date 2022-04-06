@@ -11,6 +11,7 @@ import { RegisterTemplate } from '~/atomic/templates'
 import { useAppDispatch, userProfileActions } from '~/store'
 import { logger } from '~/utils'
 import { collectionUsers, collectionDependents } from '~/services/firebase'
+import { useCreateDefaultNotifications } from '~/hooks'
 
 interface IRegister extends NativeStackHeaderProps {
   route: RouteProp<{
@@ -23,6 +24,7 @@ interface IRegister extends NativeStackHeaderProps {
 export const Register: React.FC<IRegister> = ({ route, navigation }) => {
   const TAG = 'Register'
   const dispatch = useAppDispatch()
+  const createNotifications = useCreateDefaultNotifications()
 
   const [dialog, setDialog] = useState<IDialog>({ visible: false })
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -42,7 +44,7 @@ export const Register: React.FC<IRegister> = ({ route, navigation }) => {
       logger(TAG, 'createInAuth error', error.message)
       setDialog({
         visible: true,
-        title: 'Erro para o cadastro',
+        title: 'Erro!',
         content: errorContent
       })
 
@@ -55,21 +57,23 @@ export const Register: React.FC<IRegister> = ({ route, navigation }) => {
     dispatch(userProfileActions.setName(displayName))
   }
 
-  const createInFirestore = async (form: IRegisterFormInputs, uid: string) => {
+  const createInFirestore = async (form: IRegisterFormInputs, uid: string, retry = 0): Promise<string> => {
     try {
       await collectionUsers.doc(uid).set({
         name: form.name,
         uid
       })
       const ref = collectionUsers.doc(uid)
-      await collectionDependents.add({
+      const refDependent = await collectionDependents.add({
         birthDate: firestore.Timestamp.fromDate(new Date(form.birthDate)),
         name: form.name,
         userUid: ref
       })
+      return refDependent.id
     } catch (_error) {
       const error = _error as ReactNativeFirebase.NativeFirebaseError
       logger(TAG, 'createInFirestore error', error.message)
+      if (retry < 3) return createInFirestore(form, uid, retry + 1)
       throw error
     }
   }
@@ -81,7 +85,8 @@ export const Register: React.FC<IRegister> = ({ route, navigation }) => {
       setIsLoading(true)
       const credentails = await createInAuth(form.email, form.password)
       await updateDisplayName(form.name)
-      await createInFirestore(form, credentails.user.uid)
+      const id = await createInFirestore(form, credentails.user.uid)
+      await createNotifications(new Date(form.birthDate), id, form.name)
       setDialog({
         visible: true,
         title: 'Sucesso',
