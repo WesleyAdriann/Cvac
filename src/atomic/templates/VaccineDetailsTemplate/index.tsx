@@ -24,7 +24,7 @@ export const VaccineDetailsTemplate: React.FC<IVaccineDetailsTemplate> = ({
   const formatWhen = (value: number, index: number) => {
     if (value === 0) return 'ao nascer'
     if (value < 16) return `${value} meses`
-    if ((value / 12) % 1 === 0) return `${value / 12} anos`
+    if ((value / 12) % 1 === 0) return `a partir de ${value / 12} anos`
     return `${index + 1}ª dose ${value % 12} meses após a primeira`
   }
 
