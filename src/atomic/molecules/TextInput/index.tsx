@@ -58,11 +58,11 @@ const Component: React.FC<ITextInput> = ({
       )
     }
     return null
-  }, [secureTextEntry])
+  }, [affix, secureTextEntry, theme.colors.black60, type])
 
   const keyboardType = useMemo(() => {
     if (type === 'email') return 'email-address'
-    if (type === 'number') return 'number-pad'
+    if (['number', 'date', 'hour'].includes(type)) return 'number-pad'
     return 'default'
   }, [type])
 
