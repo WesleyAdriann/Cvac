@@ -23,14 +23,16 @@ export const LoginTemplate: React.FC<ILoginTemplate> = ({ testID = 'LoginTemplat
         </Flex>
         <Flex justifyContent='center'>
           <LoginForm {...form}/>
-          {/*<Flex marginStyle='20px 0'>
+          {/* <Flex marginStyle='20px 0'>
             <Text align='center'>ou continue com</Text>
-             </Flex>*/}
-          {/* <Button text='google' onPress={() => onPressSocial('google')}/>
+             </Flex>
+          <Button text='google' onPress={() => onPressSocial('google')}/>
         <Button text='facebook' onPress={() => onPressSocial('facebook')} marginStyle='20px 0' /> */}
-          <Pressable onPress={onPressRegister}>
-            <Text align='center'>Não possui conta? <Text underline>Cadastrar</Text></Text>
-          </Pressable>
+          <Flex marginStyle='20px 0'>
+            <Pressable onPress={onPressRegister}>
+              <Text align='center'>Não possui conta? <Text underline>Cadastrar</Text></Text>
+            </Pressable>
+          </Flex>
         </Flex>
       </KeyboardAvoidingView>
     </AppPage>

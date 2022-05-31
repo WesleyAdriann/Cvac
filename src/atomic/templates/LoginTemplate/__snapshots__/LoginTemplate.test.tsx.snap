@@ -984,85 +984,24 @@ exports[`Templates/LoginTemplate should render snapshot 1`] = `
               }
               testID="View_Flex"
             >
-              <Text
+              <View
                 accessible={false}
-                align="center"
-                style={
-                  Array [
-                    Object {
-                      "color": "#424242",
-                      "fontFamily": "System",
-                      "fontWeight": "400",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Array [
-                      Object {
-                        "color": "#424242",
-                        "fontSize": 16,
-                        "fontWeight": "normal",
-                        "marginBottom": 0,
-                        "textAlign": "center",
-                        "textDecorationColor": "black",
-                        "textDecorationLine": "none",
-                        "textDecorationStyle": "solid",
-                      },
-                    ],
-                  ]
-                }
-                testID="Text_Text"
+                collapsable={false}
+                focusable={true}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                testID="Pressable_Pressable"
               >
-                ou continue com
-              </Text>
-            </View>
-            <View
-              accessible={false}
-              collapsable={false}
-              focusable={true}
-              onBlur={[Function]}
-              onClick={[Function]}
-              onFocus={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              testID="Pressable_Pressable"
-            >
-              <Text
-                accessible={false}
-                align="center"
-                style={
-                  Array [
-                    Object {
-                      "color": "#424242",
-                      "fontFamily": "System",
-                      "fontWeight": "400",
-                    },
-                    Object {
-                      "textAlign": "left",
-                    },
-                    Array [
-                      Object {
-                        "color": "#424242",
-                        "fontSize": 16,
-                        "fontWeight": "normal",
-                        "marginBottom": 0,
-                        "textAlign": "center",
-                        "textDecorationColor": "black",
-                        "textDecorationLine": "none",
-                        "textDecorationStyle": "solid",
-                      },
-                    ],
-                  ]
-                }
-                testID="Text_Text"
-              >
-                Não possui conta? 
                 <Text
                   accessible={false}
+                  align="center"
                   style={
                     Array [
                       Object {
@@ -1079,20 +1018,50 @@ exports[`Templates/LoginTemplate should render snapshot 1`] = `
                           "fontSize": 16,
                           "fontWeight": "normal",
                           "marginBottom": 0,
-                          "textAlign": "left",
-                          "textDecorationColor": "#424242",
-                          "textDecorationLine": "underline",
+                          "textAlign": "center",
+                          "textDecorationColor": "black",
+                          "textDecorationLine": "none",
                           "textDecorationStyle": "solid",
                         },
                       ],
                     ]
                   }
                   testID="Text_Text"
-                  underline={true}
                 >
-                  Cadastrar
+                  Não possui conta? 
+                  <Text
+                    accessible={false}
+                    style={
+                      Array [
+                        Object {
+                          "color": "#424242",
+                          "fontFamily": "System",
+                          "fontWeight": "400",
+                        },
+                        Object {
+                          "textAlign": "left",
+                        },
+                        Array [
+                          Object {
+                            "color": "#424242",
+                            "fontSize": 16,
+                            "fontWeight": "normal",
+                            "marginBottom": 0,
+                            "textAlign": "left",
+                            "textDecorationColor": "#424242",
+                            "textDecorationLine": "underline",
+                            "textDecorationStyle": "solid",
+                          },
+                        ],
+                      ]
+                    }
+                    testID="Text_Text"
+                    underline={true}
+                  >
+                    Cadastrar
+                  </Text>
                 </Text>
-              </Text>
+              </View>
             </View>
           </View>
         </View>
