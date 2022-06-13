@@ -6,6 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "ios-iphone11": "react-native run-ios --simulator='iPhone 11 Pro Max (15.4)'",
+    "ios-iphone8": "react-native run-ios --simulator='iPhone 8 (15.4)'",
     "start": "react-native start",
     "test": "jest",
     "test:coverage": "jest --coverage",

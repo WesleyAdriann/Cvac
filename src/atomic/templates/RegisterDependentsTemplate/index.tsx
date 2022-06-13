@@ -14,7 +14,7 @@ export const RegisterDependentsTemplate: React.FC<IRegisterDependentsTemplate> =
   ...props
 }) => {
   return (
-    <AppPage {...props} testID={testID} >
+    <AppPage {...props} testID={testID} scroll>
       <RegisterDependentForm {...form} />
     </AppPage>
   )
