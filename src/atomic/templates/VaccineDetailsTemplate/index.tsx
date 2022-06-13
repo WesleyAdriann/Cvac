@@ -31,7 +31,7 @@ export const VaccineDetailsTemplate: React.FC<IVaccineDetailsTemplate> = ({
   const formatLoop = () => {
     const text = []
     if (loop) {
-      text.push(`\na cada ${loop / 12} ano`)
+      text.push(`\nreforço a cada ${loop / 12} ano`)
       if (loop / 12 > 1) text.push('s')
     }
     return text.join('')

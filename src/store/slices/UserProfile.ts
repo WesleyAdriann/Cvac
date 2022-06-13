@@ -7,13 +7,15 @@ export interface IUserProfile {
   name: string | null,
   email: string | null,
   depentents: { [key: string]: IDependent } | null,
+  creatingUser: boolean
 }
 
 const initialState: IUserProfile = {
   uid: null,
   name: null,
   email: null,
-  depentents: null
+  depentents: null,
+  creatingUser: false
 }
 
 export const userProfileSlice = createSlice({
@@ -32,6 +34,9 @@ export const userProfileSlice = createSlice({
     },
     setName: (state, action: PayloadAction<string>) => {
       state.name = action.payload
+    },
+    setCreatingUser: (state, action: PayloadAction<boolean>) => {
+      state.creatingUser = action.payload
     },
     endSession: () => initialState
   }

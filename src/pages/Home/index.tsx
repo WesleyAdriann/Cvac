@@ -152,8 +152,12 @@ export const Home: React.FC<NativeStackHeaderProps> = ({ navigation }) => {
   }, [])
 
   useEffect(() => {
-    if (session.isAuth) getDependents()
-  }, [session.isAuth])
+    if (session.isAuth && !userProfile.creatingUser) getDependents()
+  }, [session.isAuth, userProfile.creatingUser])
+
+  useEffect(() => {
+    dispatch(userProfileActions.setCreatingUser(false))
+  }, [dispatch])
 
   return (
     <HomeTemplate

@@ -83,6 +83,7 @@ export const Register: React.FC<IRegister> = ({ route, navigation }) => {
       logger(TAG, 'handleSubmit', form)
       if (isLoading) return
       setIsLoading(true)
+      dispatch(userProfileActions.setCreatingUser(true))
       const credentails = await createInAuth(form.email, form.password)
       await updateDisplayName(form.name)
       const id = await createInFirestore(form, credentails.user.uid)
@@ -95,6 +96,7 @@ export const Register: React.FC<IRegister> = ({ route, navigation }) => {
       })
     } finally {
       setIsLoading(false)
+      dispatch(userProfileActions.setCreatingUser(false))
     }
   }
 
