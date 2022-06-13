@@ -44,10 +44,7 @@ export const PushNotificationConfigure = () => {
 }
 
 export const usePushNotification = () => {
-  const { userId, dependentId } = useAppSelector((state) => ({
-    userId: state.userProfile.uid,
-    dependentId: state.notifications.dependentId
-  }))
+  const dependentId = useAppSelector((state) => state.notifications.dependentId)
 
   const createLocal = useCallback(({ message, date, type = 'default', dependent = dependentId, ...infos }: ICreateLocal) => {
     logger(TAG, 'local notification')
@@ -55,12 +52,12 @@ export const usePushNotification = () => {
       channelId: PUSH_CHANNEL,
       title: 'CVAC',
       message,
-      userInfo: { userId, type, dependentId: dependent, ...infos },
+      userInfo: { type, dependentId: dependent, ...infos },
       date,
       allowWhileIdle: false,
       repeatTime: 1
     })
-  }, [dependentId, userId])
+  }, [dependentId])
 
   const getLocal = useCallback((): Promise<{custom: PushNotificationScheduledLocalObject[], default: PushNotificationScheduledLocalObject[]}> => (
     new Promise((resolve) => {
@@ -71,7 +68,7 @@ export const usePushNotification = () => {
         }
         notifications.forEach((notification) => {
           const type = notification.data.type as 'custom' | 'default'
-          if (notification.data.userId === userId && notification.data.dependentId === dependentId) {
+          if (notification.data.dependentId === dependentId) {
             response[type as 'custom' | 'default'].push(notification)
           }
         })
@@ -79,7 +76,7 @@ export const usePushNotification = () => {
       }
       PushNotification.getScheduledLocalNotifications(handler)
     })
-  ), [dependentId, userId])
+  ), [dependentId])
 
   const deleteLocal = useCallback((id: string) => {
     PushNotification.cancelLocalNotification(id)
