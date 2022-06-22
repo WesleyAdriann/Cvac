@@ -23,7 +23,7 @@ export const Notifications: React.FC<NativeStackHeaderProps> = ({ navigation }) 
   const onPressCreate = () => navigation.push('registerNotifications')
 
   const onDeleteNotification = (id: string, type: 'custom' | 'default') => {
-    // pushNotification.deleteLocal(id)
+    pushNotification.deleteLocal(id)
     const newNotifications = notifications[`${type}Notifications`].filter((notification) => notification.id !== id)
     dispatch(notificationsActions.setNotifications({
       [type]: newNotifications
