@@ -116,7 +116,7 @@ export const useCreateDefaultNotifications = () => {
 
   const main = useCallback(async (birthDate: Date, dependentId: string, dependentName: string) => {
     const calendarIds = getCalendars(birthDate)
-    const notificationsToCreate = await getNotificationsToCreate(calendarIds ?? '')
+    const notificationsToCreate = await getNotificationsToCreate(calendarIds)
     const notificationsFormated = formatNotificationsDate(notificationsToCreate, birthDate)
     createNotifications(notificationsFormated, dependentId, dependentName)
 
